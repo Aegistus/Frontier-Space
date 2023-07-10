@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum Hand
-{
-    Right, Left
-}
-
 public class HumanoidAnimator : MonoBehaviour
 {
     [SerializeField] RuntimeAnimatorController controller;
@@ -16,6 +11,7 @@ public class HumanoidAnimator : MonoBehaviour
     [SerializeField] string upperBodyAnimationLayer = "Upper Body";
     [SerializeField] float crossFadeTime = .2f;
 
+    FullBodyAnimState currentFullBodyState;
     Animator anim;
     int upperBodyLayerIndex;
     int[] fullBodyHashes;
@@ -54,12 +50,17 @@ public class HumanoidAnimator : MonoBehaviour
     /// <param name="overwriteUpperBody">Whether this animation should overwrite the upper body animation as well.</param>
     public void PlayFullBodyAnimation(FullBodyAnimState fullBodyAnimation, bool overwriteUpperBody = true)
     {
+        if (fullBodyAnimation == currentFullBodyState)
+        {
+            return;
+        }
         if (overwriteUpperBody)
         {
             anim.SetLayerWeight(upperBodyLayerIndex, 0);
         }
         int hash = fullBodyHashes[(int)fullBodyAnimation];
         anim.CrossFade(hash, crossFadeTime);
+        currentFullBodyState = fullBodyAnimation;
     }
 
     /// <summary>

@@ -74,6 +74,7 @@ public class AgentMovement : MonoBehaviour
         public override void Before()
         {
             print("Standing");
+            movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
         }
 
         public override Type CheckTransitions()
@@ -101,6 +102,26 @@ public class AgentMovement : MonoBehaviour
         {
             input = movement.controller.GetMovementInput();
             transform.Translate(movement.walkSpeed * Time.deltaTime * input, Space.Self);
+        }
+
+        public override void During()
+        {
+            if (movement.controller.Forwards)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.WalkForwards, false);
+            }
+            else if (movement.controller.Backwards)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.WalkBackwards, false);
+            }
+            else if (movement.controller.Left)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.WalkLeft, false);
+            }
+            else if (movement.controller.Right)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.WalkRight, false);
+            }
         }
 
         public override Type CheckTransitions()

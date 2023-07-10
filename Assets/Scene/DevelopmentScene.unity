@@ -7925,7 +7925,7 @@ MonoBehaviour:
   aimTarget: {fileID: 1922329096}
   fullBodyAnimationLayer: Full Body
   upperBodyAnimationLayer: Upper Body
-  crossFadeTime: 0.1
+  crossFadeTime: 0.02
 --- !u!4 &8874513147041924799
 Transform:
   m_ObjectHideFlags: 0
