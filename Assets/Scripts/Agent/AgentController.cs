@@ -17,4 +17,27 @@ public abstract class AgentController : MonoBehaviour
     public Transform Target { get; protected set; }
 
     public abstract void FindNewTarget();
+
+    public Vector3 GetMovementInput()
+    {
+        Vector3 input = Vector3.zero;
+        if (Forwards)
+        {
+            input += Vector3.forward;
+        }
+        if (Backwards)
+        {
+            input += Vector3.back;
+        }
+        if (Left)
+        {
+            input += Vector3.left;
+        }
+        if (Right)
+        {
+            input += Vector3.right;
+        }
+        input.Normalize();
+        return input;
+    }
 }

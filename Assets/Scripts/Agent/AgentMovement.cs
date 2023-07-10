@@ -41,14 +41,23 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        currentState.DuringPhysics();
+    }
+
 
     abstract class State
     {
         protected AgentMovement movement;
+        protected GameObject gameObject;
+        protected Transform transform;
 
         public State(AgentMovement movement)
         {
             this.movement = movement;
+            gameObject = movement.gameObject;
+            transform = movement.transform;
         }
 
         public virtual void Before() { }
@@ -60,10 +69,7 @@ public class AgentMovement : MonoBehaviour
 
     class StandState : State
     {
-        public StandState(AgentMovement movement) : base(movement)
-        {
-
-        }
+        public StandState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
         {
@@ -82,14 +88,28 @@ public class AgentMovement : MonoBehaviour
 
     class WalkState : State
     {
-        public WalkState(AgentMovement movement) : base(movement)
-        {
+        Vector3 input;
 
-        }
+        public WalkState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
         {
             print("Walking");
+        }
+
+        public override void DuringPhysics()
+        {
+            input = movement.controller.GetMovementInput();
+            transform.Translate(movement.walkSpeed * Time.deltaTime * input, Space.Self);
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (movement.controller.NoMovementInput)
+            {
+                return typeof(StandState);
+            }
+            return null;
         }
     }
 }
