@@ -5,17 +5,27 @@ using System;
 
 public class AgentMovement : MonoBehaviour
 {
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] float walkSpeed = 5f;
+    [SerializeField] float gravityScale = 1f;
+    [SerializeField] float jumpVelocity = 5f;
 
     AgentController controller;
     HumanoidAnimator humanoidAnimator;
+    CharacterController charController;
+
     State currentState;
     Dictionary<Type, State> availableStates;
+
+    float horizontalVelocity = 0f;
+    float groundCheckRadius = .5f;
+    Vector3 groundCheckHeight = new Vector3(0, .4f, 0);
 
     private void Awake()
     {
         controller = GetComponent<AgentController>();
         humanoidAnimator = GetComponentInChildren<HumanoidAnimator>();
+        charController = GetComponent<CharacterController>();
         availableStates = new Dictionary<Type, State>()
         {
             {typeof(StandState), new StandState(this) },
@@ -41,11 +51,29 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    public bool IsGrounded()
+    {
+        if (Physics.CheckSphere(transform.position + groundCheckHeight, groundCheckRadius, groundLayer))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
+        if (!IsGrounded())
+        {
+            transform.Translate(horizontalVelocity * Time.deltaTime * Vector3.up);
+            horizontalVelocity += Physics.gravity.y * gravityScale * Time.deltaTime;
+        }
+        else if (horizontalVelocity < 0)
+        {
+            horizontalVelocity = 0;
+        }
     }
-
 
     abstract class State
     {
@@ -132,5 +160,12 @@ public class AgentMovement : MonoBehaviour
             }
             return null;
         }
+    }
+
+    class JumpState : State
+    {
+        public JumpState(AgentMovement movement) : base(movement) { }
+
+
     }
 }
