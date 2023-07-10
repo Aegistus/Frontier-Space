@@ -12,7 +12,6 @@ public class AgentMovement : MonoBehaviour
 
     AgentController controller;
     HumanoidAnimator humanoidAnimator;
-    CharacterController charController;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -25,11 +24,12 @@ public class AgentMovement : MonoBehaviour
     {
         controller = GetComponent<AgentController>();
         humanoidAnimator = GetComponentInChildren<HumanoidAnimator>();
-        charController = GetComponent<CharacterController>();
         availableStates = new Dictionary<Type, State>()
         {
             {typeof(StandState), new StandState(this) },
             {typeof(WalkState), new WalkState(this) },
+            {typeof(JumpState), new JumpState(this) },
+            {typeof(FallState), new FallState(this) },
         };
         currentState = availableStates[typeof(StandState)];
     }
@@ -64,9 +64,9 @@ public class AgentMovement : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
+        transform.Translate(horizontalVelocity * Time.deltaTime * Vector3.up);
         if (!IsGrounded())
         {
-            transform.Translate(horizontalVelocity * Time.deltaTime * Vector3.up);
             horizontalVelocity += Physics.gravity.y * gravityScale * Time.deltaTime;
         }
         else if (horizontalVelocity < 0)
@@ -110,6 +110,10 @@ public class AgentMovement : MonoBehaviour
             if (movement.controller.MovementInput)
             {
                 return typeof(WalkState);
+            }
+            if (movement.controller.Jump)
+            {
+                return typeof(JumpState);
             }
             return null;
         }
@@ -158,14 +162,59 @@ public class AgentMovement : MonoBehaviour
             {
                 return typeof(StandState);
             }
+            if (movement.controller.Jump)
+            {
+                return typeof(JumpState);
+            }
             return null;
         }
     }
 
     class JumpState : State
     {
+        float timer = 0f;
+        float fallDelay = .5f;
+
         public JumpState(AgentMovement movement) : base(movement) { }
 
+        public override void Before()
+        {
+            timer = 0f;
+            movement.horizontalVelocity += movement.jumpVelocity;
+            movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Jump, false);
+        }
 
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (timer >= fallDelay)
+            {
+                return typeof(FallState);
+            }
+            return null;
+        }
+    }
+
+    class FallState : State
+    {
+        public FallState(AgentMovement movement) : base(movement) { }
+
+        public override void Before()
+        {
+            movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Fall, false);
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (movement.IsGrounded())
+            {
+                return typeof(StandState);
+            }
+            return null;
+        }
     }
 }

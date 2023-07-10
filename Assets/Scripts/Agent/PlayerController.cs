@@ -11,6 +11,7 @@ public class PlayerController : AgentController
         Backwards = Input.GetKey(KeyCode.S);
         Left = Input.GetKey(KeyCode.A);
         Right = Input.GetKey(KeyCode.D);
+        Jump = Input.GetKey(KeyCode.Space);
     }
 
 

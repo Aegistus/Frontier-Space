@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public enum FullBodyAnimState
 {
-    Idle, WalkForwards, WalkLeft, WalkRight, WalkBackwards
+    Idle, WalkForwards, WalkLeft, WalkRight, WalkBackwards, Jump, Fall
 }
 
 public enum UpperBodyAnimState
