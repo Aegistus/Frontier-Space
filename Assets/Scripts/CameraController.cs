@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] Transform head;
+    [SerializeField] Transform playerLookTarget;
     public float mouseSensitivity = 1f;
     public Vector3 cameraOffset = new Vector3(0, .2f, .1f);
 
@@ -30,5 +31,6 @@ public class CameraController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, transform.rotation.eulerAngles.y + mouseX, transform.rotation.eulerAngles.z);
         transform.position = head.position + head.localToWorldMatrix.MultiplyVector(cameraOffset);
+        playerLookTarget.position = 10 * transform.forward;
     }
 }
