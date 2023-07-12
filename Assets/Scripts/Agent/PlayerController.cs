@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : AgentController
 {
+    [SerializeField] Transform lookTarget;
+
+    private void Start()
+    {
+        Target = lookTarget;
+    }
 
     private void Update()
     {

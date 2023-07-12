@@ -49,6 +49,7 @@ public class AgentMovement : MonoBehaviour
             currentState = availableStates[nextState];
             currentState.Before();
         }
+        transform.LookAt(controller.Target);
     }
 
     public bool IsGrounded()
