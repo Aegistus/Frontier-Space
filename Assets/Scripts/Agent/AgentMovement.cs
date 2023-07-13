@@ -18,7 +18,8 @@ public class AgentMovement : MonoBehaviour
     State currentState;
     Dictionary<Type, State> availableStates;
 
-    float horizontalVelocity = 0f;
+    float verticalVelocity = 0f;
+    Vector3 velocity;
     float groundCheckRadius = .5f;
     Vector3 groundCheckHeight = new Vector3(0, .4f, 0);
 
@@ -67,18 +68,25 @@ public class AgentMovement : MonoBehaviour
         return false;
     }
 
+    public void Move(Vector3 direction, float speed)
+    {
+        direction.Normalize();
+        velocity = speed * direction;
+        transform.Translate(velocity * Time.deltaTime, Space.Self);
+    }
+
 
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
-        transform.Translate(horizontalVelocity * Time.deltaTime * Vector3.up);
+        transform.Translate(verticalVelocity * Time.deltaTime * Vector3.up);
         if (!IsGrounded())
         {
-            horizontalVelocity += Physics.gravity.y * gravityScale * Time.deltaTime;
+            verticalVelocity += Physics.gravity.y * gravityScale * Time.deltaTime;
         }
-        else if (horizontalVelocity < 0)
+        else if (verticalVelocity < 0)
         {
-            horizontalVelocity = 0;
+            verticalVelocity = 0;
         }
     }
 
@@ -132,8 +140,6 @@ public class AgentMovement : MonoBehaviour
 
     class WalkState : State
     {
-        Vector3 input;
-
         public WalkState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
@@ -143,8 +149,7 @@ public class AgentMovement : MonoBehaviour
 
         public override void DuringPhysics()
         {
-            input = movement.controller.GetMovementInput();
-            transform.Translate(movement.walkSpeed * Time.deltaTime * input, Space.Self);
+            movement.Move(movement.controller.GetMovementInput(), movement.walkSpeed);
         }
 
         public override void During()
@@ -193,19 +198,29 @@ public class AgentMovement : MonoBehaviour
     {
         float timer = 0f;
         float fallDelay = .5f;
+        Vector3 initialDirection;
+        float initialSpeed;
 
         public JumpState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
         {
             timer = 0f;
-            movement.horizontalVelocity += movement.jumpVelocity;
+            movement.verticalVelocity += movement.jumpVelocity;
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Jump, false);
+            print(movement.velocity);
+            initialDirection = movement.velocity;
+            initialSpeed = initialDirection.magnitude;
         }
 
         public override void During()
         {
             timer += Time.deltaTime;
+        }
+
+        public override void DuringPhysics()
+        {
+            movement.Move(initialDirection, initialSpeed);
         }
 
         public override Type CheckTransitions()
@@ -220,11 +235,22 @@ public class AgentMovement : MonoBehaviour
 
     class FallState : State
     {
+        Vector3 initialDirection;
+        float initialSpeed;
+
         public FallState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
         {
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Fall, false);
+            print(movement.velocity);
+            initialDirection = movement.velocity;
+            initialSpeed = initialDirection.magnitude;
+        }
+
+        public override void DuringPhysics()
+        {
+            movement.Move(initialDirection, initialSpeed);
         }
 
         public override Type CheckTransitions()
@@ -239,14 +265,11 @@ public class AgentMovement : MonoBehaviour
 
     class RunState : State
     {
-        Vector3 input;
-
         public RunState(AgentMovement movement) : base(movement) { }
 
         public override void DuringPhysics()
         {
-            input = movement.controller.GetMovementInput();
-            transform.Translate(movement.runSpeed * Time.deltaTime * input, Space.Self);
+            movement.Move(movement.controller.GetMovementInput(), movement.runSpeed);
         }
 
         public override void During()
@@ -285,14 +308,11 @@ public class AgentMovement : MonoBehaviour
 
     class CrouchState : State
     {
-        Vector3 input;
-
         public CrouchState(AgentMovement movement) : base(movement) { }
 
         public override void DuringPhysics()
         {
-            input = movement.controller.GetMovementInput();
-            transform.Translate(movement.crouchSpeed * Time.deltaTime * input, Space.Self);
+            movement.Move(movement.controller.GetMovementInput(), movement.crouchSpeed);
         }
 
         public override void During()
