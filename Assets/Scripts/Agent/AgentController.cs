@@ -10,6 +10,7 @@ public abstract class AgentController : MonoBehaviour
     public bool Right { get; protected set; }
     public bool Jump { get; protected set; }
     public bool Run { get; protected set; }
+    public bool Crouch { get; protected set; }
     public bool NoMovementInput => !Forwards && !Backwards && !Left && !Right;
     public bool MovementInput => Forwards || Backwards || Left || Right;
     public Transform Target { get; protected set; }

@@ -8,6 +8,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float walkSpeed = 2f;
     [SerializeField] float runSpeed = 5f;
+    [SerializeField] float crouchSpeed = 1f;
     [SerializeField] float gravityScale = 1f;
     [SerializeField] float jumpVelocity = 5f;
 
@@ -32,6 +33,8 @@ public class AgentMovement : MonoBehaviour
             {typeof(JumpState), new JumpState(this) },
             {typeof(FallState), new FallState(this) },
             {typeof(RunState), new RunState(this) },
+            {typeof(CrouchState), new CrouchState(this) },
+
         };
         currentState = availableStates[typeof(StandState)];
     }
@@ -119,6 +122,10 @@ public class AgentMovement : MonoBehaviour
             {
                 return typeof(JumpState);
             }
+            if (movement.controller.Crouch)
+            {
+                return typeof(CrouchState);
+            }
             return null;
         }
     }
@@ -173,6 +180,10 @@ public class AgentMovement : MonoBehaviour
             if (movement.controller.Run)
             {
                 return typeof(RunState);
+            }
+            if (movement.controller.Crouch)
+            {
+                return typeof(CrouchState);
             }
             return null;
         }
@@ -232,11 +243,6 @@ public class AgentMovement : MonoBehaviour
 
         public RunState(AgentMovement movement) : base(movement) { }
 
-        public override void Before()
-        {
-            print("Running");
-        }
-
         public override void DuringPhysics()
         {
             input = movement.controller.GetMovementInput();
@@ -268,6 +274,56 @@ public class AgentMovement : MonoBehaviour
             if (!movement.controller.Run)
             {
                 return typeof(WalkState);
+            }
+            if (movement.controller.Jump)
+            {
+                return typeof(JumpState);
+            }
+            return null;
+        }
+    }
+
+    class CrouchState : State
+    {
+        Vector3 input;
+
+        public CrouchState(AgentMovement movement) : base(movement) { }
+
+        public override void DuringPhysics()
+        {
+            input = movement.controller.GetMovementInput();
+            transform.Translate(movement.crouchSpeed * Time.deltaTime * input, Space.Self);
+        }
+
+        public override void During()
+        {
+            if (movement.controller.Forwards)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchForwards, false);
+            }
+            else if (movement.controller.Backwards)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchBackwards, false);
+            }
+            else if (movement.controller.Left)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchLeft, false);
+            }
+            else if (movement.controller.Right)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchRight, false);
+            }
+            else
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchIdle, false);
+            }
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (!movement.controller.Crouch)
+            {
+                return typeof(StandState);
             }
             if (movement.controller.Jump)
             {

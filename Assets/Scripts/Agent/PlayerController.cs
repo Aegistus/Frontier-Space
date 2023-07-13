@@ -19,6 +19,7 @@ public class PlayerController : AgentController
         Right = Input.GetKey(KeyCode.D);
         Jump = Input.GetKey(KeyCode.Space);
         Run = Input.GetKey(KeyCode.LeftShift);
+        Crouch = Input.GetKey(KeyCode.LeftControl);
     }
 
 
