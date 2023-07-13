@@ -23,7 +23,7 @@ public class AgentMovement : MonoBehaviour
     Vector3 velocity;
     float groundCheckRadius = .5f;
     Vector3 groundCheckHeight = new Vector3(0, .4f, 0);
-    float obstacleCheckHeight = .2f;
+    float obstacleCheckHeight = .5f;
     float obstacleCheckWidth = .25f;
 
     private void Awake()
@@ -60,6 +60,7 @@ public class AgentMovement : MonoBehaviour
         }
         transform.LookAt(controller.Target);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        GroundPlayer();
     }
 
     public bool IsGrounded()
@@ -89,6 +90,15 @@ public class AgentMovement : MonoBehaviour
         if (hits < 2)
         {
             transform.Translate(velocity * Time.deltaTime, Space.Self);
+        }
+    }
+
+    void GroundPlayer()
+    {
+        RaycastHit rayHit;
+        if (Physics.Raycast(transform.position + groundCheckHeight, -transform.up, out rayHit, groundCheckHeight.y - .05f, groundLayer))
+        {
+            transform.position = rayHit.point;
         }
     }
 
