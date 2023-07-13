@@ -11,7 +11,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] float crouchSpeed = 1f;
     [SerializeField] float gravityScale = 1f;
     [SerializeField] float jumpVelocity = 5f;
-    [SerializeField] float collisionDistance = .5f;
+    [SerializeField] float collisionCheckDistance = .5f;
 
     AgentController controller;
     HumanoidAnimator humanoidAnimator;
@@ -24,6 +24,7 @@ public class AgentMovement : MonoBehaviour
     float groundCheckRadius = .5f;
     Vector3 groundCheckHeight = new Vector3(0, .4f, 0);
     float obstacleCheckHeight = .2f;
+    float obstacleCheckWidth = .25f;
 
     private void Awake()
     {
@@ -74,9 +75,18 @@ public class AgentMovement : MonoBehaviour
     {
         direction.Normalize();
         velocity = speed * direction;
+
         Vector3 obstacleCheckPoint = transform.position;
         obstacleCheckPoint.y += obstacleCheckHeight;
-        if (!Physics.Raycast(obstacleCheckPoint, transform.TransformDirection(direction), collisionDistance))
+        int hits = 0;
+        for (float offset = -obstacleCheckWidth; offset <= obstacleCheckWidth; offset += obstacleCheckWidth / 2)
+        {
+            if (Physics.Raycast(obstacleCheckPoint + transform.right * offset, transform.TransformDirection(direction), collisionCheckDistance, groundLayer))
+            {
+                hits++;
+            }
+        }
+        if (hits < 2)
         {
             transform.Translate(velocity * Time.deltaTime, Space.Self);
         }
