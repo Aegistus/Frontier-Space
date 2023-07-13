@@ -6,7 +6,8 @@ using System;
 public class AgentMovement : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] float walkSpeed = 5f;
+    [SerializeField] float walkSpeed = 2f;
+    [SerializeField] float runSpeed = 5f;
     [SerializeField] float gravityScale = 1f;
     [SerializeField] float jumpVelocity = 5f;
 
@@ -30,6 +31,7 @@ public class AgentMovement : MonoBehaviour
             {typeof(WalkState), new WalkState(this) },
             {typeof(JumpState), new JumpState(this) },
             {typeof(FallState), new FallState(this) },
+            {typeof(RunState), new RunState(this) },
         };
         currentState = availableStates[typeof(StandState)];
     }
@@ -168,6 +170,10 @@ public class AgentMovement : MonoBehaviour
             {
                 return typeof(JumpState);
             }
+            if (movement.controller.Run)
+            {
+                return typeof(RunState);
+            }
             return null;
         }
     }
@@ -215,6 +221,57 @@ public class AgentMovement : MonoBehaviour
             if (movement.IsGrounded())
             {
                 return typeof(StandState);
+            }
+            return null;
+        }
+    }
+
+    class RunState : State
+    {
+        Vector3 input;
+
+        public RunState(AgentMovement movement) : base(movement) { }
+
+        public override void Before()
+        {
+            print("Running");
+        }
+
+        public override void DuringPhysics()
+        {
+            input = movement.controller.GetMovementInput();
+            transform.Translate(movement.runSpeed * Time.deltaTime * input, Space.Self);
+        }
+
+        public override void During()
+        {
+            if (movement.controller.Left)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.RunLeft, false);
+            }
+            else if (movement.controller.Right)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.RunRight, false);
+            }
+            else
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.RunForwards, false);
+            }
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (movement.controller.NoMovementInput)
+            {
+                return typeof(StandState);
+            }
+            if (!movement.controller.Run)
+            {
+                return typeof(WalkState);
+            }
+            if (movement.controller.Jump)
+            {
+                return typeof(JumpState);
             }
             return null;
         }
