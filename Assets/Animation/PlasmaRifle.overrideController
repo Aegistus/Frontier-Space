@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlasmaRifle
+  m_Controller: {fileID: 9100000, guid: 87dc60035db6a12479be5cd416b5c7d2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 27678505907096b49aef07b734f87c37, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 07c8ac2ac3599aa45afb72ff933b2cab,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b10668dbf5c4e34884cc87a8d289783, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: d0087f4c1d3baf744b63576852284009,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: d7b0cd233ea7d15479eb824d1e22155a, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 0266203e6d8dfbd4b896cd782477f913,
+      type: 3}

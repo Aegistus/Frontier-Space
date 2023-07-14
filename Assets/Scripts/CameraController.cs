@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
     float mouseX;
     float mouseY;
-    private void LateUpdate()
+    private void Update()
     {
         mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
         mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
@@ -32,5 +32,6 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, transform.rotation.eulerAngles.y + mouseX, transform.rotation.eulerAngles.z);
         transform.position = head.position + head.localToWorldMatrix.MultiplyVector(cameraOffset);
         playerLookTarget.position = 10 * transform.forward;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
     }
 }

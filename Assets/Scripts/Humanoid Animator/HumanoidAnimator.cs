@@ -73,4 +73,14 @@ public class HumanoidAnimator : MonoBehaviour
         anim.SetLayerWeight(upperBodyLayerIndex, 1);
         anim.CrossFade(hash, crossFadeTime, upperBodyLayerIndex);
     }
+
+    public void SetAnimatorController(RuntimeAnimatorController controller)
+    {
+        anim.runtimeAnimatorController = controller;
+    }
+
+    public void ResetAnimatorController()
+    {
+        anim.runtimeAnimatorController = controller;
+    }
 }
