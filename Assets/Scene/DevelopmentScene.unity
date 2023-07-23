@@ -1907,7 +1907,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkSpeed: 2.3
-  runSpeed: 0
+  runSpeed: 5
   crouchSpeed: 1
   gravityScale: 1
   jumpVelocity: 5

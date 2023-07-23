@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using System;
 
 public class HumanoidAnimator : MonoBehaviour
@@ -16,10 +17,12 @@ public class HumanoidAnimator : MonoBehaviour
     int upperBodyLayerIndex;
     int[] fullBodyHashes;
     int[] upperBodyHashes;
+    Rig rig;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        rig = GetComponentInChildren<Rig>();
         upperBodyLayerIndex = anim.GetLayerIndex(upperBodyAnimationLayer);
         fullBodyHashes = new int[Enum.GetValues(typeof(FullBodyAnimState)).Length];
         for (int i = 0; i < fullBodyHashes.Length; i++)
@@ -82,5 +85,10 @@ public class HumanoidAnimator : MonoBehaviour
     public void ResetAnimatorController()
     {
         anim.runtimeAnimatorController = controller;
+    }
+
+    public void SetRigWeight(float weight)
+    {
+        rig.weight = weight;
     }
 }

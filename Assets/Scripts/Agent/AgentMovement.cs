@@ -317,6 +317,11 @@ public class AgentMovement : MonoBehaviour
             movement.Move(movement.controller.GetMovementInput(), movement.runSpeed);
         }
 
+        public override void Before()
+        {
+            movement.humanoidAnimator.SetRigWeight(.5f);
+        }
+
         public override void During()
         {
             if (movement.controller.Left)
@@ -331,6 +336,11 @@ public class AgentMovement : MonoBehaviour
             {
                 movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.RunForwards, false);
             }
+        }
+
+        public override void After()
+        {
+            movement.humanoidAnimator.SetRigWeight(1f);
         }
 
         public override Type CheckTransitions()
