@@ -1,37 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AgentEquipment : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldTarget;
 
     public WeaponAttack CurrentWeaponAttack { get; private set; }
+    GameObject CurrentWeapon { get; set; }
+    Holdable CurrentWeaponHoldable { get; set; }
 
     WeaponAnimation primaryWeapon;
     WeaponAnimation secondaryWeapon;
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
+    AgentMovement movement;
 
     private void Start()
     {
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
         primaryWeapon = GetComponentInChildren<WeaponAnimation>();
+        movement = GetComponent<AgentMovement>();
+        movement.OnStateChange += ChangeWeaponOffset;
         Equip(primaryWeapon);
     }
 
     public void Equip(WeaponAnimation weapon)
     {
-        Holdable holdable = weapon.GetComponent<Holdable>();
+        CurrentWeaponHoldable = weapon.GetComponent<Holdable>();
         weapon.transform.SetParent(weaponHoldTarget);
-        weapon.transform.localPosition = holdable.Offset;
-        ik.SetHandTarget(Hand.Right, holdable.RightHandPosition);
-        ik.SetHandTarget(Hand.Left, holdable.LeftHandPosition);
+        ik.SetHandTarget(Hand.Right, CurrentWeaponHoldable.RightHandPosition);
+        ik.SetHandTarget(Hand.Left, CurrentWeaponHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.AnimationSet);
         CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
+        CurrentWeapon = weapon.gameObject;
+        ChangeWeaponOffset(movement.CurrentState);
     }
 
+    void ChangeWeaponOffset(MovementState state)
+    {
+        if (state == MovementState.Run)
+        {
+            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.RunningRotation;
+            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.RunningOffset;
+        }
+        else
+        {
+            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.IdleRotation;
+            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.IdleOffset;
+        }
+    }
 
 }

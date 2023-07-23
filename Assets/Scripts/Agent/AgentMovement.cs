@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum MovementState
+{
+    Stand, Walk, Jump, Fall, Run, Crouch
+}
+
 public class AgentMovement : MonoBehaviour
 {
+    public event Action<MovementState> OnStateChange;
+    public MovementState CurrentState => stateTranslator[currentState.GetType()];
+
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float walkSpeed = 2f;
     [SerializeField] float runSpeed = 5f;
@@ -18,6 +26,15 @@ public class AgentMovement : MonoBehaviour
 
     State currentState;
     Dictionary<Type, State> availableStates;
+    Dictionary<Type, MovementState> stateTranslator = new Dictionary<Type, MovementState>()
+    {
+        { typeof(StandState), MovementState.Stand},
+        { typeof(WalkState), MovementState.Walk },
+        { typeof(JumpState), MovementState.Jump },
+        { typeof(FallState), MovementState.Fall },
+        { typeof(RunState), MovementState.Run },
+        { typeof(CrouchState), MovementState.Crouch },
+    };
 
     float verticalVelocity = 0f;
     Vector3 velocity;
@@ -56,6 +73,7 @@ public class AgentMovement : MonoBehaviour
         {
             currentState.After();
             currentState = availableStates[nextState];
+            OnStateChange?.Invoke(stateTranslator[nextState]);
             currentState.Before();
         }
         transform.LookAt(controller.Target);
