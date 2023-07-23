@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class RangedWeaponAttack : WeaponAttack
 {
-    [SerializeField] protected GameObject projectilePrefab;
+    [SerializeField] protected string projectileID;
     [SerializeField] protected Transform projectileSpawnPoint;
 }

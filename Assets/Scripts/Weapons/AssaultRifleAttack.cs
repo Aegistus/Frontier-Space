@@ -37,6 +37,8 @@ public class AssaultRifleAttack : RangedWeaponAttack
 
     void SpawnProjectile()
     {
-        Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, projectileSpawnPoint.rotation, 10f);
+        float damage = Random.Range(damageMin, damageMax);
+        projectile.GetComponent<Projectile>().SetDamage(damage);
     }
 }

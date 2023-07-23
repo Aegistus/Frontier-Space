@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d2a027e915b674a8078208577c6cd5, type: 3}
   m_Name: AR_Bullet
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4689852793226847208, guid: 32c780f593906e7418618d3c02a8fc55, type: 3}
   instanceCount: 1000
