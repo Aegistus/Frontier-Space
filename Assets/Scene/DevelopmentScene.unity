@@ -2738,6 +2738,7 @@ GameObject:
   - component: {fileID: 1638108100}
   - component: {fileID: 1638108101}
   - component: {fileID: 1638108102}
+  - component: {fileID: 1638108103}
   m_Layer: 0
   m_Name: Plasma Rifle
   m_TagString: Untagged
@@ -2760,6 +2761,7 @@ Transform:
   - {fileID: 42435314725807547}
   - {fileID: 1618845390}
   - {fileID: 1032521584}
+  - {fileID: 1920843214}
   m_Father: {fileID: 1711812510}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2791,6 +2793,24 @@ MonoBehaviour:
   rightHandPosition: {fileID: 1618845390}
   leftHandPosition: {fileID: 1032521584}
   offset: {x: 0.238, y: -0.377, z: 0.198}
+--- !u!114 &1638108103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638108099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd681b69610e8214ab3ebf46485b6348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMin: 10
+  damageMax: 20
+  projectilePrefab: {fileID: 375219817591256323, guid: 863f74e44fc52f040aa750a1b38ea2ae,
+    type: 3}
+  projectileSpawnPoint: {fileID: 1920843214}
+  roundsPerMinute: 520
 --- !u!1001 &1650839294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3378,6 +3398,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1911246005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1920843213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1920843214}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1920843214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920843213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1356, z: 0.6261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1638108100}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1922329096
 Transform:
   m_ObjectHideFlags: 0

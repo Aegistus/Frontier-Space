@@ -6,8 +6,10 @@ public class AgentEquipment : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldTarget;
 
-    Weapon primaryWeapon;
-    Weapon secondaryWeapon;
+    public WeaponAttack CurrentWeaponAttack { get; private set; }
+
+    WeaponAnimation primaryWeapon;
+    WeaponAnimation secondaryWeapon;
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
@@ -16,11 +18,11 @@ public class AgentEquipment : MonoBehaviour
     {
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
-        primaryWeapon = GetComponentInChildren<Weapon>();
+        primaryWeapon = GetComponentInChildren<WeaponAnimation>();
         Equip(primaryWeapon);
     }
 
-    public void Equip(Weapon weapon)
+    public void Equip(WeaponAnimation weapon)
     {
         Holdable holdable = weapon.GetComponent<Holdable>();
         weapon.transform.SetParent(weaponHoldTarget);
@@ -28,6 +30,7 @@ public class AgentEquipment : MonoBehaviour
         ik.SetHandTarget(Hand.Right, holdable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, holdable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.AnimationSet);
+        CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
     }
 
 
