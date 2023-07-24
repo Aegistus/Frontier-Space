@@ -131,6 +131,16 @@ public class AgentAction : MonoBehaviour
     {
         public AimState(AgentAction action) : base(action) { }
 
+        public override void Before()
+        {
+            action.equipment.SetWeaponOffset(WeaponOffset.Aiming);
+        }
+
+        public override void After()
+        {
+            action.equipment.SetWeaponOffset(WeaponOffset.Idle);
+        }
+
         public override Type CheckTransitions()
         {
             if (!action.controller.Aim)

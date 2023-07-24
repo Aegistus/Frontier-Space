@@ -22,6 +22,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] float collisionCheckDistance = .5f;
 
     AgentController controller;
+    AgentEquipment equipment;
     HumanoidAnimator humanoidAnimator;
 
     State currentState;
@@ -46,6 +47,7 @@ public class AgentMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<AgentController>();
+        equipment = GetComponent<AgentEquipment>();
         humanoidAnimator = GetComponentInChildren<HumanoidAnimator>();
         availableStates = new Dictionary<Type, State>()
         {
@@ -320,6 +322,7 @@ public class AgentMovement : MonoBehaviour
         public override void Before()
         {
             movement.humanoidAnimator.SetRigWeight(.5f);
+            movement.equipment.SetWeaponOffset(WeaponOffset.Running);
         }
 
         public override void During()
@@ -341,6 +344,7 @@ public class AgentMovement : MonoBehaviour
         public override void After()
         {
             movement.humanoidAnimator.SetRigWeight(1f);
+            movement.equipment.SetWeaponOffset(WeaponOffset.Idle);
         }
 
         public override Type CheckTransitions()

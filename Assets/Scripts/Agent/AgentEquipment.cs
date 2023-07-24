@@ -3,71 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum WeaponOffset
+{
+    Idle, Running, Aiming
+}
+
 public class AgentEquipment : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldTarget;
 
     public WeaponAttack CurrentWeaponAttack { get; private set; }
     GameObject CurrentWeapon { get; set; }
-    Holdable CurrentWeaponHoldable { get; set; }
+    public Holdable CurrentHoldable { get; set; }
 
     WeaponAnimation primaryWeapon;
     WeaponAnimation secondaryWeapon;
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
-    AgentMovement movement;
-    AgentAction action;
 
     private void Start()
     {
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
         primaryWeapon = GetComponentInChildren<WeaponAnimation>();
-        movement = GetComponent<AgentMovement>();
-        action = GetComponent<AgentAction>();
-        movement.OnStateChange += ChangeWeaponOffset;
-        action.OnStateChange += ChangeWeaponOffset;
         Equip(primaryWeapon);
     }
 
     public void Equip(WeaponAnimation weapon)
     {
-        CurrentWeaponHoldable = weapon.GetComponent<Holdable>();
+        CurrentHoldable = weapon.GetComponent<Holdable>();
         weapon.transform.SetParent(weaponHoldTarget);
-        ik.SetHandTarget(Hand.Right, CurrentWeaponHoldable.RightHandPosition);
-        ik.SetHandTarget(Hand.Left, CurrentWeaponHoldable.LeftHandPosition);
+        ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
+        ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.AnimationSet);
         CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
         CurrentWeapon = weapon.gameObject;
-        ChangeWeaponOffset(movement.CurrentState);
     }
 
-    void ChangeWeaponOffset(MovementState state)
+    public void SetWeaponOffset(WeaponOffset offsetType)
     {
-        if (state == MovementState.Run)
+        if (offsetType == WeaponOffset.Running)
         {
-            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.RunningRotation;
-            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.RunningOffset;
+            CurrentWeapon.transform.localEulerAngles = CurrentHoldable.RunningRotation;
+            CurrentWeapon.transform.localPosition = CurrentHoldable.RunningOffset;
+        }
+        else if (offsetType == WeaponOffset.Aiming)
+        {
+            CurrentWeapon.transform.localEulerAngles = CurrentHoldable.AimingRotation;
+            CurrentWeapon.transform.localPosition = CurrentHoldable.AimingOffset;
         }
         else
         {
-            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.IdleRotation;
-            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.IdleOffset;
-        }
-    }
-
-    void ChangeWeaponOffset(ActionState state)
-    {
-        if (state == ActionState.Aim)
-        {
-            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.AimingRotation;
-            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.AimingOffset;
-        }
-        else
-        {
-            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.IdleRotation;
-            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.IdleOffset;
+            CurrentWeapon.transform.localEulerAngles = CurrentHoldable.IdleRotation;
+            CurrentWeapon.transform.localPosition = CurrentHoldable.IdleOffset;
         }
     }
 
