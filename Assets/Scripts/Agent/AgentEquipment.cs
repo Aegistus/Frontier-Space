@@ -17,6 +17,7 @@ public class AgentEquipment : MonoBehaviour
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
     AgentMovement movement;
+    AgentAction action;
 
     private void Start()
     {
@@ -24,7 +25,9 @@ public class AgentEquipment : MonoBehaviour
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
         primaryWeapon = GetComponentInChildren<WeaponAnimation>();
         movement = GetComponent<AgentMovement>();
+        action = GetComponent<AgentAction>();
         movement.OnStateChange += ChangeWeaponOffset;
+        action.OnStateChange += ChangeWeaponOffset;
         Equip(primaryWeapon);
     }
 
@@ -46,6 +49,20 @@ public class AgentEquipment : MonoBehaviour
         {
             CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.RunningRotation;
             CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.RunningOffset;
+        }
+        else
+        {
+            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.IdleRotation;
+            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.IdleOffset;
+        }
+    }
+
+    void ChangeWeaponOffset(ActionState state)
+    {
+        if (state == ActionState.Aim)
+        {
+            CurrentWeapon.transform.localEulerAngles = CurrentWeaponHoldable.AimingRotation;
+            CurrentWeapon.transform.localPosition = CurrentWeaponHoldable.AimingOffset;
         }
         else
         {

@@ -22,6 +22,7 @@ public class PlayerController : AgentController
         Crouch = Input.GetKey(KeyCode.LeftControl);
 
         Attack = Input.GetMouseButton(0);
+        Aim = Input.GetMouseButton(1);
     }
 
 

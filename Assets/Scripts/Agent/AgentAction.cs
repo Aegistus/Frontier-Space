@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum ActionState
+{
+    Idle, Attack, Aim
+}
+
 public class AgentAction : MonoBehaviour
 {
+    public event Action<ActionState> OnStateChange;
+
     AgentEquipment equipment;
     AgentController controller;
 
     State currentState;
     Dictionary<Type, State> availableStates;
+    Dictionary<Type, ActionState> stateTranslator = new Dictionary<Type, ActionState>()
+    {
+        { typeof(IdleState), ActionState.Idle },
+        { typeof(AttackState), ActionState.Attack },
+        { typeof(AimState), ActionState.Aim },
+    };
 
     private void Awake()
     {
@@ -19,6 +32,7 @@ public class AgentAction : MonoBehaviour
         {
             { typeof(IdleState), new IdleState(this) },
             { typeof(AttackState), new AttackState(this) },
+            { typeof(AimState), new AimState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
     }
@@ -36,6 +50,7 @@ public class AgentAction : MonoBehaviour
         {
             currentState.After();
             currentState = availableStates[nextState];
+            OnStateChange?.Invoke(stateTranslator[nextState]);
             currentState.Before();
         }
     }
@@ -75,6 +90,10 @@ public class AgentAction : MonoBehaviour
             {
                 return typeof(AttackState);
             }
+            if (action.controller.Aim)
+            {
+                return typeof(AimState);
+            }
             return null;
         }
     }
@@ -101,6 +120,20 @@ public class AgentAction : MonoBehaviour
         public override Type CheckTransitions()
         {
             if (!action.controller.Attack)
+            {
+                return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class AimState : State
+    {
+        public AimState(AgentAction action) : base(action) { }
+
+        public override Type CheckTransitions()
+        {
+            if (!action.controller.Aim)
             {
                 return typeof(IdleState);
             }
