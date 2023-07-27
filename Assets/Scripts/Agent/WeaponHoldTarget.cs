@@ -9,7 +9,7 @@ public class WeaponHoldTarget : MonoBehaviour
     [SerializeField] float moveSpeed = .1f;
 
 
-    private void Update()
+    private void LateUpdate()
     {
         if (reference)
         {
