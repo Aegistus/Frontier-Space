@@ -390,7 +390,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reference: {fileID: 0}
-  moveSpeed: 0.1
 --- !u!1 &6214437158516587934
 GameObject:
   m_ObjectHideFlags: 0
@@ -6119,6 +6118,7 @@ GameObject:
   - component: {fileID: 864986369029772590}
   - component: {fileID: 8828933108940940235}
   - component: {fileID: 1105761449569442132}
+  - component: {fileID: 8154188763027812680}
   m_Layer: 7
   m_Name: Human
   m_TagString: Untagged
@@ -6211,6 +6211,18 @@ MonoBehaviour:
   - m_Rig: {fileID: 100461119115183769}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &8154188763027812680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921938068326954877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a2734ec5318df46aa6593c8289b05a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &354594403405437016
 PrefabInstance:
   m_ObjectHideFlags: 0

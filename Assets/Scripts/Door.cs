@@ -14,11 +14,13 @@ public class Door : MonoBehaviour
     [SerializeField] bool open = false;
     [SerializeField] bool automatic = true;
     [SerializeField] bool locked = false;
+    [SerializeField] string openSoundName = "Door_Open";
 
     public bool Open => open;
 
     bool transitioning = false;
     List<Collider> agentsWithinRange = new List<Collider>();
+    int soundID;
 
     private void Awake()
     {
@@ -30,6 +32,11 @@ public class Door : MonoBehaviour
         {
             Unlock();
         }
+    }
+
+    private void Start()
+    {
+        soundID = SoundManager.Instance.GetSoundID(openSoundName);
     }
 
     private void Update()
@@ -79,6 +86,7 @@ public class Door : MonoBehaviour
         {
             return;
         }
+        SoundManager.Instance.PlaySoundAtPosition(soundID, transform.position);
         open = true;
         transitioning = true;
     }

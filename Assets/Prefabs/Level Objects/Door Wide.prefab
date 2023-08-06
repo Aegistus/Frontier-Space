@@ -47,11 +47,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorTransform: {fileID: 1449073938903864820}
+  lights: []
+  unlockedColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedColor: {r: 0, g: 0, b: 0, a: 0}
   closedPosition: {x: 0, y: 0, z: 0}
   openPosition: {x: 0, y: 0, z: 0}
   doorMoveSpeed: 1
   open: 0
   automatic: 0
+  locked: 0
+  openSoundName: Door_Heavy_Open
 --- !u!65 &801415402310555543
 BoxCollider:
   m_ObjectHideFlags: 0
