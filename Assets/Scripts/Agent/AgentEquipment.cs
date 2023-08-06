@@ -13,6 +13,8 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] Transform weaponHoldTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
 
+    public event Action OnWeaponChange;
+
     public WeaponAttack CurrentWeaponAttack { get; private set; }
     public WeaponAmmunition CurrentWeaponAmmunition { get; private set; }
     GameObject CurrentWeapon { get; set; }
@@ -46,6 +48,7 @@ public class AgentEquipment : MonoBehaviour
         CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
         CurrentWeaponAmmunition = weapon.GetComponent<WeaponAmmunition>();
         CurrentWeapon = weapon.gameObject;
+        OnWeaponChange?.Invoke();
     }
 
     public void SetWeaponOffset(WeaponOffset offsetType)
