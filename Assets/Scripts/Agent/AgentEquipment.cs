@@ -14,6 +14,7 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
 
     public WeaponAttack CurrentWeaponAttack { get; private set; }
+    public WeaponAmmunition CurrentWeaponAmmunition { get; private set; }
     GameObject CurrentWeapon { get; set; }
     public Holdable CurrentHoldable { get; set; }
 
@@ -43,6 +44,7 @@ public class AgentEquipment : MonoBehaviour
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.AnimationSet);
         CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
+        CurrentWeaponAmmunition = weapon.GetComponent<WeaponAmmunition>();
         CurrentWeapon = weapon.gameObject;
     }
 

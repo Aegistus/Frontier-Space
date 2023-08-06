@@ -118,7 +118,7 @@ public class AgentAction : MonoBehaviour
             {
                 return typeof(InteractState);
             }
-            if (action.controller.Reload)
+            if (action.controller.Reload && action.equipment.CurrentWeaponAmmunition.CurrentCarriedAmmo > 0)
             {
                 return typeof(ReloadState);
             }
@@ -247,15 +247,13 @@ public class AgentAction : MonoBehaviour
 
     class ReloadState : State
     {
-        WeaponAmmunition ammo;
         bool successful;
 
         public ReloadState(AgentAction action) : base(action) { }
 
         public override void Before()
         {
-            ammo = action.equipment.CurrentHoldable.GetComponent<WeaponAmmunition>();
-            successful = ammo.TryReload();
+            successful = action.equipment.CurrentWeaponAmmunition.TryReload();
             action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperReload);
             action.agentIK.SetHandWeight(Hand.Left, 0);
             action.equipment.SetWeaponOffset(WeaponOffset.Reloading);
@@ -270,7 +268,7 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
-            if (!successful || !ammo.Reloading)
+            if (!successful || !action.equipment.CurrentWeaponAmmunition.Reloading)
             {
                 return typeof(IdleState);
             }

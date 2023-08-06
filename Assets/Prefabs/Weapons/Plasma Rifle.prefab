@@ -355,7 +355,7 @@ MonoBehaviour:
   aimingOffset: {x: -0.003, y: -0.25, z: 0.05}
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.377, z: 0.198}
-  reloadRotation: {x: 15, y: 0, z: 0}
+  reloadRotation: {x: -15, y: 0, z: 0}
 --- !u!114 &5968914447286862862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLoadedAmmo: 30
   maxCarriedAmmo: 90
-  reloadTime: 2
+  reloadTime: 3.3
 --- !u!1 &5968914447583228420
 GameObject:
   m_ObjectHideFlags: 0

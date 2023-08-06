@@ -7011,11 +7011,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6214437158299212887, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: reloadRotation.x
-      value: -15
-      objectReference: {fileID: 0}
     - target: {fileID: 6214437158321797134, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: reference

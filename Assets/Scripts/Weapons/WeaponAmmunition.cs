@@ -19,6 +19,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     protected virtual void Awake()
     {
         currentLoadedAmmo = maxLoadedAmmo;
+        currentCarriedAmmo = maxCarriedAmmo;
     }
 
     public bool TryUseAmmo()
@@ -36,8 +37,8 @@ public abstract class WeaponAmmunition : MonoBehaviour
 
     public virtual bool TryReload()
     {
-        int ammoNeeded = currentLoadedAmmo - maxLoadedAmmo;
-        if (ammoNeeded == 0)
+        int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
+        if (ammoNeeded == 0 || currentCarriedAmmo == 0)
         {
             return false;
         }
@@ -49,7 +50,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     {
         Reloading = true;
         yield return new WaitForSeconds(reloadTime);
-        int ammoNeeded = currentLoadedAmmo - maxLoadedAmmo;
+        int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
 
         if (currentCarriedAmmo < ammoNeeded)
         {
