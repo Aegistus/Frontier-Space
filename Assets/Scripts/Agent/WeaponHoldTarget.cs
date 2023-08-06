@@ -6,7 +6,6 @@ using UnityEngine;
 public class WeaponHoldTarget : MonoBehaviour
 {
     [SerializeField] Transform reference;
-    [SerializeField] float moveSpeed = .1f;
 
 
     private void LateUpdate()

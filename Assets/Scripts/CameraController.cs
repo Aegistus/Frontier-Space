@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour
     float xRotation;
     Camera mainCam;
     AgentAction playerAction;
-    bool aimed = false;
     float targetFOV;
     float defaultFOV;
 
