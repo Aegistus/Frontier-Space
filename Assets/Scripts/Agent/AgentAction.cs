@@ -5,7 +5,7 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact
+    Idle, Attack, Aim, Interact, AimAttack
 }
 
 public class AgentAction : MonoBehaviour
@@ -26,6 +26,7 @@ public class AgentAction : MonoBehaviour
         { typeof(IdleState), ActionState.Idle },
         { typeof(AttackState), ActionState.Attack },
         { typeof(AimState), ActionState.Aim },
+        { typeof(AimAttackState), ActionState.AimAttack },
         { typeof(InteractState), ActionState.Interact },
     };
 
@@ -39,6 +40,7 @@ public class AgentAction : MonoBehaviour
             { typeof(IdleState), new IdleState(this) },
             { typeof(AttackState), new AttackState(this) },
             { typeof(AimState), new AimState(this) },
+            { typeof(AimAttackState), new AimAttackState(this) },
             { typeof(InteractState), new InteractState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
@@ -166,6 +168,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (action.controller.Attack)
+            {
+                return typeof(AimAttackState);
+            }
             if (movement.CurrentState == MovementState.Run)
             {
                 return typeof(IdleState);
@@ -173,6 +179,36 @@ public class AgentAction : MonoBehaviour
             if (!action.controller.Aim)
             {
                 return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class AimAttackState : State
+    {
+        public AimAttackState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            action.equipment.CurrentWeaponAttack.BeginAttack();
+            action.equipment.SetWeaponOffset(WeaponOffset.Aiming);
+        }
+
+        public override void During()
+        {
+            action.equipment.CurrentWeaponAttack.DuringAttack();
+        }
+
+        public override void After()
+        {
+            action.equipment.CurrentWeaponAttack.EndAttack();
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (!action.controller.Attack)
+            {
+                return typeof(AimState);
             }
             return null;
         }
