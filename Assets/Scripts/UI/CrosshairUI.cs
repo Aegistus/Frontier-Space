@@ -12,6 +12,7 @@ namespace Game
 		public float movementSmooth = 5f;
 		public float rangeFinderUpdateInterval = .2f;
 		public bool updateCrosshair = true;
+		public LayerMask mask;
 
 		RaycastHit rayHit;
 		AgentAction playerAction;
@@ -48,7 +49,7 @@ namespace Game
 			if (updateCrosshair)
 			{
 				RangedWeaponAttack rangedWeapon = (RangedWeaponAttack)playerEquipment.CurrentWeaponAttack;
-				if (Physics.Raycast(rangedWeapon.ProjectileSpawnPoint.position, rangedWeapon.ProjectileSpawnPoint.forward, out rayHit, 100f))
+				if (Physics.Raycast(new Ray(rangedWeapon.ProjectileSpawnPoint.position, rangedWeapon.ProjectileSpawnPoint.forward), out rayHit, 100f, mask, QueryTriggerInteraction.Ignore))
 				{
 					crosshair.position = Vector3.Lerp(crosshair.position, mainCamera.WorldToScreenPoint(rayHit.point), movementSmooth * Time.deltaTime);
 				}

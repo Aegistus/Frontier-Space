@@ -20417,6 +20417,9 @@ MonoBehaviour:
   movementSmooth: 5
   rangeFinderUpdateInterval: 0.2
   updateCrosshair: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 2147483647
 --- !u!43 &1717479062
 Mesh:
   m_ObjectHideFlags: 0
