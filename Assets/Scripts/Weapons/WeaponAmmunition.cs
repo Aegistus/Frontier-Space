@@ -15,11 +15,17 @@ public abstract class WeaponAmmunition : MonoBehaviour
 
     int currentLoadedAmmo;
     int currentCarriedAmmo;
+    int reloadSoundID;
 
     protected virtual void Awake()
     {
         currentLoadedAmmo = maxLoadedAmmo;
         currentCarriedAmmo = maxCarriedAmmo;
+    }
+
+    private void Start()
+    {
+        reloadSoundID = SoundManager.Instance.GetSoundID("PlasmaRifle_Reload");
     }
 
     public bool TryUseAmmo()
@@ -43,6 +49,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
             return false;
         }
         StartCoroutine(ReloadCoroutine());
+        SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         return true;
     }
 

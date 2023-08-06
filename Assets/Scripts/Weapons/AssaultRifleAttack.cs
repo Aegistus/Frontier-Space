@@ -8,11 +8,17 @@ public class AssaultRifleAttack : RangedWeaponAttack
 
     float shotDelay;
     float timer = 0f;
+    int shootSoundID;
 
     protected override void Awake()
     {
         base.Awake();
         shotDelay = 60 / roundsPerMinute;
+    }
+
+    private void Start()
+    {
+        shootSoundID = SoundManager.Instance.GetSoundID("PlasmaRifle_Shoot");
     }
 
     public override void BeginAttack()
@@ -44,6 +50,7 @@ public class AssaultRifleAttack : RangedWeaponAttack
             float damage = Random.Range(damageMin, damageMax);
             projectile.GetComponent<Projectile>().SetDamage(damage);
             ApplyRecoil();
+            SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
         }
     }
 }
