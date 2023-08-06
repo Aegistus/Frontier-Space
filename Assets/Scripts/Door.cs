@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     [SerializeField] Vector3 openPosition;
     [SerializeField] float doorMoveSpeed = 1f;
     [SerializeField] bool open = false;
+    [SerializeField] bool automatic = true;
 
     public bool Open => open;
 
@@ -53,15 +54,17 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("TEST");
         agentsWithinRange.Add(other);
-        OpenDoor();
+        if (automatic)
+        {
+            OpenDoor();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         agentsWithinRange.Remove(other);
-        if (agentsWithinRange.Count == 0)
+        if (automatic && agentsWithinRange.Count == 0)
         {
             CloseDoor();
         }

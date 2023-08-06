@@ -14,6 +14,7 @@ public abstract class AgentController : MonoBehaviour
 
     public bool Attack { get; protected set; }
     public bool Aim { get; protected set; }
+    public bool Interact { get; protected set; }
 
     public bool NoMovementInput => !Forwards && !Backwards && !Left && !Right;
     public bool MovementInput => Forwards || Backwards || Left || Right;

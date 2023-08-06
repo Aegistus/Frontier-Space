@@ -23,6 +23,7 @@ public class PlayerController : AgentController
 
         Attack = Input.GetMouseButton(0);
         Aim = Input.GetMouseButton(1);
+        Interact = Input.GetKeyDown(KeyCode.E);
     }
 
 

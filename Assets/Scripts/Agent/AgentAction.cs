@@ -5,11 +5,14 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim
+    Idle, Attack, Aim, Interact
 }
 
 public class AgentAction : MonoBehaviour
 {
+    [SerializeField] Transform lookTransform;
+    [SerializeField] float interactDistance = 2f;
+
     public event Action<ActionState> OnStateChange;
 
     AgentEquipment equipment;
@@ -22,6 +25,7 @@ public class AgentAction : MonoBehaviour
         { typeof(IdleState), ActionState.Idle },
         { typeof(AttackState), ActionState.Attack },
         { typeof(AimState), ActionState.Aim },
+        { typeof(InteractState), ActionState.Interact },
     };
 
     private void Awake()
@@ -33,6 +37,7 @@ public class AgentAction : MonoBehaviour
             { typeof(IdleState), new IdleState(this) },
             { typeof(AttackState), new AttackState(this) },
             { typeof(AimState), new AimState(this) },
+            { typeof(InteractState), new InteractState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
     }
@@ -94,6 +99,10 @@ public class AgentAction : MonoBehaviour
             {
                 return typeof(AimState);
             }
+            if (action.controller.Interact)
+            {
+                return typeof(InteractState);
+            }
             return null;
         }
     }
@@ -151,4 +160,24 @@ public class AgentAction : MonoBehaviour
         }
     }
 
+    class InteractState : State
+    {
+        public InteractState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            RaycastHit rayHit;
+            Physics.Raycast(action.lookTransform.position, action.lookTransform.forward, out rayHit, action.interactDistance);
+            if (rayHit.collider != null)
+            {
+                IInteractable interactable = rayHit.collider.GetComponentInChildren<IInteractable>();
+                interactable?.Interact();
+            }
+        }
+
+        public override Type CheckTransitions()
+        {
+            return typeof(IdleState);
+        }
+    }
 }
