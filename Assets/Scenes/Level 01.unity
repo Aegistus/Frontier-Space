@@ -2827,11 +2827,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1458643310606269535, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ee3c4c2f9479a248aec3b7662eccd51, type: 3}
 --- !u!4 &507751058 stripped
@@ -3220,51 +3215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6214437158299212887, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: runningRotation.y
-      value: -63.3585
-      objectReference: {fileID: 0}
     - target: {fileID: 6214437158321797134, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: reference
       value: 
       objectReference: {fileID: 507751059}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.1051254
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5691123
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.470007
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70710784
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.00000004214691
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.70710576
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158321797135, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.000000042146787
-      objectReference: {fileID: 0}
     - target: {fileID: 6214437158977114628, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: m_RootOrder
@@ -3330,26 +3285,11 @@ PrefabInstance:
       propertyPath: lookTarget
       value: 
       objectReference: {fileID: 507751058}
-    - target: {fileID: 6214437158977114631, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: collisionCheckDistance
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 6214437158977114632, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: lookTransform
       value: 
       objectReference: {fileID: 507751059}
-    - target: {fileID: 6214437158977114632, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: interactDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6214437158977114633, guid: cd783b4217d82234590f8162e32e7bf4,
-        type: 3}
-      propertyPath: weaponOffsetChangeSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd783b4217d82234590f8162e32e7bf4, type: 3}
 --- !u!4 &608602151 stripped

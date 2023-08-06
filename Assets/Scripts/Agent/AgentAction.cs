@@ -17,6 +17,7 @@ public class AgentAction : MonoBehaviour
 
     AgentEquipment equipment;
     AgentController controller;
+    AgentMovement movement;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -32,6 +33,7 @@ public class AgentAction : MonoBehaviour
     {
         equipment = GetComponent<AgentEquipment>();
         controller = GetComponent<AgentController>();
+        movement = GetComponent<AgentMovement>();
         availableStates = new Dictionary<Type, State>()
         {
             { typeof(IdleState), new IdleState(this) },
@@ -68,12 +70,14 @@ public class AgentAction : MonoBehaviour
     abstract class State
     {
         protected AgentAction action;
+        protected AgentMovement movement;
         protected GameObject gameObject;
         protected Transform transform;
 
         public State(AgentAction action)
         {
             this.action = action;
+            movement = action.movement;
             gameObject = action.gameObject;
             transform = action.transform;
         }
@@ -91,13 +95,16 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
-            if (action.controller.Attack)
+            if (movement.CurrentState != MovementState.Run)
             {
-                return typeof(AttackState);
-            }
-            if (action.controller.Aim)
-            {
-                return typeof(AimState);
+                if (action.controller.Attack)
+                {
+                    return typeof(AttackState);
+                }
+                if (action.controller.Aim)
+                {
+                    return typeof(AimState);
+                }
             }
             if (action.controller.Interact)
             {
@@ -128,6 +135,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (movement.CurrentState == MovementState.Run)
+            {
+                return typeof(IdleState);
+            }
             if (!action.controller.Attack)
             {
                 return typeof(IdleState);
@@ -147,11 +158,18 @@ public class AgentAction : MonoBehaviour
 
         public override void After()
         {
-            action.equipment.SetWeaponOffset(WeaponOffset.Idle);
+            if (movement.CurrentState != MovementState.Run)
+            {
+                action.equipment.SetWeaponOffset(WeaponOffset.Idle);
+            }
         }
 
         public override Type CheckTransitions()
         {
+            if (movement.CurrentState == MovementState.Run)
+            {
+                return typeof(IdleState);
+            }
             if (!action.controller.Aim)
             {
                 return typeof(IdleState);
