@@ -24,7 +24,7 @@ public class AgentEquipment : MonoBehaviour
     HumanoidAnimator humanAnim;
 
     Vector3 targetPosition;
-    Vector3 targetRotation;
+    Quaternion targetRotation;
 
     private void Start()
     {
@@ -50,17 +50,17 @@ public class AgentEquipment : MonoBehaviour
     {
         if (offsetType == WeaponOffset.Running)
         {
-            targetRotation = CurrentHoldable.RunningRotation;
+            targetRotation = Quaternion.Euler(CurrentHoldable.RunningRotation);
             targetPosition = CurrentHoldable.RunningOffset;
         }
         else if (offsetType == WeaponOffset.Aiming)
         {
-            targetRotation = CurrentHoldable.AimingRotation;
+            targetRotation = Quaternion.Euler(CurrentHoldable.AimingRotation);
             targetPosition = CurrentHoldable.AimingOffset;
         }
         else
         {
-            targetRotation = CurrentHoldable.IdleRotation;
+            targetRotation = Quaternion.Euler(CurrentHoldable.IdleRotation);
             targetPosition = CurrentHoldable.IdleOffset;
         }
     }
@@ -69,7 +69,7 @@ public class AgentEquipment : MonoBehaviour
     {
         if (CurrentWeapon)
         {
-            CurrentWeapon.transform.localEulerAngles = Vector3.SlerpUnclamped(CurrentWeapon.transform.localEulerAngles, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
+            CurrentWeapon.transform.localRotation = Quaternion.Lerp(CurrentWeapon.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
             CurrentWeapon.transform.localPosition = Vector3.Lerp(CurrentWeapon.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
         }
     }
