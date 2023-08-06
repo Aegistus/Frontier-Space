@@ -41,6 +41,7 @@ public class AgentMovement : MonoBehaviour
     Vector3 velocity;
     float groundCheckRadius = .5f;
     Vector3 groundCheckHeight = new Vector3(0, .45f, 0);
+    Vector3 ceilingCheckHeight = new Vector3(0, 2, 0);
     float obstacleCheckHeight = .5f;
     float obstacleCheckWidth = .25f;
 
@@ -92,6 +93,15 @@ public class AgentMovement : MonoBehaviour
         return false;
     }
 
+    public bool HittingCeiling()
+    {
+        if (Physics.CheckSphere(transform.position + ceilingCheckHeight, groundCheckRadius, groundLayer, QueryTriggerInteraction.Ignore))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Move(Vector3 direction, float speed)
     {
         direction.Normalize();
@@ -126,6 +136,10 @@ public class AgentMovement : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
+        if (HittingCeiling() && verticalVelocity > 0)
+        {
+            verticalVelocity = 0;
+        }
         transform.Translate(verticalVelocity * Time.deltaTime * Vector3.up);
         if (!IsGrounded())
         {
@@ -165,6 +179,7 @@ public class AgentMovement : MonoBehaviour
         {
             print("Standing");
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
+            movement.velocity = Vector3.zero;
         }
 
         public override Type CheckTransitions()
@@ -255,7 +270,6 @@ public class AgentMovement : MonoBehaviour
             timer = 0f;
             movement.verticalVelocity += movement.jumpVelocity;
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Jump, false);
-            print(movement.velocity);
             initialDirection = movement.velocity;
             initialSpeed = initialDirection.magnitude;
         }

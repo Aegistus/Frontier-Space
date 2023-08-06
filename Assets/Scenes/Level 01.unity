@@ -1433,6 +1433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Screen_06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1004417782868626, guid: a2ddf5fa65078014a80755ac2486294b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4791738748914062, guid: a2ddf5fa65078014a80755ac2486294b, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -1844,6 +1848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail 02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
 --- !u!4 &167346376 stripped
@@ -1919,6 +1928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Angled (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6470260095045499240, guid: 0899d019a7446b44cb71ce1ed4718255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0899d019a7446b44cb71ce1ed4718255, type: 3}
 --- !u!4 &174759199 stripped
@@ -1937,6 +1951,10 @@ PrefabInstance:
     - target: {fileID: 1004417782868626, guid: a2ddf5fa65078014a80755ac2486294b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Screen_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004417782868626, guid: a2ddf5fa65078014a80755ac2486294b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4791738748914062, guid: a2ddf5fa65078014a80755ac2486294b, type: 3}
       propertyPath: m_RootOrder
@@ -2057,6 +2075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail 02
       objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
 --- !u!4 &240397755 stripped
@@ -2161,6 +2184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -2292,6 +2320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail 02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
 --- !u!4 &332396420 stripped
@@ -2367,6 +2400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airvent (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
 --- !u!4 &355459584 stripped
@@ -2441,6 +2479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table Angled (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470260095045499240, guid: 0899d019a7446b44cb71ce1ed4718255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0899d019a7446b44cb71ce1ed4718255, type: 3}
@@ -2785,6 +2828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -3338,6 +3386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7591044620236760355, guid: f2c6d9c539b715a4ab43d44870e1b6e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c6d9c539b715a4ab43d44870e1b6e1, type: 3}
 --- !u!4 &644468402 stripped
@@ -3724,6 +3777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stool (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
       propertyPath: m_RootOrder
@@ -4013,10 +4071,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2528857695503259280, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
         type: 3}
       propertyPath: m_Name
       value: Crate Wide (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed1e9693cc49c9439225f77360f7f2b, type: 3}
@@ -4127,6 +4195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table Square (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 586188385387652653, guid: 6199e00586445724e9a7f70db710943f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 590345218976956021, guid: 6199e00586445724e9a7f70db710943f,
         type: 3}
@@ -4507,6 +4580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7591044620236760355, guid: f2c6d9c539b715a4ab43d44870e1b6e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c6d9c539b715a4ab43d44870e1b6e1, type: 3}
 --- !u!4 &829203522 stripped
@@ -4868,6 +4946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airvent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
 --- !u!4 &835481983 stripped
@@ -4886,6 +4969,10 @@ PrefabInstance:
     - target: {fileID: 1223296368847894, guid: 68c5f8e43c078eb438ca0fc2a376d9f8, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Detail_CeilingBox_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223296368847894, guid: 68c5f8e43c078eb438ca0fc2a376d9f8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4826401387028506, guid: 68c5f8e43c078eb438ca0fc2a376d9f8, type: 3}
       propertyPath: m_RootOrder
@@ -5001,10 +5088,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2528857695503259280, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
         type: 3}
       propertyPath: m_Name
       value: Crate Wide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed1e9693cc49c9439225f77360f7f2b, type: 3}
@@ -5080,6 +5177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box Detail 02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
@@ -5265,6 +5367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stool (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
       propertyPath: m_RootOrder
@@ -5339,6 +5446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -5665,6 +5777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stool (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
       propertyPath: m_RootOrder
@@ -5875,6 +5992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airvent (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
 --- !u!4 &1143639043 stripped
@@ -5945,10 +6067,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2528857695503259280, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
         type: 3}
       propertyPath: m_Name
       value: Crate Wide
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528878153965382272, guid: 3ed1e9693cc49c9439225f77360f7f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed1e9693cc49c9439225f77360f7f2b, type: 3}
@@ -6188,6 +6320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box Detail (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591044620236760355, guid: f2c6d9c539b715a4ab43d44870e1b6e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c6d9c539b715a4ab43d44870e1b6e1, type: 3}
@@ -6926,6 +7063,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail 02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
 --- !u!4 &1319950119 stripped
@@ -7000,6 +7142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Airvent (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
@@ -7236,6 +7383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box Detail 02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1213970027987113621, guid: dd53239388720914dab27b63a8f78e91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd53239388720914dab27b63a8f78e91, type: 3}
 --- !u!4 &1458942598 stripped
@@ -7310,6 +7462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelves (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798917124131182745, guid: 09ca43c53fe23474194d226f3257ad29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ca43c53fe23474194d226f3257ad29, type: 3}
@@ -8494,6 +8651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Square (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 586188385387652653, guid: 6199e00586445724e9a7f70db710943f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 590345218976956021, guid: 6199e00586445724e9a7f70db710943f,
         type: 3}
       propertyPath: m_RootOrder
@@ -8744,6 +8906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stool (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
       propertyPath: m_RootOrder
@@ -8874,6 +9041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table Angled (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6470260095045499240, guid: 0899d019a7446b44cb71ce1ed4718255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0899d019a7446b44cb71ce1ed4718255, type: 3}
 --- !u!4 &1660673944 stripped
@@ -8940,6 +9112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -9297,6 +9474,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelves (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3798917124131182745, guid: 09ca43c53fe23474194d226f3257ad29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ca43c53fe23474194d226f3257ad29, type: 3}
 --- !u!4 &1809214865 stripped
@@ -9316,6 +9498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table Square (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 586188385387652653, guid: 6199e00586445724e9a7f70db710943f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 590345218976956021, guid: 6199e00586445724e9a7f70db710943f,
         type: 3}
@@ -9447,6 +9634,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelves (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3798917124131182745, guid: 09ca43c53fe23474194d226f3257ad29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ca43c53fe23474194d226f3257ad29, type: 3}
 --- !u!4 &1880955699 stripped
@@ -9521,6 +9713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Airvent (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
@@ -9621,6 +9818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -10133,6 +10335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medical Cart (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3825388871190698661, guid: 5f0332e3e3f4d1342bc35eca179a60ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f0332e3e3f4d1342bc35eca179a60ad, type: 3}
 --- !u!4 &2133754846 stripped
@@ -10219,6 +10426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Airvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365374327904395583, guid: 1c7edbf86482cce41bd247359669b847,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7edbf86482cce41bd247359669b847, type: 3}
@@ -10308,6 +10520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244162752827971328, guid: e2787448d1b519242a5d81ceb3e76709,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3246105168396536762, guid: e2787448d1b519242a5d81ceb3e76709,
         type: 3}
@@ -10599,6 +10816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medical Cart
       objectReference: {fileID: 0}
+    - target: {fileID: 3825388871190698661, guid: 5f0332e3e3f4d1342bc35eca179a60ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f0332e3e3f4d1342bc35eca179a60ad, type: 3}
 --- !u!1001 &5396162321348837480
@@ -10667,6 +10889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Box Detail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591044620236760355, guid: f2c6d9c539b715a4ab43d44870e1b6e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c6d9c539b715a4ab43d44870e1b6e1, type: 3}
@@ -10828,6 +11055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table Angled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470260095045499240, guid: 0899d019a7446b44cb71ce1ed4718255,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0899d019a7446b44cb71ce1ed4718255, type: 3}
@@ -10994,6 +11226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelves
       objectReference: {fileID: 0}
+    - target: {fileID: 3798917124131182745, guid: 09ca43c53fe23474194d226f3257ad29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ca43c53fe23474194d226f3257ad29, type: 3}
 --- !u!1001 &8899319218224555559
@@ -11007,6 +11244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 586188385387652653, guid: 6199e00586445724e9a7f70db710943f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 590345218976956021, guid: 6199e00586445724e9a7f70db710943f,
         type: 3}
