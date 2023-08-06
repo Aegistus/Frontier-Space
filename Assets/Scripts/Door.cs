@@ -5,16 +5,32 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] Transform doorTransform;
+    [SerializeField] Light[] lights;
+    [SerializeField] Color unlockedColor;
+    [SerializeField] Color lockedColor;
     [SerializeField] Vector3 closedPosition;
     [SerializeField] Vector3 openPosition;
     [SerializeField] float doorMoveSpeed = 1f;
     [SerializeField] bool open = false;
     [SerializeField] bool automatic = true;
+    [SerializeField] bool locked = false;
 
     public bool Open => open;
 
     bool transitioning = false;
     List<Collider> agentsWithinRange = new List<Collider>();
+
+    private void Awake()
+    {
+        if (locked)
+        {
+            Lock();
+        }
+        else
+        {
+            Unlock();
+        }
+    }
 
     private void Update()
     {
@@ -39,8 +55,30 @@ public class Door : MonoBehaviour
         }
     }
 
+    public void Lock()
+    {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].color = lockedColor;
+        }
+        locked = true;
+    }
+
+    public void Unlock()
+    {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].color = unlockedColor;
+        }
+        locked = false;
+    }
+
     public void OpenDoor()
     {
+        if (locked)
+        {
+            return;
+        }
         open = true;
         transitioning = true;
     }
