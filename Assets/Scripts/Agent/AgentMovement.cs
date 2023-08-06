@@ -40,7 +40,7 @@ public class AgentMovement : MonoBehaviour
     float verticalVelocity = 0f;
     Vector3 velocity;
     float groundCheckRadius = .5f;
-    Vector3 groundCheckHeight = new Vector3(0, .4f, 0);
+    Vector3 groundCheckHeight = new Vector3(0, .45f, 0);
     float obstacleCheckHeight = .5f;
     float obstacleCheckWidth = .25f;
 
@@ -85,7 +85,7 @@ public class AgentMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        if (Physics.CheckSphere(transform.position + groundCheckHeight, groundCheckRadius, groundLayer))
+        if (Physics.CheckSphere(transform.position + groundCheckHeight, groundCheckRadius, groundLayer, QueryTriggerInteraction.Ignore))
         {
             return true;
         }
