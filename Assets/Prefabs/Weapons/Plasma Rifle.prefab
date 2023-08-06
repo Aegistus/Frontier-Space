@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 5968914447286862860}
   - component: {fileID: 5968914447286862863}
   - component: {fileID: 5968914447286862862}
+  - component: {fileID: 8707676684160957320}
   m_Layer: 7
   m_Name: Plasma Rifle
   m_TagString: Untagged
@@ -373,8 +374,22 @@ MonoBehaviour:
   recoilXRotation: 2
   recoilYRotation: 0.5
   recoilRotationRecovery: 3
-  recoilPositionRecovery: 3
   roundsPerMinute: 520
+--- !u!114 &8707676684160957320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968914447286862858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2e2e53f93e785489425efc389a442b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLoadedAmmo: 30
+  maxCarriedAmmo: 90
+  reloadTime: 2
 --- !u!1 &5968914447583228420
 GameObject:
   m_ObjectHideFlags: 0

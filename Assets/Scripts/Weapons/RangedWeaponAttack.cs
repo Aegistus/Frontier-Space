@@ -12,6 +12,12 @@ public abstract class RangedWeaponAttack : WeaponAttack
     [SerializeField] protected float recoilRotationRecovery = 1f;
 
     public Transform ProjectileSpawnPoint => projectileSpawnPoint;
+    protected WeaponAmmunition weaponAmmo;
+
+    protected virtual void Awake()
+    {
+        weaponAmmo = GetComponent<WeaponAmmunition>();
+    }
 
     public void ApplyRecoil()
     {

@@ -9,8 +9,9 @@ public class AssaultRifleAttack : RangedWeaponAttack
     float shotDelay;
     float timer = 0f;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         shotDelay = 60 / roundsPerMinute;
     }
 
@@ -37,9 +38,12 @@ public class AssaultRifleAttack : RangedWeaponAttack
 
     void SpawnProjectile()
     {
-        GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, projectileSpawnPoint.rotation, 10f);
-        float damage = Random.Range(damageMin, damageMax);
-        projectile.GetComponent<Projectile>().SetDamage(damage);
-        ApplyRecoil();
+        if (weaponAmmo.TryUseAmmo())
+        {
+            GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, projectileSpawnPoint.rotation, 10f);
+            float damage = Random.Range(damageMin, damageMax);
+            projectile.GetComponent<Projectile>().SetDamage(damage);
+            ApplyRecoil();
+        }
     }
 }
