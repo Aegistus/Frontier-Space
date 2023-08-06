@@ -2827,6 +2827,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1458643310606269535, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ee3c4c2f9479a248aec3b7662eccd51, type: 3}
 --- !u!4 &507751058 stripped
@@ -3325,6 +3330,11 @@ PrefabInstance:
       propertyPath: lookTarget
       value: 
       objectReference: {fileID: 507751058}
+    - target: {fileID: 6214437158977114631, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: collisionCheckDistance
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6214437158977114632, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: lookTransform
