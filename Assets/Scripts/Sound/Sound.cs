@@ -18,7 +18,7 @@ public class Sound : ScriptableObject
 	[Range(0f, 1f)]
 	public float pitchVariance = .1f;
 
-	public float minimunDistance = 1f;
+	public float minimumDistance = 10f;
 	public bool loop = false;
 
 	public AudioMixerGroup mixerGroup;
