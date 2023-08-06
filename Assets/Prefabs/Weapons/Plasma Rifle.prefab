@@ -354,6 +354,8 @@ MonoBehaviour:
   runningRotation: {x: 16.907497, y: -63.3585, z: 12.33955}
   aimingOffset: {x: -0.003, y: -0.25, z: 0.05}
   aimingRotation: {x: 0, y: 0, z: 0}
+  reloadOffset: {x: 0.238, y: -0.377, z: 0.198}
+  reloadRotation: {x: 15, y: 0, z: 0}
 --- !u!114 &5968914447286862862
 MonoBehaviour:
   m_ObjectHideFlags: 0

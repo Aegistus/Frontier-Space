@@ -5,7 +5,7 @@ using System;
 
 public enum WeaponOffset
 {
-    Idle, Running, Aiming
+    Idle, Running, Aiming, Reloading
 }
 
 public class AgentEquipment : MonoBehaviour
@@ -57,6 +57,11 @@ public class AgentEquipment : MonoBehaviour
         {
             targetRotation = Quaternion.Euler(CurrentHoldable.AimingRotation);
             targetPosition = CurrentHoldable.AimingOffset;
+        }
+        else if (offsetType == WeaponOffset.Reloading)
+        {
+            targetRotation = Quaternion.Euler(CurrentHoldable.ReloadRotation);
+            targetPosition = CurrentHoldable.ReloadOffset;
         }
         else
         {

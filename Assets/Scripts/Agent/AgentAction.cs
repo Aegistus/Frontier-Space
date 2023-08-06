@@ -5,7 +5,7 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact, AimAttack
+    Idle, Attack, Aim, Interact, AimAttack, Reload
 }
 
 public class AgentAction : MonoBehaviour
@@ -18,6 +18,8 @@ public class AgentAction : MonoBehaviour
     AgentEquipment equipment;
     AgentController controller;
     AgentMovement movement;
+    HumanoidAnimator agentAnimator;
+    HumanoidIK agentIK;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -27,6 +29,7 @@ public class AgentAction : MonoBehaviour
         { typeof(AttackState), ActionState.Attack },
         { typeof(AimState), ActionState.Aim },
         { typeof(AimAttackState), ActionState.AimAttack },
+        { typeof(ReloadState), ActionState.Reload },
         { typeof(InteractState), ActionState.Interact },
     };
 
@@ -35,6 +38,8 @@ public class AgentAction : MonoBehaviour
         equipment = GetComponent<AgentEquipment>();
         controller = GetComponent<AgentController>();
         movement = GetComponent<AgentMovement>();
+        agentAnimator = GetComponentInChildren<HumanoidAnimator>();
+        agentIK = GetComponentInChildren<HumanoidIK>();
         availableStates = new Dictionary<Type, State>()
         {
             { typeof(IdleState), new IdleState(this) },
@@ -42,6 +47,7 @@ public class AgentAction : MonoBehaviour
             { typeof(AimState), new AimState(this) },
             { typeof(AimAttackState), new AimAttackState(this) },
             { typeof(InteractState), new InteractState(this) },
+            { typeof(ReloadState), new ReloadState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
     }
@@ -111,6 +117,10 @@ public class AgentAction : MonoBehaviour
             if (action.controller.Interact)
             {
                 return typeof(InteractState);
+            }
+            if (action.controller.Reload)
+            {
+                return typeof(ReloadState);
             }
             return null;
         }
@@ -232,6 +242,39 @@ public class AgentAction : MonoBehaviour
         public override Type CheckTransitions()
         {
             return typeof(IdleState);
+        }
+    }
+
+    class ReloadState : State
+    {
+        WeaponAmmunition ammo;
+        bool successful;
+
+        public ReloadState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            ammo = action.equipment.CurrentHoldable.GetComponent<WeaponAmmunition>();
+            successful = ammo.TryReload();
+            action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperReload);
+            action.agentIK.SetHandWeight(Hand.Left, 0);
+            action.equipment.SetWeaponOffset(WeaponOffset.Reloading);
+        }
+
+        public override void After()
+        {
+            action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.None);
+            action.agentIK.SetHandWeight(Hand.Left, 1);
+            action.equipment.SetWeaponOffset(WeaponOffset.Idle);
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (!successful || !ammo.Reloading)
+            {
+                return typeof(IdleState);
+            }
+            return null;
         }
     }
 }

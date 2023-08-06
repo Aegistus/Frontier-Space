@@ -102,6 +102,18 @@ public class HumanoidIK : MonoBehaviour
         StartCoroutine(DecreaseHandIKWeight(hand, speed));
     }
 
+    public void SetHandWeight(Hand hand, float weight)
+    {
+        if (hand == Hand.Right)
+        {
+            rightHandIKWeight = weight;
+        }
+        else
+        {
+            leftHandIKWeight = weight;
+        }
+    }
+
     IEnumerator DecreaseHandIKWeight(Hand hand, float speed)
     {
         if (hand == Hand.Right)

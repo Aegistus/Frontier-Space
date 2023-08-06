@@ -11,6 +11,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     public int MaxLoadedAmmo => maxLoadedAmmo;
     public int CurrentLoadedAmmo => currentLoadedAmmo;
     public int CurrentCarriedAmmo => currentCarriedAmmo;
+    public bool Reloading { get; private set; }
 
     int currentLoadedAmmo;
     int currentCarriedAmmo;
@@ -33,33 +34,35 @@ public abstract class WeaponAmmunition : MonoBehaviour
         }
     }
 
-    public virtual void Reload()
-    {
-        StartCoroutine(ReloadCoroutine());
-    }
-
-    protected virtual IEnumerator ReloadCoroutine()
+    public virtual bool TryReload()
     {
         int ammoNeeded = currentLoadedAmmo - maxLoadedAmmo;
         if (ammoNeeded == 0)
         {
-            yield return null;
+            return false;
+        }
+        StartCoroutine(ReloadCoroutine());
+        return true;
+    }
+
+    protected virtual IEnumerator ReloadCoroutine()
+    {
+        Reloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        int ammoNeeded = currentLoadedAmmo - maxLoadedAmmo;
+
+        if (currentCarriedAmmo < ammoNeeded)
+        {
+            currentLoadedAmmo += currentCarriedAmmo;
+            currentCarriedAmmo = 0;
         }
         else
         {
-            yield return new WaitForSeconds(reloadTime);
-
-            if (currentCarriedAmmo < ammoNeeded)
-            {
-                currentLoadedAmmo += currentCarriedAmmo;
-                currentCarriedAmmo = 0;
-            }
-            else
-            {
-                currentLoadedAmmo += ammoNeeded;
-                currentCarriedAmmo -= ammoNeeded;
-            }
+            currentLoadedAmmo += ammoNeeded;
+            currentCarriedAmmo -= ammoNeeded;
         }
+        Reloading = false;
+
     }
 
 }
