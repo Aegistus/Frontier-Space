@@ -11,6 +11,8 @@ public abstract class RangedWeaponAttack : WeaponAttack
     [SerializeField] protected float recoilYRotation;
     [SerializeField] protected float recoilRotationRecovery = 1f;
 
+    public Transform ProjectileSpawnPoint => projectileSpawnPoint;
+
     public void ApplyRecoil()
     {
         weaponModel.Rotate(Vector3.left, recoilXRotation);
