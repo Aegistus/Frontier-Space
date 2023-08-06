@@ -260,9 +260,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorTransform: {fileID: 3958102828553314731}
   closedPosition: {x: -2.5, y: 0, z: 0}
-  openPosition: {x: -2.4999924, y: -3.02, z: -0.0000030947456}
+  openPosition: {x: -2.5, y: 3.12, z: 0}
   doorMoveSpeed: 5
   open: 0
+  automatic: 1
 --- !u!65 &5866134880080825317
 BoxCollider:
   m_ObjectHideFlags: 0
