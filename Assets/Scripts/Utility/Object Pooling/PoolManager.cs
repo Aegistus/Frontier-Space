@@ -31,7 +31,6 @@ public class PoolManager : MonoBehaviour
                 poolInstance.lifeTime = 10f;
                 obj.SetActive(false);
                 poolObject.PlaceInQueue(poolInstance);
-                print(poolObject.name);
             }
         }
     }

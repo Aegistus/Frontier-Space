@@ -102,7 +102,7 @@ public class AgentMovement : MonoBehaviour
         int hits = 0;
         for (float offset = -obstacleCheckWidth; offset <= obstacleCheckWidth; offset += obstacleCheckWidth / 2)
         {
-            if (Physics.Raycast(obstacleCheckPoint + transform.right * offset, transform.TransformDirection(direction), collisionCheckDistance, groundLayer))
+            if (Physics.Raycast(obstacleCheckPoint + transform.right * offset, transform.TransformDirection(direction), collisionCheckDistance, groundLayer, QueryTriggerInteraction.Ignore))
             {
                 hits++;
             }
