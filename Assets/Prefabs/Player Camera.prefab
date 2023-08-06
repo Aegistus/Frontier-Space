@@ -83,6 +83,8 @@ MonoBehaviour:
   playerLookTarget: {fileID: 0}
   mouseSensitivity: 500
   cameraOffset: {x: 0, y: 0.2, z: 0.1}
+  aimFOVChange: 20
+  fovChangeSpeed: 5
 --- !u!20 &1458643310606269535
 Camera:
   m_ObjectHideFlags: 0
