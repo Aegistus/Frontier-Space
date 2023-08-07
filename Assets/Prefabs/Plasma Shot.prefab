@@ -93,8 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4388207139737755039}
   - component: {fileID: 4388207139737755038}
-  - component: {fileID: 4388207139737755033}
-  - component: {fileID: -7992919825608569084}
   m_Layer: 0
   m_Name: Plasma Shot
   m_TagString: Untagged
@@ -132,32 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   impactEffectName: Plasma_Impact
---- !u!135 &4388207139737755033
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4388207139737755036}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: -0.66}
---- !u!54 &-7992919825608569084
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4388207139737755036}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 255

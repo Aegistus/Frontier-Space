@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 50f;
     [SerializeField] string impactEffectName;
+    [SerializeField] LayerMask mask;
 
     float damage;
 
@@ -16,13 +17,16 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.position += speed * Time.deltaTime * transform.forward;
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, transform.position, transform.rotation, 5f);
-        gameObject.SetActive(false);
+        RaycastHit rayHit;
+        if (Physics.Raycast(transform.position, transform.forward, out rayHit, speed * Time.deltaTime, mask, QueryTriggerInteraction.Ignore))
+        {
+            PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, rayHit.point, transform.rotation, 5f);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.position += speed * Time.deltaTime * transform.forward;
+        }
     }
 
 }
