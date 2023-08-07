@@ -26,12 +26,15 @@ public class AgentHealth : MonoBehaviour
     float currentHealth;
     float delayTimer;
 
+    Ragdoll ragdoll;
+
     int hitSoundID;
 
     private void Awake()
     {
         currentHealth = maxHealth;
         currentArmor = maxArmor;
+        ragdoll = GetComponentInChildren<Ragdoll>();
     }
 
     //private void Start()
@@ -94,6 +97,7 @@ public class AgentHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
+        ragdoll.EnableRagdoll();
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
     }
