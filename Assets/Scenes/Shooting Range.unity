@@ -1519,6 +1519,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890236383361262298, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890236383361262298, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890236383361262298, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890236383361262298, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890236383361262298, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1, type: 3}
 --- !u!43 &408547917
@@ -2725,7 +2775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab562a3e482f28c4cb6456c6e1ef6ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 5
+  damagePerSecond: 20
 --- !u!1001 &1207062072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,6 +4490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ab0473860c6824a980378bbba36458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowArmorRegen: 0
+  armorRegenDelay: 2
+  armorRegenRate: 20
+  maxArmor: 0
   maxHealth: 100
 --- !u!114 &5142588697736416489
 MonoBehaviour:

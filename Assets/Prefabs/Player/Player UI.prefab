@@ -1215,6 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarTransform: {fileID: 8590280295403064072}
+  armorBarTransform: {fileID: 86505953105409355}
 --- !u!1 &8205951334654773029
 GameObject:
   m_ObjectHideFlags: 0
