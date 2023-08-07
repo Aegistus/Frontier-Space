@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -190,6 +195,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &70479243 stripped
@@ -205,6 +215,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -265,6 +280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &135372315 stripped
@@ -280,6 +300,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -340,6 +365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &210833353 stripped
@@ -362,7 +392,7 @@ GameObject:
   - component: {fileID: 220954241}
   - component: {fileID: 220954240}
   - component: {fileID: 220954239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,6 +749,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -779,6 +814,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &273188857 stripped
@@ -794,6 +834,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -854,6 +899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &276860402 stripped
@@ -869,6 +919,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -929,6 +984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &324103406 stripped
@@ -937,6 +997,185 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 324103405}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &399662539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947286919062102, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947287838129831, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077857, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_Name
+      value: Player UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028947288774077861, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1, type: 3}
 --- !u!1001 &633073011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -944,6 +1183,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1004,6 +1248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &633073012 stripped
@@ -1019,6 +1268,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1078,6 +1332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light Panel Large (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
@@ -1156,6 +1415,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1216,6 +1480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &962874870 stripped
@@ -1233,7 +1502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1013722042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1263,6 +1532,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1323,6 +1597,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1051396053 stripped
@@ -1338,6 +1617,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1398,6 +1682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1076454363 stripped
@@ -1413,6 +1702,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1473,6 +1767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1207062073 stripped
@@ -1488,6 +1787,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1548,6 +1852,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1355635346 stripped
@@ -1563,6 +1872,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1623,6 +1937,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1385356609 stripped
@@ -1638,6 +1957,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1698,6 +2022,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1459058759 stripped
@@ -1713,6 +2042,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1773,6 +2107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1508740207 stripped
@@ -1787,7 +2126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-98966
+  m_Name: pb_Mesh99696
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1952,6 +2291,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2012,6 +2356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1670222606 stripped
@@ -2020,6 +2369,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1670222605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1740455340
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.821327
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3519392
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.190437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146412990199878072, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_Name
+      value: Player With Camera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04d93a167a76c4348bfc1c19e876612e, type: 3}
 --- !u!1001 &1756437269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2027,6 +2445,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2087,6 +2510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1756437270 stripped
@@ -2102,6 +2530,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2162,6 +2595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &1784819960 stripped
@@ -2170,6 +2608,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1784819959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1970227449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06728249
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3901333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1689378
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904272, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713627651346904274, guid: ad1fa9ac93830084bb984763405de010,
+        type: 3}
+      propertyPath: m_Name
+      value: PoolManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad1fa9ac93830084bb984763405de010, type: 3}
 --- !u!1001 &2111369028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2177,6 +2684,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 220954244}
     m_Modifications:
+    - target: {fileID: 1188488716899431275, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
         type: 3}
       propertyPath: m_RootOrder
@@ -2237,6 +2749,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Panel Large (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5357736649313679329, guid: fd7bf84155feeba4398b0157a9e36cf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7bf84155feeba4398b0157a9e36cf9, type: 3}
 --- !u!4 &2111369029 stripped
@@ -2245,87 +2762,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2111369028}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2112073585
-GameObject:
+--- !u!1001 &2134544154
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2112073588}
-  - component: {fileID: 2112073587}
-  - component: {fileID: 2112073586}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &2112073586
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112073585}
-  m_Enabled: 1
---- !u!20 &2112073587
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112073585}
-  m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &2112073588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112073585}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.6381807
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42680624
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.166382
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986369, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660790722260986375, guid: 4240621d20236874386b15a2f4d7a5cc,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4240621d20236874386b15a2f4d7a5cc, type: 3}
