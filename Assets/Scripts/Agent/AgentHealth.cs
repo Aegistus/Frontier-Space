@@ -27,6 +27,7 @@ public class AgentHealth : MonoBehaviour
     float delayTimer;
 
     Ragdoll ragdoll;
+    AgentEquipment equipment;
 
     int hitSoundID;
 
@@ -35,6 +36,7 @@ public class AgentHealth : MonoBehaviour
         currentHealth = maxHealth;
         currentArmor = maxArmor;
         ragdoll = GetComponentInChildren<Ragdoll>();
+        equipment = GetComponent<AgentEquipment>();
     }
 
     //private void Start()
@@ -69,12 +71,19 @@ public class AgentHealth : MonoBehaviour
         {
             return;
         }
+
+        damage = DamageArmor(damage);
+        DamageHealth(damage);
+    }
+
+    float DamageArmor(float damage)
+    {
         if (currentArmor >= damage)
         {
             currentArmor -= damage;
+            damage = 0f;
             delayTimer = armorRegenDelay;
             OnArmorChange?.Invoke();
-            return;
         }
         else
         {
@@ -82,22 +91,28 @@ public class AgentHealth : MonoBehaviour
             currentArmor = 0;
             delayTimer = armorRegenDelay;
             OnArmorChange?.Invoke();
-            currentHealth -= damage;
-            //SoundManager.Instance.PlaySoundAtPosition(hitSoundID, transform.position);
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                Die();
-                return;
-            }
-            OnHealthChange?.Invoke();
         }
+        return damage;
+    }
+
+    void DamageHealth(float damage)
+    {
+        currentHealth -= damage;
+        //SoundManager.Instance.PlaySoundAtPosition(hitSoundID, transform.position);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+            return;
+        }
+        OnHealthChange?.Invoke();
     }
 
     void Die()
     {
         isDead = true;
         ragdoll.EnableRagdoll();
+        equipment.DropWeapon();
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
     }

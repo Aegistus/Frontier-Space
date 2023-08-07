@@ -84,4 +84,15 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
+    public void DropWeapon()
+    {
+        CurrentWeapon.transform.SetParent(null, true);
+        Rigidbody weaponRB = CurrentWeapon.GetComponent<Rigidbody>();
+        weaponRB.isKinematic = false;
+        CurrentWeapon = null;
+        CurrentHoldable = null;
+        CurrentWeaponAttack = null;
+        CurrentWeaponAmmunition = null;
+    }
+
 }
