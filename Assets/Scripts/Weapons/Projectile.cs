@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 50f;
+    [SerializeField] string impactEffectName;
 
     float damage;
 
@@ -15,6 +16,13 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+        transform.position += speed * Time.deltaTime * transform.forward;
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        PoolManager.Instance.SpawnObjectWithLifetime(impactEffectName, transform.position, transform.rotation, 5f);
+        gameObject.SetActive(false);
+    }
+
 }
