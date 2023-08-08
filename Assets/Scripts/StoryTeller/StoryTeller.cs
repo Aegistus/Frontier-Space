@@ -8,16 +8,23 @@ public class StoryTeller : MonoBehaviour
 {
     public StoryEvent[] storyEvents;
 
-    [System.Serializable]
+    [Serializable]
     public class StoryEvent
     {
         public string name;
+        public float delay;
         public UnityEvent OnEventTrigger;
     }
 
     public void TriggerEvent(string name)
     {
         StoryEvent storyEvent = Array.Find(storyEvents, e => e.name == name);
+        StartCoroutine(EventCoroutine(storyEvent));
+    }
+
+    IEnumerator EventCoroutine(StoryEvent storyEvent)
+    {
+        yield return new WaitForSeconds(storyEvent.delay);
         storyEvent.OnEventTrigger.Invoke();
     }
 }
