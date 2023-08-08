@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 6214437158977114629, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Agent
       objectReference: {fileID: 0}
     - target: {fileID: 6214437158977114630, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
@@ -163,6 +163,26 @@ PrefabInstance:
       propertyPath: lookTransform
       value: 
       objectReference: {fileID: 2722141971078718469}
+    - target: {fileID: 6722232262853362880, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722952248550907764, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723014890290706382, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723839806489659950, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd783b4217d82234590f8162e32e7bf4, type: 3}
 --- !u!4 &7477880028884158325 stripped
