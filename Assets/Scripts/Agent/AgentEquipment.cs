@@ -15,6 +15,7 @@ public class AgentEquipment : MonoBehaviour
 
     public event Action OnWeaponChange;
 
+    public bool HasWeaponEquipped => CurrentWeapon != null;
     public WeaponAttack CurrentWeaponAttack { get; private set; }
     public WeaponAmmunition CurrentWeaponAmmunition { get; private set; }
     GameObject CurrentWeapon { get; set; }
@@ -34,8 +35,11 @@ public class AgentEquipment : MonoBehaviour
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
         primaryWeapon = GetComponentInChildren<WeaponAnimation>();
-        Equip(primaryWeapon);
-        SetWeaponOffset(WeaponOffset.Idle);
+        if (primaryWeapon)
+        {
+            Equip(primaryWeapon);
+            SetWeaponOffset(WeaponOffset.Idle);
+        }
     }
 
     public void Equip(WeaponAnimation weapon)
@@ -53,6 +57,10 @@ public class AgentEquipment : MonoBehaviour
 
     public void SetWeaponOffset(WeaponOffset offsetType)
     {
+        if (!HasWeaponEquipped)
+        {
+            return;
+        }
         if (offsetType == WeaponOffset.Running)
         {
             targetRotation = Quaternion.Euler(CurrentHoldable.RunningRotation);

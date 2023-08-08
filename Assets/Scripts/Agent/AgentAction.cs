@@ -103,25 +103,29 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
-            if (movement.CurrentState != MovementState.Run)
+            if (action.equipment.HasWeaponEquipped)
             {
-                if (action.controller.Attack)
+                if (movement.CurrentState != MovementState.Run)
                 {
-                    return typeof(AttackState);
+                    if (action.controller.Attack)
+                    {
+                        return typeof(AttackState);
+                    }
+                    if (action.controller.Aim)
+                    {
+                        return typeof(AimState);
+                    }
                 }
-                if (action.controller.Aim)
+                if (action.controller.Reload && action.equipment.CurrentWeaponAmmunition.CurrentCarriedAmmo > 0)
                 {
-                    return typeof(AimState);
+                    return typeof(ReloadState);
                 }
             }
             if (action.controller.Interact)
             {
                 return typeof(InteractState);
             }
-            if (action.controller.Reload && action.equipment.CurrentWeaponAmmunition.CurrentCarriedAmmo > 0)
-            {
-                return typeof(ReloadState);
-            }
+
             return null;
         }
     }

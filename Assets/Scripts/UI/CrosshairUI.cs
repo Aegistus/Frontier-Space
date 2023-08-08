@@ -26,27 +26,31 @@ namespace Game
             playerAction.OnStateChange += PlayerAction_OnStateChange;
 			mainCamera = Camera.main;
 			StartCoroutine(UpdateRangeFinder());
+			SetCrosshairEnabled(false);
 		}
 
         private void PlayerAction_OnStateChange(ActionState state)
         {
             if (state == ActionState.Aim || state == ActionState.AimAttack)
             {
-				updateCrosshair = true;
-				crosshair.gameObject.SetActive(true);
-				distanceIndicator.gameObject.SetActive(true);
+				SetCrosshairEnabled(true);
 			}
 			else
             {
-				updateCrosshair = false;
-				crosshair.gameObject.SetActive(false);
-				distanceIndicator.gameObject.SetActive(false);
+				SetCrosshairEnabled(false);
             }
         }
 
+		public void SetCrosshairEnabled(bool enabled)
+        {
+			updateCrosshair = enabled;
+			crosshair.gameObject.SetActive(enabled);
+			distanceIndicator.gameObject.SetActive(enabled);
+		}
+
         void Update()
 		{
-			if (updateCrosshair)
+			if (updateCrosshair && playerEquipment.HasWeaponEquipped)
 			{
 				RangedWeaponAttack rangedWeapon = (RangedWeaponAttack)playerEquipment.CurrentWeaponAttack;
 				if (Physics.Raycast(new Ray(rangedWeapon.ProjectileSpawnPoint.position, rangedWeapon.ProjectileSpawnPoint.forward), out rayHit, 100f, mask, QueryTriggerInteraction.Ignore))
