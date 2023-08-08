@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ragdoll : MonoBehaviour
 {
+    [SerializeField] SkinnedMeshRenderer agentModel;
+
     Rigidbody[] ragdollRBs;
     Animator anim;
 
@@ -20,6 +22,7 @@ public class Ragdoll : MonoBehaviour
         {
             rb.isKinematic = false;
         }
+        agentModel.updateWhenOffscreen = true; // this prevents ragdolls from disappearing when the camera gets too close.
     }
 
     public void DisableRagdoll()

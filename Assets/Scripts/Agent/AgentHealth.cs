@@ -25,6 +25,7 @@ public class AgentHealth : MonoBehaviour
     float currentArmor;
     float currentHealth;
     float delayTimer;
+    readonly float ragdollDuration = 5f;
 
     Ragdoll ragdoll;
     AgentEquipment equipment;
@@ -115,5 +116,12 @@ public class AgentHealth : MonoBehaviour
         equipment.DropWeapon();
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
+        StartCoroutine(StopRagdoll());
+    }
+
+    IEnumerator StopRagdoll()
+    {
+        yield return new WaitForSeconds(ragdollDuration);
+        ragdoll.DisableRagdoll();
     }
 }
