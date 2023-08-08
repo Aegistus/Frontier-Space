@@ -28,6 +28,11 @@ public class HealthBarUI : MonoBehaviour
 
     private void UpdateArmorBar()
     {
+        if (agentHealth.MaxArmor == 0)
+        {
+            armorBarTransform.localScale = new Vector2(0, 1);
+            return;
+        }
         float percentArmor = agentHealth.CurrentArmor / agentHealth.MaxArmor;
         armorBarTransform.localScale = new Vector2(percentArmor, 1);
     }

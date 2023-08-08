@@ -66,6 +66,12 @@ public class AgentHealth : MonoBehaviour
         }
     }
 
+    public void EquipArmor(float armor)
+    {
+        allowArmorRegen = true;
+        maxArmor = armor;
+    }
+
     public void Damage(float damage)
     {
         if (isDead)
