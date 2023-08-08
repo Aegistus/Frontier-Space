@@ -50,8 +50,8 @@ MonoBehaviour:
   lights: []
   unlockedColor: {r: 0, g: 0, b: 0, a: 0}
   lockedColor: {r: 0, g: 0, b: 0, a: 0}
-  closedPosition: {x: 0, y: 0, z: 0}
-  openPosition: {x: 0, y: 0, z: 0}
+  closedPosition: {x: 0.000009155273, y: 1.6714872, z: 0}
+  openPosition: {x: 0.000009155273, y: 4.6714873, z: 0}
   doorMoveSpeed: 1
   open: 0
   automatic: 0
