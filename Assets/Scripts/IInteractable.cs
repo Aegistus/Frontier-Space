@@ -5,5 +5,6 @@ using UnityEngine.Events;
 
 public interface IInteractable
 {
+    public string Description { get; }
     void Interact();
 }

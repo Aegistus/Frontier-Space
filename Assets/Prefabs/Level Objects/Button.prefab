@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1044755681063316275}
   - component: {fileID: 1034567808506032747}
   - component: {fileID: 1075573756186491929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Detail_Button_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1656247602851154077}
   - component: {fileID: 8973736453848168169}
   - component: {fileID: 8973736453848168168}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f326ce9807df44594af7f98d5c6837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Press Button
   OnPress:
     m_PersistentCalls:
       m_Calls: []

@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookTransform: {fileID: 0}
-  interactDistance: 5
+  interactDistance: 2
 --- !u!114 &2391498150780371363
 MonoBehaviour:
   m_ObjectHideFlags: 0

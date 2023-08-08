@@ -350,11 +350,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
-    - target: {fileID: 6583852780300830604, guid: e8d0f912db0da6e4e8cbd72e80f8abf0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8973736453848168169, guid: e8d0f912db0da6e4e8cbd72e80f8abf0,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size

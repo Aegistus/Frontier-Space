@@ -14,6 +14,7 @@ public class AgentAction : MonoBehaviour
     [SerializeField] float interactDistance = 2f;
 
     public event Action<ActionState> OnStateChange;
+    public static float InteractDistance { get; private set; }
 
     AgentEquipment equipment;
     AgentController controller;
@@ -50,6 +51,7 @@ public class AgentAction : MonoBehaviour
             { typeof(ReloadState), new ReloadState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
+        InteractDistance = interactDistance;
     }
 
     private void Start()

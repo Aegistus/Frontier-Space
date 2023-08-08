@@ -304,7 +304,6 @@ public class AgentMovement : MonoBehaviour
         public override void Before()
         {
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Fall, false);
-            print(movement.velocity);
             initialDirection = movement.velocity;
             initialSpeed = initialDirection.magnitude;
         }

@@ -5,7 +5,10 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour, IInteractable
 {
+    [SerializeField] string description;
+
     public UnityEvent OnPress;
+    public string Description => description;
 
     int soundID;
 
