@@ -32,6 +32,10 @@ public class Door : MonoBehaviour
         {
             Unlock();
         }
+        if (open)
+        {
+            doorTransform.localPosition = openPosition;
+        }
     }
 
     private void Start()
