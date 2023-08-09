@@ -28,6 +28,5 @@ public class StarGenerator : MonoBehaviour
                 DestroyImmediate(transform.GetChild(i).gameObject);
             }
         }
-
     }
 }
