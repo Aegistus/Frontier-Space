@@ -276,6 +276,8 @@ MonoBehaviour:
   open: 0
   automatic: 1
   locked: 0
+  openSoundName: Door_Open
+  openEndSoundName: 
 --- !u!65 &5866134880080825317
 BoxCollider:
   m_ObjectHideFlags: 0

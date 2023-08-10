@@ -46,7 +46,10 @@ public class Door : MonoBehaviour
     private void Start()
     {
         openSoundID = SoundManager.Instance.GetSoundID(openSoundName);
-        openEndSoundID = SoundManager.Instance.GetSoundID(openEndSoundName);
+        if (openEndSoundName != "")
+        {
+            openEndSoundID = SoundManager.Instance.GetSoundID(openEndSoundName);
+        }
     }
 
     private void Update()
@@ -66,7 +69,7 @@ public class Door : MonoBehaviour
             else
             {
                 doorTransform.localPosition = Vector3.Lerp(doorTransform.localPosition, closedPosition, doorMoveSpeed * Time.deltaTime);
-                if (Vector3.Distance(doorTransform.localPosition, openPosition) < positionalTolerance)
+                if (Vector3.Distance(doorTransform.localPosition, closedPosition) < positionalTolerance)
                 {
                     transitioning = false;
                     doorOpenAudioSource.Stop();

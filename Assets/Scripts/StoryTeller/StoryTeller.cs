@@ -19,6 +19,10 @@ public class StoryTeller : MonoBehaviour
     public void TriggerEvent(string name)
     {
         StoryEvent storyEvent = Array.Find(storyEvents, e => e.name == name);
+        if (storyEvent == null)
+        {
+            Debug.LogError("Story Event: " + name + " does not exist.");
+        }
         StartCoroutine(EventCoroutine(storyEvent));
     }
 
