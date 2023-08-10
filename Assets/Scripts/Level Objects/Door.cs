@@ -50,6 +50,10 @@ public class Door : MonoBehaviour
         {
             openEndSoundID = SoundManager.Instance.GetSoundID(openEndSoundName);
         }
+        else
+        {
+            openEndSoundID = -1;
+        }
     }
 
     private void Update()
@@ -62,8 +66,11 @@ public class Door : MonoBehaviour
                 if (Vector3.Distance(doorTransform.localPosition, openPosition) < positionalTolerance)
                 {
                     transitioning = false;
-                    doorOpenAudioSource.Stop();
-                    SoundManager.Instance.PlaySoundAtPosition(openEndSoundID, transform.position);
+                    doorOpenAudioSource?.Stop();
+                    if (openEndSoundID != -1)
+                    {
+                        SoundManager.Instance.PlaySoundAtPosition(openEndSoundID, transform.position);
+                    }
                 }
             }
             else
@@ -72,8 +79,11 @@ public class Door : MonoBehaviour
                 if (Vector3.Distance(doorTransform.localPosition, closedPosition) < positionalTolerance)
                 {
                     transitioning = false;
-                    doorOpenAudioSource.Stop();
-                    SoundManager.Instance.PlaySoundAtPosition(openEndSoundID, transform.position);
+                    doorOpenAudioSource?.Stop();
+                    if (openEndSoundID != -1)
+                    {
+                        SoundManager.Instance.PlaySoundAtPosition(openEndSoundID, transform.position);
+                    }
                 }
             }
         }

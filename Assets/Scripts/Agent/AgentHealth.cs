@@ -31,6 +31,8 @@ public class AgentHealth : MonoBehaviour
     AgentEquipment equipment;
 
     int hitSoundID;
+    int armorRechargeStartID = -1;
+    int armorRechargeEndID = -1;
 
     private void Awake()
     {
@@ -38,6 +40,8 @@ public class AgentHealth : MonoBehaviour
         currentArmor = maxArmor;
         ragdoll = GetComponentInChildren<Ragdoll>();
         equipment = GetComponent<AgentEquipment>();
+        armorRechargeStartID = SoundManager.Instance.GetSoundID("Armor_Recharge_Start");
+        armorRechargeEndID = SoundManager.Instance.GetSoundID("Armor_Recharge_End");
     }
 
     //private void Start()
@@ -47,21 +51,26 @@ public class AgentHealth : MonoBehaviour
 
     private void Update()
     {
-        if (delayTimer == 0 && currentArmor < maxArmor)
+        if (allowArmorRegen && currentArmor < maxArmor)
         {
-            currentArmor += armorRegenRate * Time.deltaTime;
-            if (currentArmor > maxArmor)
+            if (delayTimer == 0)
             {
-                currentArmor = maxArmor;
+                currentArmor += armorRegenRate * Time.deltaTime;
+                if (currentArmor > maxArmor)
+                {
+                    currentArmor = maxArmor;
+                    //SoundManager.Instance.PlaySoundAtPosition(armorRechargeEndID, transform.position, transform);
+                }
+                OnArmorChange?.Invoke();
             }
-            OnArmorChange?.Invoke();
-        }
-        else
-        {
-            delayTimer -= Time.deltaTime;
-            if (delayTimer < 0)
+            else
             {
-                delayTimer = 0;
+                delayTimer -= Time.deltaTime;
+                if (delayTimer < 0)
+                {
+                    delayTimer = 0;
+                    //SoundManager.Instance.PlaySoundAtPosition(armorRechargeStartID, transform.position, transform);
+                }
             }
         }
     }
