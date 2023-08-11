@@ -40,6 +40,10 @@ public class AgentHealth : MonoBehaviour
         currentArmor = maxArmor;
         ragdoll = GetComponentInChildren<Ragdoll>();
         equipment = GetComponent<AgentEquipment>();
+    }
+
+    private void Start()
+    {
         armorRechargeStartID = SoundManager.Instance.GetSoundID("Armor_Recharge_Start");
         armorRechargeEndID = SoundManager.Instance.GetSoundID("Armor_Recharge_End");
     }
