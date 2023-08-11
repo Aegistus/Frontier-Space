@@ -6,8 +6,11 @@ using System;
 
 public class EnemyController : AgentController
 {
+    [SerializeField] Transform lookTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
+
+    public Transform AttackTarget { get; private set; }
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -16,10 +19,17 @@ public class EnemyController : AgentController
 
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
     Vector3 heightOffset = Vector3.up;
+    Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
+
+    PlayerController player;
+    FieldOfView fov;
 
     private void Awake()
     {
+        LookTarget = lookTarget;
         navAgent = GetComponent<NavMeshAgent>();
+        fov = GetComponent<FieldOfView>();
+        fov.OnPlayerFound += Fov_OnTargetFound;
         patrolNodeQueue = new Queue<Transform>();
         for (int i = 0; i < patrolNodes.Length; i++)
         {
@@ -29,9 +39,14 @@ public class EnemyController : AgentController
         {
             { typeof(GuardingState), new GuardingState(this) },
             { typeof(PatrollingState), new PatrollingState(this) },
+            { typeof(AttackingState), new AttackingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
+    }
 
+    private void Fov_OnTargetFound(Transform target)
+    {
+        AttackTarget = target;
     }
 
     private void Update()
@@ -44,14 +59,10 @@ public class EnemyController : AgentController
             currentState = availableStates[nextState];
             currentState.Before();
         }
-        //transform.LookAt(Target);
-        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        transform.LookAt(LookTarget);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
-    public override void FindNewTarget()
-    {
-        
-    }
 
     private void OnDrawGizmos()
     {
@@ -91,8 +102,17 @@ public class EnemyController : AgentController
     {
         public GuardingState(EnemyController controller) : base(controller) { }
 
+        public override void Before()
+        {
+            controller.LookTarget.localPosition = controller.lookTargetDefaultPos;
+        }
+
         public override Type CheckTransitions()
         {
+            if (controller.AttackTarget != null)
+            {
+                return typeof(AttackingState);
+            }
             if (controller.patrolling)
             {
                 return typeof(PatrollingState);
@@ -104,12 +124,12 @@ public class EnemyController : AgentController
     class PatrollingState : State
     {
         Transform currentNode;
-        Vector3 nextPoint;
 
         public PatrollingState(EnemyController controller) : base(controller) { }
 
         public override void Before()
         {
+            controller.LookTarget.localPosition = controller.lookTargetDefaultPos;
             currentNode = controller.patrolNodeQueue.Dequeue();
             navAgent.SetDestination(currentNode.position);
         }
@@ -127,5 +147,34 @@ public class EnemyController : AgentController
             }
         }
 
+        public override void After()
+        {
+            controller.Forwards = false;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (controller.AttackTarget != null)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class AttackingState : State
+    {
+        public AttackingState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            print("Player detected");
+        }
+
+        public override void During()
+        {
+            controller.LookTarget.position = controller.AttackTarget.position;
+            controller.Attack = true;
+        }
     }
 }

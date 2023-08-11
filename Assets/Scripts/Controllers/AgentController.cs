@@ -19,9 +19,7 @@ public abstract class AgentController : MonoBehaviour
 
     public bool NoMovementInput => !Forwards && !Backwards && !Left && !Right;
     public bool MovementInput => Forwards || Backwards || Left || Right;
-    public Transform Target { get; protected set; }
-
-    public abstract void FindNewTarget();
+    public Transform LookTarget { get; protected set; }
 
     public Vector3 GetMovementInput()
     {

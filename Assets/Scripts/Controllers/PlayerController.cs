@@ -8,7 +8,7 @@ public class PlayerController : AgentController
 
     private void Start()
     {
-        Target = lookTarget;
+        LookTarget = lookTarget;
     }
 
     private void Update()
@@ -25,13 +25,8 @@ public class PlayerController : AgentController
         Aim = Input.GetMouseButton(1);
         Interact = Input.GetKeyDown(KeyCode.E);
         Reload = Input.GetKeyDown(KeyCode.R);
-        transform.LookAt(Target);
+        transform.LookAt(LookTarget);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
-
-    public override void FindNewTarget()
-    {
-        
-    }
 }
