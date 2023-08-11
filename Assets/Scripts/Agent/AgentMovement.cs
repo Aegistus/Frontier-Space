@@ -79,8 +79,6 @@ public class AgentMovement : MonoBehaviour
             OnStateChange?.Invoke(stateTranslator[nextState]);
             currentState.Before();
         }
-        transform.LookAt(controller.Target);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         GroundPlayer();
     }
 

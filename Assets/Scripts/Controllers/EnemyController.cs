@@ -6,7 +6,6 @@ using System;
 
 public class EnemyController : AgentController
 {
-    [SerializeField] Transform target;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
 
@@ -16,10 +15,10 @@ public class EnemyController : AgentController
     Queue<Transform> patrolNodeQueue;
 
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
+    Vector3 heightOffset = Vector3.up;
 
     private void Awake()
     {
-        Target = target;
         navAgent = GetComponent<NavMeshAgent>();
         patrolNodeQueue = new Queue<Transform>();
         for (int i = 0; i < patrolNodes.Length; i++)
@@ -45,31 +44,14 @@ public class EnemyController : AgentController
             currentState = availableStates[nextState];
             currentState.Before();
         }
-    }
-
-    private void LateUpdate()
-    {
-        //// reset all controller bools
-        //Forwards = false;
-        //Backwards = false;
-        //Left = false;
-        //Right = false;
-        //Jump = false;
-        //Run = false;
-        //Crouch = false;
-        //Attack = false;
-        //Aim = false;
-        //Interact = false;
-        //Reload = false;
-
+        //transform.LookAt(Target);
+        //transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     public override void FindNewTarget()
     {
         
     }
-
-
 
     abstract class State
     {
@@ -116,35 +98,20 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
-            if (currentNode == null)
-            {
-                GetNextNode();
-            }
+            currentNode = controller.patrolNodeQueue.Dequeue();
         }
 
         public override void During()
         {
+            controller.Forwards = true;
+            transform.LookAt(currentNode.position + controller.heightOffset);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             if (Vector3.Distance(transform.position, currentNode.position) <= controller.destinationTolerance)
             {
-                GetNextNode();
+                controller.patrolNodeQueue.Enqueue(currentNode);
+                currentNode = controller.patrolNodeQueue.Dequeue();
             }
-            if (Vector3.Distance(transform.position, nextPoint) <= controller.destinationTolerance)
-            {
-                nextPoint = navAgent.path.corners[0];
-            }
-            controller.Target.position = nextPoint;
-            controller.Forwards = true;
         }
 
-        void GetNextNode()
-        {
-            print("TEST");
-            controller.patrolNodeQueue.Enqueue(currentNode);
-            currentNode = controller.patrolNodeQueue.Dequeue();
-            navAgent.SetDestination(currentNode.position);
-            nextPoint = navAgent.path.corners[0];
-            print("current node " + currentNode.position);
-            print("next point " + nextPoint);
-        }
     }
 }
