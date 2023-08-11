@@ -53,6 +53,18 @@ public class EnemyController : AgentController
         
     }
 
+    private void OnDrawGizmos()
+    {
+        if (navAgent && navAgent.hasPath)
+        {
+            print("Drawing");
+            for (int i = 0; i < navAgent.path.corners.Length; i++)
+            {
+                Gizmos.DrawSphere(navAgent.path.corners[0], .4f);
+            }
+        }
+    }
+
     abstract class State
     {
         protected EnemyController controller;
@@ -99,17 +111,19 @@ public class EnemyController : AgentController
         public override void Before()
         {
             currentNode = controller.patrolNodeQueue.Dequeue();
+            navAgent.SetDestination(currentNode.position);
         }
 
         public override void During()
         {
             controller.Forwards = true;
-            transform.LookAt(currentNode.position + controller.heightOffset);
+            transform.LookAt(navAgent.path.corners[1] + controller.heightOffset);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             if (Vector3.Distance(transform.position, currentNode.position) <= controller.destinationTolerance)
             {
                 controller.patrolNodeQueue.Enqueue(currentNode);
                 currentNode = controller.patrolNodeQueue.Dequeue();
+                navAgent.SetDestination(currentNode.position);
             }
         }
 

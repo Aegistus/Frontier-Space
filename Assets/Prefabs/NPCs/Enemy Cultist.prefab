@@ -6339,7 +6339,7 @@ GameObject:
   - component: {fileID: 755935596990909214}
   - component: {fileID: 6648301236411978044}
   - component: {fileID: 6648301236411978045}
-  - component: {fileID: 2100887842433489684}
+  - component: {fileID: 8623057680038492852}
   m_Layer: 7
   m_Name: Enemy Cultist
   m_TagString: Untagged
@@ -6473,7 +6473,7 @@ CapsuleCollider:
   m_Height: 1.93
   m_Direction: 1
   m_Center: {x: 0, y: 0.88, z: 0}
---- !u!195 &2100887842433489684
+--- !u!195 &8623057680038492852
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
