@@ -52,6 +52,7 @@ public class AgentAction : MonoBehaviour
         };
         currentState = availableStates[typeof(IdleState)];
         InteractDistance = interactDistance;
+        GetComponent<AgentHealth>().OnAgentDeath += () => enabled = false;
     }
 
     private void Start()

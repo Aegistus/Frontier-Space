@@ -14,7 +14,7 @@ public class EnemyController : AgentController
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
 
-    public Transform AttackTarget { get; private set; }
+    public Transform AttackTarget => fov.visibleTargets.Count > 0 ? fov.visibleTargets[0] : null;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -24,6 +24,7 @@ public class EnemyController : AgentController
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
     Vector3 heightOffset = Vector3.up;
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
+    Vector3 playerLastLocation;
 
     FieldOfView fov;
     AgentEquipment equipment;
@@ -32,9 +33,8 @@ public class EnemyController : AgentController
     {
         LookTarget = lookTarget;
         navAgent = GetComponent<NavMeshAgent>();
-        fov = GetComponent<FieldOfView>();
+        fov = GetComponentInChildren<FieldOfView>();
         equipment = GetComponent<AgentEquipment>();
-        fov.OnPlayerFound += Fov_OnTargetFound;
         patrolNodeQueue = new Queue<Transform>();
         for (int i = 0; i < patrolNodes.Length; i++)
         {
@@ -47,13 +47,10 @@ public class EnemyController : AgentController
             { typeof(AttackingState), new AttackingState(this) },
             { typeof(AimingState), new AimingState(this) },
             { typeof(ReloadingState), new ReloadingState(this) },
+            { typeof(ChasingState), new ChasingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
-    }
-
-    private void Fov_OnTargetFound(Transform target)
-    {
-        AttackTarget = target;
+        GetComponent<AgentHealth>().OnAgentDeath += () => enabled = false;
     }
 
     private void Update()
@@ -68,6 +65,10 @@ public class EnemyController : AgentController
         }
         transform.LookAt(LookTarget);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        if (AttackTarget != null)
+        {
+            playerLastLocation = AttackTarget.position;
+        }
     }
 
 
@@ -75,7 +76,6 @@ public class EnemyController : AgentController
     {
         if (navAgent && navAgent.hasPath)
         {
-            print("Drawing");
             for (int i = 0; i < navAgent.path.corners.Length; i++)
             {
                 Gizmos.DrawSphere(navAgent.path.corners[0], .4f);
@@ -188,7 +188,10 @@ public class EnemyController : AgentController
 
         public override void During()
         {
-            controller.LookTarget.position = controller.AttackTarget.position;
+            if (controller.AttackTarget != null)
+            {
+                controller.LookTarget.position = controller.AttackTarget.position;
+            }
             controller.Attack = true;
             attackTimer -= Time.deltaTime;
         }
@@ -203,6 +206,10 @@ public class EnemyController : AgentController
             if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
             {
                 return typeof(ReloadingState);
+            }
+            if (controller.AttackTarget == null)
+            {
+                return typeof(ChasingState);
             }
             if (attackTimer <= 0)
             {
@@ -230,6 +237,10 @@ public class EnemyController : AgentController
 
         public override Type CheckTransitions()
         {
+            if (controller.AttackTarget == null)
+            {
+                return typeof(ChasingState);
+            }
             if (waitTimer <= 0)
             {
                 return typeof(AttackingState);
@@ -255,6 +266,34 @@ public class EnemyController : AgentController
         public override Type CheckTransitions()
         {
             if (!controller.equipment.CurrentWeaponAmmunition.Reloading)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class ChasingState : State
+    {
+        public ChasingState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            print("Chasing");
+            navAgent.SetDestination(controller.playerLastLocation);
+            controller.Attack = false;
+        }
+
+        public override void During()
+        {
+            controller.Forwards = true;
+            transform.LookAt(navAgent.path.corners[0] + controller.heightOffset);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (controller.AttackTarget != null)
             {
                 return typeof(AttackingState);
             }
