@@ -23,14 +23,15 @@ public class EnemyController : AgentController
     Vector3 heightOffset = Vector3.up;
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
 
-    PlayerController player;
     FieldOfView fov;
+    AgentEquipment equipment;
 
     private void Awake()
     {
         LookTarget = lookTarget;
         navAgent = GetComponent<NavMeshAgent>();
         fov = GetComponent<FieldOfView>();
+        equipment = GetComponent<AgentEquipment>();
         fov.OnPlayerFound += Fov_OnTargetFound;
         patrolNodeQueue = new Queue<Transform>();
         for (int i = 0; i < patrolNodes.Length; i++)
@@ -43,6 +44,7 @@ public class EnemyController : AgentController
             { typeof(PatrollingState), new PatrollingState(this) },
             { typeof(AttackingState), new AttackingState(this) },
             { typeof(AimingState), new AimingState(this) },
+            { typeof(ReloadingState), new ReloadingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
     }
@@ -191,6 +193,10 @@ public class EnemyController : AgentController
 
         public override Type CheckTransitions()
         {
+            if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
+            {
+                return typeof(ReloadingState);
+            }
             if (attackTimer <= 0)
             {
                 return typeof(AimingState);
@@ -218,6 +224,30 @@ public class EnemyController : AgentController
         public override Type CheckTransitions()
         {
             if (waitTimer <= 0)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class ReloadingState : State
+    {
+        public ReloadingState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            controller.Reload = true;
+        }
+
+        public override void After()
+        {
+            controller.Reload = false;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (!controller.equipment.CurrentWeaponAmmunition.Reloading)
             {
                 return typeof(AttackingState);
             }
