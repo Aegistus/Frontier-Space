@@ -6409,11 +6409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookTarget: {fileID: 755935597066495118}
-  patrolNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolNodes: []
   patrolling: 1
   attackBurstTime: 1
   attackWaitTime: 0.5
@@ -6432,7 +6428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   walkSpeed: 2.3
   runSpeed: 5
   crouchSpeed: 1
@@ -6665,7 +6661,7 @@ MonoBehaviour:
     m_Bits: 128
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   visibleTargets: []
 --- !u!1 &2851506059222150762
 GameObject:

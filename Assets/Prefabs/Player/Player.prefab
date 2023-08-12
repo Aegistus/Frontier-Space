@@ -219,21 +219,6 @@ PrefabInstance:
       propertyPath: clearColorMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1458643310606269528, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
-        type: 3}
-      propertyPath: backgroundColorHDR.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1458643310606269528, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
-        type: 3}
-      propertyPath: backgroundColorHDR.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1458643310606269528, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
-        type: 3}
-      propertyPath: backgroundColorHDR.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1458643310606269529, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
         type: 3}
       propertyPath: head

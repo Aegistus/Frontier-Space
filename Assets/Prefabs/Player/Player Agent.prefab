@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   walkSpeed: 2.3
   runSpeed: 5
   crouchSpeed: 1

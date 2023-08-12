@@ -35,6 +35,10 @@ public class EnemyController : AgentController
         navAgent = GetComponent<NavMeshAgent>();
         fov = GetComponentInChildren<FieldOfView>();
         equipment = GetComponent<AgentEquipment>();
+        if (patrolNodes.Length == 0)
+        {
+            patrolling = false;
+        }
         patrolNodeQueue = new Queue<Transform>();
         for (int i = 0; i < patrolNodes.Length; i++)
         {

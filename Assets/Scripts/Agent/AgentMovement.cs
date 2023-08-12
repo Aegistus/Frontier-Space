@@ -414,6 +414,11 @@ public class AgentMovement : MonoBehaviour
             }
         }
 
+        public override void After()
+        {
+            movement.equipment.SetWeaponOffset(WeaponOffset.Idle);
+        }
+
         public override Type CheckTransitions()
         {
             if (!movement.controller.Crouch)

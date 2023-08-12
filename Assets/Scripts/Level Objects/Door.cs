@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class Door : MonoBehaviour
 {
+    public UnityEvent OnDoorOpen;
+
     [SerializeField] Transform doorTransform;
     [SerializeField] Light[] lights;
     [SerializeField] Color unlockedColor;
@@ -116,6 +120,7 @@ public class Door : MonoBehaviour
         doorOpenAudioSource = SoundManager.Instance.PlaySoundAtPosition(openSoundID, transform.position);
         open = true;
         transitioning = true;
+        OnDoorOpen.Invoke();
     }
 
     public void CloseDoor()

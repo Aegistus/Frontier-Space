@@ -56,7 +56,7 @@ public class FieldOfView : MonoBehaviour
 				}
 				else if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 				{
-					if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+					if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask, QueryTriggerInteraction.Ignore))
 					{
 						visibleTargets.Add(target);
 						OnPlayerFound?.Invoke(target);
