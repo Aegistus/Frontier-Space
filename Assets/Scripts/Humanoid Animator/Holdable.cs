@@ -19,6 +19,9 @@ public class Holdable : MonoBehaviour
     [Header("Reloading")]
     [SerializeField] Vector3 reloadOffset;
     [SerializeField] Vector3 reloadRotation;
+    [Header("Crouching")]
+    [SerializeField] Vector3 crouchingOffset;
+    [SerializeField] Vector3 crouchingRotation;
 
     public Vector3 IdleOffset => idleOffset;
     public Vector3 IdleRotation => idleRotation;
@@ -28,6 +31,8 @@ public class Holdable : MonoBehaviour
     public Vector3 AimingRotation => aimingRotation;
     public Vector3 ReloadOffset => reloadOffset;
     public Vector3 ReloadRotation => reloadRotation;
+    public Vector3 CrouchingOffset => crouchingOffset;
+    public Vector3 CrouchingRotation => crouchingRotation;
 
 
     public Transform RightHandPosition => rightHandPosition;

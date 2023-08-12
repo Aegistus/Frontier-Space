@@ -11,6 +11,8 @@ public class EnemyController : AgentController
     [SerializeField] bool patrolling;
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
+    [Range(0f, 1f)]
+    [SerializeField] float crouchWhileAttackingChance = .5f;
 
     public Transform AttackTarget { get; private set; }
 
@@ -177,6 +179,11 @@ public class EnemyController : AgentController
         {
             print("Player detected");
             attackTimer = controller.attackBurstTime;
+            float rand = UnityEngine.Random.Range(0f, 1f);
+            if (rand <= controller.crouchWhileAttackingChance)
+            {
+                controller.Crouch = true;
+            }
         }
 
         public override void During()

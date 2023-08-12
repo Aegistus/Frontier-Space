@@ -380,6 +380,11 @@ public class AgentMovement : MonoBehaviour
     {
         public CrouchState(AgentMovement movement) : base(movement) { }
 
+        public override void Before()
+        {
+            movement.equipment.SetWeaponOffset(WeaponOffset.Crouching);
+        }
+
         public override void DuringPhysics()
         {
             movement.Move(movement.controller.GetMovementInput(), movement.crouchSpeed);
