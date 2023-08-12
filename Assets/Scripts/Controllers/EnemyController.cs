@@ -9,6 +9,8 @@ public class EnemyController : AgentController
     [SerializeField] Transform lookTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
+    [SerializeField] float attackBurstTime = 2f;
+    [SerializeField] float attackWaitTime = 1f;
 
     public Transform AttackTarget { get; private set; }
 
@@ -40,6 +42,7 @@ public class EnemyController : AgentController
             { typeof(GuardingState), new GuardingState(this) },
             { typeof(PatrollingState), new PatrollingState(this) },
             { typeof(AttackingState), new AttackingState(this) },
+            { typeof(AimingState), new AimingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
     }
@@ -164,17 +167,61 @@ public class EnemyController : AgentController
 
     class AttackingState : State
     {
+        float attackTimer;
+
         public AttackingState(EnemyController controller) : base(controller) { }
 
         public override void Before()
         {
             print("Player detected");
+            attackTimer = controller.attackBurstTime;
         }
 
         public override void During()
         {
             controller.LookTarget.position = controller.AttackTarget.position;
             controller.Attack = true;
+            attackTimer -= Time.deltaTime;
+        }
+
+        public override void After()
+        {
+            controller.Attack = false;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (attackTimer <= 0)
+            {
+                return typeof(AimingState);
+            }
+            return null;
+        }
+    }
+
+    class AimingState : State
+    {
+        float waitTimer;
+
+        public AimingState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            waitTimer = controller.attackWaitTime;
+        }
+
+        public override void During()
+        {
+            waitTimer -= Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (waitTimer <= 0)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
         }
     }
 }
