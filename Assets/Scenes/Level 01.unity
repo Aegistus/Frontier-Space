@@ -2294,6 +2294,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2143099471}
+  - {fileID: 2060426433}
   - {fileID: 934256875}
   - {fileID: 959182651}
   - {fileID: 916708266}
@@ -11021,7 +11023,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57851577}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &373274420
 MonoBehaviour:
@@ -13301,7 +13303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57851577}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &464053641
 BoxCollider:
@@ -25241,7 +25243,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57851577}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &916708267
 BoxCollider:
@@ -25991,7 +25993,7 @@ GameObject:
   - component: {fileID: 934256876}
   - component: {fileID: 934256877}
   m_Layer: 6
-  m_Name: Story Trigger
+  m_Name: Exit Procedure Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26010,7 +26012,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57851577}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &934256876
 BoxCollider:
@@ -26916,7 +26918,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 57851577}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959182652
 MonoBehaviour:
@@ -52402,6 +52404,7 @@ GameObject:
   - component: {fileID: 1887058918}
   - component: {fileID: 1887058917}
   - component: {fileID: 1887058919}
+  - component: {fileID: 1887058920}
   m_Layer: 0
   m_Name: StoryTeller
   m_TagString: Untagged
@@ -52421,7 +52424,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cac51455549647bb90dd2a2259ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playEventOnAwake: Intro
   storyEvents:
+  - name: Intro
+    delay: 3
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_01
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_02_02
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: Put_Armor_On
     delay: 0
     OnEventTrigger:
@@ -52495,9 +52528,67 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 100
+            m_FloatArgument: 500
             m_StringArgument: 
             m_BoolArgument: 1
+          m_CallState: 2
+  - name: Enter_Canteen
+    delay: 1
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_03
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_04
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Enter_Armory
+    delay: 1
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_05
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_06
+            m_BoolArgument: 0
           m_CallState: 2
   - name: Begin_Exit_Procedure
     delay: 0
@@ -52552,6 +52643,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_07
+            m_BoolArgument: 0
+          m_CallState: 2
   - name: Open_Alternate_Route
     delay: 5
     OnEventTrigger:
@@ -52567,6 +52670,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1887058920}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: QueueDialogueLine
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Level_01_08
             m_BoolArgument: 0
           m_CallState: 2
   - name: Cultist_Ambush
@@ -52771,6 +52886,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: MainMenu
+--- !u!114 &1887058920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887058916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9629468bb3c50a489ce34825c452747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - id: Level_01_01
+    caption: Good morning colonial marine squad F203. You have been in cryo sleep
+      for 365,254 days.
+  - id: Level_01_02
+    caption: Please equip your power armor and proceed to the canteen for further
+      instructions.
+  - id: Level_01_03
+    caption: Planetfall shall begin momentarily. When your platoon is ready, proceed
+      through the door to the armory.
+  - id: Level_01_04
+    caption: You may now proceed to the armory.
+  - id: Level_01_05
+    caption: Equip any weapons and armaments that have been assigned to you by your
+      platoon commander. If there is equipment missing, please inform your superior
+      officer immediately.
+  - id: Level_01_06
+    caption: You may now proceed to the cryo bay exit for planetfall.
+  - id: Level_01_07
+    caption: "When the cryo bay door opens, please follow the signs to your company\u2019s
+      dropship. You will be briefed prior to planetfall."
+  - id: Level_01_08
+    caption: 'Error: exit door obstructed. Please await further instructions.'
 --- !u!1001 &1894707803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55190,6 +55340,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c97e2113f645f4e95eb47c816c2208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2060426432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060426433}
+  - component: {fileID: 2060426435}
+  - component: {fileID: 2060426434}
+  m_Layer: 6
+  m_Name: Enter Armory Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2060426433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060426432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.4, y: 1.7, z: -8.86}
+  m_LocalScale: {x: 3.3790925, y: 3.3790925, z: 6.6770864}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 57851577}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060426434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060426432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09acfc0581333954993270683e8de33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1887058917}
+        m_TargetAssemblyTypeName: StoryTeller, Assembly-CSharp
+        m_MethodName: TriggerEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enter_Armory
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2060426435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060426432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067624628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56776,6 +56999,79 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2143099470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143099471}
+  - component: {fileID: 2143099473}
+  - component: {fileID: 2143099472}
+  m_Layer: 6
+  m_Name: Enter Canteen Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143099471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143099470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.19, y: 1.7, z: -14.84}
+  m_LocalScale: {x: 3.3790925, y: 3.3790925, z: 3.3790925}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 57851577}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143099472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143099470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09acfc0581333954993270683e8de33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1887058917}
+        m_TargetAssemblyTypeName: StoryTeller, Assembly-CSharp
+        m_MethodName: TriggerEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enter_Canteen
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2143099473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143099470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2144298035
 GameObject:
   m_ObjectHideFlags: 0

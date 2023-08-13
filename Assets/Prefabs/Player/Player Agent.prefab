@@ -523,7 +523,7 @@ MonoBehaviour:
   armorRegenDelay: 2
   armorRegenRate: 20
   maxArmor: 0
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &6214437158977114633
 MonoBehaviour:
   m_ObjectHideFlags: 0

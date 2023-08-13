@@ -6,6 +6,7 @@ using System;
 
 public class StoryTeller : MonoBehaviour
 {
+    [SerializeField] string playEventOnAwake = "";
     public StoryEvent[] storyEvents;
 
     [Serializable]
@@ -14,6 +15,14 @@ public class StoryTeller : MonoBehaviour
         public string name;
         public float delay;
         public UnityEvent OnEventTrigger;
+    }
+
+    private void Awake()
+    {
+        if (playEventOnAwake != "")
+        {
+            TriggerEvent(playEventOnAwake);
+        }
     }
 
     public void TriggerEvent(string name)
