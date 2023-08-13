@@ -19,7 +19,10 @@ public class CinematicCameraManager : MonoBehaviour
     {
         for (int i = 0; i < cameraShots.Length; i++)
         {
-            cameraShots[i].camera.SetActive(false);
+            if (cameraShots[i].camera != null)
+            {
+                cameraShots[i].camera.SetActive(false);
+            }
         }
         StartCoroutine(AdvanceThroughCameras());
     }
@@ -28,10 +31,16 @@ public class CinematicCameraManager : MonoBehaviour
     {
         for (int i = 0; i < cameraShots.Length; i++)
         {
-            cameraShots[i].camera.SetActive(true);
+            if (cameraShots[i].camera != null)
+            {
+                cameraShots[i].camera.SetActive(true);
+            }
             cameraShots[i].trigger.Invoke();
             yield return new WaitForSeconds(cameraShots[i].time);
-            cameraShots[i].camera.SetActive(false);
+            if (cameraShots[i].camera != null)
+            {
+                cameraShots[i].camera.SetActive(false);
+            }
         }
     }
 }

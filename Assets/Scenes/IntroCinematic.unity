@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.070108265, g: 0.06689446, b: 0.065236285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -580,6 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279731923}
   - component: {fileID: 279731922}
+  - component: {fileID: 279731924}
   m_Layer: 0
   m_Name: Camera Manager
   m_TagString: Untagged
@@ -697,6 +698,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - camera: {fileID: 0}
+    time: 1
+    trigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 279731924}
+          m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+          m_MethodName: ChangeScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &279731923
 Transform:
   m_ObjectHideFlags: 0
@@ -712,6 +730,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279731924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279731921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbf8937513f99746862a75fd40e2184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Level 01
 --- !u!1 &336014834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2757,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8c0237acde5dd4408f6f16700565251, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9fbc18e1be4f5614f87819c7f633709f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
