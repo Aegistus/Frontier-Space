@@ -358,7 +358,7 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.377, z: 0.198}
   reloadRotation: {x: -15, y: 0, z: 0}
-  crouchingOffset: {x: 0.23799974, y: -0.926, z: 0.19799995}
+  crouchingOffset: {x: 0.23799974, y: -0.5, z: 0.19799995}
   crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &5968914447286862862
 MonoBehaviour:

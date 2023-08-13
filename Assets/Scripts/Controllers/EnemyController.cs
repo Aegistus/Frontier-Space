@@ -9,6 +9,8 @@ public class EnemyController : AgentController
     [SerializeField] Transform lookTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
+    [SerializeField] float reactionTimeMin = .5f;
+    [SerializeField] float reactionTimeMax = 1f;
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
     [Range(0f, 1f)]
@@ -176,6 +178,8 @@ public class EnemyController : AgentController
     class AttackingState : State
     {
         float attackTimer;
+        float reactionTimer;
+        float crouchChance;
 
         public AttackingState(EnemyController controller) : base(controller) { }
 
@@ -183,15 +187,22 @@ public class EnemyController : AgentController
         {
             print("Player detected");
             attackTimer = controller.attackBurstTime;
-            float rand = UnityEngine.Random.Range(0f, 1f);
-            if (rand <= controller.crouchWhileAttackingChance)
-            {
-                controller.Crouch = true;
-            }
+            reactionTimer = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
+            float crouchChance = UnityEngine.Random.Range(0f, 1f);
+
         }
 
         public override void During()
         {
+            if (reactionTimer > 0)
+            {
+                reactionTimer -= Time.deltaTime;
+                return;
+            }
+            if (crouchChance <= controller.crouchWhileAttackingChance)
+            {
+                controller.Crouch = true;
+            }
             if (controller.AttackTarget != null)
             {
                 controller.LookTarget.position = controller.AttackTarget.position;

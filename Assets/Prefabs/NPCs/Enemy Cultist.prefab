@@ -6411,6 +6411,8 @@ MonoBehaviour:
   lookTarget: {fileID: 755935597066495118}
   patrolNodes: []
   patrolling: 1
+  reactionTimeMin: 0.5
+  reactionTimeMax: 1
   attackBurstTime: 1
   attackWaitTime: 0.5
   crouchWhileAttackingChance: 0.5
@@ -6653,7 +6655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc394ad36f499f4e8d767bde0c67a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDetectionRadius: 1
+  minDetectionRadius: 4
   viewRadius: 20
   viewAngle: 180
   targetMask:
