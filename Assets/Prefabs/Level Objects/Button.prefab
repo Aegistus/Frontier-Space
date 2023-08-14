@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f326ce9807df44594af7f98d5c6837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Press Button
+  description: '[E] Press Button'
   OnPress:
     m_PersistentCalls:
       m_Calls: []
