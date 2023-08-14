@@ -62,7 +62,7 @@ public class HumanoidAnimator : MonoBehaviour
             anim.SetLayerWeight(upperBodyLayerIndex, 0);
         }
         int hash = fullBodyHashes[(int)fullBodyAnimation];
-        anim.CrossFade(hash, crossFadeTime);
+        anim.CrossFadeInFixedTime(hash, crossFadeTime);
         currentFullBodyState = fullBodyAnimation;
     }
 
@@ -74,7 +74,7 @@ public class HumanoidAnimator : MonoBehaviour
     {
         int hash = upperBodyHashes[(int)upperBodyAnimation];
         anim.SetLayerWeight(upperBodyLayerIndex, 1);
-        anim.CrossFade(hash, crossFadeTime, upperBodyLayerIndex);
+        anim.CrossFadeInFixedTime(hash, crossFadeTime, upperBodyLayerIndex);
     }
 
     public void SetAnimatorController(RuntimeAnimatorController controller)

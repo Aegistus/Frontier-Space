@@ -11,8 +11,11 @@ public class CaptionUI : MonoBehaviour
     private void Start()
     {
         DialogueManager manager = FindObjectOfType<DialogueManager>();
-        manager.OnDialogueStart += ShowCaptions;
-        manager.OnDialogueEnd += HideCaptions;
+        if (manager != null)
+        {
+            manager.OnDialogueStart += ShowCaptions;
+            manager.OnDialogueEnd += HideCaptions;
+        }
         HideCaptions();
     }
 
