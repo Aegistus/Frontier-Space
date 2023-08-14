@@ -100,6 +100,10 @@ public class Door : MonoBehaviour
             lights[i].color = lockedColor;
         }
         locked = true;
+        if (open)
+        {
+            CloseDoor();
+        }
     }
 
     public void Unlock()
@@ -129,12 +133,17 @@ public class Door : MonoBehaviour
         transitioning = true;
     }
 
+    public void SetAutomatic(bool automatic)
+    {
+        this.automatic = automatic;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        agentsWithinRange.Add(other);
-        if (automatic)
+        if (automatic && !locked)
         {
+            agentsWithinRange.Add(other);
             OpenDoor();
         }
     }
@@ -142,7 +151,7 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         agentsWithinRange.Remove(other);
-        if (automatic && agentsWithinRange.Count == 0)
+        if (automatic && agentsWithinRange.Count == 0 && !locked)
         {
             CloseDoor();
         }
