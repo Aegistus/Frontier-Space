@@ -5,15 +5,17 @@ using UnityEngine;
 public class PauseMenuUI : MonoBehaviour
 {
     [SerializeField] GameObject menu;
+    [SerializeField] GameObject settings;
 
     private void Awake()
     {
         menu.SetActive(false);
+        settings.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
         {
             PauseGame();
         }
@@ -39,4 +41,17 @@ public class PauseMenuUI : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OpenSettings()
+    {
+        settings.SetActive(true);
+        menu.SetActive(false);
+    }
+
+    public void CloseSettings()
+    {
+        settings.SetActive(false);
+        menu.SetActive(true);
+    }
+
 }

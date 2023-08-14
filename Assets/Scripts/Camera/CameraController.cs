@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static float mouseSensitivityGlobal = 1;
+
     [SerializeField] Transform head;
     [SerializeField] Transform playerLookTarget;
     public float mouseSensitivity = 1f;
@@ -44,8 +46,8 @@ public class CameraController : MonoBehaviour
     float mouseY;
     private void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
-        mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
+        mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity * mouseSensitivityGlobal;
+        mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity * mouseSensitivityGlobal;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -70f, 85f);
