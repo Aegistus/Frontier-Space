@@ -15,7 +15,7 @@ public class FieldOfView : MonoBehaviour
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
 	PlayerController player;
@@ -23,7 +23,7 @@ public class FieldOfView : MonoBehaviour
 	void Start()
 	{
 		player = FindObjectOfType<PlayerController>();
-		StartCoroutine("FindTargetsWithDelay", .2f);
+		StartCoroutine("FindTargetsWithDelay", .1f);
 	}
 
 

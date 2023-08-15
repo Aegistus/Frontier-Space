@@ -6411,6 +6411,9 @@ MonoBehaviour:
   lookTarget: {fileID: 755935597066495118}
   patrolNodes: []
   patrolling: 1
+  onGuard: 0
+  onGuardFOVAngle: 270
+  onGuardFOVMinimumRange: 5
   reactionTimeMin: 0.5
   reactionTimeMax: 1
   attackBurstTime: 1
@@ -6521,7 +6524,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 755935596990909202}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
@@ -6655,8 +6658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc394ad36f499f4e8d767bde0c67a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDetectionRadius: 4
-  viewRadius: 20
+  minDetectionRadius: 3
+  viewRadius: 30
   viewAngle: 180
   targetMask:
     serializedVersion: 2

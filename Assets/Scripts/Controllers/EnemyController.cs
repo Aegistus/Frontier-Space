@@ -9,6 +9,9 @@ public class EnemyController : AgentController
     [SerializeField] Transform lookTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
+    [SerializeField] bool onGuard;
+    [SerializeField] float onGuardFOVAngle = 270f;
+    [SerializeField] float onGuardFOVMinimumRange = 10f;
     [SerializeField] float reactionTimeMin = .5f;
     [SerializeField] float reactionTimeMax = 1f;
     [SerializeField] float attackBurstTime = 2f;
@@ -27,6 +30,7 @@ public class EnemyController : AgentController
     Vector3 heightOffset = Vector3.up;
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
     Vector3 playerLastLocation;
+    bool resetCrouchChance = false;
 
     FieldOfView fov;
     AgentEquipment equipment;
@@ -87,6 +91,13 @@ public class EnemyController : AgentController
                 Gizmos.DrawSphere(navAgent.path.corners[0], .4f);
             }
         }
+    }
+
+    public void GoOnGuard()
+    {
+        onGuard = true;
+        fov.minDetectionRadius = onGuardFOVMinimumRange;
+        fov.viewAngle = onGuardFOVAngle;
     }
 
     abstract class State
@@ -187,13 +198,27 @@ public class EnemyController : AgentController
         {
             print("Player detected");
             attackTimer = controller.attackBurstTime;
-            reactionTimer = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
-            float crouchChance = UnityEngine.Random.Range(0f, 1f);
-
+            controller.Forwards = false;
+            if (!controller.onGuard)
+            {
+                reactionTimer = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
+            }
+            else
+            {
+                reactionTimer = 0;
+            }
+            if (controller.resetCrouchChance)
+            {
+                crouchChance = UnityEngine.Random.Range(0f, 1f);
+            }
         }
 
         public override void During()
         {
+            if (controller.AttackTarget != null)
+            {
+                controller.LookTarget.position = controller.AttackTarget.position;
+            }
             if (reactionTimer > 0)
             {
                 reactionTimer -= Time.deltaTime;
@@ -202,10 +227,6 @@ public class EnemyController : AgentController
             if (crouchChance <= controller.crouchWhileAttackingChance)
             {
                 controller.Crouch = true;
-            }
-            if (controller.AttackTarget != null)
-            {
-                controller.LookTarget.position = controller.AttackTarget.position;
             }
             controller.Attack = true;
             attackTimer -= Time.deltaTime;
@@ -243,11 +264,16 @@ public class EnemyController : AgentController
         public override void Before()
         {
             waitTimer = controller.attackWaitTime;
+            controller.Forwards = false;
         }
 
         public override void During()
         {
             waitTimer -= Time.deltaTime;
+            if (controller.AttackTarget != null)
+            {
+                controller.LookTarget.position = controller.AttackTarget.position;
+            }
         }
 
         public override Type CheckTransitions()
@@ -297,6 +323,8 @@ public class EnemyController : AgentController
             print("Chasing");
             navAgent.SetDestination(controller.playerLastLocation);
             controller.Attack = false;
+            controller.Crouch = false;
+            controller.resetCrouchChance = true;
         }
 
         public override void During()
