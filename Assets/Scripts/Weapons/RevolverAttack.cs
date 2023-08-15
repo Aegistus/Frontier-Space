@@ -13,7 +13,7 @@ public class RevolverAttack : RangedWeaponAttack
 
     private void Start()
     {
-        shootSoundID = SoundManager.Instance.GetSoundID("PlasmaRifle_Shoot");
+        shootSoundID = SoundManager.Instance.GetSoundID("Revolver_Shoot");
     }
 
     public override void BeginAttack()

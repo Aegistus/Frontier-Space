@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345591285024851512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.088}
-  m_LocalScale: {x: 3, y: 3, z: 0.75}
+  m_LocalPosition: {x: 0, y: 0, z: -0.311}
+  m_LocalScale: {x: 3.7689, y: 3.7689, z: 0.44704613}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4388207139737755039}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e679bbf419f9e4b46b4b92d082ee9f3c, type: 2}
+  - {fileID: 2100000, guid: e0da8818e32d1dc439b715a82090f2c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4388207139737755039}
   - component: {fileID: 4388207139737755038}
   m_Layer: 0
-  m_Name: Plasma Shot
+  m_Name: Revolver Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b9322af1c30a47aff4d42d0b81c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  impactEffectName: Plasma_Impact
+  speed: 75
+  impactEffectName: Revolver_Impact
   mask:
     serializedVersion: 2
     m_Bits: 1279

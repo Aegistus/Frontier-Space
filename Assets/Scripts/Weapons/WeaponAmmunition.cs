@@ -4,18 +4,19 @@ using UnityEngine;
 
 public abstract class WeaponAmmunition : MonoBehaviour
 {
-    [SerializeField] int maxLoadedAmmo = 10;
-    [SerializeField] int maxCarriedAmmo = 100;
-    [SerializeField] float reloadTime = 2f;
+    [SerializeField] protected string reloadSound;
+    [SerializeField] protected int maxLoadedAmmo = 10;
+    [SerializeField] protected int maxCarriedAmmo = 100;
+    [SerializeField] protected float reloadTime = 2f;
 
     public int MaxLoadedAmmo => maxLoadedAmmo;
     public int CurrentLoadedAmmo => currentLoadedAmmo;
     public int CurrentCarriedAmmo => currentCarriedAmmo;
-    public bool Reloading { get; private set; }
+    public bool Reloading { get; protected set; }
 
-    int currentLoadedAmmo;
-    int currentCarriedAmmo;
-    int reloadSoundID;
+    protected int currentLoadedAmmo;
+    protected int currentCarriedAmmo;
+    protected int reloadSoundID;
 
     protected virtual void Awake()
     {
@@ -25,7 +26,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
 
     private void Start()
     {
-        reloadSoundID = SoundManager.Instance.GetSoundID("PlasmaRifle_Reload");
+        reloadSoundID = SoundManager.Instance.GetSoundID(reloadSound);
     }
 
     public bool TryUseAmmo()
@@ -49,13 +50,13 @@ public abstract class WeaponAmmunition : MonoBehaviour
             return false;
         }
         StartCoroutine(ReloadCoroutine());
-        SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         return true;
     }
 
     protected virtual IEnumerator ReloadCoroutine()
     {
         Reloading = true;
+        SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         yield return new WaitForSeconds(reloadTime);
         int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
 
@@ -70,7 +71,6 @@ public abstract class WeaponAmmunition : MonoBehaviour
             currentCarriedAmmo -= ammoNeeded;
         }
         Reloading = false;
-
     }
 
 }

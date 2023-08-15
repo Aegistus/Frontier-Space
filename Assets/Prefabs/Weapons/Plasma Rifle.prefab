@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMin: 10
   damageMax: 20
-  projectileID: AR_Bullet
+  projectileID: PlasmaRifle_Bullet
   projectileSpawnPoint: {fileID: 5968914447583228423}
   weaponModel: {fileID: 5927610815098219122}
   recoilXRotation: 2
@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e2e53f93e785489425efc389a442b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadSound: PlasmaRifle_Reload
   maxLoadedAmmo: 30
   maxCarriedAmmo: 90
   reloadTime: 3.3

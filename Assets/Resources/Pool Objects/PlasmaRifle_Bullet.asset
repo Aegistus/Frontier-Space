@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1d2a027e915b674a8078208577c6cd5, type: 3}
-  m_Name: AR_Bullet
+  m_Name: PlasmaRifle_Bullet
   m_EditorClassIdentifier: 
   prefab: {fileID: 4388207139737755036, guid: bb866a512fc1b0b4d8442a061fcb9811, type: 3}
   instanceCount: 1000
