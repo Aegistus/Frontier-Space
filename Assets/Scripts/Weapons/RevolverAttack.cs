@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssaultRifleAttack : RangedWeaponAttack
+public class RevolverAttack : RangedWeaponAttack
 {
-    [SerializeField] float roundsPerMinute = 120f;
-
-    float shotDelay;
-    float timer = 0f;
     int shootSoundID;
 
     protected override void Awake()
     {
         base.Awake();
-        shotDelay = 60 / roundsPerMinute;
     }
 
     private void Start()
@@ -24,17 +19,11 @@ public class AssaultRifleAttack : RangedWeaponAttack
     public override void BeginAttack()
     {
         SpawnProjectile();
-        timer = 0f;
     }
 
     public override void DuringAttack()
     {
-        timer += Time.deltaTime;
-        if (timer >= shotDelay)
-        {
-            SpawnProjectile();
-            timer = 0f;
-        }
+
     }
 
     public override void EndAttack()
