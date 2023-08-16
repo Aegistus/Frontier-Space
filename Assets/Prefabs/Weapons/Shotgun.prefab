@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af719059a0cf60141b31022332479414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMin: 10
-  damageMax: 20
+  damageMin: 5
+  damageMax: 10
   projectileID: Shotgun_Shot
   projectileSpawnPoint: {fileID: 903542490932962234}
   weaponModel: {fileID: 4803639551982763769}

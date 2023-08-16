@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961897112954740133}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.1250103, y: 1.0577763, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -262,6 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659ec01685f2f7944873f40022780ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDoorOpen:
+    m_PersistentCalls:
+      m_Calls: []
   doorTransform: {fileID: 3958102828553314731}
   lights:
   - {fileID: 325238630326897498}
@@ -412,6 +415,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tangents.Array.data[55].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.20592618
       objectReference: {fileID: 0}
     - target: {fileID: 6956501727320678783, guid: 78cdc07f693c04248b613032a1b1a3b2,
         type: 3}
@@ -564,6 +577,16 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[55].z
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.20592618
+      objectReference: {fileID: 0}
     - target: {fileID: 6956501727320678783, guid: 78cdc07f693c04248b613032a1b1a3b2,
         type: 3}
       propertyPath: m_Mesh
@@ -715,6 +738,16 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[55].z
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.20592618
+      objectReference: {fileID: 0}
     - target: {fileID: 6956501727320678783, guid: 78cdc07f693c04248b613032a1b1a3b2,
         type: 3}
       propertyPath: m_Mesh
@@ -865,6 +898,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tangents.Array.data[55].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731088136723073061, guid: 78cdc07f693c04248b613032a1b1a3b2,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.20592618
       objectReference: {fileID: 0}
     - target: {fileID: 6956501727320678783, guid: 78cdc07f693c04248b613032a1b1a3b2,
         type: 3}
