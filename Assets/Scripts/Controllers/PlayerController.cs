@@ -13,6 +13,10 @@ public class PlayerController : AgentController
 
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         Forwards = Input.GetKey(KeyCode.W);
         Backwards = Input.GetKey(KeyCode.S);
         Left = Input.GetKey(KeyCode.A);
