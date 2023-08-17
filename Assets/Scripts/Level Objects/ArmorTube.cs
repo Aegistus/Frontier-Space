@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ArmorTube : MonoBehaviour, IInteractable
 {
-    public string Description => "Equip Armor";
+    public string Description => "[E] Equip Armor";
     public UnityEvent OnEquip;
 
     public void Interact()
