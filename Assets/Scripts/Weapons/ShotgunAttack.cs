@@ -5,6 +5,12 @@ using UnityEngine;
 public class ShotgunAttack : RangedWeaponAttack
 {
     [SerializeField] Vector3 spreadRotation;
+    [SerializeField] Transform pump;
+    [SerializeField] Vector3 pumpRestPosition;
+    [SerializeField] Vector3 pumpedPosition;
+    [SerializeField] float pumpStartDelay = .5f;
+    [SerializeField] float pumpSpeed;
+
     int shootSoundID;
     int pelletCount = 10;
     float pumpDelay = .75f;
@@ -54,6 +60,26 @@ public class ShotgunAttack : RangedWeaponAttack
             ApplyRecoil();
             SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
             timer = pumpDelay;
+            StartCoroutine(Pump());
+        }
+    }
+
+    IEnumerator Pump()
+    {
+        yield return new WaitForSeconds(pumpStartDelay);
+        SoundManager.Instance.PlaySoundAtPosition(SoundManager.Instance.GetSoundID("Shotgun_Pump"), transform.position);
+        float pumpTimer = 0;
+        while (pumpTimer < pumpDelay / 2)
+        {
+            pump.localPosition = Vector3.Lerp(pump.localPosition, pumpedPosition, Time.deltaTime * pumpSpeed);
+            yield return null;
+            pumpTimer += Time.deltaTime;
+        }
+        while (pumpTimer < pumpDelay)
+        {
+            pump.localPosition = Vector3.Lerp(pump.localPosition, pumpRestPosition, Time.deltaTime * pumpSpeed);
+            yield return null;
+            pumpTimer += Time.deltaTime;
         }
     }
 
