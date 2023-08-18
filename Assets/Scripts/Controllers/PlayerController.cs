@@ -29,6 +29,8 @@ public class PlayerController : AgentController
         Aim = Input.GetMouseButton(1);
         Interact = Input.GetKeyDown(KeyCode.E);
         Reload = Input.GetKeyDown(KeyCode.R);
+        SwitchWeapon = Input.mouseScrollDelta.y != 0;
+
         transform.LookAt(LookTarget);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }

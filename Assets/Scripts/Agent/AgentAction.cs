@@ -5,13 +5,14 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact, AimAttack, Reload
+    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon
 }
 
 public class AgentAction : MonoBehaviour
 {
     [SerializeField] Transform lookTransform;
     [SerializeField] float interactDistance = 2f;
+    [SerializeField] float switchWeaponTime = .5f;
 
     public event Action<ActionState> OnStateChange;
     public static float InteractDistance { get; private set; }
@@ -32,6 +33,7 @@ public class AgentAction : MonoBehaviour
         { typeof(AimAttackState), ActionState.AimAttack },
         { typeof(ReloadState), ActionState.Reload },
         { typeof(InteractState), ActionState.Interact },
+        { typeof(SwitchWeaponState), ActionState.SwitchWeapon },
     };
 
     private void Awake()
@@ -49,6 +51,7 @@ public class AgentAction : MonoBehaviour
             { typeof(AimAttackState), new AimAttackState(this) },
             { typeof(InteractState), new InteractState(this) },
             { typeof(ReloadState), new ReloadState(this) },
+            { typeof(SwitchWeaponState), new SwitchWeaponState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
         InteractDistance = interactDistance;
@@ -127,6 +130,10 @@ public class AgentAction : MonoBehaviour
             if (action.controller.Interact)
             {
                 return typeof(InteractState);
+            }
+            if (action.controller.SwitchWeapon)
+            {
+                return typeof(SwitchWeaponState);
             }
 
             return null;
@@ -276,6 +283,38 @@ public class AgentAction : MonoBehaviour
         public override Type CheckTransitions()
         {
             if (!successful || !action.equipment.CurrentWeaponAmmunition.Reloading)
+            {
+                return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class SwitchWeaponState : State
+    {
+        bool failure;
+        float timer = 0f;
+
+        public SwitchWeaponState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            timer = 0f;
+            failure = action.equipment.TrySwitchWeapon();
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (failure)
+            {
+                return typeof(IdleState);
+            }
+            if (timer >= action.switchWeaponTime)
             {
                 return typeof(IdleState);
             }

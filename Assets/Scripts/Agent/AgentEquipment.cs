@@ -83,6 +83,7 @@ public class AgentEquipment : MonoBehaviour
     public void Equip(Weapon weapon)
     {
         currentWeapon = weapon;
+        currentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
@@ -143,6 +144,25 @@ public class AgentEquipment : MonoBehaviour
         Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
         weaponRB.isKinematic = false;
         currentWeapon = null;
+    }
+
+    public bool TrySwitchWeapon()
+    {
+        if (secondaryWeapon == null)
+        {
+            return false;
+        }
+        if (currentWeapon == primaryWeapon)
+        {
+            UnEquip(primaryWeapon);
+            Equip(secondaryWeapon);
+        }
+        else
+        {
+            UnEquip(secondaryWeapon);
+            Equip(primaryWeapon);
+        }
+        return true;
     }
 
 }
