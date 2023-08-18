@@ -404,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 5968914447315480754, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7146412990199878072, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -9339,16 +9339,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 12.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 903542490611176886, guid: dfe83d7f051c4e44f98969814b419e4e,
-        type: 3}
-      propertyPath: pumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 903542490611176886, guid: dfe83d7f051c4e44f98969814b419e4e,
-        type: 3}
-      propertyPath: pumpStartDelay
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 903542490611176887, guid: dfe83d7f051c4e44f98969814b419e4e,
         type: 3}

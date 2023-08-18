@@ -15,14 +15,16 @@ public class AgentEquipment : MonoBehaviour
 
     public event Action OnWeaponChange;
 
-    public bool HasWeaponEquipped => CurrentWeapon != null;
-    public WeaponAttack CurrentWeaponAttack { get; private set; }
-    public WeaponAmmunition CurrentWeaponAmmunition { get; private set; }
-    GameObject CurrentWeapon { get; set; }
-    public Holdable CurrentHoldable { get; set; }
+    public bool HasWeaponEquipped => CurrentWeaponGO != null;
+    public WeaponAttack CurrentWeaponAttack => currentWeapon?.attack;
+    public WeaponAmmunition CurrentWeaponAmmunition => currentWeapon?.ammo;
+    GameObject CurrentWeaponGO => currentWeapon?.gameObject;
+    public Holdable CurrentHoldable => currentWeapon?.holdable;
 
-    WeaponAnimation primaryWeapon;
-    WeaponAnimation secondaryWeapon;
+    Weapon currentWeapon;
+
+    Weapon primaryWeapon;
+    Weapon secondaryWeapon;
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
@@ -30,29 +32,67 @@ public class AgentEquipment : MonoBehaviour
     Vector3 targetPosition;
     Quaternion targetRotation;
 
+    public class Weapon
+    {
+        public WeaponAnimation animation;
+        public WeaponAttack attack;
+        public WeaponAmmunition ammo;
+        public GameObject gameObject;
+        public Holdable holdable;
+    }
+
     private void Start()
     {
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
-        primaryWeapon = GetComponentInChildren<WeaponAnimation>();
-        if (primaryWeapon)
+        WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
+        if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
+        {
+            primaryWeapon = new Weapon
+            {
+                attack = weaponAttacks[0],
+                gameObject = weaponAttacks[0].gameObject,
+
+            };
+            primaryWeapon.ammo = primaryWeapon.gameObject.GetComponent<WeaponAmmunition>();
+            primaryWeapon.animation = primaryWeapon.gameObject.GetComponent<WeaponAnimation>();
+            primaryWeapon.holdable = primaryWeapon.gameObject.GetComponent<Holdable>();
+        }
+        if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
+        {
+            secondaryWeapon = new Weapon
+            {
+                attack = weaponAttacks[1],
+                gameObject = weaponAttacks[1].gameObject,
+            };
+            secondaryWeapon.ammo = secondaryWeapon.gameObject.GetComponent<WeaponAmmunition>();
+            secondaryWeapon.animation = secondaryWeapon.gameObject.GetComponent<WeaponAnimation>();
+            secondaryWeapon.holdable = secondaryWeapon.gameObject.GetComponent<Holdable>();
+        }
+        if (primaryWeapon != null)
         {
             Equip(primaryWeapon);
             SetWeaponOffset(WeaponOffset.Idle);
         }
+        if (secondaryWeapon != null)
+        {
+            UnEquip(secondaryWeapon);
+        }
     }
 
-    public void Equip(WeaponAnimation weapon)
+    public void Equip(Weapon weapon)
     {
-        CurrentHoldable = weapon.GetComponent<Holdable>();
-        weapon.transform.SetParent(weaponHoldTarget);
+        currentWeapon = weapon;
+        weapon.gameObject.transform.SetParent(weaponHoldTarget);
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
-        humanAnim.SetAnimatorController(weapon.AnimationSet);
-        CurrentWeaponAttack = weapon.GetComponent<WeaponAttack>();
-        CurrentWeaponAmmunition = weapon.GetComponent<WeaponAmmunition>();
-        CurrentWeapon = weapon.gameObject;
+        humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         OnWeaponChange?.Invoke();
+    }
+
+    public void UnEquip(Weapon weapon)
+    {
+        weapon.gameObject.SetActive(false);
     }
 
     public void SetWeaponOffset(WeaponOffset offsetType)
@@ -90,22 +130,19 @@ public class AgentEquipment : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentWeapon)
+        if (CurrentWeaponGO)
         {
-            CurrentWeapon.transform.localRotation = Quaternion.Lerp(CurrentWeapon.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
-            CurrentWeapon.transform.localPosition = Vector3.Lerp(CurrentWeapon.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
+            CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
+            CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
         }
     }
 
     public void DropWeapon()
     {
-        CurrentWeapon.transform.SetParent(null, true);
-        Rigidbody weaponRB = CurrentWeapon.GetComponent<Rigidbody>();
+        CurrentWeaponGO.transform.SetParent(null, true);
+        Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
         weaponRB.isKinematic = false;
-        CurrentWeapon = null;
-        CurrentHoldable = null;
-        CurrentWeaponAttack = null;
-        CurrentWeaponAmmunition = null;
+        currentWeapon = null;
     }
 
 }
