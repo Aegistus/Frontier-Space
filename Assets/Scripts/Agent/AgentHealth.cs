@@ -128,6 +128,16 @@ public class AgentHealth : MonoBehaviour
         OnHealthChange?.Invoke();
     }
 
+    public void Heal(float healing)
+    {
+        currentHealth += healing;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        OnHealthChange?.Invoke();
+    }
+
     public void Kill()
     {
         isDead = true;
