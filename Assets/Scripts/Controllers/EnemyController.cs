@@ -60,7 +60,7 @@ public class EnemyController : AgentController
             { typeof(ChasingState), new ChasingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
-        GetComponent<AgentHealth>().OnAgentDeath += () => enabled = false;
+        GetComponent<AgentHealth>().OnAgentDeath += OnDeath;
     }
 
     private void Update()
@@ -79,6 +79,12 @@ public class EnemyController : AgentController
         {
             playerLastLocation = AttackTarget.position;
         }
+    }
+
+    void OnDeath()
+    {
+        GetComponent<AgentMovement>().enabled = false;
+        enabled = false;
     }
 
 

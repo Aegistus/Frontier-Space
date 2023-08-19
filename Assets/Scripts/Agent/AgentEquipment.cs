@@ -16,6 +16,7 @@ public class AgentEquipment : MonoBehaviour
     public event Action OnWeaponChange;
 
     public bool HasWeaponEquipped => CurrentWeaponGO != null;
+    public bool HasTwoWeapons => primaryWeapon != null && secondaryWeapon != null;
     public WeaponAttack CurrentWeaponAttack => currentWeapon?.attack;
     public WeaponAmmunition CurrentWeaponAmmunition => currentWeapon?.ammo;
     GameObject CurrentWeaponGO => currentWeapon?.gameObject;
@@ -156,10 +157,6 @@ public class AgentEquipment : MonoBehaviour
 
     public void DropWeapon()
     {
-        if (secondaryWeapon == null) // don't drop the current weapon if you don't have a secondary.
-        {
-            return;
-        }
         if (currentWeapon != null)
         {
             if (currentWeapon == primaryWeapon)

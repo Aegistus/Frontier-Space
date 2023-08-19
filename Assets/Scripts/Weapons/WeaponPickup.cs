@@ -11,7 +11,10 @@ public class WeaponPickup : MonoBehaviour, IInteractable
     public void Interact(GameObject interactor)
     {
         AgentEquipment equipment = interactor.GetComponent<AgentEquipment>();
-        equipment.DropWeapon();
+        if (equipment.HasTwoWeapons)
+        {
+            equipment.DropWeapon();
+        }
         equipment.PickupWeapon(gameObject);
     }
 }
