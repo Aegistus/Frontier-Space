@@ -480,8 +480,7 @@ MonoBehaviour:
   OnDoorOpen:
     m_PersistentCalls:
       m_Calls: []
-  doorTransform: {fileID: 3958102828553314731, guid: 7281dfc733170ad40875b39a8550ac19,
-    type: 3}
+  doorTransform: {fileID: 1761282695741412250}
   lights:
   - {fileID: 325238630326897498, guid: 7281dfc733170ad40875b39a8550ac19, type: 3}
   - {fileID: 7847087001798550084, guid: 7281dfc733170ad40875b39a8550ac19, type: 3}

@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
     int openEndSoundID;
     PositionalAudioSource doorOpenAudioSource;
 
-    readonly float positionalTolerance = .1f;
+    readonly float positionalTolerance = .01f;
 
     private void Awake()
     {
