@@ -194,4 +194,16 @@ public class AgentEquipment : MonoBehaviour
         return true;
     }
 
+    public void RefillPercentAmmoAllWeapons(float percent)
+    {
+        if (primaryWeapon != null)
+        {
+            primaryWeapon.ammo.AddAmmo((int)(primaryWeapon.ammo.MaxCarriedAmmo * percent));
+        }
+        if (secondaryWeapon != null)
+        {
+            secondaryWeapon.ammo.AddAmmo((int)(secondaryWeapon.ammo.MaxCarriedAmmo * percent));
+        }
+    }
+
 }

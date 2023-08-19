@@ -10,6 +10,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     [SerializeField] protected float reloadTime = 2f;
 
     public int MaxLoadedAmmo => maxLoadedAmmo;
+    public int MaxCarriedAmmo => maxCarriedAmmo;
     public int CurrentLoadedAmmo => currentLoadedAmmo;
     public int CurrentCarriedAmmo => currentCarriedAmmo;
     public bool Reloading { get; protected set; }
@@ -21,7 +22,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     protected virtual void Awake()
     {
         currentLoadedAmmo = maxLoadedAmmo;
-        currentCarriedAmmo = maxCarriedAmmo;
+        currentCarriedAmmo = 0;
     }
 
     private void Start()
@@ -71,6 +72,15 @@ public abstract class WeaponAmmunition : MonoBehaviour
             currentCarriedAmmo -= ammoNeeded;
         }
         Reloading = false;
+    }
+
+    public void AddAmmo(int amount)
+    {
+        currentCarriedAmmo += amount;
+        if (currentCarriedAmmo > maxCarriedAmmo)
+        {
+            currentCarriedAmmo = maxCarriedAmmo;
+        }
     }
 
 }
