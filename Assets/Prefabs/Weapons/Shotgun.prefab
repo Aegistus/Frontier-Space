@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 903542490611176882}
   - component: {fileID: 903542490611176886}
   - component: {fileID: 7091256394157525981}
+  - component: {fileID: 8912309505800456049}
   - component: {fileID: 3769127772559846253}
   - component: {fileID: 9101731673036362355}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +118,19 @@ MonoBehaviour:
   maxLoadedAmmo: 8
   maxCarriedAmmo: 40
   reloadTime: 0.5
+--- !u!114 &8912309505800456049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903542490611176887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8c2b7b7d951094abcc74906f5a403e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: '[E] Pickup Shotgun'
 --- !u!65 &3769127772559846253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903542490630963386}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Right Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903542490932962234}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903542491887786244}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Left Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +264,7 @@ GameObject:
   - component: {fileID: 4726430426660112643}
   - component: {fileID: 4755691778579841221}
   - component: {fileID: 4743046502868832473}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: SMART Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +347,7 @@ GameObject:
   - component: {fileID: 4803463140929950493}
   - component: {fileID: 4813545321600011053}
   - component: {fileID: 4822611863961446829}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +431,7 @@ GameObject:
   - component: {fileID: 4803639551982763769}
   - component: {fileID: 4809955524193446195}
   - component: {fileID: 4822506649979425473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +519,7 @@ GameObject:
   - component: {fileID: 4803225476149862475}
   - component: {fileID: 4814317483262402929}
   - component: {fileID: 4821680028855184625}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Wep_Shotgun_Plasma_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

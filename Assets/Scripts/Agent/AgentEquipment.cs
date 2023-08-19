@@ -34,11 +34,20 @@ public class AgentEquipment : MonoBehaviour
 
     public class Weapon
     {
+        public GameObject gameObject;
         public WeaponAnimation animation;
         public WeaponAttack attack;
         public WeaponAmmunition ammo;
-        public GameObject gameObject;
         public Holdable holdable;
+
+        public Weapon(GameObject gameObject)
+        {
+            this.gameObject = gameObject;
+            attack = gameObject.GetComponent<WeaponAttack>();
+            animation = gameObject.GetComponent<WeaponAnimation>();
+            ammo = gameObject.GetComponent<WeaponAmmunition>();
+            holdable = gameObject.GetComponent<Holdable>();
+        }
     }
 
     private void Start()
@@ -48,31 +57,15 @@ public class AgentEquipment : MonoBehaviour
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
-            primaryWeapon = new Weapon
-            {
-                attack = weaponAttacks[0],
-                gameObject = weaponAttacks[0].gameObject,
-
-            };
-            primaryWeapon.ammo = primaryWeapon.gameObject.GetComponent<WeaponAmmunition>();
-            primaryWeapon.animation = primaryWeapon.gameObject.GetComponent<WeaponAnimation>();
-            primaryWeapon.holdable = primaryWeapon.gameObject.GetComponent<Holdable>();
+            primaryWeapon = new Weapon(weaponAttacks[0].gameObject);
         }
         if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
         {
-            secondaryWeapon = new Weapon
-            {
-                attack = weaponAttacks[1],
-                gameObject = weaponAttacks[1].gameObject,
-            };
-            secondaryWeapon.ammo = secondaryWeapon.gameObject.GetComponent<WeaponAmmunition>();
-            secondaryWeapon.animation = secondaryWeapon.gameObject.GetComponent<WeaponAnimation>();
-            secondaryWeapon.holdable = secondaryWeapon.gameObject.GetComponent<Holdable>();
+            secondaryWeapon = new Weapon(weaponAttacks[1].gameObject);
         }
         if (primaryWeapon != null)
         {
             Equip(primaryWeapon);
-            SetWeaponOffset(WeaponOffset.Idle);
         }
         if (secondaryWeapon != null)
         {
@@ -88,6 +81,7 @@ public class AgentEquipment : MonoBehaviour
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
+        SetWeaponOffset(WeaponOffset.Idle);
         OnWeaponChange?.Invoke();
     }
 
@@ -138,12 +132,50 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
+    public void PickupWeapon(GameObject weaponGO)
+    {
+        weaponGO.transform.SetParent(weaponHoldTarget);
+        Rigidbody weaponRB = weaponGO.GetComponent<Rigidbody>();
+        weaponRB.isKinematic = true;
+        Weapon newWeapon = new Weapon(weaponGO);
+        weaponGO.GetComponent<BoxCollider>().enabled = false;
+        if (primaryWeapon == null)
+        {
+            primaryWeapon = newWeapon;
+        }
+        else if (secondaryWeapon == null)
+        {
+            secondaryWeapon = newWeapon;
+        }
+        if (currentWeapon != null)
+        {
+            UnEquip(currentWeapon);
+        }
+        Equip(newWeapon);
+    }
+
     public void DropWeapon()
     {
-        CurrentWeaponGO.transform.SetParent(null, true);
-        Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
-        weaponRB.isKinematic = false;
-        currentWeapon = null;
+        if (secondaryWeapon == null) // don't drop the current weapon if you don't have a secondary.
+        {
+            return;
+        }
+        if (currentWeapon != null)
+        {
+            if (currentWeapon == primaryWeapon)
+            {
+                primaryWeapon = null;
+            }
+            else
+            {
+                secondaryWeapon = null;
+            }
+            CurrentWeaponGO.transform.SetParent(null, true);
+            Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
+            weaponRB.isKinematic = false;
+            CurrentWeaponGO.GetComponent<BoxCollider>().enabled = true;
+            currentWeapon = null;
+        }
     }
 
     public bool TrySwitchWeapon()

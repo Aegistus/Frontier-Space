@@ -8,7 +8,7 @@ public class ArmorTube : MonoBehaviour, IInteractable
     public string Description => "[E] Equip Armor";
     public UnityEvent OnEquip;
 
-    public void Interact()
+    public void Interact(GameObject _)
     {
         OnEquip.Invoke();
     }

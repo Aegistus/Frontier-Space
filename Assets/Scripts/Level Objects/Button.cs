@@ -17,7 +17,7 @@ public class Button : MonoBehaviour, IInteractable
         soundID = SoundManager.Instance.GetSoundID("Button_Press");
     }
 
-    public void Interact()
+    public void Interact(GameObject _)
     {
         OnPress.Invoke();
         SoundManager.Instance.PlaySoundGlobal(soundID);

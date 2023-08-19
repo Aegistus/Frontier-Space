@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2439607442577985955}
   - component: {fileID: 2430821464518337759}
   - component: {fileID: 2422630998736734597}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Wep_Revolver_Hammer_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2433541830542806387}
   - component: {fileID: 2431336128726935187}
   - component: {fileID: 2422579370755533301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Wep_Revolver_Cylinder_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2433189302783207149}
   - component: {fileID: 2431715174358677289}
   - component: {fileID: 2422639697012704793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Wep_Revolver_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2439405729449796811}
   - component: {fileID: 2431011078893215193}
   - component: {fileID: 2422456652962722943}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2595385096538879513}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2595385096773752089}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Right Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,9 +414,10 @@ GameObject:
   - component: {fileID: 2595385096786984977}
   - component: {fileID: 2595385096786984976}
   - component: {fileID: 5397454183550361214}
+  - component: {fileID: 7808938219207888765}
   - component: {fileID: 2071671601747738318}
   - component: {fileID: 6251409007560099792}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,6 +513,19 @@ MonoBehaviour:
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
   reloadTime: 0.5
+--- !u!114 &7808938219207888765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595385096786984980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8c2b7b7d951094abcc74906f5a403e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: '[E] Pickup Revolver'
 --- !u!65 &2071671601747738318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -550,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2595385097393556647}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Left Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +597,7 @@ GameObject:
   - component: {fileID: 7573093642997439648}
   - component: {fileID: 7597910795324904806}
   - component: {fileID: 7591943411438634362}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: SMART Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

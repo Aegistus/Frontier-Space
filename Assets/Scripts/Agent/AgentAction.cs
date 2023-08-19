@@ -249,7 +249,7 @@ public class AgentAction : MonoBehaviour
             if (rayHit.collider != null)
             {
                 IInteractable interactable = rayHit.collider.GetComponentInChildren<IInteractable>();
-                interactable?.Interact();
+                interactable?.Interact(gameObject);
             }
         }
 
