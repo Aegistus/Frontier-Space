@@ -122,13 +122,13 @@ public class AgentHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            Die();
+            Kill();
             return;
         }
         OnHealthChange?.Invoke();
     }
 
-    void Die()
+    public void Kill()
     {
         isDead = true;
         ragdoll.EnableRagdoll();
