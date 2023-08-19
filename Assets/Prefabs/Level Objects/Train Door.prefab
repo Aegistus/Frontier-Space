@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402229447146508275}
+  - component: {fileID: 5631578801410447882}
+  - component: {fileID: 7711940469824833791}
   m_Layer: 0
   m_Name: Train Door
   m_TagString: Untagged
@@ -37,6 +39,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5631578801410447882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181197048477694196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659ec01685f2f7944873f40022780ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDoorOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  doorTransform: {fileID: 1346183802679518321}
+  lights: []
+  unlockedColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedColor: {r: 0, g: 0, b: 0, a: 0}
+  closedPosition: {x: -2.0851746, y: 1.2162743, z: 0.14837947}
+  openPosition: {x: -1.3351746, y: 1.2162743, z: 0.14837888}
+  doorMoveSpeed: 3
+  open: 0
+  automatic: 1
+  locked: 0
+  openSoundName: Door_Open
+  openEndSoundName: 
+--- !u!114 &7711940469824833791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181197048477694196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659ec01685f2f7944873f40022780ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDoorOpen:
+    m_PersistentCalls:
+      m_Calls: []
+  doorTransform: {fileID: 1346726953080682557}
+  lights: []
+  unlockedColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedColor: {r: 0, g: 0, b: 0, a: 0}
+  closedPosition: {x: -2.953069, y: 1.2162743, z: 0.14837408}
+  openPosition: {x: -3.703069, y: 1.2162743, z: 0.14837468}
+  doorMoveSpeed: 3
+  open: 0
+  automatic: 1
+  locked: 0
+  openSoundName: Door_Open
+  openEndSoundName: 
 --- !u!1 &1349403599701459533
 GameObject:
   m_ObjectHideFlags: 0
