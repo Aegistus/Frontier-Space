@@ -378,9 +378,9 @@ MonoBehaviour:
   projectileID: PlasmaRifle_Bullet
   projectileSpawnPoint: {fileID: 5968914447583228423}
   weaponModel: {fileID: 5927610815098219122}
-  recoilXRotation: 2
+  recoilXRotation: 1
   recoilYRotation: 0.5
-  recoilRotationRecovery: 3
+  recoilRotationRecovery: 2
   roundsPerMinute: 520
 --- !u!114 &8707676684160957320
 MonoBehaviour:

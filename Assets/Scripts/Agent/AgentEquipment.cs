@@ -179,6 +179,7 @@ public class AgentEquipment : MonoBehaviour
                 SecondaryWeapon = null;
             }
             CurrentWeaponGO.transform.SetParent(null, true);
+            CurrentWeaponGO.transform.Translate(transform.forward * .5f);
             Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
             weaponRB.isKinematic = false;
             CurrentWeaponGO.GetComponent<BoxCollider>().enabled = true;

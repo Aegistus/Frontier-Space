@@ -221,7 +221,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74767941968980777}
   serializedVersion: 2
-  m_Mass: 6.25
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -823,7 +823,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74858865657572015}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1988,7 +1988,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75550637132621537}
   serializedVersion: 2
-  m_Mass: 3.75
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2203,7 +2203,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75585885005213943}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2953,7 +2953,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76006103513924591}
   serializedVersion: 2
-  m_Mass: 3.75
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3523,7 +3523,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76108167282175325}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3634,7 +3634,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76144306408373447}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -4065,7 +4065,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76205533383986333}
   serializedVersion: 2
-  m_Mass: 3.75
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -4208,7 +4208,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76224173205832085}
   serializedVersion: 2
-  m_Mass: 3.75
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -4319,7 +4319,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76232069258412083}
   serializedVersion: 2
-  m_Mass: 6.25
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -5949,7 +5949,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76516788354934035}
   serializedVersion: 2
-  m_Mass: 2.5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -6417,8 +6417,8 @@ MonoBehaviour:
   onGuardFOVMinimumRange: 5
   reactionTimeMin: 0.5
   reactionTimeMax: 1
-  attackBurstTime: 1
-  attackWaitTime: 0.5
+  attackBurstTime: 0.25
+  attackWaitTime: 0.1
   crouchWhileAttackingChance: 0.5
 --- !u!114 &755935596990909200
 MonoBehaviour:
@@ -6499,7 +6499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc394ad36f499f4e8d767bde0c67a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeHeightOffset: {x: 0, y: 1.6, z: 0}
+  eyeHeightOffset: {x: 0, y: 1.4, z: 0}
   minDetectionRadius: 3
   viewRadius: 30
   viewAngle: 180
