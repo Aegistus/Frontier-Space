@@ -13,14 +13,16 @@ public class FieldOfView : MonoBehaviour
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 	public float forgetTime = 5f;
+	public float allyAlertRadius = 10f;
 
 	//[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
-	List<Transform> temporarilyVisible = new List<Transform>();
+	List<Transform> temporarilyVisibleTargets = new List<Transform>();
 	AgentHealth health;
 	PlayerController player;
 	float timer;
+	public bool Alert { get; private set; } = false;
 
 	void Start()
 	{
@@ -34,7 +36,7 @@ public class FieldOfView : MonoBehaviour
     {
         if (damageSource == DamageSource.Player)
         {
-			temporarilyVisible.Add(player.transform);
+			temporarilyVisibleTargets.Add(player.transform);
 			timer = forgetTime;
         }
     }
@@ -75,10 +77,19 @@ public class FieldOfView : MonoBehaviour
 				}
 			}
 		}
-		if (temporarilyVisible.Count > 0)
+		if (temporarilyVisibleTargets.Count > 0)
         {
-			visibleTargets.AddRange(temporarilyVisible);
+			visibleTargets.AddRange(temporarilyVisibleTargets);
 		}
+		if (visibleTargets.Count > 0 && !Alert)
+        {
+			Alert = true;
+			AlertNearbyAllies();
+        }
+		if (visibleTargets.Count == 0)
+        {
+			Alert = false;
+        }
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
@@ -97,8 +108,31 @@ public class FieldOfView : MonoBehaviour
 			timer -= Time.deltaTime;
 			if (timer <= 0)
             {
-				temporarilyVisible.Clear();
+				temporarilyVisibleTargets.Clear();
             }
         }
+    }
+
+	public void AlertNearbyAllies()
+    {
+		Collider[] alliesInRadius = Physics.OverlapSphere(transform.position + eyeHeightOffset, allyAlertRadius, targetMask);
+		List<FieldOfView> alreadyAlerted = new List<FieldOfView>();
+		for (int i = 0; i < alliesInRadius.Length; i++)
+        {
+			FieldOfView allyFOV = alliesInRadius[i].GetComponentInParent<FieldOfView>();
+			if (allyFOV != null)
+            {
+				if (!allyFOV.Alert && !alreadyAlerted.Contains(allyFOV))
+				{
+					allyFOV.AddTemporaryTargets(visibleTargets);
+					alreadyAlerted.Add(allyFOV);
+				}
+			}
+        }
+	}
+
+	public void AddTemporaryTargets(List<Transform> targets)
+    {
+		temporarilyVisibleTargets.AddRange(targets);
     }
 }
