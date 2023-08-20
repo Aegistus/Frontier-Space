@@ -55,7 +55,7 @@ public class ShotgunAttack : RangedWeaponAttack
                 Quaternion rotation = Quaternion.Euler(eulerAngles);
                 GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, rotation, 10f);
                 float damage = Random.Range(damageMin, damageMax);
-                projectile.GetComponent<Projectile>().SetDamage(damage);
+                projectile.GetComponent<Projectile>().SetDamage(damage, Source);
             }
             ApplyRecoil();
             SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);

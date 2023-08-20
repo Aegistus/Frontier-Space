@@ -5,6 +5,7 @@ using System;
 
 public class AgentHealth : MonoBehaviour
 {
+    public event Action<DamageSource> OnDamageTaken;
     public event Action OnArmorChange;
     public event Action OnHealthChange;
     public event Action OnAgentDeath;
@@ -85,7 +86,7 @@ public class AgentHealth : MonoBehaviour
         maxArmor = armor;
     }
 
-    public void Damage(float damage)
+    public void Damage(float damage, DamageSource source)
     {
         if (isDead)
         {
@@ -94,6 +95,7 @@ public class AgentHealth : MonoBehaviour
 
         damage = DamageArmor(damage);
         DamageHealth(damage);
+        OnDamageTaken?.Invoke(source);
     }
 
     float DamageArmor(float damage)

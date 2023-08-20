@@ -9,10 +9,12 @@ public class Projectile : MonoBehaviour
     [SerializeField] LayerMask mask;
 
     float damage;
+    DamageSource source;
 
-    public void SetDamage(float damage)
+    public void SetDamage(float damage, DamageSource source)
     {
         this.damage = damage;
+        this.source = source;
     }
 
     private void Update()
@@ -24,7 +26,7 @@ public class Projectile : MonoBehaviour
             AgentHealth health = rayHit.collider.GetComponentInParent<AgentHealth>();
             if (health)
             {
-                health.Damage(damage);
+                health.Damage(damage, source);
             }
             gameObject.SetActive(false);
         }

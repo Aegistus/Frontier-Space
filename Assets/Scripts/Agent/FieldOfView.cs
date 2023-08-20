@@ -5,29 +5,41 @@ using System;
 
 public class FieldOfView : MonoBehaviour
 {
-	public event Action<Transform> OnPlayerFound;
 	public Vector3 eyeHeightOffset = new Vector3(0, 1.6f, 0);
 	public float minDetectionRadius = 1f;
 	public float viewRadius;
 	[Range(0,360)]
 	public float viewAngle;
-
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
+	public float forgetTime = 5f;
 
 	//[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
+	List<Transform> temporarilyVisible = new List<Transform>();
+	AgentHealth health;
 	PlayerController player;
+	float timer;
 
 	void Start()
 	{
 		player = FindObjectOfType<PlayerController>();
+		health = GetComponent<AgentHealth>();
+        health.OnDamageTaken += Health_OnDamageTaken;
 		StartCoroutine("FindTargetsWithDelay", .1f);
 	}
 
+    private void Health_OnDamageTaken(DamageSource damageSource)
+    {
+        if (damageSource == DamageSource.Player)
+        {
+			temporarilyVisible.Add(player.transform);
+			timer = forgetTime;
+        }
+    }
 
-	IEnumerator FindTargetsWithDelay(float delay)
+    IEnumerator FindTargetsWithDelay(float delay)
 	{
 		while (true)
 		{
@@ -53,17 +65,19 @@ public class FieldOfView : MonoBehaviour
 				if (dstToTarget <= minDetectionRadius)
 				{
 					visibleTargets.Add(target);
-					OnPlayerFound?.Invoke(target);
 				}
 				else if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 				{
 					if (!Physics.Raycast(position, dirToTarget, dstToTarget, obstacleMask, QueryTriggerInteraction.Ignore))
 					{
 						visibleTargets.Add(target);
-						OnPlayerFound?.Invoke(target);
 					}
 				}
 			}
+		}
+		if (temporarilyVisible.Count > 0)
+        {
+			visibleTargets.AddRange(temporarilyVisible);
 		}
 	}
 
@@ -75,4 +89,16 @@ public class FieldOfView : MonoBehaviour
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),0,Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+			timer -= Time.deltaTime;
+			if (timer <= 0)
+            {
+				temporarilyVisible.Clear();
+            }
+        }
+    }
 }

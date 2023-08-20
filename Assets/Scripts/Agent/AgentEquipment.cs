@@ -23,7 +23,6 @@ public class AgentEquipment : MonoBehaviour
     public Holdable CurrentHoldable => currentWeapon?.holdable;
 
     Weapon currentWeapon;
-
     Weapon primaryWeapon;
     Weapon secondaryWeapon;
 
@@ -32,6 +31,8 @@ public class AgentEquipment : MonoBehaviour
 
     Vector3 targetPosition;
     Quaternion targetRotation;
+
+    DamageSource damageSource;
 
     public class Weapon
     {
@@ -55,6 +56,15 @@ public class AgentEquipment : MonoBehaviour
     {
         ik = GetComponentInChildren<HumanoidIK>();
         humanAnim = GetComponentInChildren<HumanoidAnimator>();
+        AgentController controller = GetComponent<AgentController>();
+        if (controller is PlayerController)
+        {
+            damageSource = DamageSource.Player;
+        }
+        else
+        {
+            damageSource = DamageSource.NPC;
+        }
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
@@ -83,6 +93,7 @@ public class AgentEquipment : MonoBehaviour
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         SetWeaponOffset(WeaponOffset.Idle);
+        currentWeapon.attack.Source = damageSource;
         OnWeaponChange?.Invoke();
     }
 
