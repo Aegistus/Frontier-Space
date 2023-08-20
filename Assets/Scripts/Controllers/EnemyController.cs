@@ -10,6 +10,7 @@ public class EnemyController : AgentController
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
     [SerializeField] bool onGuard;
+    [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float onGuardFOVAngle = 270f;
     [SerializeField] float onGuardFOVMinimumRange = 10f;
     [SerializeField] float reactionTimeMin = .5f;
@@ -73,7 +74,11 @@ public class EnemyController : AgentController
             currentState = availableStates[nextState];
             currentState.Before();
         }
+        Quaternion currentRotation = transform.rotation;
         transform.LookAt(LookTarget);
+        Quaternion targetRotation = transform.rotation;
+        transform.rotation = currentRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         if (AttackTarget != null)
         {

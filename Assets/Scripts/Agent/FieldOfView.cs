@@ -6,7 +6,7 @@ using System;
 public class FieldOfView : MonoBehaviour
 {
 	public event Action<Transform> OnPlayerFound;
-
+	public Vector3 eyeHeightOffset = new Vector3(0, 1.6f, 0);
 	public float minDetectionRadius = 1f;
 	public float viewRadius;
 	[Range(0,360)]
@@ -36,16 +36,17 @@ public class FieldOfView : MonoBehaviour
 		}
 	}
 
-	void FindVisibleTargets()
+    void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
-		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
-
+		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position + eyeHeightOffset, viewRadius, targetMask);
+		Vector3 position = transform.position + eyeHeightOffset;
 		for (int i = 0; i < targetsInViewRadius.Length; i++)
 		{
 			Transform target = targetsInViewRadius [i].transform;
-			Vector3 dirToTarget = (target.position - transform.position).normalized;
-			float dstToTarget = Vector3.Distance(transform.position, target.position);
+			Vector3 targetPosition = target.position + eyeHeightOffset;
+			Vector3 dirToTarget = (targetPosition - position).normalized;
+			float dstToTarget = Vector3.Distance(position, targetPosition);
 			// detect target if within radius
 			if (target == player.transform)
             {
@@ -56,7 +57,7 @@ public class FieldOfView : MonoBehaviour
 				}
 				else if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 				{
-					if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask, QueryTriggerInteraction.Ignore))
+					if (!Physics.Raycast(position, dirToTarget, dstToTarget, obstacleMask, QueryTriggerInteraction.Ignore))
 					{
 						visibleTargets.Add(target);
 						OnPlayerFound?.Invoke(target);
