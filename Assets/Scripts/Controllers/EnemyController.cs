@@ -64,6 +64,12 @@ public class EnemyController : AgentController
         GetComponent<AgentHealth>().OnAgentDeath += OnDeath;
     }
 
+    private void Start()
+    {
+        equipment.PrimaryWeapon?.ammo.AddAmmo(10000);
+        equipment.SecondaryWeapon?.ammo.AddAmmo(10000);
+    }
+
     private void Update()
     {
         currentState.During();

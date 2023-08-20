@@ -16,15 +16,15 @@ public class AgentEquipment : MonoBehaviour
     public event Action OnWeaponChange;
 
     public bool HasWeaponEquipped => CurrentWeaponGO != null;
-    public bool HasTwoWeapons => primaryWeapon != null && secondaryWeapon != null;
-    public WeaponAttack CurrentWeaponAttack => currentWeapon?.attack;
-    public WeaponAmmunition CurrentWeaponAmmunition => currentWeapon?.ammo;
-    GameObject CurrentWeaponGO => currentWeapon?.gameObject;
-    public Holdable CurrentHoldable => currentWeapon?.holdable;
+    public bool HasTwoWeapons => PrimaryWeapon != null && SecondaryWeapon != null;
+    public WeaponAttack CurrentWeaponAttack => CurrentWeapon?.attack;
+    public WeaponAmmunition CurrentWeaponAmmunition => CurrentWeapon?.ammo;
+    GameObject CurrentWeaponGO => CurrentWeapon?.gameObject;
+    public Holdable CurrentHoldable => CurrentWeapon?.holdable;
 
-    Weapon currentWeapon;
-    Weapon primaryWeapon;
-    Weapon secondaryWeapon;
+    Weapon CurrentWeapon;
+    public Weapon PrimaryWeapon { get; private set; }
+    public Weapon SecondaryWeapon { get; private set; }
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
@@ -68,32 +68,32 @@ public class AgentEquipment : MonoBehaviour
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
-            primaryWeapon = new Weapon(weaponAttacks[0].gameObject);
+            PrimaryWeapon = new Weapon(weaponAttacks[0].gameObject);
         }
         if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
         {
-            secondaryWeapon = new Weapon(weaponAttacks[1].gameObject);
+            SecondaryWeapon = new Weapon(weaponAttacks[1].gameObject);
         }
-        if (primaryWeapon != null)
+        if (PrimaryWeapon != null)
         {
-            Equip(primaryWeapon);
+            Equip(PrimaryWeapon);
         }
-        if (secondaryWeapon != null)
+        if (SecondaryWeapon != null)
         {
-            UnEquip(secondaryWeapon);
+            UnEquip(SecondaryWeapon);
         }
     }
 
     public void Equip(Weapon weapon)
     {
-        currentWeapon = weapon;
-        currentWeapon.gameObject.SetActive(true);
+        CurrentWeapon = weapon;
+        CurrentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         SetWeaponOffset(WeaponOffset.Idle);
-        currentWeapon.attack.Source = damageSource;
+        CurrentWeapon.attack.Source = damageSource;
         OnWeaponChange?.Invoke();
     }
 
@@ -151,69 +151,69 @@ public class AgentEquipment : MonoBehaviour
         weaponRB.isKinematic = true;
         Weapon newWeapon = new Weapon(weaponGO);
         weaponGO.GetComponent<BoxCollider>().enabled = false;
-        if (primaryWeapon == null)
+        if (PrimaryWeapon == null)
         {
-            primaryWeapon = newWeapon;
+            PrimaryWeapon = newWeapon;
         }
-        else if (secondaryWeapon == null)
+        else if (SecondaryWeapon == null)
         {
-            secondaryWeapon = newWeapon;
+            SecondaryWeapon = newWeapon;
         }
-        if (currentWeapon != null)
+        if (CurrentWeapon != null)
         {
-            UnEquip(currentWeapon);
+            UnEquip(CurrentWeapon);
         }
         Equip(newWeapon);
     }
 
     public void DropWeapon()
     {
-        if (currentWeapon != null)
+        if (CurrentWeapon != null)
         {
-            if (currentWeapon == primaryWeapon)
+            if (CurrentWeapon == PrimaryWeapon)
             {
-                primaryWeapon = null;
+                PrimaryWeapon = null;
             }
             else
             {
-                secondaryWeapon = null;
+                SecondaryWeapon = null;
             }
             CurrentWeaponGO.transform.SetParent(null, true);
             Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
             weaponRB.isKinematic = false;
             CurrentWeaponGO.GetComponent<BoxCollider>().enabled = true;
-            currentWeapon = null;
+            CurrentWeapon = null;
         }
     }
 
     public bool TrySwitchWeapon()
     {
-        if (secondaryWeapon == null)
+        if (SecondaryWeapon == null)
         {
             return false;
         }
-        if (currentWeapon == primaryWeapon)
+        if (CurrentWeapon == PrimaryWeapon)
         {
-            UnEquip(primaryWeapon);
-            Equip(secondaryWeapon);
+            UnEquip(PrimaryWeapon);
+            Equip(SecondaryWeapon);
         }
         else
         {
-            UnEquip(secondaryWeapon);
-            Equip(primaryWeapon);
+            UnEquip(SecondaryWeapon);
+            Equip(PrimaryWeapon);
         }
         return true;
     }
 
     public void RefillPercentAmmoAllWeapons(float percent)
     {
-        if (primaryWeapon != null)
+        if (PrimaryWeapon != null)
         {
-            primaryWeapon.ammo.AddAmmo((int)(primaryWeapon.ammo.MaxCarriedAmmo * percent));
+            PrimaryWeapon.ammo.AddAmmo((int)(PrimaryWeapon.ammo.MaxCarriedAmmo * percent));
         }
-        if (secondaryWeapon != null)
+        if (SecondaryWeapon != null)
         {
-            secondaryWeapon.ammo.AddAmmo((int)(secondaryWeapon.ammo.MaxCarriedAmmo * percent));
+            SecondaryWeapon.ammo.AddAmmo((int)(SecondaryWeapon.ammo.MaxCarriedAmmo * percent));
         }
     }
 
