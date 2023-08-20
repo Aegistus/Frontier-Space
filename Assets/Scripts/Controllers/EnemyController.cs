@@ -20,7 +20,8 @@ public class EnemyController : AgentController
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
 
-    public Transform AttackTarget => fov.visibleTargets.Count > 0 ? fov.visibleTargets[0] : null;
+    public Transform VisibleTarget => fov.visibleTargets.Count > 0 ? fov.visibleTargets[0] : null;
+    public Transform KnownTarget => fov.knownTargets.Count > 0 ? fov.knownTargets[0] : null;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -28,9 +29,8 @@ public class EnemyController : AgentController
     Queue<Transform> patrolNodeQueue;
 
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
-    Vector3 heightOffset = Vector3.up;
+    Vector3 heightOffset = new Vector3(0, 1.6f, 0);
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
-    Vector3 playerLastLocation;
     bool resetCrouchChance = false;
 
     FieldOfView fov;
@@ -86,10 +86,6 @@ public class EnemyController : AgentController
         transform.rotation = currentRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        if (AttackTarget != null)
-        {
-            playerLastLocation = AttackTarget.position;
-        }
     }
 
     void OnDeath()
@@ -145,14 +141,22 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
+            print("Guarding");
             controller.LookTarget.localPosition = controller.lookTargetDefaultPos;
+            controller.Forwards = false;
+            controller.Run = false;
+            controller.Attack = false;
         }
 
         public override Type CheckTransitions()
         {
-            if (controller.AttackTarget != null)
+            if (controller.VisibleTarget != null)
             {
                 return typeof(AttackingState);
+            }
+            if (controller.VisibleTarget == null && controller.KnownTarget != null)
+            {
+                return typeof(ChasingState);
             }
             if (controller.patrolling)
             {
@@ -173,6 +177,7 @@ public class EnemyController : AgentController
             controller.LookTarget.localPosition = controller.lookTargetDefaultPos;
             currentNode = controller.patrolNodeQueue.Dequeue();
             navAgent.SetDestination(currentNode.position);
+            controller.Run = false;
         }
 
         public override void During()
@@ -195,9 +200,13 @@ public class EnemyController : AgentController
 
         public override Type CheckTransitions()
         {
-            if (controller.AttackTarget != null)
+            if (controller.VisibleTarget != null)
             {
                 return typeof(AttackingState);
+            }
+            if (controller.VisibleTarget == null && controller.KnownTarget != null)
+            {
+                return typeof(ChasingState);
             }
             return null;
         }
@@ -213,7 +222,7 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
-            print("Player detected");
+            print("Attacking");
             attackTimer = controller.attackBurstTime;
             controller.Forwards = false;
             if (!controller.onGuard)
@@ -232,9 +241,9 @@ public class EnemyController : AgentController
 
         public override void During()
         {
-            if (controller.AttackTarget != null)
+            if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.AttackTarget.position;
+                controller.LookTarget.position = controller.VisibleTarget.position;
             }
             if (reactionTimer > 0)
             {
@@ -260,9 +269,13 @@ public class EnemyController : AgentController
             {
                 return typeof(ReloadingState);
             }
-            if (controller.AttackTarget == null)
+            if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(ChasingState);
+            }
+            if (controller.VisibleTarget == null && controller.KnownTarget == null)
+            {
+                return typeof(GuardingState);
             }
             if (attackTimer <= 0)
             {
@@ -287,15 +300,15 @@ public class EnemyController : AgentController
         public override void During()
         {
             waitTimer -= Time.deltaTime;
-            if (controller.AttackTarget != null)
+            if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.AttackTarget.position;
+                controller.LookTarget.position = controller.VisibleTarget.position;
             }
         }
 
         public override Type CheckTransitions()
         {
-            if (controller.AttackTarget == null)
+            if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(ChasingState);
             }
@@ -338,7 +351,7 @@ public class EnemyController : AgentController
         public override void Before()
         {
             print("Chasing");
-            navAgent.SetDestination(controller.playerLastLocation);
+            navAgent.SetDestination(controller.KnownTarget.position);
             controller.Attack = false;
             controller.Crouch = false;
             controller.resetCrouchChance = true;
@@ -347,13 +360,21 @@ public class EnemyController : AgentController
         public override void During()
         {
             controller.Forwards = true;
-            transform.LookAt(navAgent.path.corners[0] + controller.heightOffset);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            controller.Run = true;
+            navAgent.SetDestination(controller.KnownTarget.position);
+            if (navAgent.hasPath)
+            {
+                controller.LookTarget.position = navAgent.path.corners[1] + controller.heightOffset;
+            }
         }
 
         public override Type CheckTransitions()
         {
-            if (controller.AttackTarget != null)
+            if (controller.KnownTarget == null)
+            {
+                return typeof(GuardingState);
+            }
+            if (controller.VisibleTarget != null)
             {
                 return typeof(AttackingState);
             }

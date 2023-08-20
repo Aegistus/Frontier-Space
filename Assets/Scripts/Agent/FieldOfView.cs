@@ -12,13 +12,14 @@ public class FieldOfView : MonoBehaviour
 	public float viewAngle;
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
-	public float forgetTime = 5f;
+	public float knownTargetForgetTime = 5f;
 	public float allyAlertRadius = 10f;
 
 	//[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
+	//[HideInInspector]
+	public List<Transform> knownTargets = new List<Transform>();
 
-	List<Transform> temporarilyVisibleTargets = new List<Transform>();
 	AgentHealth health;
 	PlayerController player;
 	float timer;
@@ -36,8 +37,7 @@ public class FieldOfView : MonoBehaviour
     {
         if (damageSource == DamageSource.Player)
         {
-			temporarilyVisibleTargets.Add(player.transform);
-			timer = forgetTime;
+			AddKnownTarget(player.transform);
         }
     }
 
@@ -77,14 +77,26 @@ public class FieldOfView : MonoBehaviour
 				}
 			}
 		}
-		if (temporarilyVisibleTargets.Count > 0)
+        for (int i = 0; i < knownTargets.Count; i++)
         {
-			visibleTargets.AddRange(temporarilyVisibleTargets);
-		}
-		if (visibleTargets.Count > 0 && !Alert)
+			if (!visibleTargets.Contains(knownTargets[i]))
+            {
+				Vector3 direction = ((knownTargets[i].position + eyeHeightOffset) - (transform.position + eyeHeightOffset)).normalized;
+				if (!Physics.Raycast(transform.position + eyeHeightOffset, direction, Vector3.Distance(knownTargets[i].position, transform.position), obstacleMask, QueryTriggerInteraction.Ignore))
+                {
+					visibleTargets.Add(knownTargets[i]);
+					print("TEST");
+                }
+            }
+        }
+		if (visibleTargets.Count > 0)
         {
-			Alert = true;
-			AlertNearbyAllies();
+			AddKnownTargets(visibleTargets);
+			if (!Alert)
+            {
+				Alert = true;
+				AlertNearbyAllies();
+			}
         }
 		if (visibleTargets.Count == 0)
         {
@@ -108,7 +120,7 @@ public class FieldOfView : MonoBehaviour
 			timer -= Time.deltaTime;
 			if (timer <= 0)
             {
-				temporarilyVisibleTargets.Clear();
+				knownTargets.Clear();
             }
         }
     }
@@ -124,15 +136,31 @@ public class FieldOfView : MonoBehaviour
             {
 				if (!allyFOV.Alert && !alreadyAlerted.Contains(allyFOV))
 				{
-					allyFOV.AddTemporaryTargets(visibleTargets);
+					allyFOV.AddKnownTargets(visibleTargets);
 					alreadyAlerted.Add(allyFOV);
 				}
 			}
         }
 	}
 
-	public void AddTemporaryTargets(List<Transform> targets)
+	public void AddKnownTargets(List<Transform> targets)
     {
-		temporarilyVisibleTargets.AddRange(targets);
+        for (int i = 0; i < targets.Count; i++)
+        {
+			if (!knownTargets.Contains(targets[i]))
+            {
+				knownTargets.Add(targets[i]);
+				timer = knownTargetForgetTime;
+			}
+		}
     }
+
+	public void AddKnownTarget(Transform target)
+    {
+		if (!knownTargets.Contains(target))
+        {
+			knownTargets.Add(target);
+			timer = knownTargetForgetTime;
+		}
+	}
 }

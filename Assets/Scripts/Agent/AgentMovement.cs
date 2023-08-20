@@ -175,7 +175,6 @@ public class AgentMovement : MonoBehaviour
 
         public override void Before()
         {
-            print("Standing");
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
             movement.velocity = Vector3.zero;
         }
@@ -204,7 +203,6 @@ public class AgentMovement : MonoBehaviour
 
         public override void Before()
         {
-            print("Walking");
         }
 
         public override void DuringPhysics()

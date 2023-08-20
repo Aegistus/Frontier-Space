@@ -6499,7 +6499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc394ad36f499f4e8d767bde0c67a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeHeightOffset: {x: 0, y: 1.4, z: 0}
+  eyeHeightOffset: {x: 0, y: 1.6, z: 0}
   minDetectionRadius: 3
   viewRadius: 30
   viewAngle: 180
@@ -6509,9 +6509,10 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1088
-  forgetTime: 5
+  knownTargetForgetTime: 5
   allyAlertRadius: 15
   visibleTargets: []
+  knownTargets: []
 --- !u!54 &6648301236411978044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6551,7 +6552,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 755935596990909202}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.4
   m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
