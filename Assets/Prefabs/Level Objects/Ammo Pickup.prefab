@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2226628651470275006}
   - component: {fileID: 2198112682762093914}
   - component: {fileID: 2208156171368959082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Crate_Ammo_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2231321552161745563}
   - component: {fileID: 1594977082}
   - component: {fileID: 5655555642623087421}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ammo Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,3 +142,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3b60adbd49f00419521d598698b713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  percentRefill: 0.5
