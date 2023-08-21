@@ -25,6 +25,14 @@ public class PassengerTrain : MonoBehaviour
         }
     }
 
+    public void CloseDoors()
+    {
+        for (int i = 0; i < doors.Length; i++)
+        {
+            doors[i].CloseDoor();
+        }
+    }
+
     private void Update()
     {
         if (moving)
