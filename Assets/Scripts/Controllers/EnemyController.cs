@@ -361,7 +361,10 @@ public class EnemyController : AgentController
         {
             controller.Forwards = true;
             controller.Run = true;
-            navAgent.SetDestination(controller.KnownTarget.position);
+            if (controller.KnownTarget != null)
+            {
+                navAgent.SetDestination(controller.KnownTarget.position);
+            }
             if (navAgent.hasPath)
             {
                 controller.LookTarget.position = navAgent.path.corners[1] + controller.heightOffset;

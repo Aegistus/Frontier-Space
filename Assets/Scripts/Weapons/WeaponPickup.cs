@@ -5,8 +5,17 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour, IInteractable
 {
     [SerializeField] string description;
+    [SerializeField] bool pickupable = true;
 
     public string Description => description;
+
+    void Start()
+    {
+        if (!pickupable)
+        {
+            Destroy(this);
+        }
+    }
 
     public void Interact(GameObject interactor)
     {

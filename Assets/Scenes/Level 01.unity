@@ -12628,64 +12628,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 10, z: 12}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!1 &440534314
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 440534316}
-  - component: {fileID: 440534315}
-  m_Layer: 0
-  m_Name: Blood Decal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &440534315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440534314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: f0b6bc5eaa851564fa3d4f8007c77157, type: 2}
-  m_DrawDistance: 1000
-  m_FadeScale: 0.9
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 1, y: 1}
-  m_UVBias: {x: 0, y: 0}
-  m_AffectsTransparency: 0
-  m_DecalLayerMask: 2
-  m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 3, y: 3, z: 1}
-  m_FadeFactor: 1
-  m_Version: 2
---- !u!4 &440534316
+--- !u!4 &440534316 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1014149032594632589}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440534314}
-  m_LocalRotation: {x: -0.50000095, y: -0.49999908, z: -0.4999994, w: 0.5000006}
-  m_LocalPosition: {x: 1.9499872, y: 0, z: -4.7300057}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1630728670}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &442481993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58371,6 +58319,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7298220756038438952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1014149032594632589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1630728670}
+    m_Modifications:
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9499872
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.7300057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50000095
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.49999908
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902177, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014149033034902183, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f,
+        type: 3}
+      propertyPath: m_Name
+      value: Blood Decal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01bd781ab61be1e4c9d3f1ef0c5e1f0f, type: 3}
 --- !u!4 &1070048045769342332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4988034836826690661, guid: aad47ee7596f3db4a9f09ac6bc97da82,

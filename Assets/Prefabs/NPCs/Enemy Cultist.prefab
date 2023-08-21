@@ -6499,7 +6499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc394ad36f499f4e8d767bde0c67a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeHeightOffset: {x: 0, y: 1.6, z: 0}
+  eyeHeightOffset: {x: 0, y: 1, z: 0}
   minDetectionRadius: 3
   viewRadius: 30
   viewAngle: 180
@@ -6509,7 +6509,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1088
-  knownTargetForgetTime: 5
+  knownTargetForgetTime: 15
   allyAlertRadius: 15
   visibleTargets: []
   knownTargets: []
@@ -7175,6 +7175,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755935597409132824}
     m_Modifications:
+    - target: {fileID: 3522421976647902914, guid: 20c3ece9a8f7e4243af242d642d9e84d,
+        type: 3}
+      propertyPath: pickupable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5968914447286862858, guid: 20c3ece9a8f7e4243af242d642d9e84d,
         type: 3}
       propertyPath: m_Name
