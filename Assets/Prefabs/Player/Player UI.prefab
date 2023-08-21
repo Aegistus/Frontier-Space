@@ -267,7 +267,7 @@ MonoBehaviour:
   prompt: {fileID: 351797610}
   interactableMask:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 512
 --- !u!1 &60267311910610181
 GameObject:
   m_ObjectHideFlags: 0

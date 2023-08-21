@@ -37,7 +37,6 @@ public class InteractionUI : MonoBehaviour
                     currentlyLookingAt = null;
                 }
             }
-
         }
         else
         {
