@@ -30,6 +30,7 @@ public class PlayerController : AgentController
         Interact = Input.GetKeyDown(KeyCode.E);
         Reload = Input.GetKeyDown(KeyCode.R);
         SwitchWeapon = Input.mouseScrollDelta.y != 0;
+        ToggleFlashlight = Input.GetKeyDown(KeyCode.F);
 
         transform.LookAt(LookTarget);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);

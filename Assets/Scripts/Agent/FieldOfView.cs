@@ -85,7 +85,6 @@ public class FieldOfView : MonoBehaviour
 				if (!Physics.Raycast(transform.position + eyeHeightOffset, direction, Vector3.Distance(knownTargets[i].position, transform.position), obstacleMask, QueryTriggerInteraction.Ignore))
                 {
 					visibleTargets.Add(knownTargets[i]);
-					print("TEST");
                 }
             }
         }

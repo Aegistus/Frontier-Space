@@ -17,6 +17,7 @@ public abstract class AgentController : MonoBehaviour
     public bool Interact { get; protected set; }
     public bool Reload { get; protected set; }
     public bool SwitchWeapon { get; protected set; }
+    public bool ToggleFlashlight { get; protected set; }
 
     public bool NoMovementInput => !Forwards && !Backwards && !Left && !Right;
     public bool MovementInput => Forwards || Backwards || Left || Right;

@@ -91,6 +91,8 @@ public class EnemyController : AgentController
     void OnDeath()
     {
         GetComponent<AgentMovement>().enabled = false;
+        fov.enabled = false;
+        // do this last:
         enabled = false;
     }
 
