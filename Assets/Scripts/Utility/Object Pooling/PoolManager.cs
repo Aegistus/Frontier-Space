@@ -19,7 +19,9 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(this);
         }
+        DontDestroyOnLoad(gameObject);
         GameObject poolParent = new GameObject("PoolParent");
+        poolParent.transform.SetParent(transform);
         GameObject obj;
         poolObjects = Resources.LoadAll<PoolObject>(poolObjectPath);
         foreach (PoolObject poolObject in poolObjects)

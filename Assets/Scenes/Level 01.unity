@@ -26013,7 +26013,7 @@ PrefabInstance:
     - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -26023,7 +26023,7 @@ PrefabInstance:
     - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -26068,12 +26068,12 @@ PrefabInstance:
     - target: {fileID: 7477880029213131491, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000019023934
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7477880029213131491, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000013740251
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7477880029531023588, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -53326,7 +53326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbf8937513f99746862a75fd40e2184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: MainMenu
+  scene: Level 02
 --- !u!114 &1887058920
 MonoBehaviour:
   m_ObjectHideFlags: 0
