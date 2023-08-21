@@ -31,6 +31,11 @@ public class InteractionUI : MonoBehaviour
                     text.text = currentlyLookingAt.Description;
                     prompt.SetActive(true);
                 }
+                else
+                {
+                    prompt.SetActive(false);
+                    currentlyLookingAt = null;
+                }
             }
 
         }
