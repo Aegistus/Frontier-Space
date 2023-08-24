@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookTransform: {fileID: 0}
-  interactDistance: 2
+  interactDistance: 3
   switchWeaponTime: 0.5
 --- !u!114 &2391498150780371363
 MonoBehaviour:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowArmorRegen: 0
   armorRegenDelay: 2
-  armorRegenRate: 20
+  armorRegenRate: 200
   maxArmor: 0
   maxHealth: 500
 --- !u!114 &6214437158977114633
