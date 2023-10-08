@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class WeaponAttack : MonoBehaviour
 {
     public CrosshairType crosshairType = CrosshairType.Default;
+    public CameraShake.Properties camShakeProperties;
+    [HideInInspector]
+    public UnityEvent OnRecoil;
 
     [SerializeField] protected float damageMin = 10f;
     [SerializeField] protected float damageMax = 20f;

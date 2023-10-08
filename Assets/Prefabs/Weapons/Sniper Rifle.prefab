@@ -436,6 +436,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshairType: 1
+  camShakeProperties:
+    angle: 90
+    strength: 0.05
+    maxSpeed: 2
+    minSpeed: 1
+    duration: 0.5
+    noisePercent: 0.179
+    dampingPercent: 0.532
+    rotationPercent: 0
+  OnRecoil:
+    m_PersistentCalls:
+      m_Calls: []
   damageMin: 50
   damageMax: 60
   projectileID: Sniper_Shot

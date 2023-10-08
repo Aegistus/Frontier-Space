@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public static float mouseSensitivityGlobal = 1;
 
+    [SerializeField] Transform cameraHolder;
     [SerializeField] Transform head;
     [SerializeField] Transform playerLookTarget;
     public float mouseSensitivity = 1f;
@@ -17,6 +18,7 @@ public class CameraController : MonoBehaviour
     Camera mainCam;
     AgentAction playerAction;
     AgentEquipment equipment;
+    CameraShake camShake;
     float targetFOV;
     float defaultFOV;
 
@@ -30,6 +32,13 @@ public class CameraController : MonoBehaviour
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
         equipment = playerAction.GetComponent<AgentEquipment>();
+        equipment.OnWeaponChange += Equipment_OnWeaponChange;
+        camShake = GetComponentInParent<CameraShake>();
+    }
+
+    private void Equipment_OnWeaponChange()
+    {
+        equipment.CurrentWeaponAttack.OnRecoil.AddListener(ScreenShake);
     }
 
     private void PlayerAction_OnStateChange(ActionState state)
@@ -57,11 +66,16 @@ public class CameraController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -70f, 85f);
 
-        transform.rotation = Quaternion.Euler(xRotation, transform.rotation.eulerAngles.y + mouseX, transform.rotation.eulerAngles.z);
-        transform.position = head.position + head.localToWorldMatrix.MultiplyVector(cameraOffset);
-        playerLookTarget.position = transform.position + 10 * transform.forward;
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+        cameraHolder.position = head.position + head.localToWorldMatrix.MultiplyVector(cameraOffset);
+        cameraHolder.rotation = Quaternion.Euler(xRotation, transform.rotation.eulerAngles.y + mouseX, transform.rotation.eulerAngles.z);
+        playerLookTarget.position = cameraHolder.position + 10 * cameraHolder.forward;
+        cameraHolder.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
 
         mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, targetFOV, fovChangeSpeed * Time.deltaTime);
+    }
+
+    void ScreenShake()
+    {
+        camShake.StartShake(equipment.CurrentWeaponAttack.camShakeProperties);
     }
 }

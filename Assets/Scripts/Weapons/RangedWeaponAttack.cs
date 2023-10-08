@@ -25,6 +25,7 @@ public abstract class RangedWeaponAttack : WeaponAttack
     {
         weaponModel.Rotate(Vector3.left, recoilXRotation);
         weaponModel.Rotate(Vector3.up, Random.Range(-recoilYRotation, recoilYRotation));
+        OnRecoil.Invoke();
     }
 
     protected virtual void Update()

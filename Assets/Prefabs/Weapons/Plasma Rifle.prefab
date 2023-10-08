@@ -373,6 +373,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd681b69610e8214ab3ebf46485b6348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairType: 0
+  camShakeProperties:
+    angle: 90
+    strength: 0.01
+    maxSpeed: 0.5
+    minSpeed: 0.2
+    duration: 0.25
+    noisePercent: 0.179
+    dampingPercent: 0.532
+    rotationPercent: 0
+  OnRecoil:
+    m_PersistentCalls:
+      m_Calls: []
   damageMin: 10
   damageMax: 20
   projectileID: PlasmaRifle_Bullet
