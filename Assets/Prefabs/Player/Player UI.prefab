@@ -894,6 +894,60 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1248371995816272034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296094035514279397}
+  - component: {fileID: 1140528065706815699}
+  m_Layer: 5
+  m_Name: Sniper Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1296094035514279397
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248371995816272034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3963674421794571146}
+  - {fileID: 1741998869789785481}
+  m_Father: {fileID: 4028947288558382447}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1140528065706815699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248371995816272034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948543f02a19e6c45acc75b0e6f86e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 1741998869789785481}
+  distanceIndicator: {fileID: 780220912706592313}
+  overlay: {fileID: 6220035411229223368}
 --- !u!1 &1685222497155563947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshair: {fileID: 4028947288464268533}
   distanceIndicator: {fileID: 4028947286901451954}
+  overlay: {fileID: 0}
 --- !u!222 &4028947288464268535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2497,14 +2552,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4028947288464268533}
-  - {fileID: 1741998869789785481}
+  - {fileID: 1296094035514279397}
   m_Father: {fileID: 4028947288774077861}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 44.854, y: 44.8536}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4028947288558383760
 MonoBehaviour:
@@ -2519,7 +2574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCrosshair: {fileID: 4281139339825890352}
-  sniperCrosshair: {fileID: 6285925543411228838}
+  sniperCrosshair: {fileID: 1140528065706815699}
   movementSmooth: 5
   rangeFinderUpdateInterval: 0.2
   updateCrosshair: 1
@@ -2633,7 +2688,6 @@ RectTransform:
   - {fileID: 1864219782684621522}
   - {fileID: 6902752518594810640}
   - {fileID: 6211673904705944535}
-  - {fileID: 3963674421794571146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3908,7 +3962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963674421794571146}
   m_Layer: 5
-  m_Name: Sniper Scope
+  m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3921,19 +3975,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6220035411229223368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2520740235677364837}
-  m_Father: {fileID: 4028947288774077861}
-  m_RootOrder: 8
+  m_Father: {fileID: 1296094035514279397}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 449.89337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6504179881798374020
 GameObject:
@@ -4313,15 +4367,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1741998869789785481}
   - component: {fileID: 5917462711235997659}
-  - component: {fileID: 6285925543411228838}
   - component: {fileID: 2634868692546617843}
   m_Layer: 5
-  m_Name: Sniper Crosshair
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1741998869789785481
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4329,19 +4382,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7207400394220796234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5285894119895319027}
-  m_Father: {fileID: 4028947288558382447}
+  m_Father: {fileID: 1296094035514279397}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 13.164499, y: 13.1647}
+  m_SizeDelta: {x: 800, y: 449.89337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5917462711235997659
 CanvasRenderer:
@@ -4351,20 +4404,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7207400394220796234}
   m_CullTransparentMesh: 1
---- !u!114 &6285925543411228838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7207400394220796234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948543f02a19e6c45acc75b0e6f86e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshair: {fileID: 1741998869789785481}
-  distanceIndicator: {fileID: 780220912706592313}
 --- !u!114 &2634868692546617843
 MonoBehaviour:
   m_ObjectHideFlags: 0

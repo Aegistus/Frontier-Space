@@ -7,4 +7,5 @@ public class CrosshairUI : MonoBehaviour
 {
     public RectTransform crosshair;
     public TMP_Text distanceIndicator;
+    public GameObject overlay;
 }

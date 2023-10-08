@@ -60,6 +60,10 @@ public class CrosshairUIManager : MonoBehaviour
 		updateCrosshair = enabled;
 		current.gameObject.SetActive(enabled);
 		current.distanceIndicator.gameObject.SetActive(enabled);
+		if (current.overlay != null)
+        {
+			current.overlay.SetActive(enabled);
+		}
 	}
 
 	void Update()
@@ -97,12 +101,10 @@ public class CrosshairUIManager : MonoBehaviour
 		if (type == CrosshairType.Default)
 		{
 			current = defaultCrosshair;
-			SetCrosshairEnabled(true);
 		}
 		else if (type == CrosshairType.Sniper)
 		{
 			current = sniperCrosshair;
-			SetCrosshairEnabled(true);
 		}
 	}
 }
