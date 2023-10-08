@@ -436,14 +436,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshairType: 1
-  damageMin: 10
-  damageMax: 20
+  damageMin: 50
+  damageMax: 60
   projectileID: Sniper_Shot
   projectileSpawnPoint: {fileID: 7165447958694006930}
   weaponModel: {fileID: 5990370585735146841}
   recoilXRotation: 7
   recoilYRotation: 1
-  recoilRotationRecovery: 1
+  recoilRotationRecovery: 3
   aimFOVChange: 45
   shotDelay: 0.75
 --- !u!114 &6608027854904744004

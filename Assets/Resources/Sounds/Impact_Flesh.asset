@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
   m_Name: Impact_Flesh
   m_EditorClassIdentifier: 
-  audioVariants: []
-  volume: 2
+  audioVariants:
+  - {fileID: 8300000, guid: 78a008e3df6ff4944aa7d07a14089588, type: 3}
+  - {fileID: 8300000, guid: 353996e0ebe157345ac45da5e731d2c2, type: 3}
+  - {fileID: 8300000, guid: ddf5860a0c3b22b4395abbd5e21c419f, type: 3}
+  - {fileID: 8300000, guid: 6aacc57dfb105684e878dd8965164bb0, type: 3}
+  - {fileID: 8300000, guid: e50b6d9101670a745a6c63e6e38cafc8, type: 3}
+  - {fileID: 8300000, guid: ab9c8da68851828479e1e4f4d5aa0b5e, type: 3}
+  - {fileID: 8300000, guid: c55380b163db29b46a171c3706197e6c, type: 3}
+  - {fileID: 8300000, guid: 30b280af29aeed94db56888bb4515be3, type: 3}
+  - {fileID: 8300000, guid: 100827e1167e69b4f8003020c4371e08, type: 3}
+  - {fileID: 8300000, guid: f0436e555e03c5841bef458aeed1922a, type: 3}
+  volume: 1
   volumeVariance: 0.1
   pitch: 1
   pitchVariance: 0.1

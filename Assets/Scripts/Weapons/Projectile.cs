@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
+                //SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
             }
             gameObject.SetActive(false);
         }
