@@ -10,8 +10,10 @@ public abstract class RangedWeaponAttack : WeaponAttack
     [SerializeField] protected float recoilXRotation;
     [SerializeField] protected float recoilYRotation;
     [SerializeField] protected float recoilRotationRecovery = 1f;
+    [SerializeField] protected float aimFOVChange = 10f;
 
     public Transform ProjectileSpawnPoint => projectileSpawnPoint;
+    public float AimFOVChange => aimFOVChange;
     protected WeaponAmmunition weaponAmmo;
 
     protected virtual void Awake()

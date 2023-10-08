@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550be82abaf493c4f95bc5f725b9d185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairType: 1
   damageMin: 10
   damageMax: 20
   projectileID: Sniper_Shot
@@ -443,6 +444,7 @@ MonoBehaviour:
   recoilXRotation: 7
   recoilYRotation: 1
   recoilRotationRecovery: 1
+  aimFOVChange: 45
   shotDelay: 0.75
 --- !u!114 &6608027854904744004
 MonoBehaviour:

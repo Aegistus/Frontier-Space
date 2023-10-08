@@ -381,6 +381,7 @@ MonoBehaviour:
   recoilXRotation: 1
   recoilYRotation: 0.5
   recoilRotationRecovery: 2
+  aimFOVChange: 20
   roundsPerMinute: 520
 --- !u!114 &8707676684160957320
 MonoBehaviour:
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: '[E] Pickup Plasma Rifle'
+  pickupable: 1
 --- !u!65 &7643029364000422608
 BoxCollider:
   m_ObjectHideFlags: 0

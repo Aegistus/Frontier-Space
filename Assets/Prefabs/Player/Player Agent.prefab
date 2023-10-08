@@ -655,8 +655,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 6718878410024081170}
   - component: {fileID: 6709768621831425264}
   - component: {fileID: 6637542160554132892}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Crew_Male_Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718878410024081170
 MeshFilter:
@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 6726300329632288160}
   - component: {fileID: 6719148350277988776}
   - component: {fileID: 6709689947826887586}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719148350277988776
 MeshFilter:
@@ -1004,8 +1004,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6726458397571011158}
@@ -1162,8 +1162,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -1219,7 +1219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6721249594716843162}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,8 +1238,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6721113816126899852}
-  - {fileID: 6726477343456370094}
   - {fileID: 6726461010322816126}
   - {fileID: 6721073583482759864}
   - {fileID: 6721163101605140076}
@@ -1352,7 +1350,7 @@ GameObject:
   - component: {fileID: 6726405628242423728}
   - component: {fileID: 6719366316834098820}
   - component: {fileID: 6709016945494267596}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1372,7 +1370,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719366316834098820
 MeshFilter:
@@ -1510,8 +1508,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -1640,8 +1638,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6726458397571011158}
@@ -1799,8 +1797,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -1933,8 +1931,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -1992,7 +1990,7 @@ GameObject:
   - component: {fileID: 6726683548625783782}
   - component: {fileID: 6718462569438104582}
   - component: {fileID: 6709585750577976262}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2010,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718462569438104582
 MeshFilter:
@@ -2075,7 +2073,7 @@ GameObject:
   - component: {fileID: 6721084647293207832}
   - component: {fileID: 6719147696606191274}
   - component: {fileID: 6709509524844307800}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Junker_Helmet_Glass_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2095,7 +2093,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719147696606191274
 MeshFilter:
@@ -2233,8 +2231,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -2399,8 +2397,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -2458,7 +2456,7 @@ GameObject:
   - component: {fileID: 6726570625444060638}
   - component: {fileID: 6719099948965470676}
   - component: {fileID: 6709146976606584956}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2478,7 +2476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719099948965470676
 MeshFilter:
@@ -2530,37 +2528,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6722987716912381854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6721113816126899852}
-  m_Layer: 7
-  m_Name: Eyebrows
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6721113816126899852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6722987716912381854}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5243548e-31, y: 0.1276692, z: 0.12272215}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6722989070649829900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,8 +2677,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -2940,8 +2907,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -3070,8 +3037,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6726458397571011158}
@@ -3079,37 +3046,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.27243212, y: -0.0104004, z: 0}
     m_Extent: {x: 0.18968198, y: 0.1385312, z: 0.14154235}
   m_DirtyAABB: 0
---- !u!1 &6723085763356226138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6726477343456370094}
-  m_Layer: 7
-  m_Name: Eyes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6726477343456370094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6723085763356226138}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0510383e-31, y: 0.09447606, z: 0.12272215}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6723098294792443274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,8 +3258,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6726458397571011158}
@@ -3408,7 +3344,7 @@ GameObject:
   - component: {fileID: 6721427476223126704}
   - component: {fileID: 6718299135430368408}
   - component: {fileID: 6708960439519071008}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Hunter_Female_Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3428,7 +3364,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718299135430368408
 MeshFilter:
@@ -3522,7 +3458,7 @@ GameObject:
   - component: {fileID: 6721362091932161646}
   - component: {fileID: 6715402504198134364}
   - component: {fileID: 6709630916354834906}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Junker_Hair_Female_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3542,7 +3478,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6715402504198134364
 MeshFilter:
@@ -3637,7 +3573,7 @@ GameObject:
   - component: {fileID: 6726373938633745062}
   - component: {fileID: 6719046005890635194}
   - component: {fileID: 6709708140791686876}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Junker_Headset_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3657,7 +3593,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719046005890635194
 MeshFilter:
@@ -3815,7 +3751,7 @@ GameObject:
   - component: {fileID: 6721128647524525456}
   - component: {fileID: 6719366753951747594}
   - component: {fileID: 6709546963958475858}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3835,7 +3771,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719366753951747594
 MeshFilter:
@@ -3962,7 +3898,7 @@ GameObject:
   - component: {fileID: 6721086118768572318}
   - component: {fileID: 6718983119216144764}
   - component: {fileID: 6709199299724886756}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Mask_Medic_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3982,7 +3918,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718983119216144764
 MeshFilter:
@@ -4183,8 +4119,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -4412,8 +4348,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -4578,8 +4514,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -4732,7 +4668,7 @@ GameObject:
   - component: {fileID: 6726640565259699926}
   - component: {fileID: 6719039411797691896}
   - component: {fileID: 6708940003439321640}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Junker_Helmet_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4752,7 +4688,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719039411797691896
 MeshFilter:
@@ -5020,8 +4956,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -5154,8 +5090,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -5288,8 +5224,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -5379,7 +5315,7 @@ GameObject:
   - component: {fileID: 6726450834317709164}
   - component: {fileID: 6719333415388824028}
   - component: {fileID: 6709122697594137538}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Male_Hair_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5399,7 +5335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6719333415388824028
 MeshFilter:
@@ -5592,7 +5528,7 @@ GameObject:
   - component: {fileID: 6721163101605140076}
   - component: {fileID: 6718819302189280792}
   - component: {fileID: 6709411878116065838}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Hat_Captain_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5612,7 +5548,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718819302189280792
 MeshFilter:
@@ -5675,7 +5611,7 @@ GameObject:
   - component: {fileID: 6726500202669939202}
   - component: {fileID: 6715182854943470522}
   - component: {fileID: 6709536264542612746}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Hat_Crew_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5695,7 +5631,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6715182854943470522
 MeshFilter:
@@ -5788,7 +5724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6726300622808352738}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5897,8 +5833,8 @@ SkinnedMeshRenderer:
   - {fileID: 6726458397571011158}
   - {fileID: 6726300622808352738}
   - {fileID: 6721249594716843162}
-  - {fileID: 6726477343456370094}
-  - {fileID: 6721113816126899852}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6721300849240257946}
   - {fileID: 6721274549106312916}
   - {fileID: 6721197991890782836}
@@ -5981,7 +5917,7 @@ GameObject:
   - component: {fileID: 6718899997795642902}
   - component: {fileID: 6709202304451254552}
   - component: {fileID: 6636086299274698446}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SM_Chr_Attach_Crew_Female_Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6001,7 +5937,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6721249594716843162}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6718899997795642902
 MeshFilter:

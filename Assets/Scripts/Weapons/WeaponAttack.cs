@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class WeaponAttack : MonoBehaviour
 {
+    public CrosshairType crosshairType = CrosshairType.Default;
+
     [SerializeField] protected float damageMin = 10f;
     [SerializeField] protected float damageMax = 20f;
 

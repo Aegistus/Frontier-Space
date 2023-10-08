@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     float xRotation;
     Camera mainCam;
     AgentAction playerAction;
+    AgentEquipment equipment;
     float targetFOV;
     float defaultFOV;
 
@@ -28,13 +29,17 @@ public class CameraController : MonoBehaviour
         defaultFOV = mainCam.fieldOfView;
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
+        equipment = playerAction.GetComponent<AgentEquipment>();
     }
 
     private void PlayerAction_OnStateChange(ActionState state)
     {
         if (state == ActionState.Aim || state == ActionState.AimAttack)
         {
-            targetFOV = defaultFOV - aimFOVChange;
+            if (equipment.CurrentWeaponAttack is RangedWeaponAttack)
+            {
+                targetFOV = defaultFOV - ((RangedWeaponAttack)equipment.CurrentWeaponAttack).AimFOVChange;
+            }
         }
         else
         {
