@@ -17,6 +17,7 @@ public class EnemyController : AgentController
     [SerializeField] float reactionTimeMax = 1f;
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
+    [SerializeField] Vector3 attackAimOffset;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
 
@@ -245,7 +246,7 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.VisibleTarget.position;
+                controller.LookTarget.position = controller.VisibleTarget.position + controller.attackAimOffset;
             }
             if (reactionTimer > 0)
             {
@@ -304,7 +305,7 @@ public class EnemyController : AgentController
             waitTimer -= Time.deltaTime;
             if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.VisibleTarget.position;
+                controller.LookTarget.position = controller.VisibleTarget.position + controller.attackAimOffset;
             }
         }
 

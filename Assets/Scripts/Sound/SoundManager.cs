@@ -67,6 +67,11 @@ public class SoundManager : MonoBehaviour
 		return sound.source;
 	}
 
+	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position)
+    {
+		return PlaySoundAtPosition(Instance.GetSoundID(soundName), position);
+    }
+
 	/// <summary>
 	/// Play sound with ID at the given position. The AudioSource will use 3D sound settings.
 	/// </summary>

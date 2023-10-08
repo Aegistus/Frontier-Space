@@ -27,6 +27,11 @@ public class Projectile : MonoBehaviour
             if (health)
             {
                 health.Damage(damage, source);
+                SoundManager.Instance.PlaySoundAtPosition("Impact_Flesh", transform.position);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
             }
             gameObject.SetActive(false);
         }

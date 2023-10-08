@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
+  m_Name: Impact_Metal
+  m_EditorClassIdentifier: 
+  audioVariants:
+  - {fileID: 8300000, guid: f0af07eaab473944ea6ffd4d595db6ce, type: 3}
+  - {fileID: 8300000, guid: 91201840986120248b67132a694b2422, type: 3}
+  - {fileID: 8300000, guid: 5dfab076cba3bb94b975a720a07e382b, type: 3}
+  - {fileID: 8300000, guid: d17bb212cd51ba6488f3906575dd0b50, type: 3}
+  - {fileID: 8300000, guid: 3bf5803832768434f88683c471339c4d, type: 3}
+  - {fileID: 8300000, guid: f657c30c5b2951044a6600708f194329, type: 3}
+  - {fileID: 8300000, guid: 787d241d9cd899143920afd6a84785b7, type: 3}
+  - {fileID: 8300000, guid: 92612f369a796f64c8de764fc91fd45b, type: 3}
+  volume: 0.14
+  volumeVariance: 0.1
+  pitch: 1
+  pitchVariance: 0.1
+  minimumDistance: 10
+  loop: 0
+  mixerGroup: {fileID: 0}
+  source: {fileID: 0}
