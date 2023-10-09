@@ -2009,16 +2009,6 @@ PrefabInstance:
       propertyPath: fadeTime
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 5531325733240020701, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
-        type: 3}
-      propertyPath: fadeSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5531325733240020701, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
-        type: 3}
-      propertyPath: transparencyIncreaseOnHit
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6687561864372030111, guid: 9f7a0b29c9e4f6847bf312dc01ae79a1,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2077,7 +2067,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29952
+  m_Name: pb_Mesh443202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

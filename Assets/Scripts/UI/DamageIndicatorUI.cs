@@ -25,7 +25,6 @@ public class DamageIndicatorUI : MonoBehaviour
 
     private void PlayerHealth_OnDamageTaken(DamageSource obj)
     {
-        print("TEST");
         color = image.color;
         color.a += transparencyIncreaseOnHit;
         image.color = color;

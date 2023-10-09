@@ -6386,8 +6386,8 @@ MonoBehaviour:
   reactionTimeMin: 0.5
   reactionTimeMax: 1
   attackBurstTime: 0.25
-  attackWaitTime: 0.1
-  attackAimOffset: {x: 0, y: 0, z: 0}
+  attackWaitTime: 0.5
+  attackAimOffset: {x: 0, y: -2, z: 0}
   crouchWhileAttackingChance: 0.5
 --- !u!114 &755935596990909200
 MonoBehaviour:
