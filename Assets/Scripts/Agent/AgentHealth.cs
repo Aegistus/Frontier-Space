@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using System;
 
 public class AgentHealth : MonoBehaviour
@@ -152,6 +153,16 @@ public class AgentHealth : MonoBehaviour
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
         StartCoroutine(StopRagdoll());
+        NavMeshAgent navAgent = GetComponent<NavMeshAgent>();
+        Collider collider = GetComponent<Collider>();
+        if (navAgent != null)
+        {
+            navAgent.enabled = false;
+        }
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
     }
 
     IEnumerator StopRagdoll()
