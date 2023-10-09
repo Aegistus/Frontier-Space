@@ -18,6 +18,7 @@ public class AgentHealth : MonoBehaviour
 
     bool isDead = false;
 
+    [SerializeField] List<DamageSource> damageImmunities;
     [SerializeField] bool allowArmorRegen = false;
     [SerializeField] float armorRegenDelay = 2f;
     [SerializeField] float armorRegenRate = 20f;
@@ -92,7 +93,10 @@ public class AgentHealth : MonoBehaviour
         {
             return;
         }
-
+        if (damageImmunities.Contains(source))
+        {
+            return;
+        }
         damage = DamageArmor(damage);
         DamageHealth(damage);
         OnDamageTaken?.Invoke(source);

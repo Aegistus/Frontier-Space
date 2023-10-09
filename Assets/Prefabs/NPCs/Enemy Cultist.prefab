@@ -6437,6 +6437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ab0473860c6824a980378bbba36458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageImmunities: 01000000
   allowArmorRegen: 0
   armorRegenDelay: 2
   armorRegenRate: 20
