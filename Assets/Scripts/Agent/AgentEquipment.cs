@@ -22,9 +22,11 @@ public class AgentEquipment : MonoBehaviour
     GameObject CurrentWeaponGO => CurrentWeapon?.gameObject;
     public Holdable CurrentHoldable => CurrentWeapon?.holdable;
 
-    Weapon CurrentWeapon;
+    public Weapon CurrentWeapon { get; private set; }
     public Weapon PrimaryWeapon { get; private set; }
     public Weapon SecondaryWeapon { get; private set; }
+
+    List<Grenade> grenades = new List<Grenade>();
 
     HumanoidIK ik;
     HumanoidAnimator humanAnim;
@@ -86,6 +88,10 @@ public class AgentEquipment : MonoBehaviour
 
     public void Equip(Weapon weapon)
     {
+        if (weapon == null)
+        {
+            return;
+        }
         CurrentWeapon = weapon;
         CurrentWeapon.gameObject.SetActive(true);
         weapon.gameObject.transform.SetParent(weaponHoldTarget);
@@ -99,7 +105,10 @@ public class AgentEquipment : MonoBehaviour
 
     public void UnEquip(Weapon weapon)
     {
-        weapon.gameObject.SetActive(false);
+        if (weapon != null)
+        {
+            weapon.gameObject.SetActive(false);
+        }
     }
 
     public void SetWeaponOffset(WeaponOffset offsetType)
@@ -218,4 +227,22 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
+    public void PickupGrenade(Grenade grenade)
+    {
+        grenade.transform.SetParent(transform);
+        grenade.GetComponent<Rigidbody>().useGravity = false;
+        grenades.Add(grenade);
+        grenade.gameObject.SetActive(false);
+    }
+
+    public Grenade GetGrenade()
+    {
+        if (grenades.Count == 0)
+        {
+            return null;
+        }
+        Grenade g = grenades[0];
+        grenades.Remove(g);
+        return g;
+    }
 }

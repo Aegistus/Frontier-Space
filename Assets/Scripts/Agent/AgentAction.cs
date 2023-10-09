@@ -5,7 +5,7 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon
+    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade
 }
 
 public class AgentAction : MonoBehaviour
@@ -13,6 +13,7 @@ public class AgentAction : MonoBehaviour
     [SerializeField] Transform lookTransform;
     [SerializeField] float interactDistance = 2f;
     [SerializeField] float switchWeaponTime = .5f;
+    [SerializeField] float grenadeThrowForce = 5f;
 
     public event Action<ActionState> OnStateChange;
     public static float InteractDistance { get; private set; }
@@ -22,6 +23,8 @@ public class AgentAction : MonoBehaviour
     AgentMovement movement;
     HumanoidAnimator agentAnimator;
     HumanoidIK agentIK;
+
+    Grenade currentGrenade;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -34,6 +37,8 @@ public class AgentAction : MonoBehaviour
         { typeof(ReloadState), ActionState.Reload },
         { typeof(InteractState), ActionState.Interact },
         { typeof(SwitchWeaponState), ActionState.SwitchWeapon },
+        { typeof(HoldGrenadeState), ActionState.HoldGrenade },
+        { typeof(ThrowGrenadeState), ActionState.ThrowGrenade },
     };
 
     private void Awake()
@@ -52,6 +57,8 @@ public class AgentAction : MonoBehaviour
             { typeof(InteractState), new InteractState(this) },
             { typeof(ReloadState), new ReloadState(this) },
             { typeof(SwitchWeaponState), new SwitchWeaponState(this) },
+            { typeof(HoldGrenadeState), new HoldGrenadeState(this) },
+            { typeof(ThrowGrenadeState), new ThrowGrenadeState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
         InteractDistance = interactDistance;
@@ -134,6 +141,10 @@ public class AgentAction : MonoBehaviour
             if (action.controller.SwitchWeapon)
             {
                 return typeof(SwitchWeaponState);
+            }
+            if (action.controller.ArmGrenade)
+            {
+                return typeof(HoldGrenadeState);
             }
 
             return null;
@@ -316,6 +327,67 @@ public class AgentAction : MonoBehaviour
             }
             if (timer >= action.switchWeaponTime)
             {
+                return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class HoldGrenadeState : State
+    {
+        public HoldGrenadeState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            action.equipment.UnEquip(action.equipment.CurrentWeapon);
+            action.currentGrenade = action.equipment.GetGrenade();
+            if (action.currentGrenade != null)
+            {
+                action.currentGrenade.gameObject.SetActive(true);
+                action.currentGrenade.Arm();
+            }
+            action.currentGrenade.transform.position = action.lookTransform.position;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (action.currentGrenade == null)
+            {
+                return typeof(IdleState);
+            }
+            if (action.controller.ThrowGrenade)
+            {
+                return typeof(ThrowGrenadeState);
+            }
+            return null;
+        }
+    }
+
+    class ThrowGrenadeState : State
+    {
+        float maxTimer = 2f;
+        float timer = 0f;
+
+        public ThrowGrenadeState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            timer = 0f;
+            Rigidbody grenRB = action.currentGrenade.GetComponent<Rigidbody>();
+            grenRB.useGravity = true;
+            grenRB.AddForce(action.lookTransform.forward * action.grenadeThrowForce);
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (timer >= maxTimer)
+            {
+                action.equipment.Equip(action.equipment.PrimaryWeapon);
                 return typeof(IdleState);
             }
             return null;
