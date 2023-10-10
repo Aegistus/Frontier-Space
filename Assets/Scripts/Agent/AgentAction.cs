@@ -339,14 +339,17 @@ public class AgentAction : MonoBehaviour
 
         public override void Before()
         {
-            action.equipment.UnEquip(action.equipment.CurrentWeapon);
             action.currentGrenade = action.equipment.GetGrenade();
             if (action.currentGrenade != null)
             {
+                action.equipment.UnEquip(action.equipment.CurrentWeapon);
                 action.currentGrenade.gameObject.SetActive(true);
                 action.currentGrenade.Arm();
+                action.currentGrenade.transform.position = action.lookTransform.position + .5f * action.lookTransform.right;
+                action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperHoldGrenade);
+                action.agentIK.SetHandWeight(Hand.Right, 0);
+                action.agentIK.SetHandWeight(Hand.Left, 0);
             }
-            action.currentGrenade.transform.position = action.lookTransform.position;
         }
 
         public override Type CheckTransitions()
@@ -365,7 +368,7 @@ public class AgentAction : MonoBehaviour
 
     class ThrowGrenadeState : State
     {
-        float maxTimer = 2f;
+        float maxTimer = 1f;
         float timer = 0f;
 
         public ThrowGrenadeState(AgentAction action) : base(action) { }
@@ -376,11 +379,18 @@ public class AgentAction : MonoBehaviour
             Rigidbody grenRB = action.currentGrenade.GetComponent<Rigidbody>();
             grenRB.useGravity = true;
             grenRB.AddForce(action.lookTransform.forward * action.grenadeThrowForce);
+            action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperThrowGrenade);
         }
 
         public override void During()
         {
             timer += Time.deltaTime;
+        }
+
+        public override void After()
+        {
+            action.agentIK.SetHandWeight(Hand.Right, 1);
+            action.agentIK.SetHandWeight(Hand.Left, 1);
         }
 
         public override Type CheckTransitions()

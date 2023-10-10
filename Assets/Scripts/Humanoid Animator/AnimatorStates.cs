@@ -12,5 +12,5 @@ public enum FullBodyAnimState
 
 public enum UpperBodyAnimState
 {
-    None, UpperReload
+    None, UpperReload, UpperHoldGrenade, UpperThrowGrenade
 }
