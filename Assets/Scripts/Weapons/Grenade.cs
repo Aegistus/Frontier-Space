@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
+    [SerializeField] GameObject particleEffect;
     [SerializeField] float fuseTime = 3f;
     [SerializeField] float blastRadius = 5f;
 
@@ -15,6 +16,7 @@ public class Grenade : MonoBehaviour
     public void Arm()
     {
         StartCoroutine(Fuse());
+        particleEffect.SetActive(true);
     }
 
     IEnumerator Fuse()
