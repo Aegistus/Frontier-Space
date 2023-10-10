@@ -14,6 +14,7 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
 
     public event Action OnWeaponChange;
+    public event Action<int> OnGrenadeCountChange;
 
     public bool HasWeaponEquipped => CurrentWeaponGO != null;
     public bool HasTwoWeapons => PrimaryWeapon != null && SecondaryWeapon != null;
@@ -233,6 +234,7 @@ public class AgentEquipment : MonoBehaviour
         grenade.GetComponent<Rigidbody>().useGravity = false;
         grenades.Add(grenade);
         grenade.gameObject.SetActive(false);
+        OnGrenadeCountChange?.Invoke(grenades.Count);
     }
 
     public Grenade GetGrenade()
@@ -243,6 +245,7 @@ public class AgentEquipment : MonoBehaviour
         }
         Grenade g = grenades[0];
         grenades.Remove(g);
+        OnGrenadeCountChange?.Invoke(grenades.Count);
         return g;
     }
 }
