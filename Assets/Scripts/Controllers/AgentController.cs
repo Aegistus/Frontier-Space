@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class AgentController : MonoBehaviour
 {
+    [SerializeField] DamageSource damageSource = DamageSource.NPC;
+    public DamageSource DamageSource => damageSource;
+
     public bool Forwards { get; protected set; }
     public bool Backwards { get; protected set; }
     public bool Left { get; protected set; }

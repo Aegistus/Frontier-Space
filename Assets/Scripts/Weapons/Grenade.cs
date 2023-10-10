@@ -5,8 +5,12 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     [SerializeField] GameObject particleEffect;
+    [SerializeField] LayerMask targetableLayers;
+    [SerializeField] float maxDamage = 100f;
     [SerializeField] float fuseTime = 3f;
     [SerializeField] float blastRadius = 5f;
+
+    DamageSource source;
 
     private void Start()
     {
@@ -15,9 +19,17 @@ public class Grenade : MonoBehaviour
 
     public void Arm()
     {
+        Arm(DamageSource.Environment);
+    }
+
+    public void Arm(DamageSource source)
+    {
+        this.source = source;
         StartCoroutine(Fuse());
         particleEffect.SetActive(true);
         SoundManager.Instance.PlaySoundAtPosition("Grenade_Arm", transform.position);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false;
     }
 
     IEnumerator Fuse()
@@ -30,6 +42,17 @@ public class Grenade : MonoBehaviour
     {
         SoundManager.Instance.PlaySoundAtPosition("Grenade_Explosion", transform.position);
         PoolManager.Instance.SpawnObject("Grenade_Explosion", transform.position, Quaternion.identity);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius, targetableLayers);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            AgentHealth health = colliders[i].GetComponent<AgentHealth>();
+            if (health != null)
+            {
+                float distance = Vector3.Distance(transform.position, health.transform.position);
+                float damage = maxDamage * Mathf.InverseLerp(blastRadius, 0, distance);
+                health.Damage(damage, source);
+            }
+        }
         Destroy(gameObject);
     }
 

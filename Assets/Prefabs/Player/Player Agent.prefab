@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8282687aef5d94e9bb93164e0e80cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSource: 0
   lookTarget: {fileID: 0}
 --- !u!114 &6214437158977114631
 MonoBehaviour:
@@ -508,6 +509,7 @@ MonoBehaviour:
   lookTransform: {fileID: 0}
   interactDistance: 3
   switchWeaponTime: 0.5
+  grenadeThrowForce: 5
 --- !u!114 &2391498150780371363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ab0473860c6824a980378bbba36458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageImmunities: 
   allowArmorRegen: 0
   armorRegenDelay: 2
   armorRegenRate: 200
@@ -539,6 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponHoldTarget: {fileID: 6214437158321797135}
   weaponOffsetChangeSpeed: 10
+  maxGrenadeCount: 3
 --- !u!54 &608602155
 Rigidbody:
   m_ObjectHideFlags: 0
