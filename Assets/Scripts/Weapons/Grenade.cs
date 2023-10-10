@@ -17,6 +17,7 @@ public class Grenade : MonoBehaviour
     {
         StartCoroutine(Fuse());
         particleEffect.SetActive(true);
+        SoundManager.Instance.PlaySoundAtPosition("Grenade_Arm", transform.position);
     }
 
     IEnumerator Fuse()
@@ -27,8 +28,13 @@ public class Grenade : MonoBehaviour
 
     void Explode()
     {
-        print("Explode");
+        SoundManager.Instance.PlaySoundAtPosition("Grenade_Explosion", transform.position);
         PoolManager.Instance.SpawnObject("Grenade_Explosion", transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        SoundManager.Instance.PlaySoundAtPosition("Grenade_Bounce", transform.position);
     }
 }

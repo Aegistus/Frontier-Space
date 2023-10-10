@@ -376,6 +376,7 @@ public class AgentAction : MonoBehaviour
         public override void Before()
         {
             timer = 0f;
+            action.currentGrenade.transform.SetParent(null);
             Rigidbody grenRB = action.currentGrenade.GetComponent<Rigidbody>();
             grenRB.useGravity = true;
             grenRB.AddForce(action.lookTransform.forward * action.grenadeThrowForce);

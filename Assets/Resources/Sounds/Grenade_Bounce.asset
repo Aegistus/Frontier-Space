@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
+  m_Name: Grenade_Bounce
+  m_EditorClassIdentifier: 
+  audioVariants:
+  - {fileID: 8300000, guid: d9895bcb579e6724ea0373882b10594d, type: 3}
+  - {fileID: 8300000, guid: 5c1a0cab5837c1445a3abcd201d085c0, type: 3}
+  - {fileID: 8300000, guid: 40a1248c50dd3844797d1bab6f764a9c, type: 3}
+  - {fileID: 8300000, guid: 4ed2a607564345d4bbc884e322090e12, type: 3}
+  volume: 1
+  volumeVariance: 0.1
+  pitch: 0.75
+  pitchVariance: 0.1
+  minimumDistance: 10
+  loop: 0
+  mixerGroup: {fileID: 0}
+  source: {fileID: 0}
