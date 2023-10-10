@@ -12,6 +12,7 @@ public class AgentEquipment : MonoBehaviour
 {
     [SerializeField] Transform weaponHoldTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
+    [SerializeField] int maxGrenadeCount = 3;
 
     public event Action OnWeaponChange;
     public event Action<int> OnGrenadeCountChange;
@@ -230,6 +231,10 @@ public class AgentEquipment : MonoBehaviour
 
     public void PickupGrenade(Grenade grenade)
     {
+        if (grenades.Count >= maxGrenadeCount)
+        {
+            return;
+        }
         grenade.transform.SetParent(transform);
         grenade.GetComponent<Rigidbody>().useGravity = false;
         grenades.Add(grenade);
