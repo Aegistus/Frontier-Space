@@ -18497,12 +18497,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &693595406 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7832590224054369836, guid: 04d93a167a76c4348bfc1c19e876612e,
-    type: 3}
-  m_PrefabInstance: {fileID: 931607385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &696085604
 Mesh:
   m_ObjectHideFlags: 0
@@ -53092,18 +53086,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 693595406}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 779766811}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

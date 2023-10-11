@@ -38,21 +38,27 @@ public class PositionalAudioSource : MonoBehaviour
     public void Play()
     {
         audioSource.PlayDelayed(delay);
+        if (followTarget)
+        {
+            StartCoroutine(Follow());
+        }
     }
 
     public void Stop()
     {
         audioSource.Stop();
         followTarget = null;
+        StopCoroutine(Follow());
         delay = 0f;
         sound = null;
     }
 
-    void Update()
+    IEnumerator Follow()
     {
-        if (followTarget != null)
+        while (followTarget != null)
         {
             transform.position = followTarget.position;
+            yield return null;
         }
     }
 }
