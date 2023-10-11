@@ -37,6 +37,7 @@ public class AgentEquipment : MonoBehaviour
     Quaternion targetRotation;
 
     DamageSource damageSource;
+    WeaponOffset currentOffsetType;
 
     public class Weapon
     {
@@ -100,7 +101,7 @@ public class AgentEquipment : MonoBehaviour
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
-        SetWeaponOffset(WeaponOffset.Idle);
+        SetWeaponOffset(currentOffsetType);
         CurrentWeapon.attack.Source = damageSource;
         OnWeaponChange?.Invoke();
     }
@@ -115,6 +116,7 @@ public class AgentEquipment : MonoBehaviour
 
     public void SetWeaponOffset(WeaponOffset offsetType)
     {
+        currentOffsetType = offsetType;
         if (!HasWeaponEquipped)
         {
             return;

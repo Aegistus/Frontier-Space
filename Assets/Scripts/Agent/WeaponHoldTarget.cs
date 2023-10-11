@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class WeaponHoldTarget : MonoBehaviour
 {
     [SerializeField] Transform reference;

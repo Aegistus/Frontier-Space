@@ -303,7 +303,7 @@ public class AgentAction : MonoBehaviour
 
     class SwitchWeaponState : State
     {
-        bool failure;
+        bool success;
         float timer = 0f;
 
         public SwitchWeaponState(AgentAction action) : base(action) { }
@@ -311,7 +311,7 @@ public class AgentAction : MonoBehaviour
         public override void Before()
         {
             timer = 0f;
-            failure = action.equipment.TrySwitchWeapon();
+            success = action.equipment.TrySwitchWeapon();
         }
 
         public override void During()
@@ -321,7 +321,7 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
-            if (failure)
+            if (!success)
             {
                 return typeof(IdleState);
             }

@@ -489,6 +489,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5373d3e430ab2c54895b4b6be4357f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairType: 0
+  camShakeProperties:
+    angle: 90
+    strength: 0.01
+    maxSpeed: 2
+    minSpeed: 1
+    duration: 0.5
+    noisePercent: 0.179
+    dampingPercent: 0.532
+    rotationPercent: 0
+  OnRecoil:
+    m_PersistentCalls:
+      m_Calls: []
   damageMin: 40
   damageMax: 60
   projectileID: Revolver_Bullet
@@ -497,6 +510,7 @@ MonoBehaviour:
   recoilXRotation: 8
   recoilYRotation: 0.5
   recoilRotationRecovery: 3
+  aimFOVChange: 10
 --- !u!114 &5397454183550361214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: '[E] Pickup Revolver'
+  pickupable: 1
 --- !u!65 &2071671601747738318
 BoxCollider:
   m_ObjectHideFlags: 0

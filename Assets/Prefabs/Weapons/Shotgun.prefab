@@ -88,6 +88,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af719059a0cf60141b31022332479414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairType: 0
+  camShakeProperties:
+    angle: 90
+    strength: 0.05
+    maxSpeed: 2
+    minSpeed: 1
+    duration: 0.5
+    noisePercent: 0.179
+    dampingPercent: 0.532
+    rotationPercent: 0
+  OnRecoil:
+    m_PersistentCalls:
+      m_Calls: []
   damageMin: 5
   damageMax: 10
   projectileID: Shotgun_Shot
@@ -96,6 +109,7 @@ MonoBehaviour:
   recoilXRotation: 10
   recoilYRotation: 1
   recoilRotationRecovery: 1
+  aimFOVChange: 10
   spreadRotation: {x: 5, y: 5, z: 0}
   pump: {fileID: 4803463140929950493}
   pumpRestPosition: {x: 0, y: 0.017168295, z: 0.456}
@@ -131,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: '[E] Pickup Shotgun'
+  pickupable: 1
 --- !u!65 &3769127772559846253
 BoxCollider:
   m_ObjectHideFlags: 0

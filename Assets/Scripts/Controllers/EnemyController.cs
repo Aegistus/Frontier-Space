@@ -186,7 +186,10 @@ public class EnemyController : AgentController
         public override void During()
         {
             controller.Forwards = true;
-            transform.LookAt(navAgent.path.corners[1] + controller.heightOffset);
+            if (navAgent.path.corners.Length > 1)
+            {
+                transform.LookAt(navAgent.path.corners[1] + controller.heightOffset);
+            }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             if (Vector3.Distance(transform.position, currentNode.position) <= controller.destinationTolerance)
             {

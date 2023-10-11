@@ -35,9 +35,12 @@ public class DamageIndicatorUI : MonoBehaviour
         while (true)
         {
             yield return null;
-            color = image.color;
-            color.a -= fadeSpeed * Time.deltaTime;
-            image.color = color;
+            if (image.color.a > 0)
+            {
+                color = image.color;
+                color.a -= fadeSpeed * Time.deltaTime;
+                image.color = color;
+            }
         }
     }
 }
