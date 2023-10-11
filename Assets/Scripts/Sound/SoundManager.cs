@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
 	private Sound[] sounds;
 
 	private Queue<PositionalAudioSource> positionalSources = new Queue<PositionalAudioSource>();
+	private List<AudioSource> toUnpause = new List<AudioSource>();
 
 	void Awake()
 	{
@@ -215,6 +216,27 @@ public class SoundManager : MonoBehaviour
 			}
 			sound.source.Stop();
 		}
-
 	}
+
+	public void PauseAllSounds()
+    {
+		AudioSource[] sources = FindObjectsOfType<AudioSource>();
+		for (int i = 0; i < sources.Length; i++)
+        {
+			if (sources[i].isPlaying)
+            {
+				sources[i].Pause();
+				toUnpause.Add(sources[i]);
+            }
+        }
+    }
+
+	public void UnPauseAllSounds()
+    {
+		for (int i = 0; i < toUnpause.Count; i++)
+        {
+			toUnpause[i].UnPause();
+        }
+		toUnpause.Clear();
+    }
 }

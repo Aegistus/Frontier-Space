@@ -11,13 +11,10 @@ public class EnemyController : AgentController
     [SerializeField] bool patrolling;
     [SerializeField] bool onGuard;
     [SerializeField] float rotationSpeed = 5f;
-    [SerializeField] float onGuardFOVAngle = 270f;
-    [SerializeField] float onGuardFOVMinimumRange = 10f;
     [SerializeField] float reactionTimeMin = .5f;
     [SerializeField] float reactionTimeMax = 1f;
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
-    [SerializeField] Vector3 attackAimOffset;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
 
@@ -97,6 +94,24 @@ public class EnemyController : AgentController
         enabled = false;
     }
 
+    void LookAt(Vector3 position)
+    {
+        lookTarget.position = position;
+    }
+
+    void MoveToDestination(bool run = false)
+    {
+        if (!navAgent.hasPath)
+        {
+            return;
+        }
+        Forwards = true;
+        Run = run;
+        if (navAgent.path.corners.Length > 1)
+        {
+            LookAt(navAgent.path.corners[1] + heightOffset);
+        }
+    }
 
     private void OnDrawGizmos()
     {
@@ -107,13 +122,6 @@ public class EnemyController : AgentController
                 Gizmos.DrawSphere(navAgent.path.corners[0], .4f);
             }
         }
-    }
-
-    public void GoOnGuard()
-    {
-        onGuard = true;
-        fov.minDetectionRadius = onGuardFOVMinimumRange;
-        fov.viewAngle = onGuardFOVAngle;
     }
 
     abstract class State
@@ -185,12 +193,7 @@ public class EnemyController : AgentController
 
         public override void During()
         {
-            controller.Forwards = true;
-            if (navAgent.path.corners.Length > 1)
-            {
-                transform.LookAt(navAgent.path.corners[1] + controller.heightOffset);
-            }
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            controller.MoveToDestination();
             if (Vector3.Distance(transform.position, currentNode.position) <= controller.destinationTolerance)
             {
                 controller.patrolNodeQueue.Enqueue(currentNode);
@@ -201,6 +204,10 @@ public class EnemyController : AgentController
 
         public override void After()
         {
+            if (currentNode != null)
+            {
+                controller.patrolNodeQueue.Enqueue(currentNode);
+            }
             controller.Forwards = false;
         }
 
@@ -249,7 +256,7 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.VisibleTarget.position + controller.attackAimOffset;
+                controller.LookAt(controller.VisibleTarget.position);
             }
             if (reactionTimer > 0)
             {
@@ -308,7 +315,7 @@ public class EnemyController : AgentController
             waitTimer -= Time.deltaTime;
             if (controller.VisibleTarget != null)
             {
-                controller.LookTarget.position = controller.VisibleTarget.position + controller.attackAimOffset;
+                controller.LookAt(controller.VisibleTarget.position);
             }
         }
 
@@ -365,16 +372,11 @@ public class EnemyController : AgentController
 
         public override void During()
         {
-            controller.Forwards = true;
-            controller.Run = true;
             if (controller.KnownTarget != null)
             {
                 navAgent.SetDestination(controller.KnownTarget.position);
             }
-            if (navAgent.hasPath)
-            {
-                controller.LookTarget.position = navAgent.path.corners[1] + controller.heightOffset;
-            }
+            controller.MoveToDestination(true);
         }
 
         public override Type CheckTransitions()
