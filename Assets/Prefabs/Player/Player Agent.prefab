@@ -509,7 +509,7 @@ MonoBehaviour:
   lookTransform: {fileID: 0}
   interactDistance: 3
   switchWeaponTime: 0.5
-  grenadeThrowForce: 5
+  grenadeThrowForce: 600
 --- !u!114 &2391498150780371363
 MonoBehaviour:
   m_ObjectHideFlags: 0

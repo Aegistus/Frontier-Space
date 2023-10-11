@@ -5033,7 +5033,7 @@ GameObject:
   - component: {fileID: 6927437070274893148}
   - component: {fileID: 6305628014772600354}
   - component: {fileID: 7557496586022340207}
-  - component: {fileID: 7081173242161584254}
+  - component: {fileID: 4813101201946206211}
   m_Layer: 9
   m_Name: Grenade
   m_TagString: Untagged
@@ -5107,8 +5107,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &7081173242161584254
-SphereCollider:
+--- !u!136 &4813101201946206211
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5117,6 +5117,7 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: 66fc05166735a7c4887336ae911236ba, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
+  m_Height: 0.25
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
