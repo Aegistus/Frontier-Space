@@ -7,12 +7,14 @@ using System;
 public class EnemyController : AgentController
 {
     [SerializeField] Transform lookTarget;
+    [SerializeField] Transform weaponHoldTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
     [SerializeField] bool onGuard;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float reactionTimeMin = .5f;
     [SerializeField] float reactionTimeMax = 1f;
+    [SerializeField] Vector3 aimOffset = new Vector3(0, 1, 0);
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
     [Range(0f, 1f)]
@@ -84,6 +86,7 @@ public class EnemyController : AgentController
         transform.rotation = currentRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        weaponHoldTarget.LookAt(LookTarget);
     }
 
     void OnDeath()
@@ -256,7 +259,7 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
-                controller.LookAt(controller.VisibleTarget.position);
+                controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
             }
             if (reactionTimer > 0)
             {
@@ -315,7 +318,7 @@ public class EnemyController : AgentController
             waitTimer -= Time.deltaTime;
             if (controller.VisibleTarget != null)
             {
-                controller.LookAt(controller.VisibleTarget.position);
+                controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
             }
         }
 
