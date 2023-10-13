@@ -6444,6 +6444,8 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 0
   maxHealth: 100
+  flinchDamageThreshold: 0.1
+  flinchResetDelay: 2
 --- !u!114 &755935596990909214
 MonoBehaviour:
   m_ObjectHideFlags: 0

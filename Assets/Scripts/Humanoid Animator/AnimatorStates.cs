@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,5 +12,5 @@ public enum FullBodyAnimState
 
 public enum UpperBodyAnimState
 {
-    None, UpperReload, UpperHoldGrenade, UpperThrowGrenade
+    None, UpperReload, UpperHoldGrenade, UpperThrowGrenade, Flinch
 }

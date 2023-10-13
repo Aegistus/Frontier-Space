@@ -10,6 +10,7 @@ public class AgentHealth : MonoBehaviour
     public event Action OnArmorChange;
     public event Action OnHealthChange;
     public event Action OnAgentDeath;
+    public event Action OnFlinch;
 
     public float CurrentArmor => currentArmor;
     public float CurrentHealth => currentHealth;
@@ -25,15 +26,19 @@ public class AgentHealth : MonoBehaviour
     [SerializeField] float armorRegenRate = 20f;
     [SerializeField] float maxArmor = 100;
     [SerializeField] float maxHealth = 100f;
+    [Tooltip("Measured in percent.")]
+    [SerializeField] float flinchDamageThreshold = .25f;
+    [SerializeField] float flinchResetDelay = 2f;
+
     float currentArmor;
     float currentHealth;
     float delayTimer;
     readonly float ragdollDuration = 5f;
+    float recentDamage;
 
     Ragdoll ragdoll;
     AgentEquipment equipment;
 
-    int hitSoundID;
     int armorRechargeStartID = -1;
     int armorRechargeEndID = -1;
 
@@ -50,11 +55,6 @@ public class AgentHealth : MonoBehaviour
         armorRechargeStartID = SoundManager.Instance.GetSoundID("Armor_Recharge_Start");
         armorRechargeEndID = SoundManager.Instance.GetSoundID("Armor_Recharge_End");
     }
-
-    //private void Start()
-    //{
-    //    hitSoundID = SoundManager.Instance.GetSoundID("Agent_Hit");
-    //}
 
     private void Update()
     {
@@ -125,12 +125,16 @@ public class AgentHealth : MonoBehaviour
     void DamageHealth(float damage)
     {
         currentHealth -= damage;
-        //SoundManager.Instance.PlaySoundAtPosition(hitSoundID, transform.position);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             Kill();
             return;
+        }
+        recentDamage += damage;
+        if (recentDamage / maxHealth >= flinchDamageThreshold)
+        {
+            OnFlinch?.Invoke();
         }
         OnHealthChange?.Invoke();
     }

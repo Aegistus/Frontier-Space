@@ -5,7 +5,7 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade
+    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade, Flinch
 }
 
 public class AgentAction : MonoBehaviour
@@ -39,7 +39,11 @@ public class AgentAction : MonoBehaviour
         { typeof(SwitchWeaponState), ActionState.SwitchWeapon },
         { typeof(HoldGrenadeState), ActionState.HoldGrenade },
         { typeof(ThrowGrenadeState), ActionState.ThrowGrenade },
+        { typeof(FlinchState), ActionState.Flinch },
     };
+
+    // set to true until it has been processed, at which point it should be set to false.
+    bool flinch = false;
 
     private void Awake()
     {
@@ -59,10 +63,12 @@ public class AgentAction : MonoBehaviour
             { typeof(SwitchWeaponState), new SwitchWeaponState(this) },
             { typeof(HoldGrenadeState), new HoldGrenadeState(this) },
             { typeof(ThrowGrenadeState), new ThrowGrenadeState(this) },
+            { typeof(FlinchState), new FlinchState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
         InteractDistance = interactDistance;
         GetComponent<AgentHealth>().OnAgentDeath += () => enabled = false;
+        GetComponent<AgentHealth>().OnFlinch += () => flinch = true;
     }
 
     private void Start()
@@ -116,6 +122,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (action.flinch)
+            {
+                return typeof(FlinchState);
+            }
             if (action.equipment.HasWeaponEquipped)
             {
                 if (movement.CurrentState != MovementState.Run)
@@ -172,6 +182,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (action.flinch)
+            {
+                return typeof(FlinchState);
+            }
             if (movement.CurrentState == MovementState.Run)
             {
                 return typeof(IdleState);
@@ -203,6 +217,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (action.flinch)
+            {
+                return typeof(FlinchState);
+            }
             if (action.controller.Attack)
             {
                 return typeof(AimAttackState);
@@ -241,6 +259,10 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
+            if (action.flinch)
+            {
+                return typeof(FlinchState);
+            }
             if (!action.controller.Attack)
             {
                 return typeof(AimState);
@@ -399,6 +421,35 @@ public class AgentAction : MonoBehaviour
             if (timer >= maxTimer)
             {
                 action.equipment.Equip(action.equipment.PrimaryWeapon);
+                return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class FlinchState : State
+    {
+        readonly float maxTimer = 1f;
+        float timer;
+
+        public FlinchState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            timer = 0f;
+            action.flinch = false;
+            action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (timer >= maxTimer)
+            {
                 return typeof(IdleState);
             }
             return null;

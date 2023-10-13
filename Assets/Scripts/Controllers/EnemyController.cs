@@ -32,7 +32,6 @@ public class EnemyController : AgentController
     Vector3 heightOffset = new Vector3(0, 1.6f, 0);
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
     bool resetCrouchChance = false;
-
     FieldOfView fov;
     AgentEquipment equipment;
 
@@ -61,7 +60,8 @@ public class EnemyController : AgentController
             { typeof(ChasingState), new ChasingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
-        GetComponent<AgentHealth>().OnAgentDeath += OnDeath;
+        AgentHealth health = GetComponent<AgentHealth>();
+        health.OnAgentDeath += OnDeath;
     }
 
     private void Start()
