@@ -91,4 +91,9 @@ public class HumanoidAnimator : MonoBehaviour
     {
         rig.weight = weight;
     }
+
+    public void SetInteger(string name, int value)
+    {
+        anim.SetInteger(name, value);
+    }
 }
