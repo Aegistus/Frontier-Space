@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlasmaRifle
+  m_Name: HumanArmed
   m_Controller: {fileID: 9100000, guid: 87dc60035db6a12479be5cd416b5c7d2, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 27678505907096b49aef07b734f87c37, type: 2}
