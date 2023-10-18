@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentAudioSource != null && !currentAudioSource.isPlaying)
+        if (currentAudioSource != null && !currentAudioSource.isPlaying && Time.timeScale != 0)
         {
             if (toPlay.Count > 0)
             {
