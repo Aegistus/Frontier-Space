@@ -2,39 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlasmaRifleAttack : RangedWeaponAttack
+public class SemiAutoDelayAttack : RangedWeaponAttack
 {
-    [SerializeField] float roundsPerMinute = 120f;
+    [SerializeField] float shotDelay = 1f;
 
-    float shotDelay;
-    float timer = 0f;
-    int shootSoundID;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        shotDelay = 60 / roundsPerMinute;
-    }
-
-    private void Start()
-    {
-        shootSoundID = SoundManager.Instance.GetSoundID("PlasmaRifle_Shoot");
-    }
+    float timer;
 
     public override void BeginAttack()
     {
-        SpawnProjectile();
-        timer = 0f;
+        if (timer <= 0)
+        {
+            SpawnProjectile();
+            timer = shotDelay;
+        }
     }
 
     public override void DuringAttack()
     {
-        timer += Time.deltaTime;
-        if (timer >= shotDelay)
-        {
-            SpawnProjectile();
-            timer = 0f;
-        }
+
     }
 
     public override void EndAttack()
@@ -51,6 +36,15 @@ public class PlasmaRifleAttack : RangedWeaponAttack
             projectile.GetComponent<Projectile>().SetDamage(damage, Source);
             ApplyRecoil();
             SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
+        }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
         }
     }
 }

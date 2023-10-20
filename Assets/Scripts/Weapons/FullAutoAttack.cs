@@ -2,35 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperRifleAttack : RangedWeaponAttack
+public class FullAutoAttack : RangedWeaponAttack
 {
-    [SerializeField] float shotDelay = 1f;
-
-    float timer;
-    int shootSoundID;
+    [SerializeField] float roundsPerMinute = 120f;
+    float shotDelay;
+    float timer = 0f;
 
     protected override void Awake()
     {
         base.Awake();
-    }
-
-    private void Start()
-    {
-        shootSoundID = SoundManager.Instance.GetSoundID("Sniper_Shoot");
+        shotDelay = 60 / roundsPerMinute;
     }
 
     public override void BeginAttack()
     {
-        if (timer <= 0)
-        {
-            SpawnProjectile();
-            timer = shotDelay;
-        }
+        SpawnProjectile();
+        timer = 0f;
     }
 
     public override void DuringAttack()
     {
-
+        timer += Time.deltaTime;
+        if (timer >= shotDelay)
+        {
+            SpawnProjectile();
+            timer = 0f;
+        }
     }
 
     public override void EndAttack()
@@ -47,15 +44,6 @@ public class SniperRifleAttack : RangedWeaponAttack
             projectile.GetComponent<Projectile>().SetDamage(damage, Source);
             ApplyRecoil();
             SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
-        }
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
         }
     }
 }

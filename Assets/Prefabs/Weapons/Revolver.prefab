@@ -505,6 +505,7 @@ MonoBehaviour:
   damageMin: 40
   damageMax: 60
   projectileID: Revolver_Bullet
+  shootSoundName: Revolver_Shoot
   projectileSpawnPoint: {fileID: 2595385096538879513}
   weaponModel: {fileID: 2439405729449796811}
   recoilXRotation: 8

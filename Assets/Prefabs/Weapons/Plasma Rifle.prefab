@@ -389,6 +389,7 @@ MonoBehaviour:
   damageMin: 10
   damageMax: 20
   projectileID: PlasmaRifle_Bullet
+  shootSoundName: PlasmaRifle_Shoot
   projectileSpawnPoint: {fileID: 5968914447583228423}
   weaponModel: {fileID: 5927610815098219122}
   recoilXRotation: 1

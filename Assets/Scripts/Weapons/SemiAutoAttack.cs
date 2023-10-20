@@ -2,19 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevolverAttack : RangedWeaponAttack
+public class SemiAutoAttack : RangedWeaponAttack
 {
-    int shootSoundID;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
-    private void Start()
-    {
-        shootSoundID = SoundManager.Instance.GetSoundID("Revolver_Shoot");
-    }
 
     public override void BeginAttack()
     {

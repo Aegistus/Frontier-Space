@@ -501,6 +501,7 @@ MonoBehaviour:
   damageMin: 50
   damageMax: 60
   projectileID: Sniper_Shot
+  shootSoundName: Sniper_Shoot
   projectileSpawnPoint: {fileID: 7165447958694006930}
   weaponModel: {fileID: 5990370585735146841}
   recoilXRotation: 7

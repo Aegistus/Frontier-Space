@@ -11,7 +11,6 @@ public class ShotgunAttack : RangedWeaponAttack
     [SerializeField] float pumpStartDelay = .5f;
     [SerializeField] float pumpSpeed;
 
-    int shootSoundID;
     int pelletCount = 10;
     float pumpDelay = .75f;
     float timer;
@@ -19,11 +18,6 @@ public class ShotgunAttack : RangedWeaponAttack
     protected override void Awake()
     {
         base.Awake();
-    }
-
-    private void Start()
-    {
-        shootSoundID = SoundManager.Instance.GetSoundID("Shotgun_Shoot");
     }
 
     public override void BeginAttack()

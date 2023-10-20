@@ -104,6 +104,7 @@ MonoBehaviour:
   damageMin: 5
   damageMax: 10
   projectileID: Shotgun_Shot
+  shootSoundName: Shotgun_Shoot
   projectileSpawnPoint: {fileID: 5732493271783340917}
   weaponModel: {fileID: 4641716684799921240}
   recoilXRotation: 10

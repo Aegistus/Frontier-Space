@@ -80,13 +80,20 @@ public class EnemyController : AgentController
             currentState = availableStates[nextState];
             currentState.Before();
         }
+        // update body rotation
         Quaternion currentRotation = transform.rotation;
         transform.LookAt(LookTarget);
         Quaternion targetRotation = transform.rotation;
         transform.rotation = currentRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        // update weapon rotation
+        currentRotation = weaponHoldTarget.rotation;
         weaponHoldTarget.LookAt(LookTarget);
+        targetRotation = weaponHoldTarget.rotation;
+        weaponHoldTarget.rotation = currentRotation;
+        weaponHoldTarget.rotation = Quaternion.Slerp(weaponHoldTarget.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        weaponHoldTarget.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     void OnDeath()
@@ -112,7 +119,8 @@ public class EnemyController : AgentController
         Run = run;
         if (navAgent.path.corners.Length > 1)
         {
-            LookAt(navAgent.path.corners[1] + heightOffset);
+            Vector3 lookOffset = (navAgent.path.corners[1] - transform.position).normalized;
+            LookAt(navAgent.path.corners[1] + heightOffset + lookOffset);
         }
     }
 
@@ -188,7 +196,6 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
-            controller.LookTarget.localPosition = controller.lookTargetDefaultPos;
             currentNode = controller.patrolNodeQueue.Dequeue();
             navAgent.SetDestination(currentNode.position);
             controller.Run = false;
