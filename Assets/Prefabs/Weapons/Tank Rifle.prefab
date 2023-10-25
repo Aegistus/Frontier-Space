@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1246916212535110324}
   - component: {fileID: 1246916212535110326}
   - component: {fileID: 1246916212535110325}
-  - component: {fileID: 1246916212535110312}
+  - component: {fileID: 4494571355525824842}
   - component: {fileID: 1246916212535110327}
   m_Layer: 0
   m_Name: Tank Rifle
@@ -166,7 +166,7 @@ MonoBehaviour:
   reloadRotation: {x: -30, y: 20, z: -40}
   crouchingOffset: {x: 0.25, y: -0.35, z: 0.1}
   crouchingRotation: {x: 0, y: 0, z: 0}
---- !u!114 &1246916212535110312
+--- !u!114 &4494571355525824842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246916212535110323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd681b69610e8214ab3ebf46485b6348, type: 3}
+  m_Script: {fileID: 11500000, guid: bb22f195f99aed04eb60386bde17c0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crosshairType: 0
@@ -197,11 +197,12 @@ MonoBehaviour:
   shootSoundName: 
   projectileSpawnPoint: {fileID: 1246916212103139456}
   weaponModel: {fileID: 3652490693719331063}
-  recoilXRotation: 0
-  recoilYRotation: 0
+  recoilXRotation: 1
+  recoilYRotation: 1
   recoilRotationRecovery: 1
   aimFOVChange: 10
-  roundsPerMinute: 180
+  roundsPerMinute: 360
+  chargeDelay: 2
 --- !u!114 &1246916212535110327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSound: 
-  maxLoadedAmmo: 60
+  maxLoadedAmmo: 120
   maxCarriedAmmo: 360
   reloadTime: 2
 --- !u!1 &3654701697172710145

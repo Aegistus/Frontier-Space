@@ -30,7 +30,7 @@ public abstract class RangedWeaponAttack : WeaponAttack
 
     public void ApplyRecoil()
     {
-        weaponModel.Rotate(Vector3.left, recoilXRotation);
+        weaponModel.Rotate(Vector3.left, Random.Range(0, recoilXRotation));
         weaponModel.Rotate(Vector3.up, Random.Range(-recoilYRotation, recoilYRotation));
         OnRecoil.Invoke();
     }
