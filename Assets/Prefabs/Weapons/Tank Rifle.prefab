@@ -193,7 +193,7 @@ MonoBehaviour:
       m_Calls: []
   damageMin: 20
   damageMax: 30
-  projectileID: PlasmaRifle_Bullet
+  projectileID: TankRifle_Shot
   shootSoundName: TankRifle_Shot
   projectileSpawnPoint: {fileID: 1246916212103139456}
   weaponModel: {fileID: 3652490693719331063}
