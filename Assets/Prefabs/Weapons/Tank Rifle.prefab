@@ -194,13 +194,14 @@ MonoBehaviour:
   damageMin: 20
   damageMax: 30
   projectileID: PlasmaRifle_Bullet
-  shootSoundName: 
+  shootSoundName: TankRifle_Shot
   projectileSpawnPoint: {fileID: 1246916212103139456}
   weaponModel: {fileID: 3652490693719331063}
   recoilXRotation: 1
   recoilYRotation: 1
   recoilRotationRecovery: 1
   aimFOVChange: 10
+  chargeSoundName: TankRifle_Charge
   roundsPerMinute: 360
   chargeDelay: 2
 --- !u!114 &1246916212535110327

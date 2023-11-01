@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChargedWeaponAttack : RangedWeaponAttack
 {
+    [SerializeField] string chargeSoundName;
     [SerializeField] float roundsPerMinute = 120f;
     [SerializeField] float chargeDelay = 2f;
 
@@ -11,10 +12,18 @@ public class ChargedWeaponAttack : RangedWeaponAttack
     float shotTimer = 0f;
     float shotDelay;
 
+    int chargeSoundID;
+
     protected override void Awake()
     {
         base.Awake();
         shotDelay = 60 / roundsPerMinute;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        chargeSoundID = SoundManager.Instance.GetSoundID(chargeSoundName);
     }
 
     public override void BeginAttack()
@@ -22,6 +31,7 @@ public class ChargedWeaponAttack : RangedWeaponAttack
         print("Charging");
         chargeTimer = 0f;
         shotTimer = 0f;
+        SoundManager.Instance.PlaySoundAtPosition(chargeSoundID, transform.position, transform);
     }
 
     public override void DuringAttack()
