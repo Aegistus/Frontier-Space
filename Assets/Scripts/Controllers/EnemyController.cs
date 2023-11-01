@@ -273,7 +273,7 @@ public class EnemyController : AgentController
                 reactionTimer -= Time.deltaTime;
                 return;
             }
-            if (crouchChance <= controller.crouchWhileAttackingChance)
+            if (crouchChance < controller.crouchWhileAttackingChance)
             {
                 controller.Crouch = true;
             }
