@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform cameraHolder;
     [SerializeField] Transform head;
     [SerializeField] Transform playerLookTarget;
-    public float mouseSensitivity = 1f;
+    [SerializeField] float regularSensitivity = 1f;
     public Vector3 cameraOffset = new Vector3(0, .2f, .1f);
     public float aimFOVChange = 10f;
     public float fovChangeSpeed = 5f;
@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
     CameraShake camShake;
     float targetFOV;
     float defaultFOV;
+    float mouseSensitivity;
+    float aimedSensitivity;
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class CameraController : MonoBehaviour
         mainCam = Camera.main;
         targetFOV = mainCam.fieldOfView;
         defaultFOV = mainCam.fieldOfView;
+        mouseSensitivity = regularSensitivity;
+        aimedSensitivity = regularSensitivity / 2;
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
         equipment = playerAction.GetComponent<AgentEquipment>();
@@ -48,11 +52,13 @@ public class CameraController : MonoBehaviour
             if (equipment.CurrentWeaponAttack is RangedWeaponAttack)
             {
                 targetFOV = defaultFOV - ((RangedWeaponAttack)equipment.CurrentWeaponAttack).AimFOVChange;
+                mouseSensitivity = aimedSensitivity;
             }
         }
         else
         {
             targetFOV = defaultFOV;
+            mouseSensitivity = regularSensitivity;
         }
     }
 

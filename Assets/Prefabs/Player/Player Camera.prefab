@@ -54,7 +54,7 @@ MonoBehaviour:
   cameraHolder: {fileID: 7237379772341906143}
   head: {fileID: 0}
   playerLookTarget: {fileID: 0}
-  mouseSensitivity: 500
+  regularSensitivity: 350
   cameraOffset: {x: 0, y: 0, z: 0.1}
   aimFOVChange: 20
   fovChangeSpeed: 5
