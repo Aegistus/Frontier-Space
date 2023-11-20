@@ -7,23 +7,29 @@ public class InteractionUI : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] GameObject prompt;
-    [SerializeField] LayerMask interactableMask;
 
     RaycastHit rayHit;
     Transform camTransform;
     IInteractable currentlyLookingAt;
+    int interactableLayer;
 
     private void Awake()
     {
         camTransform = Camera.main.transform;
         prompt.SetActive(false);
+        interactableLayer = LayerMask.NameToLayer("Interactable");
     }
 
     private void Update()
     {
-        if (Physics.Raycast(camTransform.position, camTransform.forward, out rayHit, AgentAction.InteractDistance, interactableMask))
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out rayHit, AgentAction.InteractDistance))
         {
-            if (currentlyLookingAt == null)
+            if (rayHit.collider.gameObject.layer != interactableLayer)
+            {
+                prompt.SetActive(false);
+                currentlyLookingAt = null;
+            }
+            else if (currentlyLookingAt == null)
             {
                 currentlyLookingAt = rayHit.collider.GetComponent<IInteractable>();
                 if (currentlyLookingAt != null)
