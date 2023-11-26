@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2435756935762069103}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000017166137, y: 0.100448646, z: 0.14027394}
+  m_LocalPosition: {x: -0.00000001716614, y: 0.1004486, z: 0.1402739}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 7808938219207888765}
   - component: {fileID: 2071671601747738318}
   - component: {fileID: 6251409007560099792}
+  - component: {fileID: 1772081700862213852}
   m_Layer: 9
   m_Name: Revolver
   m_TagString: Untagged
@@ -474,7 +475,7 @@ MonoBehaviour:
   aimingOffset: {x: 0, y: -0.2, z: 0.3}
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
-  reloadRotation: {x: 30, y: -20, z: 0}
+  reloadRotation: {x: 0, y: 0, z: 0}
   crouchingOffset: {x: 0.238, y: -0.3, z: 0.3}
   crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &2595385096786984976
@@ -527,7 +528,9 @@ MonoBehaviour:
   reloadSound: Revolver_Reload
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
-  reloadTime: 0.5
+  reloadTime: 0.45
+  preReloadTime: 0.2
+  postReloadTime: 1.2
 --- !u!114 &7808938219207888765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +574,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1772081700862213852
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595385096786984980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 3dbf3144ea58e7f49b6fcf74f20b32b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2595385097393556664
 GameObject:
   m_ObjectHideFlags: 0

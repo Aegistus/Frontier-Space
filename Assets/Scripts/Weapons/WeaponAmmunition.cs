@@ -19,10 +19,14 @@ public abstract class WeaponAmmunition : MonoBehaviour
     protected int currentCarriedAmmo;
     protected int reloadSoundID;
 
+    protected Animator anim;
+
     protected virtual void Awake()
     {
         currentLoadedAmmo = maxLoadedAmmo;
         currentCarriedAmmo = 0;
+        anim = GetComponent<Animator>();
+        anim.enabled = false;
     }
 
     private void Start()
