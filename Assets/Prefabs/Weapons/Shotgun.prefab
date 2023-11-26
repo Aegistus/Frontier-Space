@@ -108,8 +108,8 @@ MonoBehaviour:
   shootSoundName: Shotgun_Shoot
   projectileSpawnPoint: {fileID: 5732493271783340917}
   weaponModel: {fileID: 4641716684799921240}
-  recoilXRotation: 10
-  recoilYRotation: 1
+  recoilXRotation: 15
+  recoilYRotation: 2
   recoilRotationRecovery: 1
   aimFOVChange: 10
   spreadRotation: {x: 5, y: 5, z: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   reloadSound: Shotgun_Reload
   maxLoadedAmmo: 8
   maxCarriedAmmo: 40
-  reloadTime: 0.5
+  reloadTime: 0.4
   preReloadTime: 0.5
   postReloadTime: 0.5
 --- !u!114 &8912309505800456049

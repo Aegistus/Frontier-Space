@@ -510,8 +510,8 @@ MonoBehaviour:
   shootSoundName: Revolver_Shoot
   projectileSpawnPoint: {fileID: 2595385096538879513}
   weaponModel: {fileID: 2439405729449796811}
-  recoilXRotation: 8
-  recoilYRotation: 0.5
+  recoilXRotation: 12
+  recoilYRotation: 1
   recoilRotationRecovery: 3
   aimFOVChange: 10
 --- !u!114 &5397454183550361214
