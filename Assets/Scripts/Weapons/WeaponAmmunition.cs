@@ -58,25 +58,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
         return true;
     }
 
-    protected virtual IEnumerator ReloadCoroutine()
-    {
-        Reloading = true;
-        SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
-        yield return new WaitForSeconds(reloadTime);
-        int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
-
-        if (currentCarriedAmmo < ammoNeeded)
-        {
-            currentLoadedAmmo += currentCarriedAmmo;
-            currentCarriedAmmo = 0;
-        }
-        else
-        {
-            currentLoadedAmmo += ammoNeeded;
-            currentCarriedAmmo -= ammoNeeded;
-        }
-        Reloading = false;
-    }
+    protected abstract IEnumerator ReloadCoroutine();
 
     public void AddAmmo(int amount)
     {

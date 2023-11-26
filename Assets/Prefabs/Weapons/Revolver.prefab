@@ -529,7 +529,7 @@ MonoBehaviour:
   reloadSound: Revolver_Reload
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
-  reloadTime: 0.45
+  reloadTime: 0.4
   preReloadTime: 0.2
   postReloadTime: 1
 --- !u!114 &7808938219207888765
