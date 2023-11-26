@@ -20,6 +20,7 @@ public class AgentHealth : MonoBehaviour
 
     bool isDead = false;
 
+    [SerializeField] LayerMask bloodSplatterLayers;
     [SerializeField] List<DamageSource> damageImmunities;
     [SerializeField] bool allowArmorRegen = false;
     [SerializeField] float armorRegenDelay = 2f;
@@ -34,6 +35,7 @@ public class AgentHealth : MonoBehaviour
     float currentHealth;
     float delayTimer;
     readonly float ragdollDuration = 5f;
+    readonly float bloodSplatterReachDistance = 5f;
     float recentDamage;
 
     Ragdoll ragdoll;
@@ -88,7 +90,7 @@ public class AgentHealth : MonoBehaviour
         maxArmor = armor;
     }
 
-    public void Damage(float damage, DamageSource source)
+    public void Damage(float damage, Vector3 direction, Vector3 point, DamageSource source)
     {
         if (isDead)
         {
@@ -99,7 +101,7 @@ public class AgentHealth : MonoBehaviour
             return;
         }
         damage = DamageArmor(damage);
-        DamageHealth(damage);
+        DamageHealth(damage, direction, point);
         OnDamageTaken?.Invoke(source);
     }
 
@@ -122,7 +124,7 @@ public class AgentHealth : MonoBehaviour
         return damage;
     }
 
-    void DamageHealth(float damage)
+    void DamageHealth(float damage, Vector3 direction, Vector3 point)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -135,6 +137,13 @@ public class AgentHealth : MonoBehaviour
         if (recentDamage / maxHealth >= flinchDamageThreshold)
         {
             OnFlinch?.Invoke();
+        }
+        // create blood splatter
+        RaycastHit rayHit;
+        if (Physics.Raycast(point, direction, out rayHit, bloodSplatterReachDistance, bloodSplatterLayers))
+        {
+            GameObject bloodSplatter = PoolManager.Instance.SpawnObject("Blood_Splatter", rayHit.point, Quaternion.identity);
+            bloodSplatter.transform.LookAt(rayHit.point + rayHit.normal);
         }
         OnHealthChange?.Invoke();
     }

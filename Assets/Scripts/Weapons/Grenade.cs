@@ -50,7 +50,7 @@ public class Grenade : MonoBehaviour
             {
                 float distance = Vector3.Distance(transform.position, health.transform.position);
                 float damage = maxDamage * Mathf.InverseLerp(blastRadius, 0, distance);
-                health.Damage(damage, source);
+                health.Damage(damage, (transform.position - health.transform.position).normalized, health.transform.position, source);
             }
         }
         Destroy(gameObject);

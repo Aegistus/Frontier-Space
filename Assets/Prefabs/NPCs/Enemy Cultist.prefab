@@ -6438,6 +6438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ab0473860c6824a980378bbba36458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodSplatterLayers:
+    serializedVersion: 2
+    m_Bits: 1088
   damageImmunities: 01000000
   allowArmorRegen: 0
   armorRegenDelay: 2

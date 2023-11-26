@@ -7,8 +7,11 @@ public class MagazineAmmunition : WeaponAmmunition
     protected override IEnumerator ReloadCoroutine()
     {
         Reloading = true;
-        anim.enabled = true;
-        anim.Play("Reload");
+        if (anim)
+        {
+            anim.enabled = true;
+            anim.Play("Reload");
+        }
         SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         yield return new WaitForSeconds(reloadTime);
         int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
@@ -24,6 +27,9 @@ public class MagazineAmmunition : WeaponAmmunition
             currentCarriedAmmo -= ammoNeeded;
         }
         Reloading = false;
-        anim.enabled = false;
+        if (anim)
+        {
+            anim.enabled = false;
+        }
     }
 }

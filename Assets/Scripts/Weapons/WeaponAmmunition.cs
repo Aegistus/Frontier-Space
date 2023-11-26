@@ -26,7 +26,10 @@ public abstract class WeaponAmmunition : MonoBehaviour
         currentLoadedAmmo = maxLoadedAmmo;
         currentCarriedAmmo = 0;
         anim = GetComponent<Animator>();
-        anim.enabled = false;
+        if (anim)
+        {
+            anim.enabled = false;
+        }
     }
 
     private void Start()

@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
             AgentHealth health = rayHit.collider.GetComponentInParent<AgentHealth>();
             if (health)
             {
-                health.Damage(damage, source);
+                health.Damage(damage, transform.forward, transform.position, source);
                 SoundManager.Instance.PlaySoundAtPosition("Impact_Flesh", transform.position);
             }
             else

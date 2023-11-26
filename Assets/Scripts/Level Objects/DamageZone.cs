@@ -21,7 +21,7 @@ public class DamageZone : MonoBehaviour
     {
         for (int i = 0; i < toDamage.Count; i++)
         {
-            toDamage[i].Damage(damagePerSecond * Time.deltaTime, DamageSource.Environment);
+            toDamage[i].Damage(damagePerSecond * Time.deltaTime, Vector3.zero, Vector3.zero, DamageSource.Environment);
         }
     }
 
