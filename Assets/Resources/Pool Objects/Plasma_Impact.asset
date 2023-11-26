@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d2a027e915b674a8078208577c6cd5, type: 3}
   m_Name: Plasma_Impact
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3368646073585515515, guid: 3236153f2924f5c4c9cf28f2594462aa, type: 3}
+  prefabs:
+  - {fileID: 3368646073585515515, guid: 3236153f2924f5c4c9cf28f2594462aa, type: 3}
   instanceCount: 100

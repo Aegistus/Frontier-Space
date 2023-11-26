@@ -31,7 +31,10 @@ public class PoolInstance : MonoBehaviour
             {
                 audioSource.Play();
             }
-            StartCoroutine(EndLifeTime());
+            if (lifeTime > 0)
+            {
+                StartCoroutine(EndLifeTime());
+            }
         }
         else
         {

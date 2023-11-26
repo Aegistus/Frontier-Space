@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d2a027e915b674a8078208577c6cd5, type: 3}
   m_Name: Bullet_Hole
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8786515548441933350, guid: 1c81d883fb84d314282cd3777dd58a20, type: 3}
+  prefabs:
+  - {fileID: 8786515548441933350, guid: 82d77109c0c3ed049af9d6c6fed751f7, type: 3}
+  - {fileID: 8786515548441933350, guid: 1c81d883fb84d314282cd3777dd58a20, type: 3}
+  - {fileID: 8786515548441933350, guid: 7b5d516ad6746a14faebec9f1d033a2e, type: 3}
   instanceCount: 500

@@ -8,7 +8,7 @@ public class PoolObject : ScriptableObject
     /// <summary>
     /// Prefab of the object.
     /// </summary>
-    public GameObject prefab;
+    public GameObject[] prefabs;
     /// <summary>
     /// How many instances should be created at runtime.
     /// </summary>

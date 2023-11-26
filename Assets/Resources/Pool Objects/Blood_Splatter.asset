@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d2a027e915b674a8078208577c6cd5, type: 3}
   m_Name: Blood_Splatter
   m_EditorClassIdentifier: 
-  prefab: {fileID: 416766360169167683, guid: c73172e0d11cc2a419b5f9805ad201f1, type: 3}
+  prefabs:
+  - {fileID: 416766360169167683, guid: c73172e0d11cc2a419b5f9805ad201f1, type: 3}
+  - {fileID: 9019384333849501391, guid: f7c55dc18ba46f34ebe2602f4f1889af, type: 3}
+  - {fileID: 6195620731698639543, guid: 724b43ec95928a94990fa5c735f42cf6, type: 3}
+  - {fileID: 5109672610634224126, guid: b1cad6ab7ed18e144a539a893b164c84, type: 3}
   instanceCount: 50

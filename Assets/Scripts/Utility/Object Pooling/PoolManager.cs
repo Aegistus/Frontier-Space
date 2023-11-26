@@ -28,7 +28,8 @@ public class PoolManager : MonoBehaviour
         {
             for (int i = 0; i < poolObject.instanceCount; i++)
             {
-                obj = Instantiate(poolObject.prefab, Vector3.one * 1000, Quaternion.identity, poolParent.transform);
+                int variantIndex = UnityEngine.Random.Range(0, poolObject.prefabs.Length);
+                obj = Instantiate(poolObject.prefabs[variantIndex], Vector3.one * 1000, Quaternion.identity, poolParent.transform);
                 PoolInstance poolInstance = obj.AddComponent<PoolInstance>();
                 poolInstance.lifeTime = 10f;
                 obj.SetActive(false);
@@ -52,6 +53,7 @@ public class PoolManager : MonoBehaviour
             return null;
         }
         objectFromPool = poolObjects[poolIndex].GetNextInQueue();
+        objectFromPool.lifeTime = -1;
         objectFromPool.transform.position = position;
         objectFromPool.transform.rotation = rotation;
         objectFromPool.gameObject.SetActive(true);
