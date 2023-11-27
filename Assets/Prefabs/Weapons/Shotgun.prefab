@@ -67,15 +67,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHandPosition: {fileID: 9138470146124373189}
   leftHandPosition: {fileID: 6370238127591400140}
-  idleOffset: {x: 0.25, y: -0.3, z: 0}
+  idleOffset: {x: 0.25, y: -0.3, z: 0.2}
   idleRotation: {x: 0, y: 0, z: 0}
   runningOffset: {x: -0.008, y: -0.49, z: 0.11}
   runningRotation: {x: 16.907497, y: -63.3585, z: 12.33955}
-  aimingOffset: {x: 0.25, y: -0.35, z: 0.1}
+  aimingOffset: {x: 0.25, y: -0.25, z: 0.2}
   aimingRotation: {x: 0, y: 0, z: 0}
-  reloadOffset: {x: 0.25, y: -0.3, z: 0}
+  reloadOffset: {x: 0.25, y: -0.3, z: 0.2}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.25, y: -0.35, z: 0.1}
+  crouchingOffset: {x: 0.25, y: -0.35, z: 0.2}
   crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &903542490611176886
 MonoBehaviour:
