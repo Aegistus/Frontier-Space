@@ -35,7 +35,7 @@ public class AgentHealth : MonoBehaviour
     float currentHealth;
     float delayTimer;
     readonly float ragdollDuration = 5f;
-    readonly float bloodSplatterReachDistance = 5f;
+    readonly float bloodSplatterReachDistance = 7f;
     float recentDamage;
 
     Ragdoll ragdoll;
