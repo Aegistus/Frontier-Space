@@ -25,9 +25,12 @@ public class DamageIndicatorUI : MonoBehaviour
 
     private void PlayerHealth_OnDamageTaken(DamageSource obj)
     {
-        color = image.color;
-        color.a += transparencyIncreaseOnHit;
-        image.color = color;
+        if (image.color.a < 1)
+        {
+            color = image.color;
+            color.a += transparencyIncreaseOnHit;
+            image.color = color;
+        }
     }
 
     IEnumerator FadeIndicator()

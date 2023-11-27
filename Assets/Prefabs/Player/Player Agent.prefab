@@ -529,7 +529,7 @@ MonoBehaviour:
   allowArmorRegen: 0
   armorRegenDelay: 2
   armorRegenRate: 200
-  maxArmor: 300
+  maxArmor: 100
   maxHealth: 500
   flinchDamageThreshold: 0.25
   flinchResetDelay: 2
