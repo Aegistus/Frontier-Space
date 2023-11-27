@@ -265,9 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 745972569}
   prompt: {fileID: 351797610}
-  interactableMask:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &60267311910610181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,8 +3457,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
