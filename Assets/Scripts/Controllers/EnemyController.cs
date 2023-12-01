@@ -17,6 +17,8 @@ public class EnemyController : AgentController
     [SerializeField] Vector3 aimOffset = new Vector3(0, 1, 0);
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
+    [SerializeField] float suppressionBurstTime = .5f;
+    [SerializeField] float suppressionWaitTime = .25f;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
 
@@ -57,6 +59,7 @@ public class EnemyController : AgentController
             { typeof(AimingState), new AimingState(this) },
             { typeof(ReloadingState), new ReloadingState(this) },
             { typeof(ChasingState), new ChasingState(this) },
+            { typeof(SuppressingState), new SuppressingState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
         AgentHealth health = GetComponent<AgentHealth>();
@@ -271,7 +274,6 @@ public class EnemyController : AgentController
             }
             if (crouchChance < controller.crouchWhileAttackingChance)
             {
-                print(crouchChance);
                 controller.Crouch = true;
             }
             else
@@ -295,7 +297,7 @@ public class EnemyController : AgentController
             }
             if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
-                return typeof(ChasingState);
+                return typeof(SuppressingState);
             }
             if (controller.VisibleTarget == null && controller.KnownTarget == null)
             {
@@ -353,7 +355,7 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
-                return typeof(ChasingState);
+                return typeof(SuppressingState);
             }
             if (waitTimer <= 0)
             {
@@ -382,6 +384,10 @@ public class EnemyController : AgentController
             if (!controller.equipment.CurrentWeaponAmmunition.Reloading)
             {
                 return typeof(AttackingState);
+            }
+            if (controller.VisibleTarget == null && controller.KnownTarget != null)
+            {
+                return typeof(ChasingState);
             }
             return null;
         }
@@ -413,6 +419,76 @@ public class EnemyController : AgentController
             if (controller.KnownTarget == null)
             {
                 return typeof(GuardingState);
+            }
+            if (controller.VisibleTarget != null)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class SuppressingState : State
+    {
+        float maxSuppressionTimer = 2f;
+        float suppressionTimer;
+        float attackTimer;
+        float waitTimer;
+        bool currentlyAttacking;
+
+        // kept so that the enemy doesn't forget about their target by the end of suppression.
+        Transform suppressingTarget;
+        Vector3 aimPosition;
+
+        public SuppressingState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            suppressionTimer = maxSuppressionTimer;
+            suppressingTarget = controller.KnownTarget;
+            aimPosition = suppressingTarget.position + controller.aimOffset;
+            attackTimer = controller.suppressionBurstTime;
+            waitTimer = 0;
+            currentlyAttacking = true;
+        }
+
+        public override void During()
+        {
+            suppressionTimer -= Time.deltaTime;
+            controller.LookAt(aimPosition);
+            if (attackTimer > 0)
+            {
+                controller.Attack = true;
+                attackTimer -= Time.deltaTime;
+            }
+            else if (currentlyAttacking)
+            {
+                currentlyAttacking = false;
+                controller.Attack = false;
+                waitTimer = controller.suppressionWaitTime;
+            }
+            if (waitTimer > 0)
+            {
+                controller.Attack = false;
+                waitTimer -= Time.deltaTime;
+            }
+            else if (!currentlyAttacking)
+            {
+                currentlyAttacking = true;
+                attackTimer = controller.suppressionBurstTime;
+            }
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (suppressionTimer <= 0)
+            {
+                controller.fov.AddKnownTarget(suppressingTarget);
+                return typeof(ChasingState);
+            }
+            if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
+            {
+                return typeof(ReloadingState);
             }
             if (controller.VisibleTarget != null)
             {
