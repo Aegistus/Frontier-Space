@@ -31,7 +31,6 @@ public class EnemyController : AgentController
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
     Vector3 heightOffset = new Vector3(0, 1.6f, 0);
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
-    bool resetCrouchChance = false;
     FieldOfView fov;
     AgentEquipment equipment;
 
@@ -256,10 +255,7 @@ public class EnemyController : AgentController
             {
                 reactionTimer = 0;
             }
-            if (controller.resetCrouchChance)
-            {
-                crouchChance = UnityEngine.Random.Range(0f, 1f);
-            }
+            crouchChance = UnityEngine.Random.Range(0f, 1f);
         }
 
         public override void During()
@@ -275,7 +271,12 @@ public class EnemyController : AgentController
             }
             if (crouchChance < controller.crouchWhileAttackingChance)
             {
+                print(crouchChance);
                 controller.Crouch = true;
+            }
+            else
+            {
+                controller.Crouch = false;
             }
             controller.Attack = true;
             attackTimer -= Time.deltaTime;
@@ -311,6 +312,7 @@ public class EnemyController : AgentController
     class AimingState : State
     {
         float waitTimer;
+        bool strafeLeft;
 
         public AimingState(EnemyController controller) : base(controller) { }
 
@@ -318,6 +320,7 @@ public class EnemyController : AgentController
         {
             waitTimer = controller.attackWaitTime;
             controller.Forwards = false;
+            strafeLeft = UnityEngine.Random.value > .5;
         }
 
         public override void During()
@@ -326,7 +329,24 @@ public class EnemyController : AgentController
             if (controller.VisibleTarget != null)
             {
                 controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
+                if (!controller.Crouch)
+                {
+                    if (strafeLeft)
+                    {
+                        controller.Left = true;
+                    }
+                    else
+                    {
+                        controller.Right = true;
+                    }
+                }
             }
+        }
+
+        public override void After()
+        {
+            controller.Left = false;
+            controller.Right = false;
         }
 
         public override Type CheckTransitions()
@@ -377,7 +397,6 @@ public class EnemyController : AgentController
             navAgent.SetDestination(controller.KnownTarget.position);
             controller.Attack = false;
             controller.Crouch = false;
-            controller.resetCrouchChance = true;
         }
 
         public override void During()
