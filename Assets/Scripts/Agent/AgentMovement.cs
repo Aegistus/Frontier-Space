@@ -268,6 +268,7 @@ public class AgentMovement : MonoBehaviour
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Jump, false);
             initialDirection = movement.velocity;
             initialSpeed = initialDirection.magnitude;
+            SoundManager.Instance.PlaySoundAtPosition("Jump", transform.position);
         }
 
         public override void During()
@@ -307,6 +308,11 @@ public class AgentMovement : MonoBehaviour
         public override void DuringPhysics()
         {
             movement.Move(initialDirection, initialSpeed);
+        }
+
+        public override void After()
+        {
+            SoundManager.Instance.PlaySoundAtPosition("Footstep_Run", transform.position);
         }
 
         public override Type CheckTransitions()
