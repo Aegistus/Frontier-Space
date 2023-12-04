@@ -6479,7 +6479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeHeightOffset: {x: 0, y: 1, z: 0}
-  minDetectionRadius: 3
+  minDetectionRadius: 5
   viewRadius: 30
   viewAngle: 180
   targetMask:

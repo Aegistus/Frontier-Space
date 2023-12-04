@@ -64,14 +64,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.4138226
+      - time: 0.44573748
         functionName: HeavyStep
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.93029046
+      - time: 0.94092876
         functionName: HeavyStep
         data: 
         objectReferenceParameter: {instanceID: 0}

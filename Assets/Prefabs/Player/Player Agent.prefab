@@ -488,8 +488,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1088
-  walkSpeed: 2.3
-  runSpeed: 5
+  walkSpeed: 2.6
+  runSpeed: 7
   crouchSpeed: 1
   gravityScale: 1
   jumpVelocity: 5

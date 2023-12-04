@@ -6679,6 +6679,8 @@ MonoBehaviour:
   aimOffset: {x: 0, y: 1, z: 0}
   attackBurstTime: 0.25
   attackWaitTime: 3
+  suppressionBurstTime: 0.5
+  suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0.5
 --- !u!114 &3127797222215652364
 MonoBehaviour:
@@ -6768,7 +6770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeHeightOffset: {x: 0, y: 1, z: 0}
-  minDetectionRadius: 3
+  minDetectionRadius: 5
   viewRadius: 50
   viewAngle: 180
   targetMask:
