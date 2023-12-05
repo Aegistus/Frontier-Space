@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbf8937513f99746862a75fd40e2184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Level 01
+  scene: Level 01 Cinematic
   skippableScene: 1
 --- !u!1 &336014834
 GameObject:
