@@ -193,6 +193,10 @@ public class AgentMovement : MonoBehaviour
             {
                 return typeof(CrouchState);
             }
+            if (!movement.IsGrounded())
+            {
+                return typeof(FallState);
+            }
             return null;
         }
     }
