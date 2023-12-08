@@ -512,6 +512,9 @@ MonoBehaviour:
   weaponModel: {fileID: 2439405729449796811}
   recoilXRotation: 12
   recoilYRotation: 1
+  recoilKickback: 0.02
+  maxRecoilKickback: 0.1
+  kickbackRecovery: 0.05
   recoilRotationRecovery: 3
   aimFOVChange: 10
 --- !u!114 &5397454183550361214

@@ -222,8 +222,11 @@ MonoBehaviour:
   shootSoundName: PlasmaRifle_Shoot
   projectileSpawnPoint: {fileID: 5968914447583228423}
   weaponModel: {fileID: 8676028901056685127}
-  recoilXRotation: 2
+  recoilXRotation: 0.5
   recoilYRotation: 1
+  recoilKickback: 0.02
+  maxRecoilKickback: 0.1
+  kickbackRecovery: 0.05
   recoilRotationRecovery: 2
   aimFOVChange: 20
   roundsPerMinute: 520

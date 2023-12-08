@@ -19211,6 +19211,9 @@ MonoBehaviour:
   weaponModel: {fileID: 2398194232795873931}
   recoilXRotation: 8
   recoilYRotation: 0.5
+  recoilKickback: 0.1
+  maxRecoilKickback: 0.1
+  kickbackRecovery: 0.05
   recoilRotationRecovery: 3
   aimFOVChange: 10
 --- !u!114 &2636350270347208273
@@ -20198,6 +20201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.667
+      objectReference: {fileID: 0}
+    - target: {fileID: 903542490611176886, guid: dfe83d7f051c4e44f98969814b419e4e,
+        type: 3}
+      propertyPath: kickbackRecovery
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 903542490611176887, guid: dfe83d7f051c4e44f98969814b419e4e,
         type: 3}
