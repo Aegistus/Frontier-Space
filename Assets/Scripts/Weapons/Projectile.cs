@@ -32,6 +32,7 @@ public class Projectile : MonoBehaviour
             else
             {
                 SoundManager.Instance.PlaySoundAtPosition("Impact_Metal", transform.position);
+                PoolManager.Instance.SpawnObject("Impact_Metal", transform.position, Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360));
                 GameObject bulletHole = PoolManager.Instance.SpawnObjectWithLifetime("Bullet_Hole", rayHit.point, Quaternion.identity, 60);
                 bulletHole.transform.LookAt(rayHit.point + rayHit.normal);
             }
