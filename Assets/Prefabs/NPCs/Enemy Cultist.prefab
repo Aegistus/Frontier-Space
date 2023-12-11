@@ -6383,8 +6383,8 @@ MonoBehaviour:
   patrolling: 1
   onGuard: 0
   rotationSpeed: 5
-  reactionTimeMin: 0.5
-  reactionTimeMax: 1
+  reactionTimeMin: 1
+  reactionTimeMax: 1.5
   aimOffset: {x: 0, y: 1, z: 0}
   attackBurstTime: 0.25
   attackWaitTime: 0.5
@@ -6451,8 +6451,6 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 0
   maxHealth: 100
-  flinchDamageThreshold: 0.1
-  flinchResetDelay: 2
 --- !u!114 &755935596990909214
 MonoBehaviour:
   m_ObjectHideFlags: 0

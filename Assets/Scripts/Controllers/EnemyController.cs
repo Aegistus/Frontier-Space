@@ -343,6 +343,7 @@ public class EnemyController : AgentController
         {
             waitTimer = controller.attackWaitTime;
             controller.Forwards = false;
+            controller.Run = false;
             strafeLeft = UnityEngine.Random.value > .5;
         }
 
@@ -416,12 +417,15 @@ public class EnemyController : AgentController
 
     class ChasingState : State
     {
+        float reactionTimer;
+
         public ChasingState(EnemyController controller) : base(controller) { }
 
         public override void Before()
         {
             print("Chasing");
             navAgent.SetDestination(controller.KnownTarget.position);
+            reactionTimer = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
             controller.Attack = false;
             controller.Crouch = false;
         }
@@ -433,6 +437,10 @@ public class EnemyController : AgentController
                 navAgent.SetDestination(controller.KnownTarget.position);
             }
             controller.MoveToDestination(true);
+            if (controller.VisibleTarget)
+            {
+                reactionTimer -= Time.deltaTime;
+            }
         }
 
         public override Type CheckTransitions()
@@ -441,7 +449,7 @@ public class EnemyController : AgentController
             {
                 return typeof(GuardingState);
             }
-            if (controller.VisibleTarget != null)
+            if (controller.VisibleTarget != null && reactionTimer <= 0)
             {
                 return typeof(AttackingState);
             }
