@@ -6,11 +6,10 @@ using System;
 
 public class AgentHealth : MonoBehaviour
 {
-    public event Action<DamageSource> OnDamageTaken;
+    public event Action<DamageSource, float> OnDamageTaken;
     public event Action OnArmorChange;
     public event Action OnHealthChange;
     public event Action OnAgentDeath;
-    public event Action OnFlinch;
 
     public float CurrentArmor => currentArmor;
     public float CurrentHealth => currentHealth;
@@ -27,16 +26,12 @@ public class AgentHealth : MonoBehaviour
     [SerializeField] float armorRegenRate = 20f;
     [SerializeField] float maxArmor = 100;
     [SerializeField] float maxHealth = 100f;
-    [Tooltip("Measured in percent.")]
-    [SerializeField] float flinchDamageThreshold = .25f;
-    [SerializeField] float flinchResetDelay = 2f;
 
     float currentArmor;
     float currentHealth;
     float delayTimer;
     readonly float ragdollDuration = 5f;
     readonly float bloodSplatterReachDistance = 7f;
-    float recentDamage;
 
     Ragdoll ragdoll;
     AgentEquipment equipment;
@@ -102,7 +97,7 @@ public class AgentHealth : MonoBehaviour
         }
         damage = DamageArmor(damage);
         DamageHealth(damage, direction, point);
-        OnDamageTaken?.Invoke(source);
+        OnDamageTaken?.Invoke(source, damage);
     }
 
     float DamageArmor(float damage)
@@ -132,11 +127,6 @@ public class AgentHealth : MonoBehaviour
             currentHealth = 0;
             Kill();
             return;
-        }
-        recentDamage += damage;
-        if (recentDamage / maxHealth >= flinchDamageThreshold)
-        {
-            OnFlinch?.Invoke();
         }
         // create blood splatter
         RaycastHit rayHit;

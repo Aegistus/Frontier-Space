@@ -21,11 +21,14 @@ public class EnemyController : AgentController
     [SerializeField] float suppressionWaitTime = .25f;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
+    [SerializeField] float stunDamageThreshold = 10;
+    [SerializeField] float stunDuration = 2f;
 
     public Transform VisibleTarget => fov.visibleTargets.Count > 0 ? fov.visibleTargets[0] : null;
     public Transform KnownTarget => fov.knownTargets.Count > 0 ? fov.knownTargets[0] : null;
 
     State currentState;
+    Type previousStateType;
     Dictionary<Type, State> availableStates;
     NavMeshAgent navAgent;
     Queue<Transform> patrolNodeQueue;
@@ -35,6 +38,7 @@ public class EnemyController : AgentController
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
     FieldOfView fov;
     AgentEquipment equipment;
+    HumanoidAnimator agentAnimator;
 
     private void Awake()
     {
@@ -42,6 +46,7 @@ public class EnemyController : AgentController
         navAgent = GetComponent<NavMeshAgent>();
         fov = GetComponentInChildren<FieldOfView>();
         equipment = GetComponent<AgentEquipment>();
+        agentAnimator = GetComponentInChildren<HumanoidAnimator>();
         if (patrolNodes.Length == 0)
         {
             patrolling = false;
@@ -60,10 +65,12 @@ public class EnemyController : AgentController
             { typeof(ReloadingState), new ReloadingState(this) },
             { typeof(ChasingState), new ChasingState(this) },
             { typeof(SuppressingState), new SuppressingState(this) },
+            { typeof(StunnedState), new StunnedState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
         AgentHealth health = GetComponent<AgentHealth>();
         health.OnAgentDeath += OnDeath;
+        health.OnDamageTaken += CheckForStun;
     }
 
     private void Start()
@@ -78,9 +85,7 @@ public class EnemyController : AgentController
         Type nextState = currentState.CheckTransitions();
         if (nextState != null)
         {
-            currentState.After();
-            currentState = availableStates[nextState];
-            currentState.Before();
+            ChangeState(nextState);
         }
         // update body rotation
         Quaternion currentRotation = transform.rotation;
@@ -96,6 +101,14 @@ public class EnemyController : AgentController
         weaponHoldTarget.rotation = currentRotation;
         weaponHoldTarget.rotation = Quaternion.Slerp(weaponHoldTarget.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         weaponHoldTarget.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+    }
+
+    void ChangeState(Type nextState)
+    {
+        currentState.After();
+        previousStateType = currentState.GetType();
+        currentState = availableStates[nextState];
+        currentState.Before();
     }
 
     void OnDeath()
@@ -125,6 +138,14 @@ public class EnemyController : AgentController
             LookAt(navAgent.path.corners[1] + heightOffset + lookOffset);
         }
     }
+
+    private void CheckForStun(DamageSource source, float damage)
+    {
+        if (damage >= stunDamageThreshold && currentState.GetType() != typeof(StunnedState))
+        {
+            ChangeState(typeof(StunnedState));
+        }
+    } 
 
     private void OnDrawGizmos()
     {
@@ -493,6 +514,42 @@ public class EnemyController : AgentController
             if (controller.VisibleTarget != null)
             {
                 return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class StunnedState : State
+    {
+        readonly int numOfFlinchAnimations = 5;
+        float timer;
+
+        public StunnedState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            // pick a random flinch animation
+            int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
+            controller.agentAnimator.SetInteger("FlinchIndex", randIndex);
+            controller.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
+            controller.Attack = false;
+            controller.Forwards = false;
+            controller.Backwards = false;
+            controller.Left = false;
+            controller.Right = false;
+            timer = 0f;
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (timer >= controller.stunDuration)
+            {
+                return controller.previousStateType;
             }
             return null;
         }

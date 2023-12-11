@@ -23,7 +23,7 @@ public class DamageIndicatorUI : MonoBehaviour
         image.color = color;
     }
 
-    private void PlayerHealth_OnDamageTaken(DamageSource obj)
+    private void PlayerHealth_OnDamageTaken(DamageSource source, float damage)
     {
         if (image.color.a < 1)
         {

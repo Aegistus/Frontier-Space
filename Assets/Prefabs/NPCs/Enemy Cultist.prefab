@@ -6391,6 +6391,8 @@ MonoBehaviour:
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0.5
+  stunDamageThreshold: 10
+  stunDuration: 1
 --- !u!114 &755935596990909200
 MonoBehaviour:
   m_ObjectHideFlags: 0

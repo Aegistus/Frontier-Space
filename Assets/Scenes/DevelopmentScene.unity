@@ -731,6 +731,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2004311503614667450, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_VolumetricDimmer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2070959769249331107, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: m_RootOrder
@@ -785,6 +790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026082917248942358, guid: 04d93a167a76c4348bfc1c19e876612e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 10.791045
       objectReference: {fileID: 0}
     - target: {fileID: 7146412990199878072, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -2265,7 +2275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180768955
 Transform:
   m_ObjectHideFlags: 0
@@ -13247,7 +13257,7 @@ PrefabInstance:
     - target: {fileID: 7240904842528296990, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7240904842528296991, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}
@@ -19519,7 +19529,7 @@ PrefabInstance:
     - target: {fileID: 7240904842528296990, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7240904842528296991, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}

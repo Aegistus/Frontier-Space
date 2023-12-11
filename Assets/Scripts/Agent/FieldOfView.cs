@@ -33,7 +33,7 @@ public class FieldOfView : MonoBehaviour
 		StartCoroutine("FindTargetsWithDelay", .1f);
 	}
 
-    private void Health_OnDamageTaken(DamageSource damageSource)
+    private void Health_OnDamageTaken(DamageSource damageSource, float damage)
     {
         if (damageSource == DamageSource.Player)
         {
