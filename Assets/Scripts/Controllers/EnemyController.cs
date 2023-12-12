@@ -417,6 +417,7 @@ public class EnemyController : AgentController
 
     class ChasingState : State
     {
+        float runDistance = 20; // how far away the target needs to be before the enemy will start running rather than walking.
         float reactionTimer;
 
         public ChasingState(EnemyController controller) : base(controller) { }
@@ -432,11 +433,13 @@ public class EnemyController : AgentController
 
         public override void During()
         {
+            bool run = false;
             if (controller.KnownTarget != null)
             {
                 navAgent.SetDestination(controller.KnownTarget.position);
+                run = Vector3.Distance(transform.position, controller.KnownTarget.position) > runDistance;
             }
-            controller.MoveToDestination(true);
+            controller.MoveToDestination(run);
             if (controller.VisibleTarget)
             {
                 reactionTimer -= Time.deltaTime;
