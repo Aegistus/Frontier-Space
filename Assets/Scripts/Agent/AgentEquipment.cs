@@ -10,7 +10,7 @@ public enum WeaponOffset
 
 public class AgentEquipment : MonoBehaviour
 {
-    [SerializeField] Transform weaponHoldTarget;
+    [SerializeField] Transform holdTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
     [SerializeField] int maxGrenadeCount = 3;
 
@@ -38,6 +38,7 @@ public class AgentEquipment : MonoBehaviour
 
     DamageSource damageSource;
     WeaponOffset currentOffsetType;
+
 
     public class Weapon
     {
@@ -97,7 +98,7 @@ public class AgentEquipment : MonoBehaviour
         }
         CurrentWeapon = weapon;
         CurrentWeapon.gameObject.SetActive(true);
-        weapon.gameObject.transform.SetParent(weaponHoldTarget);
+        weapon.gameObject.transform.SetParent(holdTarget);
         ik.SetHandTarget(Hand.Right, CurrentHoldable.RightHandPosition);
         ik.SetHandTarget(Hand.Left, CurrentHoldable.LeftHandPosition);
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
@@ -159,7 +160,7 @@ public class AgentEquipment : MonoBehaviour
 
     public void PickupWeapon(GameObject weaponGO)
     {
-        weaponGO.transform.SetParent(weaponHoldTarget);
+        weaponGO.transform.SetParent(holdTarget);
         Rigidbody weaponRB = weaponGO.GetComponent<Rigidbody>();
         weaponRB.isKinematic = true;
         Weapon newWeapon = new Weapon(weaponGO);

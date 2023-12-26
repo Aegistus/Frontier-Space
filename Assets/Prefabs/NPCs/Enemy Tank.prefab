@@ -3006,7 +3006,6 @@ Transform:
   - {fileID: 4245711247693308026}
   - {fileID: 1818101067508408372}
   - {fileID: 7240904842619780994}
-  - {fileID: 3667020906298422629}
   - {fileID: 7240904842814536212}
   m_Father: {fileID: 7240904842528296991}
   m_RootOrder: 0
@@ -3156,7 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSource: 1
   lookTarget: {fileID: 7240904842619780994}
-  weaponHoldTarget: {fileID: 3667020906298422629}
+  weaponHoldTarget: {fileID: 7240904842814536212}
   patrolNodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -3173,6 +3172,8 @@ MonoBehaviour:
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0
+  stunDamageThreshold: 10
+  stunDuration: 2
 --- !u!114 &7240904842528296988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3231,8 +3232,6 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 0
   maxHealth: 100
-  flinchDamageThreshold: 0.1
-  flinchResetDelay: 2
 --- !u!114 &7240904842528296978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3245,7 +3244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHoldTarget: {fileID: 7240904842814536212}
+  holdTarget: {fileID: 7240904842814536212}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
 --- !u!114 &1541815496903685878
@@ -3366,7 +3365,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7240904842814536212}
-  - component: {fileID: 7240904842814536213}
   m_Layer: 7
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -3387,50 +3385,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5759065780831394880}
-  m_Father: {fileID: 5303049221531109232}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7240904842814536213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240904842814536215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27e10fc8f83baf4db3691c46cd908b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reference: {fileID: 3667020906298422629}
---- !u!1 &9166384592172719121
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3667020906298422629}
-  m_Layer: 7
-  m_Name: Weapon Hold Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3667020906298422629
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166384592172719121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.402, z: 0.053}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 5303049221531109232}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

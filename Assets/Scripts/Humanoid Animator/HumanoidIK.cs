@@ -22,7 +22,7 @@ public class HumanoidIK : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void OnAnimatorIK()
+    private void OnAnimatorIK(int layer)
     {
         if (RightHandTarget)
         {

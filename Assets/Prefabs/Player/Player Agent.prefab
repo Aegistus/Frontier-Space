@@ -344,51 +344,6 @@ MonoBehaviour:
       x: 0
       y: 1
       z: 1
---- !u!1 &6214437158321797132
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6214437158321797135}
-  - component: {fileID: 6214437158321797134}
-  m_Layer: 7
-  m_Name: Weapon Hold Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6214437158321797135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214437158321797132}
-  m_LocalRotation: {x: -0, y: 0.03603934, z: -0, w: 0.9993504}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8924716190892918123}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6214437158321797134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214437158321797132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27e10fc8f83baf4db3691c46cd908b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reference: {fileID: 0}
 --- !u!1 &6214437158516587934
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,8 +486,6 @@ MonoBehaviour:
   armorRegenRate: 200
   maxArmor: 100
   maxHealth: 500
-  flinchDamageThreshold: 0.25
-  flinchResetDelay: 2
 --- !u!114 &6214437158977114633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHoldTarget: {fileID: 6214437158321797135}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
 --- !u!54 &608602155
@@ -6105,7 +6057,6 @@ Transform:
   - {fileID: 6726273496179720418}
   - {fileID: 3132799403027817007}
   - {fileID: 6214437158516587929}
-  - {fileID: 6214437158321797135}
   m_Father: {fileID: 6214437158977114628}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
