@@ -13,6 +13,8 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] Transform holdTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
     [SerializeField] int maxGrenadeCount = 3;
+    [SerializeField] float bobIntensity = 1f;
+    [SerializeField] float bobSpeed = 2f;
 
     public event Action OnWeaponChange;
     public event Action<int> OnGrenadeCountChange;
@@ -27,6 +29,9 @@ public class AgentEquipment : MonoBehaviour
     public Weapon CurrentWeapon { get; private set; }
     public Weapon PrimaryWeapon { get; private set; }
     public Weapon SecondaryWeapon { get; private set; }
+
+    bool bobWeapon = false;
+    float bobTime = 0;
 
     List<Grenade> grenades = new List<Grenade>();
 
@@ -90,6 +95,25 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (CurrentWeaponGO)
+        {
+            if (bobWeapon)
+            {
+                bobTime += Time.deltaTime;
+                Vector3 bobOffset = Vector3.down * Mathf.Abs(bobIntensity * Mathf.Sin(bobTime * bobSpeed));
+                CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
+                CurrentWeaponGO.transform.localPosition += bobOffset;
+            }
+            else
+            {
+                CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
+            }
+            CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
+        }
+    }
+
     public void Equip(Weapon weapon)
     {
         if (weapon == null)
@@ -146,15 +170,6 @@ public class AgentEquipment : MonoBehaviour
         {
             targetRotation = Quaternion.Euler(CurrentHoldable.IdleRotation);
             targetPosition = CurrentHoldable.IdleOffset;
-        }
-    }
-
-    private void Update()
-    {
-        if (CurrentWeaponGO)
-        {
-            CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
-            CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
         }
     }
 
@@ -255,5 +270,11 @@ public class AgentEquipment : MonoBehaviour
         grenades.Remove(g);
         OnGrenadeCountChange?.Invoke(grenades.Count);
         return g;
+    }
+
+    public void BobWeapon(bool bob)
+    {
+        bobWeapon = bob;
+        bobTime = 0f;
     }
 }

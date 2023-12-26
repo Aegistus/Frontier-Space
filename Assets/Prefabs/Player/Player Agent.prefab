@@ -498,8 +498,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holdTarget: {fileID: 0}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
+  bobIntensity: 0.02
+  bobSpeed: 6
 --- !u!54 &608602155
 Rigidbody:
   m_ObjectHideFlags: 0

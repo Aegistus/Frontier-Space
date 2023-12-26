@@ -177,6 +177,7 @@ public class AgentMovement : MonoBehaviour
         {
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
             movement.velocity = Vector3.zero;
+            movement.equipment.BobWeapon(false);
         }
 
         public override Type CheckTransitions()
@@ -207,6 +208,7 @@ public class AgentMovement : MonoBehaviour
 
         public override void Before()
         {
+            movement.equipment.BobWeapon(true);
         }
 
         public override void DuringPhysics()
@@ -342,6 +344,7 @@ public class AgentMovement : MonoBehaviour
         {
             movement.humanoidAnimator.SetRigWeight(.5f);
             movement.equipment.SetWeaponOffset(WeaponOffset.Running);
+            movement.equipment.BobWeapon(true);
         }
 
         public override void During()
