@@ -501,7 +501,7 @@ MonoBehaviour:
   holdTarget: {fileID: 0}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
-  bobIntensity: 0.02
+  bobIntensity: 0.001
   bobSpeed: 6
 --- !u!54 &608602155
 Rigidbody:

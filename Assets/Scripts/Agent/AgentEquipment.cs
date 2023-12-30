@@ -13,8 +13,8 @@ public class AgentEquipment : MonoBehaviour
     [SerializeField] Transform holdTarget;
     [SerializeField] float weaponOffsetChangeSpeed = 1f;
     [SerializeField] int maxGrenadeCount = 3;
-    [SerializeField] float bobIntensity = 1f;
-    [SerializeField] float bobSpeed = 2f;
+    [SerializeField] float bobIntensity = .0001f;
+    [SerializeField] float bobSpeed = 6f;
 
     public event Action OnWeaponChange;
     public event Action<int> OnGrenadeCountChange;

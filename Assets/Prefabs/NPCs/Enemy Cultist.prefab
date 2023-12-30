@@ -6466,6 +6466,8 @@ MonoBehaviour:
   holdTarget: {fileID: 755935597409132824}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
+  bobIntensity: 0.0001
+  bobSpeed: 6
 --- !u!114 &8891481127955181050
 MonoBehaviour:
   m_ObjectHideFlags: 0
