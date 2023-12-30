@@ -33,6 +33,12 @@ public abstract class RangedWeaponAttack : WeaponAttack
         shootSoundID = SoundManager.Instance.GetSoundID(shootSoundName);
     }
 
+    protected virtual void Update()
+    {
+        weaponModel.localRotation = Quaternion.Slerp(weaponModel.localRotation, Quaternion.identity, recoilRotationRecovery * Time.deltaTime);
+        weaponModel.localPosition = Vector3.Lerp(weaponModel.localPosition, Vector3.zero, kickbackRecovery * Time.deltaTime);
+    }
+
     public void ApplyRecoil()
     {
         weaponModel.Rotate(Vector3.left, Random.Range(0, recoilXRotation));
@@ -42,10 +48,17 @@ public abstract class RangedWeaponAttack : WeaponAttack
         OnRecoil.Invoke();
     }
 
-    protected virtual void Update()
+    public virtual void SpawnProjectile()
     {
-        weaponModel.localRotation = Quaternion.Slerp(weaponModel.localRotation, Quaternion.identity, recoilRotationRecovery * Time.deltaTime);
-        weaponModel.localPosition = Vector3.Lerp(weaponModel.localPosition, Vector3.zero, kickbackRecovery * Time.deltaTime);
+        if (weaponAmmo.TryUseAmmo())
+        {
+            GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, projectileSpawnPoint.rotation, 10f);
+            float damage = Random.Range(damageMin, damageMax);
+            projectile.GetComponent<Projectile>().SetDamage(damage, Source);
+            ApplyRecoil();
+            SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
+            PoolManager.Instance.SpawnObjectWithLifetime("Muzzle_Flash", projectileSpawnPoint.position, projectileSpawnPoint.rotation, 5f);
+        }
     }
 
 }

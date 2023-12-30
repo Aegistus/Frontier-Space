@@ -38,7 +38,7 @@ public class ShotgunAttack : RangedWeaponAttack
 
     }
 
-    void SpawnProjectile()
+    public override void SpawnProjectile()
     {
         if (weaponAmmo.TryUseAmmo())
         {

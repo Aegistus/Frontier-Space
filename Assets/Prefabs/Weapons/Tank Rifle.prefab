@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1246916212103139456}
   m_Layer: 0
-  m_Name: Projectile Spawn Point
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246916212103139471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12, z: 0.86}
+  m_LocalPosition: {x: -0.007, y: 0.129, z: 0.796}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -201,6 +201,9 @@ MonoBehaviour:
   weaponModel: {fileID: 3652490693719331063}
   recoilXRotation: 1
   recoilYRotation: 1
+  recoilKickback: 0.1
+  maxRecoilKickback: 0.1
+  kickbackRecovery: 0.05
   recoilRotationRecovery: 1
   aimFOVChange: 10
   chargeSoundName: TankRifle_Charge
