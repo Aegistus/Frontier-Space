@@ -110,6 +110,9 @@ MonoBehaviour:
   weaponModel: {fileID: 4641716684799921240}
   recoilXRotation: 15
   recoilYRotation: 2
+  recoilKickback: 0.1
+  maxRecoilKickback: 0.1
+  kickbackRecovery: 0.02
   recoilRotationRecovery: 1
   aimFOVChange: 10
   spreadRotation: {x: 5, y: 5, z: 0}
@@ -272,6 +275,7 @@ GameObject:
   - component: {fileID: 4641716684799921240}
   - component: {fileID: 4616062900125158728}
   - component: {fileID: 4623180209721080980}
+  - component: {fileID: 6065293999695249883}
   m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
@@ -350,6 +354,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6065293999695249883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4647194063588263942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae8461a5ab1e247b2b9ccfb7a1eab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0.02
+  maxAmount: 0.06
+  smoothAmount: 6
+  rotationAmount: 4
+  maxRotationAmount: 5
+  smoothRotation: 12
+  rotationX: 1
+  rotationY: 1
+  rotationZ: 1
 --- !u!1 &4647199370580367030
 GameObject:
   m_ObjectHideFlags: 0

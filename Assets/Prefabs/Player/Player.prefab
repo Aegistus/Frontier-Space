@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7184143469766798852, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 10.791045
+      objectReference: {fileID: 0}
     - target: {fileID: 7237379772341906143, guid: 5ee3c4c2f9479a248aec3b7662eccd51,
         type: 3}
       propertyPath: m_RootOrder
@@ -229,6 +234,11 @@ PrefabInstance:
       propertyPath: lookTransform
       value: 
       objectReference: {fileID: 2722141971078718469}
+    - target: {fileID: 6214437158977114633, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: holdTarget
+      value: 
+      objectReference: {fileID: 6080862933317928397}
     - target: {fileID: 6722952248550907764, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: m_IsActive

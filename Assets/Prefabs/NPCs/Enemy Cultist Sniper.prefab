@@ -38,7 +38,6 @@ Transform:
   - {fileID: 2309977930419488489}
   - {fileID: 6210401070876255268}
   - {fileID: 3127797221485050770}
-  - {fileID: 2711318540947660632}
   - {fileID: 3127797221694488068}
   m_Father: {fileID: 3127797222215652367}
   m_RootOrder: 0
@@ -6506,37 +6505,6 @@ Transform:
   m_Father: {fileID: 2310484918132209795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2711318540947660635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2711318540947660632}
-  m_Layer: 7
-  m_Name: Weapon Hold Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2711318540947660632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2711318540947660635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 471963978865967968}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3127797221485050773
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,7 +6545,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3127797221694488068}
-  - component: {fileID: 3127797221694488069}
   m_Layer: 7
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -6599,21 +6566,8 @@ Transform:
   m_Children:
   - {fileID: 5102650040339560961}
   m_Father: {fileID: 471963978865967968}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3127797221694488069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127797221694488071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27e10fc8f83baf4db3691c46cd908b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reference: {fileID: 2711318540947660632}
 --- !u!1 &3127797222215652366
 GameObject:
   m_ObjectHideFlags: 0
@@ -6669,7 +6623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSource: 1
   lookTarget: {fileID: 3127797221485050770}
-  weaponHoldTarget: {fileID: 2711318540947660632}
+  weaponHoldTarget: {fileID: 3127797221694488068}
   patrolNodes: []
   patrolling: 1
   onGuard: 0
@@ -6682,6 +6636,8 @@ MonoBehaviour:
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0.5
+  stunDamageThreshold: 10
+  stunDuration: 2
 --- !u!114 &3127797222215652364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6740,8 +6696,6 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 0
   maxHealth: 100
-  flinchDamageThreshold: 0.25
-  flinchResetDelay: 2
 --- !u!114 &3127797222215652354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6754,7 +6708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHoldTarget: {fileID: 3127797221694488068}
+  holdTarget: {fileID: 3127797221694488068}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
 --- !u!114 &6517085320359637734
