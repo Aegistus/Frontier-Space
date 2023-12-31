@@ -16,6 +16,7 @@ public abstract class WeaponAttack : MonoBehaviour
     [Space]
     [Header("Melee")]
     [SerializeField] protected float meleeDamage = 50f;
+    [SerializeField] protected float meleeRange = .5f;
     [SerializeField] protected Vector3 meleeHitBox = new Vector3(.5f, 1f, 1f);
 
     public DamageSource Source { get; set; }
@@ -33,7 +34,7 @@ public abstract class WeaponAttack : MonoBehaviour
     {
         anim.enabled = true;
         anim.Play("Melee");
-        Vector3 center = transform.position + (transform.forward * meleeHitBox.z / 2);
+        Vector3 center = transform.position + (transform.forward * meleeRange);
         int hits = Physics.OverlapBoxNonAlloc(center, meleeHitBox / 2, meleeHitColliders, transform.rotation, agentLayer);
         if (hits > 0)
         {

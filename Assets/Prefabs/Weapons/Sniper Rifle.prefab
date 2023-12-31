@@ -520,8 +520,14 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  agentLayer:
+    serializedVersion: 2
+    m_Bits: 128
   damageMin: 50
   damageMax: 60
+  meleeDamage: 50
+  meleeRange: 0.5
+  meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: Sniper_Shot
   shootSoundName: Sniper_Shoot
   projectileSpawnPoint: {fileID: 7165447958694006930}
@@ -550,6 +556,9 @@ MonoBehaviour:
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
   reloadTime: 3
+  playShellEject: 0
+  shellEjectTransform: {fileID: 0}
+  shellEjectEffectID: Shell_Eject
 --- !u!114 &1464845984228193369
 MonoBehaviour:
   m_ObjectHideFlags: 0

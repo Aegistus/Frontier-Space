@@ -102,8 +102,14 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  agentLayer:
+    serializedVersion: 2
+    m_Bits: 128
   damageMin: 5
   damageMax: 10
+  meleeDamage: 50
+  meleeRange: 1
+  meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: Shotgun_Shot
   shootSoundName: Shotgun_Shoot
   projectileSpawnPoint: {fileID: 5732493271783340917}

@@ -19239,6 +19239,7 @@ MonoBehaviour:
   damageMin: 1
   damageMax: 1
   meleeDamage: 50
+  meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: Revolver_Bullet
   shootSoundName: 

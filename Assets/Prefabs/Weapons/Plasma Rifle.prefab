@@ -170,6 +170,7 @@ MonoBehaviour:
   damageMin: 10
   damageMax: 20
   meleeDamage: 50
+  meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: PlasmaRifle_Bullet
   shootSoundName: PlasmaRifle_Shoot
