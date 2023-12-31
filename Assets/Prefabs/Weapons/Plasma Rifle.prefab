@@ -164,8 +164,13 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  agentLayer:
+    serializedVersion: 2
+    m_Bits: 128
   damageMin: 10
   damageMax: 20
+  meleeDamage: 50
+  meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: PlasmaRifle_Bullet
   shootSoundName: PlasmaRifle_Shoot
   projectileSpawnPoint: {fileID: 5968914447583228423}

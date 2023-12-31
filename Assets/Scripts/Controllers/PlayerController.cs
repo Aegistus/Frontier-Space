@@ -33,6 +33,7 @@ public class PlayerController : AgentController
         ToggleFlashlight = Input.GetKeyDown(KeyCode.F);
         ArmGrenade = Input.GetKeyDown(KeyCode.V);
         ThrowGrenade = Input.GetKeyUp(KeyCode.V);
+        Melee = Input.GetKeyDown(KeyCode.C);
 
         transform.LookAt(LookTarget);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);

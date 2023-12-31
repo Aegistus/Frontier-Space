@@ -13099,7 +13099,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30150
+  m_Name: pb_Mesh30148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19233,8 +19233,13 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  agentLayer:
+    serializedVersion: 2
+    m_Bits: 0
   damageMin: 1
   damageMax: 1
+  meleeDamage: 50
+  meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: Revolver_Bullet
   shootSoundName: 
   projectileSpawnPoint: {fileID: 2636350270024634457}

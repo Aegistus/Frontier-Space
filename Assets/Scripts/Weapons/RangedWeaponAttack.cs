@@ -8,6 +8,8 @@ public abstract class RangedWeaponAttack : WeaponAttack
     [SerializeField] protected string shootSoundName;
     [SerializeField] protected Transform projectileSpawnPoint;
     [SerializeField] protected Transform weaponModel;
+    [Space]
+    [Header("Recoil")]
     [SerializeField] protected float recoilXRotation;
     [SerializeField] protected float recoilYRotation;
     [SerializeField] protected float recoilKickback = .1f;
@@ -26,6 +28,7 @@ public abstract class RangedWeaponAttack : WeaponAttack
     protected virtual void Awake()
     {
         weaponAmmo = GetComponent<WeaponAmmunition>();
+        anim = GetComponent<Animator>();
     }
 
     protected virtual void Start()

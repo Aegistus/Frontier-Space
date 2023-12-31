@@ -5,7 +5,7 @@ using System;
 
 public enum ActionState
 {
-    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade
+    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade, Melee
 }
 
 public class AgentAction : MonoBehaviour
@@ -40,6 +40,7 @@ public class AgentAction : MonoBehaviour
         { typeof(SwitchWeaponState), ActionState.SwitchWeapon },
         { typeof(HoldGrenadeState), ActionState.HoldGrenade },
         { typeof(ThrowGrenadeState), ActionState.ThrowGrenade },
+        { typeof(MeleeState), ActionState.Melee },
     };
 
     private void Awake()
@@ -60,6 +61,7 @@ public class AgentAction : MonoBehaviour
             { typeof(SwitchWeaponState), new SwitchWeaponState(this) },
             { typeof(HoldGrenadeState), new HoldGrenadeState(this) },
             { typeof(ThrowGrenadeState), new ThrowGrenadeState(this) },
+            { typeof(MeleeState), new MeleeState(this) },
         };
         currentState = availableStates[typeof(IdleState)];
         InteractDistance = interactDistance;
@@ -155,7 +157,10 @@ public class AgentAction : MonoBehaviour
             {
                 return typeof(HoldGrenadeState);
             }
-
+            if (action.controller.Melee)
+            {
+                return typeof(MeleeState);
+            }
             return null;
         }
     }
@@ -408,6 +413,39 @@ public class AgentAction : MonoBehaviour
             if (timer >= maxTimer)
             {
                 action.equipment.Equip(action.equipment.PrimaryWeapon);
+                return typeof(IdleState);
+            }
+            return null;
+        }
+    }
+
+    class MeleeState : State
+    {
+        float meleeTime = .5f;
+        float timer;
+        bool abort = false;
+
+        public MeleeState(AgentAction action) : base(action) { }
+
+        public override void Before()
+        {
+            abort = !action.equipment.HasWeaponEquipped;
+            if (!abort)
+            {
+                timer = 0f;
+                action.equipment.CurrentWeaponAttack.MeleeAttack();
+            }
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (abort || timer >= meleeTime)
+            {
                 return typeof(IdleState);
             }
             return null;

@@ -23,6 +23,7 @@ public abstract class AgentController : MonoBehaviour
     public bool ToggleFlashlight { get; protected set; }
     public bool ArmGrenade { get; protected set; }
     public bool ThrowGrenade { get; protected set; }
+    public bool Melee { get; protected set; }
 
     public bool NoMovementInput => !Forwards && !Backwards && !Left && !Right;
     public bool MovementInput => Forwards || Backwards || Left || Right;
