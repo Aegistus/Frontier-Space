@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using System;
 
 public enum MovementState
@@ -24,6 +25,7 @@ public class AgentMovement : MonoBehaviour
     AgentController controller;
     AgentEquipment equipment;
     HumanoidAnimator humanoidAnimator;
+    Rig rig;
 
     State currentState;
     Dictionary<Type, State> availableStates;
@@ -50,6 +52,7 @@ public class AgentMovement : MonoBehaviour
         controller = GetComponent<AgentController>();
         equipment = GetComponent<AgentEquipment>();
         humanoidAnimator = GetComponentInChildren<HumanoidAnimator>();
+        rig = GetComponentInChildren<Rig>();
         availableStates = new Dictionary<Type, State>()
         {
             {typeof(StandState), new StandState(this) },
@@ -130,6 +133,11 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
+    public void SetRigWeight(float weight)
+    {
+        weight = Mathf.Clamp(weight, 0f, 1f);
+        rig.weight = weight;
+    }
 
     private void FixedUpdate()
     {

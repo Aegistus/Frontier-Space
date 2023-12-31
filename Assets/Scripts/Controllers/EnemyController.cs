@@ -38,6 +38,7 @@ public class EnemyController : AgentController
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
     FieldOfView fov;
     AgentEquipment equipment;
+    AgentMovement movement;
     HumanoidAnimator agentAnimator;
 
     private void Awake()
@@ -46,6 +47,7 @@ public class EnemyController : AgentController
         navAgent = GetComponent<NavMeshAgent>();
         fov = GetComponentInChildren<FieldOfView>();
         equipment = GetComponent<AgentEquipment>();
+        movement = GetComponent<AgentMovement>();
         agentAnimator = GetComponentInChildren<HumanoidAnimator>();
         if (patrolNodes.Length == 0)
         {
@@ -540,6 +542,7 @@ public class EnemyController : AgentController
         public override void Before()
         {
             // pick a random flinch animation
+            controller.movement.SetRigWeight(0);
             int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
             controller.agentAnimator.SetInteger("FlinchIndex", randIndex);
             controller.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
@@ -554,6 +557,11 @@ public class EnemyController : AgentController
         public override void During()
         {
             timer += Time.deltaTime;
+        }
+
+        public override void After()
+        {
+            controller.movement.SetRigWeight(1);
         }
 
         public override Type CheckTransitions()
