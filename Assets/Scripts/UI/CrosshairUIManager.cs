@@ -10,7 +10,6 @@ public enum CrosshairType
 
 public class CrosshairUIManager : MonoBehaviour
 {
-	public CrosshairUI defaultCrosshair;
 	public CrosshairUI sniperCrosshair;
 
 	public float movementSmooth = 5f;
@@ -58,11 +57,14 @@ public class CrosshairUIManager : MonoBehaviour
 	public void SetCrosshairEnabled(bool enabled)
 	{
 		updateCrosshair = enabled;
-		current.gameObject.SetActive(enabled);
-		current.distanceIndicator.gameObject.SetActive(enabled);
-		if (current.overlay != null)
+		if (current != null)
         {
-			current.overlay.SetActive(enabled);
+			current.gameObject.SetActive(enabled);
+			current.distanceIndicator.gameObject.SetActive(enabled);
+			if (current.overlay != null)
+			{
+				current.overlay.SetActive(enabled);
+			}
 		}
 	}
 
@@ -86,7 +88,10 @@ public class CrosshairUIManager : MonoBehaviour
 	{
 		while (true)
 		{
-			current.distanceIndicator.text = ((int)Vector3.Distance(playerAction.transform.position, rayHit.point)) + "m";
+			if (current != null)
+            {
+				current.distanceIndicator.text = ((int)Vector3.Distance(playerAction.transform.position, rayHit.point)) + "m";
+			}
 			yield return new WaitForSeconds(rangeFinderUpdateInterval);
 		}
 	}
@@ -100,7 +105,7 @@ public class CrosshairUIManager : MonoBehaviour
 
 		if (type == CrosshairType.Default)
 		{
-			current = defaultCrosshair;
+			current = null;
 		}
 		else if (type == CrosshairType.Sniper)
 		{
