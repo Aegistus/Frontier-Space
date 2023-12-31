@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MagazineAmmunition : WeaponAmmunition
 {
+    [SerializeField] bool playShellEject = false;
+    [SerializeField] Transform shellEjectTransform;
+    [SerializeField] string shellEjectEffectID = "Shell_Eject";
+
     protected override IEnumerator ReloadCoroutine()
     {
         Reloading = true;
@@ -31,5 +35,15 @@ public class MagazineAmmunition : WeaponAmmunition
         {
             anim.enabled = false;
         }
+    }
+
+    public override bool TryUseAmmo()
+    {
+        bool success = base.TryUseAmmo();
+        if (playShellEject && success)
+        {
+            PoolManager.Instance.SpawnObjectWithLifetime(shellEjectEffectID, shellEjectTransform.position, shellEjectTransform.rotation, 5f);
+        }
+        return success;
     }
 }

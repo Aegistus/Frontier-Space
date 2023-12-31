@@ -70,7 +70,7 @@ public class CrosshairUIManager : MonoBehaviour
 
 	void Update()
 	{
-		if (updateCrosshair && playerEquipment.HasWeaponEquipped)
+		if (current != null && updateCrosshair && playerEquipment.HasWeaponEquipped)
 		{
 			RangedWeaponAttack rangedWeapon = (RangedWeaponAttack)playerEquipment.CurrentWeaponAttack;
 			if (Physics.Raycast(new Ray(rangedWeapon.ProjectileSpawnPoint.position, rangedWeapon.ProjectileSpawnPoint.forward), out rayHit, 100f, mask, QueryTriggerInteraction.Ignore))

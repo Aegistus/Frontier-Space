@@ -37,7 +37,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
         reloadSoundID = SoundManager.Instance.GetSoundID(reloadSound);
     }
 
-    public bool TryUseAmmo()
+    public virtual bool TryUseAmmo()
     {
         if (currentLoadedAmmo > 0)
         {
