@@ -294,14 +294,14 @@ public class AgentAction : MonoBehaviour
         {
             successful = action.equipment.CurrentWeaponAmmunition.TryReload();
             action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperReload);
-            action.agentIK.SetHandWeight(Hand.Left, 0);
+            //action.agentIK.SetHandWeight(Hand.Left, 0);
             action.equipment.SetWeaponOffset(WeaponOffset.Reloading);
         }
 
         public override void After()
         {
             action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.None);
-            action.agentIK.SetHandWeight(Hand.Left, 1);
+            //action.agentIK.SetHandWeight(Hand.Left, 1);
             action.equipment.SetWeaponOffset(WeaponOffset.Idle);
         }
 
