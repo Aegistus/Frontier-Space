@@ -619,7 +619,7 @@ MonoBehaviour:
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: PlasmaRifle_Bullet
-  shootSoundName: PlasmaRifle_Shoot
+  shootSoundName: SMG_Shoot
   projectileSpawnPoint: {fileID: 8616044649870802023}
   weaponModel: {fileID: 3071252956513679990}
   recoilXRotation: 0.5
