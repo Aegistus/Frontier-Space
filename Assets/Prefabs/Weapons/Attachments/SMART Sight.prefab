@@ -153,7 +153,7 @@ MonoBehaviour:
   distanceIndicator: {fileID: 5508999722326947264}
   mask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 1216
   movementSmooth: 10
   rangeFinderUpdateInterval: 0.2
 --- !u!1 &413334134159223909
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4161801, g: 0.9658314, b: 0.9716981, a: 0.015686275}
+  m_Color: {r: 0.4161801, g: 0.9658314, b: 0.9716981, a: 0.05490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -350,8 +350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00102, y: -0.022591}
-  m_SizeDelta: {x: 25.71729, y: 9.7569}
+  m_AnchoredPosition: {x: 0.000276, y: -0.024821}
+  m_SizeDelta: {x: 24.229105, y: 5.296364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5508999722326947265
 CanvasRenderer:
@@ -409,8 +409,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

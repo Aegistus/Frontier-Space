@@ -133,11 +133,11 @@ MonoBehaviour:
   idleRotation: {x: 0, y: 0, z: 0}
   runningOffset: {x: -0.008, y: -0.49, z: 0.11}
   runningRotation: {x: 16.907497, y: -63.3585, z: 12.33955}
-  aimingOffset: {x: 0.0067, y: -0.23, z: 0.1}
+  aimingOffset: {x: 0.0067, y: -0.225, z: 0.1}
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.23799974, y: -0.5, z: 0.19799995}
+  crouchingOffset: {x: 0.238, y: -0.25, z: 0.198}
   crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &5968914447286862862
 MonoBehaviour:
@@ -790,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 335818719130145513, guid: 97fec5eed7619f54f91839dbdf474e49,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1915961219527861325, guid: 97fec5eed7619f54f91839dbdf474e49,
         type: 3}
@@ -921,6 +921,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Iron Sight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339078086968228417, guid: d51982bea4e8e5748b621ea21f955ebc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d51982bea4e8e5748b621ea21f955ebc, type: 3}
