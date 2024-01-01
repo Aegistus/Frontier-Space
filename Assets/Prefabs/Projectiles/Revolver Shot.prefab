@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b9322af1c30a47aff4d42d0b81c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 75
+  speed: 120
   impactEffectName: Revolver_Impact
   mask:
     serializedVersion: 2
