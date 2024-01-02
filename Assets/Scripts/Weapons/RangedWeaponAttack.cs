@@ -10,6 +10,8 @@ public abstract class RangedWeaponAttack : WeaponAttack
     [SerializeField] protected Transform weaponModel;
     [Space]
     [Header("Recoil")]
+    [SerializeField] protected float shotSpread;
+    [SerializeField] protected float aimedShotSpread;
     [SerializeField] protected float recoilXRotation;
     [SerializeField] protected float recoilYRotation;
     [SerializeField] protected float recoilKickback = .1f;
@@ -20,6 +22,8 @@ public abstract class RangedWeaponAttack : WeaponAttack
 
     public Transform ProjectileSpawnPoint => projectileSpawnPoint;
     public float AimFOVChange => aimFOVChange;
+    public bool Aimed { get; set; }
+
     protected WeaponAmmunition weaponAmmo;
     protected int shootSoundID;
 
@@ -58,6 +62,16 @@ public abstract class RangedWeaponAttack : WeaponAttack
             GameObject projectile = PoolManager.Instance.SpawnObjectWithLifetime(projectileID, projectileSpawnPoint.position, projectileSpawnPoint.rotation, 10f);
             float damage = Random.Range(damageMin, damageMax);
             projectile.GetComponent<Projectile>().SetDamage(damage, Source);
+            // apply projectile spread
+            Vector2 spread = Random.insideUnitCircle;
+            if (Aimed)
+            {
+                projectile.transform.Rotate(spread.x * aimedShotSpread, spread.y * aimedShotSpread, 0);
+            }
+            else
+            {
+                projectile.transform.Rotate(spread.x * shotSpread, spread.y * shotSpread, 0);
+            }
             ApplyRecoil();
             SoundManager.Instance.PlaySoundAtPosition(shootSoundID, projectileSpawnPoint.position);
             PoolManager.Instance.SpawnObjectWithLifetime("Muzzle_Flash", projectileSpawnPoint.position, projectileSpawnPoint.rotation, 5f);

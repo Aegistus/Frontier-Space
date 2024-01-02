@@ -241,6 +241,10 @@ public class AgentAction : MonoBehaviour
         {
             action.equipment.CurrentWeaponAttack.BeginAttack();
             action.equipment.SetWeaponOffset(WeaponOffset.Aiming);
+            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack)
+            {
+                ((RangedWeaponAttack)action.equipment.CurrentWeaponAttack).Aimed = true;
+            }
         }
 
         public override void During()
@@ -251,6 +255,10 @@ public class AgentAction : MonoBehaviour
         public override void After()
         {
             action.equipment.CurrentWeaponAttack.EndAttack();
+            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack)
+            {
+                ((RangedWeaponAttack)action.equipment.CurrentWeaponAttack).Aimed = false;
+            }
         }
 
         public override Type CheckTransitions()

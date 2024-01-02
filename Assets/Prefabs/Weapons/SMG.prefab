@@ -623,6 +623,8 @@ MonoBehaviour:
   shootSoundName: SMG_Shoot
   projectileSpawnPoint: {fileID: 8616044649870802023}
   weaponModel: {fileID: 3071252956513679990}
+  shotSpread: 5
+  aimedShotSpread: 1
   recoilXRotation: 0.5
   recoilYRotation: 1
   recoilKickback: 0.02
