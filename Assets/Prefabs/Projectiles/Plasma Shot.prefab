@@ -133,3 +133,5 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 1279
+  invisibilityDelay: 0.018
+  model: {fileID: 1345591285024851512}

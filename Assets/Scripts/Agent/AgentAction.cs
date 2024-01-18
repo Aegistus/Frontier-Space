@@ -239,12 +239,12 @@ public class AgentAction : MonoBehaviour
 
         public override void Before()
         {
+            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack attack)
+            {
+                attack.Aimed = true;
+            }
             action.equipment.CurrentWeaponAttack.BeginAttack();
             action.equipment.SetWeaponOffset(WeaponOffset.Aiming);
-            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack)
-            {
-                ((RangedWeaponAttack)action.equipment.CurrentWeaponAttack).Aimed = true;
-            }
         }
 
         public override void During()
@@ -255,9 +255,9 @@ public class AgentAction : MonoBehaviour
         public override void After()
         {
             action.equipment.CurrentWeaponAttack.EndAttack();
-            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack)
+            if (action.equipment.CurrentWeaponAttack is RangedWeaponAttack attack)
             {
-                ((RangedWeaponAttack)action.equipment.CurrentWeaponAttack).Aimed = false;
+                attack.Aimed = false;
             }
         }
 

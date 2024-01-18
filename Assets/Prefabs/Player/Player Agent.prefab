@@ -443,8 +443,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1088
-  walkSpeed: 2.6
-  runSpeed: 7
+  walkSpeed: 4
+  runSpeed: 6
   crouchSpeed: 1
   gravityScale: 1
   jumpVelocity: 5
@@ -464,7 +464,7 @@ MonoBehaviour:
   lookTransform: {fileID: 0}
   interactDistance: 3
   switchWeaponTime: 0.5
-  grenadeThrowForce: 600
+  grenadeThrowForce: 1000
 --- !u!114 &2391498150780371363
 MonoBehaviour:
   m_ObjectHideFlags: 0

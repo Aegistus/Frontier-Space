@@ -811,15 +811,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: 0.036042288
       objectReference: {fileID: 0}
-    - target: {fileID: 7477880029531023595, guid: 04d93a167a76c4348bfc1c19e876612e,
+    - target: {fileID: 7477880029531023588, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
-      propertyPath: runSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477880029531023595, guid: 04d93a167a76c4348bfc1c19e876612e,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 4
+      propertyPath: grenadeThrowForce
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7827316056929230658, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
@@ -4452,7 +4447,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh86466
+  m_Name: pb_Mesh30004
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10850,7 +10845,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh86914
+  m_Name: pb_Mesh30452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13100,7 +13095,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh86610
+  m_Name: pb_Mesh30148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14297,7 +14292,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh86394
+  m_Name: pb_Mesh29932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

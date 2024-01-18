@@ -7,9 +7,26 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 50f;
     [SerializeField] string impactEffectName;
     [SerializeField] LayerMask mask;
+    /// <summary>
+    /// The delay between the projectile being shot and the projectile becoming visible. This prevents weird instances where projectiles look like they're
+    /// coming out of the side of the gun.
+    /// </summary>
+    [SerializeField] float invisibilityDelay = .5f;
+    [SerializeField] GameObject model;
 
     float damage;
     DamageSource source;
+
+    private void OnEnable()
+    {
+        model.SetActive(false);
+        Invoke(nameof(BecomeVisible), invisibilityDelay);
+    }
+
+    void BecomeVisible()
+    {
+        model.SetActive(true);
+    }
 
     public void SetDamage(float damage, DamageSource source)
     {
