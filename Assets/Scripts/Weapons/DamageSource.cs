@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum DamageSource
 {
-    Player, NPC, Environment
+    Player, NPC, Environment, Explosion
 }

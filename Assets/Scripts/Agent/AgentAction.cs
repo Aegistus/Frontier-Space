@@ -366,7 +366,7 @@ public class AgentAction : MonoBehaviour
             {
                 action.equipment.UnEquip(action.equipment.CurrentWeapon);
                 action.currentGrenade.gameObject.SetActive(true);
-                action.currentGrenade.Arm(action.controller.DamageSource);
+                action.currentGrenade.Arm();
                 action.currentGrenade.transform.position = action.lookTransform.position + .5f * action.lookTransform.right;
                 action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperHoldGrenade);
                 action.agentIK.SetHandWeight(Hand.Right, 0);

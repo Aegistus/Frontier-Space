@@ -480,7 +480,7 @@ MonoBehaviour:
   bloodSplatterLayers:
     serializedVersion: 2
     m_Bits: 1088
-  damageImmunities: 
+  damageImmunities: 00000000
   allowArmorRegen: 0
   armorRegenDelay: 2
   armorRegenRate: 200

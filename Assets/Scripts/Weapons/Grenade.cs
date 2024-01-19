@@ -10,7 +10,7 @@ public class Grenade : MonoBehaviour
     [SerializeField] float fuseTime = 3f;
     [SerializeField] float blastRadius = 5f;
 
-    DamageSource source;
+    DamageSource source = DamageSource.Explosion;
 
     private void Start()
     {
@@ -19,12 +19,6 @@ public class Grenade : MonoBehaviour
 
     public void Arm()
     {
-        Arm(DamageSource.Environment);
-    }
-
-    public void Arm(DamageSource source)
-    {
-        this.source = source;
         StartCoroutine(Fuse());
         particleEffect.SetActive(true);
         SoundManager.Instance.PlaySoundAtPosition("Grenade_Arm", transform.position);
