@@ -94,6 +94,11 @@ public class AgentEquipment : MonoBehaviour
         {
             UnEquip(SecondaryWeapon);
         }
+        Grenade[] grenades = GetComponentsInChildren<Grenade>();
+        for (int i = 0; i < grenades.Length; i++)
+        {
+            PickupGrenade(grenades[i]);
+        }
     }
 
     private void Update()

@@ -814,7 +814,7 @@ PrefabInstance:
     - target: {fileID: 7477880029531023588, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
       propertyPath: grenadeThrowForce
-      value: 1000
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 7827316056929230658, guid: 04d93a167a76c4348bfc1c19e876612e,
         type: 3}
