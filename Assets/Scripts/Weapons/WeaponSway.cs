@@ -21,6 +21,14 @@ public class WeaponSway : MonoBehaviour
     Quaternion RestRotation { get; set; }
     float inputX;
     float inputY;
+    float lastXRotation;
+    float lastYRotation;
+    Transform parent;
+
+    private void Start()
+    {
+        parent = transform.parent;
+    }
 
     private void Update()
     {
@@ -31,8 +39,10 @@ public class WeaponSway : MonoBehaviour
 
     void CalculateSway()
     {
-        inputX = -Input.GetAxis("Mouse X");
-        inputY = -Input.GetAxis("Mouse Y");
+        inputX = -(parent.eulerAngles.y - lastXRotation);
+        inputY = parent.eulerAngles.x - lastYRotation;
+        lastXRotation = parent.eulerAngles.y;
+        lastYRotation = parent.eulerAngles.x;
     }
 
     void MoveSway()
