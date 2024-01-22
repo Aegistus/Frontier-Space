@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     CameraShake camShake;
     float targetFOV;
     float defaultFOV;
-    float mouseSensitivity;
+    float currentMouseSensitivity;
     float aimedSensitivity;
 
     private void Start()
@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
         mainCam = Camera.main;
         targetFOV = mainCam.fieldOfView;
         defaultFOV = mainCam.fieldOfView;
-        mouseSensitivity = regularSensitivity;
+        currentMouseSensitivity = regularSensitivity;
         aimedSensitivity = regularSensitivity / 2;
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
@@ -52,13 +52,13 @@ public class CameraController : MonoBehaviour
             if (equipment.CurrentWeaponAttack is RangedWeaponAttack)
             {
                 targetFOV = defaultFOV - ((RangedWeaponAttack)equipment.CurrentWeaponAttack).AimFOVChange;
-                mouseSensitivity = aimedSensitivity;
+                currentMouseSensitivity = aimedSensitivity;
             }
         }
         else
         {
             targetFOV = defaultFOV;
-            mouseSensitivity = regularSensitivity;
+            currentMouseSensitivity = regularSensitivity;
         }
     }
 
@@ -66,8 +66,8 @@ public class CameraController : MonoBehaviour
     float mouseY;
     private void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity * mouseSensitivityGlobal;
-        mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity * mouseSensitivityGlobal;
+        mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * currentMouseSensitivity * mouseSensitivityGlobal;
+        mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * currentMouseSensitivity * mouseSensitivityGlobal;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -70f, 85f);

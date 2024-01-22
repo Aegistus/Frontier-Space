@@ -7,7 +7,6 @@ using System;
 public class EnemyController : AgentController
 {
     [SerializeField] Transform lookTarget;
-    [SerializeField] Transform weaponHoldTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
     [SerializeField] bool onGuard;
@@ -96,13 +95,6 @@ public class EnemyController : AgentController
         transform.rotation = currentRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        // update weapon rotation
-        currentRotation = weaponHoldTarget.rotation;
-        weaponHoldTarget.LookAt(LookTarget);
-        targetRotation = weaponHoldTarget.rotation;
-        weaponHoldTarget.rotation = currentRotation;
-        weaponHoldTarget.rotation = Quaternion.Slerp(weaponHoldTarget.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        weaponHoldTarget.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     void ChangeState(Type nextState)

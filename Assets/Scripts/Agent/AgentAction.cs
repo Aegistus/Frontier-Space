@@ -10,7 +10,7 @@ public enum ActionState
 
 public class AgentAction : MonoBehaviour
 {
-    [SerializeField] Transform lookTransform;
+    [SerializeField] Transform eyeTransform;
     [SerializeField] float interactDistance = 2f;
     [SerializeField] float switchWeaponTime = .5f;
     [SerializeField] float grenadeThrowForce = 5f;
@@ -278,7 +278,7 @@ public class AgentAction : MonoBehaviour
         public override void Before()
         {
             RaycastHit rayHit;
-            Physics.Raycast(action.lookTransform.position, action.lookTransform.forward, out rayHit, action.interactDistance);
+            Physics.Raycast(action.eyeTransform.position, action.eyeTransform.forward, out rayHit, action.interactDistance);
             if (rayHit.collider != null)
             {
                 IInteractable interactable = rayHit.collider.GetComponentInChildren<IInteractable>();
@@ -367,7 +367,7 @@ public class AgentAction : MonoBehaviour
                 action.equipment.UnEquip(action.equipment.CurrentWeapon);
                 action.currentGrenade.gameObject.SetActive(true);
                 action.currentGrenade.Arm();
-                action.currentGrenade.transform.position = action.lookTransform.position + .5f * action.lookTransform.right;
+                action.currentGrenade.transform.position = action.eyeTransform.position + .5f * action.eyeTransform.right;
                 action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperHoldGrenade);
                 action.agentIK.SetHandWeight(Hand.Right, 0);
                 action.agentIK.SetHandWeight(Hand.Left, 0);
@@ -401,7 +401,7 @@ public class AgentAction : MonoBehaviour
             action.currentGrenade.transform.SetParent(null);
             Rigidbody grenRB = action.currentGrenade.GetComponent<Rigidbody>();
             grenRB.useGravity = true;
-            grenRB.AddForce(action.lookTransform.forward * action.grenadeThrowForce);
+            grenRB.AddForce(action.eyeTransform.forward * action.grenadeThrowForce);
             action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.UpperThrowGrenade);
         }
 

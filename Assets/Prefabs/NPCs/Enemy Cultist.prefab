@@ -6379,7 +6379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSource: 1
   lookTarget: {fileID: 755935597066495118}
-  weaponHoldTarget: {fileID: 755935597409132824}
   patrolNodes: []
   patrolling: 1
   onGuard: 0
@@ -6427,7 +6426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4949d042fdf4a45a5a359f426f69e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookTransform: {fileID: 755935597066495118}
+  eyeTransform: {fileID: 73515707445491085}
   interactDistance: 5
   switchWeaponTime: 0.5
   grenadeThrowForce: 5
@@ -6464,7 +6463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTarget: {fileID: 755935597409132824}
+  weaponHolder: {fileID: 755935597409132824}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
   bobIntensity: 0.0001
@@ -6587,6 +6586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755935597409132824}
+  - component: {fileID: 8892173240587022699}
   m_Layer: 7
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -6602,7 +6602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755935597409132827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08300034, y: 1.572, z: -0.032661118}
+  m_LocalPosition: {x: -0.083001144, y: 1.572, z: -0.03266072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6610,6 +6610,19 @@ Transform:
   m_Father: {fileID: 755935596990909203}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8892173240587022699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755935597409132827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d26d78aed40fd4e96dc322fd1235b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 73515707445491085}
 --- !u!1 &2851506059222150762
 GameObject:
   m_ObjectHideFlags: 0

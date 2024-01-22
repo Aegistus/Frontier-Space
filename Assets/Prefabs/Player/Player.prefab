@@ -231,6 +231,11 @@ PrefabInstance:
       objectReference: {fileID: 2722141970749050946}
     - target: {fileID: 6214437158977114632, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
+      propertyPath: eyeTransform
+      value: 
+      objectReference: {fileID: 2722141971078718469}
+    - target: {fileID: 6214437158977114632, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
       propertyPath: lookTransform
       value: 
       objectReference: {fileID: 2722141971078718469}
@@ -239,6 +244,11 @@ PrefabInstance:
       propertyPath: holdTarget
       value: 
       objectReference: {fileID: 6080862933317928397}
+    - target: {fileID: 6214437158977114633, guid: cd783b4217d82234590f8162e32e7bf4,
+        type: 3}
+      propertyPath: weaponHolder
+      value: 
+      objectReference: {fileID: 2722141971078718469}
     - target: {fileID: 6722952248550907764, guid: cd783b4217d82234590f8162e32e7bf4,
         type: 3}
       propertyPath: m_IsActive
