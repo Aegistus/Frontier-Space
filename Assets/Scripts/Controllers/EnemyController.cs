@@ -10,6 +10,7 @@ public class EnemyController : AgentController
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
     [SerializeField] bool onGuard;
+    [SerializeField] bool holdPosition = false;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float reactionTimeMin = .5f;
     [SerializeField] float reactionTimeMax = 1f;
@@ -193,7 +194,7 @@ public class EnemyController : AgentController
             {
                 return typeof(AttackingState);
             }
-            if (controller.VisibleTarget == null && controller.KnownTarget != null)
+            if (!controller.holdPosition && controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(ChasingState);
             }
@@ -244,7 +245,7 @@ public class EnemyController : AgentController
             {
                 return typeof(AttackingState);
             }
-            if (controller.VisibleTarget == null && controller.KnownTarget != null)
+            if (!controller.holdPosition && controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(ChasingState);
             }
@@ -347,7 +348,7 @@ public class EnemyController : AgentController
             if (controller.VisibleTarget != null)
             {
                 controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
-                if (!controller.Crouch)
+                if (!controller.Crouch && !controller.holdPosition)
                 {
                     if (strafeLeft)
                     {
@@ -442,7 +443,7 @@ public class EnemyController : AgentController
 
         public override Type CheckTransitions()
         {
-            if (controller.KnownTarget == null)
+            if (controller.KnownTarget == null || controller.holdPosition)
             {
                 return typeof(GuardingState);
             }
@@ -509,8 +510,15 @@ public class EnemyController : AgentController
         {
             if (suppressionTimer <= 0)
             {
-                controller.fov.AddKnownTarget(suppressingTarget);
-                return typeof(ChasingState);
+                if (controller.holdPosition)
+                {
+                    return typeof(GuardingState);
+                }
+                else
+                {
+                    controller.fov.AddKnownTarget(suppressingTarget);
+                    return typeof(ChasingState);
+                }
             }
             if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
             {
