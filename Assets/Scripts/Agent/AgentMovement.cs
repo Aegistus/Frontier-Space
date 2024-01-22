@@ -179,6 +179,9 @@ public class AgentMovement : MonoBehaviour
 
     class StandState : State
     {
+        readonly float turnAnimationThreshold = .001f;
+        Vector3 lastRotation;
+
         public StandState(AgentMovement movement) : base(movement) { }
 
         public override void Before()
@@ -186,6 +189,26 @@ public class AgentMovement : MonoBehaviour
             movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
             movement.velocity = Vector3.zero;
             movement.equipment.BobWeapon(false);
+            lastRotation = transform.eulerAngles;
+        }
+
+        public override void During()
+        {
+            Vector3 rotationChange = lastRotation - transform.eulerAngles;
+            rotationChange *= Time.deltaTime;
+            if (rotationChange.y >= turnAnimationThreshold)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnRight, true);
+            }
+            else if (rotationChange.y <= -turnAnimationThreshold)
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnLeft, true);
+            }
+            else
+            {
+                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
+            }
+            lastRotation = transform.eulerAngles;
         }
 
         public override Type CheckTransitions()

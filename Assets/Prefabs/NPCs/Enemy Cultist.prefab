@@ -6382,6 +6382,7 @@ MonoBehaviour:
   patrolNodes: []
   patrolling: 1
   onGuard: 0
+  holdPosition: 0
   rotationSpeed: 5
   reactionTimeMin: 1
   reactionTimeMax: 1.5
@@ -6390,7 +6391,7 @@ MonoBehaviour:
   attackWaitTime: 0.5
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
-  crouchWhileAttackingChance: 0.5
+  crouchWhileAttackingChance: 0
   stunDamageThreshold: 10
   stunDuration: 1
 --- !u!114 &755935596990909200
