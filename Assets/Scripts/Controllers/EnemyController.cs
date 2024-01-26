@@ -117,7 +117,7 @@ public class EnemyController : AgentController
 
     void LookAt(Vector3 position)
     {
-        lookTarget.position = position;
+        lookTarget.position = position + aimOffset;
     }
 
     void MoveToDestination(bool run = false)
