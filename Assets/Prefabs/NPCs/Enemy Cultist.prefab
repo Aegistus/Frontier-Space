@@ -6383,11 +6383,11 @@ MonoBehaviour:
   patrolling: 1
   onGuard: 0
   holdPosition: 0
-  rotationSpeed: 5
-  reactionTimeMin: 1
-  reactionTimeMax: 1.5
+  rotationSpeed: 0.5
+  reactionTimeMin: 0.5
+  reactionTimeMax: 1
   aimOffset: {x: 0, y: 1, z: 0}
-  attackBurstTime: 0.25
+  attackBurstTime: 1
   attackWaitTime: 0.5
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5

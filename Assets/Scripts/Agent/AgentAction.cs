@@ -129,7 +129,7 @@ public class AgentAction : MonoBehaviour
         {
             if (action.equipment.HasWeaponEquipped)
             {
-                if (movement.CurrentState != MovementState.Run)
+                if (movement.CurrentState != typeof(AgentMovement.RunState))
                 {
                     if (action.controller.Attack)
                     {
@@ -186,7 +186,7 @@ public class AgentAction : MonoBehaviour
 
         public override Type CheckTransitions()
         {
-            if (movement.CurrentState == MovementState.Run)
+            if (movement.CurrentState == typeof(AgentMovement.RunState))
             {
                 return typeof(IdleState);
             }
@@ -209,7 +209,7 @@ public class AgentAction : MonoBehaviour
 
         public override void After()
         {
-            if (movement.CurrentState != MovementState.Run)
+            if (movement.CurrentState != typeof(AgentMovement.RunState))
             {
                 action.equipment.SetWeaponOffset(WeaponOffset.Idle);
             }
@@ -221,7 +221,7 @@ public class AgentAction : MonoBehaviour
             {
                 return typeof(AimAttackState);
             }
-            if (movement.CurrentState == MovementState.Run)
+            if (movement.CurrentState == typeof(AgentMovement.RunState))
             {
                 return typeof(IdleState);
             }

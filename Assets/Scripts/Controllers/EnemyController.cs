@@ -9,7 +9,7 @@ public class EnemyController : AgentController
     [SerializeField] Transform lookTarget;
     [SerializeField] Transform[] patrolNodes;
     [SerializeField] bool patrolling;
-    [SerializeField] bool onGuard;
+    [SerializeField] bool onGuard = false;
     [SerializeField] bool holdPosition = false;
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float reactionTimeMin = .5f;
@@ -68,6 +68,7 @@ public class EnemyController : AgentController
             { typeof(ChasingState), new ChasingState(this) },
             { typeof(SuppressingState), new SuppressingState(this) },
             { typeof(StunnedState), new StunnedState(this) },
+            { typeof(SurpriseState), new SurpriseState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
         AgentHealth health = GetComponent<AgentHealth>();
@@ -192,6 +193,10 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
+                if (!controller.onGuard)
+                {
+                    return typeof(SurpriseState);
+                }
                 return typeof(AttackingState);
             }
             if (!controller.holdPosition && controller.VisibleTarget == null && controller.KnownTarget != null)
@@ -243,6 +248,10 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
+                if (!controller.onGuard)
+                {
+                    return typeof(SurpriseState);
+                }
                 return typeof(AttackingState);
             }
             if (!controller.holdPosition && controller.VisibleTarget == null && controller.KnownTarget != null)
@@ -256,7 +265,6 @@ public class EnemyController : AgentController
     class AttackingState : State
     {
         float attackTimer;
-        float reactionTimer;
         float crouchChance;
 
         public AttackingState(EnemyController controller) : base(controller) { }
@@ -266,14 +274,6 @@ public class EnemyController : AgentController
             print("Attacking");
             attackTimer = controller.attackBurstTime;
             controller.Forwards = false;
-            if (!controller.onGuard)
-            {
-                reactionTimer = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
-            }
-            else
-            {
-                reactionTimer = 0;
-            }
             crouchChance = UnityEngine.Random.Range(0f, 1f);
         }
 
@@ -282,11 +282,6 @@ public class EnemyController : AgentController
             if (controller.VisibleTarget != null)
             {
                 controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
-            }
-            if (reactionTimer > 0)
-            {
-                reactionTimer -= Time.deltaTime;
-                return;
             }
             if (crouchChance < controller.crouchWhileAttackingChance)
             {
@@ -569,6 +564,42 @@ public class EnemyController : AgentController
             if (timer >= controller.stunDuration)
             {
                 return controller.previousStateType;
+            }
+            return null;
+        }
+    }
+
+    class SurpriseState : State
+    {
+        readonly int surpriseAnimationCount = 4;
+        float timerMax;
+        float timer;
+
+        public SurpriseState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            print("Surprised!");
+            controller.movement.SwitchState(typeof(AgentMovement.StandState));
+            controller.agentAnimator.SetInteger("SurpriseIndex", UnityEngine.Random.Range(0, surpriseAnimationCount));
+            controller.agentAnimator.PlayFullBodyAnimation(FullBodyAnimState.Surprised, true);
+            timerMax = UnityEngine.Random.Range(controller.reactionTimeMin, controller.reactionTimeMax);
+        }
+
+        public override void During()
+        {
+            timer += Time.deltaTime;
+            if (controller.KnownTarget != null)
+            {
+                controller.LookAt(controller.KnownTarget.position);
+            }
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (timer >= timerMax)
+            {
+                return typeof(AttackingState);
             }
             return null;
         }

@@ -4,15 +4,10 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using System;
 
-public enum MovementState
-{
-    Stand, Walk, Jump, Fall, Run, Crouch
-}
-
 public class AgentMovement : MonoBehaviour
 {
-    public event Action<MovementState> OnStateChange;
-    public MovementState CurrentState => stateTranslator[currentState.GetType()];
+    public event Action<Type> OnStateChange;
+    public Type CurrentState => currentState.GetType();
 
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float walkSpeed = 2f;
@@ -29,15 +24,6 @@ public class AgentMovement : MonoBehaviour
 
     State currentState;
     Dictionary<Type, State> availableStates;
-    Dictionary<Type, MovementState> stateTranslator = new Dictionary<Type, MovementState>()
-    {
-        { typeof(StandState), MovementState.Stand},
-        { typeof(WalkState), MovementState.Walk },
-        { typeof(JumpState), MovementState.Jump },
-        { typeof(FallState), MovementState.Fall },
-        { typeof(RunState), MovementState.Run },
-        { typeof(CrouchState), MovementState.Crouch },
-    };
 
     float verticalVelocity = 0f;
     Vector3 velocity;
@@ -61,7 +47,6 @@ public class AgentMovement : MonoBehaviour
             {typeof(FallState), new FallState(this) },
             {typeof(RunState), new RunState(this) },
             {typeof(CrouchState), new CrouchState(this) },
-
         };
         currentState = availableStates[typeof(StandState)];
     }
@@ -79,7 +64,7 @@ public class AgentMovement : MonoBehaviour
         {
             currentState.After();
             currentState = availableStates[nextState];
-            OnStateChange?.Invoke(stateTranslator[nextState]);
+            OnStateChange?.Invoke(nextState);
             currentState.Before();
         }
         GroundPlayer();
@@ -139,6 +124,14 @@ public class AgentMovement : MonoBehaviour
         rig.weight = weight;
     }
 
+    public void SwitchState(Type state)
+    {
+        currentState.After();
+        currentState = availableStates[state];
+        OnStateChange?.Invoke(state);
+        currentState.Before();
+    }
+
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
@@ -157,7 +150,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    abstract class State
+    public abstract class State
     {
         protected AgentMovement movement;
         protected GameObject gameObject;
@@ -177,7 +170,7 @@ public class AgentMovement : MonoBehaviour
         public virtual Type CheckTransitions() { return null; }
     }
 
-    class StandState : State
+    public class StandState : State
     {
         readonly float turnAnimationThreshold = .001f;
         Vector3 lastRotation;
@@ -233,7 +226,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    class WalkState : State
+    public class WalkState : State
     {
         public WalkState(AgentMovement movement) : base(movement) { }
 
@@ -289,7 +282,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    class JumpState : State
+    public class JumpState : State
     {
         float timer = 0f;
         float fallDelay = .5f;
@@ -328,7 +321,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    class FallState : State
+    public class FallState : State
     {
         Vector3 initialDirection;
         float initialSpeed;
@@ -362,7 +355,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    class RunState : State
+    public class RunState : State
     {
         public RunState(AgentMovement movement) : base(movement) { }
 
@@ -418,7 +411,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    class CrouchState : State
+    public class CrouchState : State
     {
         public CrouchState(AgentMovement movement) : base(movement) { }
 
