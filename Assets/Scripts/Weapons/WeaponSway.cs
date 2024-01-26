@@ -37,6 +37,11 @@ public class WeaponSway : MonoBehaviour
         TiltSway();
     }
 
+    public void SetParent(Transform parent)
+    {
+        this.parent = parent;
+    }
+
     void CalculateSway()
     {
         inputX = -(parent.eulerAngles.y - lastXRotation);

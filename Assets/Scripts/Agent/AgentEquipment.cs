@@ -146,6 +146,12 @@ public class AgentEquipment : MonoBehaviour
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         SetWeaponOffset(currentOffsetType);
         CurrentWeapon.attack.Source = damageSource;
+        // setup weapon sway parent
+        WeaponSway sway = CurrentWeapon.gameObject.GetComponent<WeaponSway>();
+        if (sway)
+        {
+            sway.SetParent(transform);
+        }
         OnWeaponChange?.Invoke();
     }
 
