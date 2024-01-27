@@ -16,6 +16,14 @@ public class SpinningLight : MonoBehaviour
     public void TurnOff()
     {
         on = false;
+        for (int i = 0; i < lights.Length; i++)
+        {
+            Light light = lights[i].GetComponent<Light>();
+            if (light)
+            {
+                light.enabled = false;
+            }
+        }
     }
 
     private void Update()
