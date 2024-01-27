@@ -34,6 +34,7 @@ public abstract class WeaponAttack : MonoBehaviour
     {
         anim.enabled = true;
         anim.Play("Melee");
+        SoundManager.Instance.PlaySoundAtPosition("Melee_Swing", transform.position);
         Vector3 center = transform.position + (transform.forward * meleeRange);
         int hits = Physics.OverlapBoxNonAlloc(center, meleeHitBox / 2, meleeHitColliders, transform.rotation, agentLayer);
         if (hits > 0)
@@ -44,6 +45,7 @@ public abstract class WeaponAttack : MonoBehaviour
                 if (health != null && !alreadyMeleed.Contains(health))
                 {
                     health.Damage(meleeDamage, (health.transform.position - transform.position).normalized, transform.position, Source);
+                    SoundManager.Instance.PlaySoundAtPosition("Melee_Impact", transform.position);
                     alreadyMeleed.Add(health);
                 }
             }

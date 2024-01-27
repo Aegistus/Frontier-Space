@@ -429,7 +429,7 @@ public class AgentAction : MonoBehaviour
 
     class MeleeState : State
     {
-        float meleeTime = .5f;
+        float meleeTime = 1f;
         float timer;
         bool abort = false;
 
