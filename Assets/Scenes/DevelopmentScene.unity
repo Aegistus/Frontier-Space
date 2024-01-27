@@ -712,6 +712,106 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 83592494}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &84530432
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 180768955}
+    m_Modifications:
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.67033756
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7420563
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023624, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.024
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c10f6cd0df259ec4b8539cd5e87c7472, type: 3}
+--- !u!4 &84530433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+    type: 3}
+  m_PrefabInstance: {fileID: 84530432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &87695155
 Mesh:
   m_ObjectHideFlags: 0
@@ -970,6 +1070,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5355151148520534095, guid: fd7bf84155feeba4398b0157a9e36cf9,
     type: 3}
   m_PrefabInstance: {fileID: 109922391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &113284000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 180768955}
+    m_Modifications:
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.67033756
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7420563
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023624, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.024
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c10f6cd0df259ec4b8539cd5e87c7472, type: 3}
+--- !u!4 &113284001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+    type: 3}
+  m_PrefabInstance: {fileID: 113284000}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &134466661 stripped
 Transform:
@@ -3607,7 +3807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180768955
 Transform:
   m_ObjectHideFlags: 0
@@ -3631,6 +3831,9 @@ Transform:
   - {fileID: 5942433419585273575}
   - {fileID: 1411650428}
   - {fileID: 2047580689}
+  - {fileID: 113284001}
+  - {fileID: 84530433}
+  - {fileID: 736186583}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7783,7 +7986,7 @@ PrefabInstance:
     - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
@@ -9644,6 +9847,106 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5678355751479840989, guid: 016b8fe890fbf4540bad998e2608ba89,
     type: 3}
   m_PrefabInstance: {fileID: 726886081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &736186582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 180768955}
+    m_Modifications:
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652366, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.67033756
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7420563
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 95.814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127797222215652367, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023624, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Cultist Sniper (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.024
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c10f6cd0df259ec4b8539cd5e87c7472, type: 3}
+--- !u!4 &736186583 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+    type: 3}
+  m_PrefabInstance: {fileID: 736186582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &755577588
 PrefabInstance:
@@ -28404,7 +28707,7 @@ PrefabInstance:
     - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
@@ -62259,6 +62562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Cultist
+      objectReference: {fileID: 0}
+    - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}

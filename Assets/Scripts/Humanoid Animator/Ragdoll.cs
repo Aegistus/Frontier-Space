@@ -21,6 +21,7 @@ public class Ragdoll : MonoBehaviour
         foreach (var rb in ragdollRBs)
         {
             rb.isKinematic = false;
+            rb.gameObject.AddComponent<RagdollImpact>();
         }
         agentModel.updateWhenOffscreen = true; // this prevents ragdolls from disappearing when the camera gets too close.
     }

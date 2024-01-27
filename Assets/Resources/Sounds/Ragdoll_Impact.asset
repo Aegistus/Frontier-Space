@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
+  m_Name: Ragdoll_Impact
+  m_EditorClassIdentifier: 
+  audioVariants:
+  - {fileID: 8300000, guid: eaa98f10af6ec3b42b6937de0309ff08, type: 3}
+  - {fileID: 8300000, guid: 55e262dd4ae299e4f85dabea963637a1, type: 3}
+  - {fileID: 8300000, guid: 48a7553f996a56247a761ed010ef48ae, type: 3}
+  - {fileID: 8300000, guid: eb35627963170684b8f4dec9821a9dc9, type: 3}
+  - {fileID: 8300000, guid: 5f832419bd54260419ec1f14f481c581, type: 3}
+  - {fileID: 8300000, guid: 98e5a86c569081343b57784943f0e5e4, type: 3}
+  - {fileID: 8300000, guid: 2a4ee647252cb9645ac406b5b94d8547, type: 3}
+  - {fileID: 8300000, guid: 52a4678a7588b6c42a4de01a5bb9c599, type: 3}
+  - {fileID: 8300000, guid: 74007ec0bf4255345ad21a55df9a7bed, type: 3}
+  - {fileID: 8300000, guid: 5a577aceceb773f4f99c3e83b636657c, type: 3}
+  - {fileID: 8300000, guid: d840432722b6648409d71cecb1e1a3a6, type: 3}
+  - {fileID: 8300000, guid: d5080f79e1512a94a94320b23b5f2b99, type: 3}
+  - {fileID: 8300000, guid: 4d3a0476f63b83446ab36a1a8448f689, type: 3}
+  - {fileID: 8300000, guid: e0abc51316784c34b9a86516c05292ae, type: 3}
+  - {fileID: 8300000, guid: c359f139a714cfd4ea912f3c5538aae2, type: 3}
+  - {fileID: 8300000, guid: 01150c9395f7dc9409eeebabb8a3e082, type: 3}
+  volume: 0.2
+  volumeVariance: 0.05
+  pitch: 1
+  pitchVariance: 0.1
+  minimumDistance: 10
+  loop: 0
+  mixerGroup: {fileID: 0}
+  source: {fileID: 0}
