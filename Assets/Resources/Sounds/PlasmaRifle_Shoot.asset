@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlasmaRifle_Shoot
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: fcb90bdcf9cb0544580da06c62986304, type: 3}
-  volume: 1
+  - {fileID: 8300000, guid: 201ffbc50c3f2f54ca80d873b7ffe108, type: 3}
+  volume: 0.5
   volumeVariance: 0.1
-  pitch: 0.75
+  pitch: 1
   pitchVariance: 0.2
-  minimumDistance: 10
+  minimumDistance: 5
   loop: 0
   mixerGroup: {fileID: 0}
   source: {fileID: 0}

@@ -186,7 +186,7 @@ MonoBehaviour:
   kickbackRecovery: 0.05
   recoilRotationRecovery: 2
   aimFOVChange: 20
-  roundsPerMinute: 520
+  roundsPerMinute: 600
 --- !u!114 &8707676684160957320
 MonoBehaviour:
   m_ObjectHideFlags: 0
