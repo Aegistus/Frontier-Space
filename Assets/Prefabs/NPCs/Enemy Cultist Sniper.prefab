@@ -663,11 +663,11 @@ MonoBehaviour:
   onGuard: 0
   holdPosition: 1
   rotationSpeed: 0.1
-  reactionTimeMin: 0.5
-  reactionTimeMax: 1
-  aimOffset: {x: 0, y: 1, z: 0}
+  reactionTimeMin: 1
+  reactionTimeMax: 1.5
+  aimOffset: {x: 0, y: 0.6, z: 0.6}
   attackBurstTime: 1
-  attackWaitTime: 3
+  attackWaitTime: 2
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0
