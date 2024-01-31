@@ -174,6 +174,7 @@ public class AgentMovement : MonoBehaviour
     {
         readonly float turnAnimationThreshold = .001f;
         Vector3 lastRotation;
+        bool turning = false;
 
         public StandState(AgentMovement movement) : base(movement) { }
 
@@ -191,14 +192,23 @@ public class AgentMovement : MonoBehaviour
             rotationChange *= Time.deltaTime;
             if (rotationChange.y >= turnAnimationThreshold)
             {
-                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnRight, true);
+                if (!turning)
+                {
+                    turning = true;
+                    movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnRight, false);
+                }
             }
             else if (rotationChange.y <= -turnAnimationThreshold)
             {
-                movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnLeft, true);
+                if (!turning)
+                {
+                    turning = true;
+                    movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.TurnLeft, false);
+                }
             }
             else
             {
+                turning = false;
                 movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.Idle, false);
             }
             lastRotation = transform.eulerAngles;

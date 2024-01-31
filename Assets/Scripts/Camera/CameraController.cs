@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
         targetFOV = mainCam.fieldOfView;
         defaultFOV = mainCam.fieldOfView;
         currentMouseSensitivity = regularSensitivity;
-        aimedSensitivity = regularSensitivity / 2;
+        aimedSensitivity = regularSensitivity / 3;
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
         equipment = playerAction.GetComponent<AgentEquipment>();

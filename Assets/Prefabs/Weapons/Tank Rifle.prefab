@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHandPosition: {fileID: 1246916211478902998}
   leftHandPosition: {fileID: 1246916212520337978}
-  idleOffset: {x: 0.45, y: 0.016, z: 0.22}
+  idleOffset: {x: 0.5, y: -0.3, z: 0.4}
   idleRotation: {x: 0, y: 0, z: 0}
   runningOffset: {x: -0.008, y: -0.49, z: 0.11}
   runningRotation: {x: 16.907497, y: -63.3585, z: 12.33955}
@@ -193,12 +193,20 @@ MonoBehaviour:
   OnRecoil:
     m_PersistentCalls:
       m_Calls: []
+  agentLayer:
+    serializedVersion: 2
+    m_Bits: 0
   damageMin: 20
   damageMax: 30
+  meleeDamage: 50
+  meleeRange: 0.5
+  meleeHitBox: {x: 0.5, y: 1, z: 1}
   projectileID: TankRifle_Shot
   shootSoundName: TankRifle_Shot
   projectileSpawnPoint: {fileID: 1246916212103139456}
   weaponModel: {fileID: 3652490693719331063}
+  shotSpread: 5
+  aimedShotSpread: 0
   recoilXRotation: 1
   recoilYRotation: 1
   recoilKickback: 0.1
@@ -207,7 +215,7 @@ MonoBehaviour:
   recoilRotationRecovery: 1
   aimFOVChange: 10
   chargeSoundName: TankRifle_Charge
-  roundsPerMinute: 360
+  roundsPerMinute: 720
   chargeDelay: 2
 --- !u!114 &1246916212535110327
 MonoBehaviour:
@@ -222,9 +230,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadSound: 
-  maxLoadedAmmo: 120
+  maxLoadedAmmo: 240
   maxCarriedAmmo: 360
   reloadTime: 2
+  playShellEject: 0
+  shellEjectTransform: {fileID: 0}
+  shellEjectEffectID: Shell_Eject
 --- !u!65 &2671437197931582056
 BoxCollider:
   m_ObjectHideFlags: 0

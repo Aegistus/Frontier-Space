@@ -3154,26 +3154,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSource: 1
-  lookTarget: {fileID: 7240904842619780994}
-  weaponHoldTarget: {fileID: 7240904842814536212}
-  patrolNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  lookTarget: {fileID: 755935597066495118, guid: 88510826151c5a641a8e6ae184958603,
+    type: 3}
+  patrolNodes: []
   patrolling: 1
   onGuard: 0
-  rotationSpeed: 4
+  holdPosition: 0
+  rotationSpeed: 3
   reactionTimeMin: 0.5
   reactionTimeMax: 1
-  aimOffset: {x: 0, y: 1, z: 0}
+  aimOffset: {x: 0, y: 0.5, z: 0}
   attackBurstTime: 5
-  attackWaitTime: 0.5
+  attackWaitTime: 1
   suppressionBurstTime: 0.5
   suppressionWaitTime: 0.5
   crouchWhileAttackingChance: 0
   stunDamageThreshold: 10
-  stunDuration: 2
+  stunDuration: 1
 --- !u!114 &7240904842528296988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,7 +3204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4949d042fdf4a45a5a359f426f69e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookTransform: {fileID: 7240904842619780994}
+  eyeTransform: {fileID: 4245488600587432854}
   interactDistance: 5
   switchWeaponTime: 0.5
   grenadeThrowForce: 5
@@ -3230,8 +3227,8 @@ MonoBehaviour:
   allowArmorRegen: 0
   armorRegenDelay: 2
   armorRegenRate: 20
-  maxArmor: 0
-  maxHealth: 100
+  maxArmor: 100
+  maxHealth: 1000
 --- !u!114 &7240904842528296978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3244,7 +3241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264b66023767f434b9a1c11220631963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdTarget: {fileID: 7240904842814536212}
+  weaponHolder: {fileID: 7240904842814536212}
   weaponOffsetChangeSpeed: 10
   maxGrenadeCount: 3
   bobIntensity: 0.0001

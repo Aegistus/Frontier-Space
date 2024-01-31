@@ -579,7 +579,6 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
-            print("Surprised!");
             controller.movement.SwitchState(typeof(AgentMovement.StandState));
             controller.agentAnimator.SetInteger("SurpriseIndex", UnityEngine.Random.Range(0, surpriseAnimationCount));
             controller.agentAnimator.PlayFullBodyAnimation(FullBodyAnimState.Surprised, true);
