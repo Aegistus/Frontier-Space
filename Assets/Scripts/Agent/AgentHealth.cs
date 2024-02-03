@@ -85,19 +85,20 @@ public class AgentHealth : MonoBehaviour
         maxArmor = armor;
     }
 
-    public void Damage(float damage, Vector3 direction, Vector3 point, DamageSource source)
+    public bool Damage(float damage, Vector3 direction, Vector3 point, DamageSource source)
     {
         if (isDead)
         {
-            return;
+            return false;
         }
         if (damageImmunities.Contains(source))
         {
-            return;
+            return false;
         }
         damage = DamageArmor(damage);
         DamageHealth(damage, direction, point);
         OnDamageTaken?.Invoke(source, damage);
+        return true;
     }
 
     float DamageArmor(float damage)

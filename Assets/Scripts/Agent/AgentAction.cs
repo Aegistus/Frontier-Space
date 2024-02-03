@@ -125,6 +125,11 @@ public class AgentAction : MonoBehaviour
     {
         public IdleState(AgentAction action) : base(action) { }
 
+        public override void Before()
+        {
+            action.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.None);
+        }
+
         public override Type CheckTransitions()
         {
             if (action.equipment.HasWeaponEquipped)

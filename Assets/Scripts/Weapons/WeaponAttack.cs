@@ -46,8 +46,11 @@ public abstract class WeaponAttack : MonoBehaviour
                 AgentHealth health = meleeHitColliders[i].GetComponentInParent<AgentHealth>();
                 if (health != null && !alreadyMeleed.Contains(health))
                 {
-                    health.Damage(meleeDamage, (health.transform.position - transform.position).normalized, transform.position, Source);
-                    SoundManager.Instance.PlaySoundAtPosition("Melee_Impact", transform.position);
+                    bool success = health.Damage(meleeDamage, (health.transform.position - transform.position).normalized, transform.position, Source);
+                    if (success)
+                    {
+                        SoundManager.Instance.PlaySoundAtPosition("Melee_Impact", transform.position);
+                    }
                     alreadyMeleed.Add(health);
                 }
             }
