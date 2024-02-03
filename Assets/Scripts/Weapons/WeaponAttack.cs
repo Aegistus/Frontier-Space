@@ -18,8 +18,10 @@ public abstract class WeaponAttack : MonoBehaviour
     [SerializeField] protected float meleeDamage = 50f;
     [SerializeField] protected float meleeRange = .5f;
     [SerializeField] protected Vector3 meleeHitBox = new Vector3(.5f, 1f, 1f);
+    [SerializeField] protected float meleeDuration = 1f;
 
     public DamageSource Source { get; set; }
+    public float MeleeDuration => meleeDuration;
 
     protected Animator anim;
 

@@ -63310,6 +63310,7 @@ MonoBehaviour:
   meleeDamage: 50
   meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1
   projectileID: Revolver_Bullet
   shootSoundName: 
   projectileSpawnPoint: {fileID: 2636350270024634457}

@@ -429,7 +429,7 @@ public class AgentAction : MonoBehaviour
 
     class MeleeState : State
     {
-        float meleeTime = 1f;
+        float meleeTime;
         float timer;
         bool abort = false;
 
@@ -438,6 +438,7 @@ public class AgentAction : MonoBehaviour
         public override void Before()
         {
             abort = !action.equipment.HasWeaponEquipped;
+            meleeTime = action.equipment.CurrentWeaponAttack.MeleeDuration;
             if (!abort)
             {
                 timer = 0f;

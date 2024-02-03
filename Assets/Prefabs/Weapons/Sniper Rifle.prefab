@@ -651,6 +651,7 @@ MonoBehaviour:
   meleeDamage: 50
   meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1.5
   projectileID: Sniper_Shot
   shootSoundName: Sniper_Shoot
   projectileSpawnPoint: {fileID: 7165447958694006930}
