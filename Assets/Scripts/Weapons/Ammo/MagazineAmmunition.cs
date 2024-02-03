@@ -16,7 +16,7 @@ public class MagazineAmmunition : WeaponAmmunition
             anim.enabled = true;
             anim.Play("Reload");
         }
-        SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
+        //SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         yield return new WaitForSeconds(reloadTime);
         int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
 
@@ -45,5 +45,25 @@ public class MagazineAmmunition : WeaponAmmunition
             PoolManager.Instance.SpawnObjectWithLifetime(shellEjectEffectID, shellEjectTransform.position, shellEjectTransform.rotation, 5f);
         }
         return success;
+    }
+
+    public void MagazineOut()
+    {
+        SoundManager.Instance.PlaySoundAtPosition("Magazine_Out", transform.position);
+    }
+
+    public void MagazineIn()
+    {
+        SoundManager.Instance.PlaySoundAtPosition("Magazine_In", transform.position);
+    }
+
+    public void SlidePull()
+    {
+        SoundManager.Instance.PlaySoundAtPosition("Slide_Pull", transform.position);
+    }
+
+    public void SlideRelease()
+    {
+        SoundManager.Instance.PlaySoundAtPosition("Slide_Release", transform.position);
     }
 }
