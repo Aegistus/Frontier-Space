@@ -6342,7 +6342,7 @@ GameObject:
   - component: {fileID: 6648301236411978045}
   - component: {fileID: 8623057680038492852}
   m_Layer: 7
-  m_Name: Enemy Cultist
+  m_Name: Enemy Cultist AR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

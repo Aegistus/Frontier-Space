@@ -15,7 +15,14 @@ public class PauseMenuUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        if (Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                PauseGame();
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
         }
