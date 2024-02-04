@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class StoryTrigger : MonoBehaviour
+public class OnPlayerEnterTrigger : MonoBehaviour
 {
     public UnityEvent OnTrigger;
 
