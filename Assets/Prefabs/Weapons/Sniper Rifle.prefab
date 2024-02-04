@@ -658,10 +658,10 @@ MonoBehaviour:
   weaponModel: {fileID: 6187491293181547184}
   shotSpread: 0
   aimedShotSpread: 0
-  recoilXRotation: 4.5
-  recoilYRotation: 1
-  recoilKickback: 0
-  maxRecoilKickback: 0
+  recoilXRotation: 5
+  recoilYRotation: 2
+  recoilKickback: 0.0001
+  maxRecoilKickback: 0.0005
   kickbackRecovery: 0.05
   recoilRotationRecovery: 3
   aimFOVChange: 20
