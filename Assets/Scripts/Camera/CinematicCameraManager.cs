@@ -11,6 +11,7 @@ public class CinematicCameraManager : MonoBehaviour
         public GameObject camera;
         public float time = 5f;
         public UnityEvent trigger;
+        public UnityEvent after;
     }
 
     public CameraShot[] cameraShots;
@@ -37,6 +38,7 @@ public class CinematicCameraManager : MonoBehaviour
             }
             cameraShots[i].trigger.Invoke();
             yield return new WaitForSeconds(cameraShots[i].time);
+            cameraShots[i].after.Invoke();
             if (cameraShots[i].camera != null)
             {
                 cameraShots[i].camera.SetActive(false);
