@@ -21,25 +21,53 @@ public class FadeUI : MonoBehaviour
 
     public void FadeIn()
     {
-        StartCoroutine(FadeCorutine(0));
+        StartCoroutine(FadeInCorutine());
     }
 
     public void FadeOut()
     {
-        StartCoroutine(FadeCorutine(1));
+        StartCoroutine(FadeOutCoroutine());
     }
 
-    IEnumerator FadeCorutine(float targetAlpha)
+    IEnumerator FadeInCorutine()
     {
         element.gameObject.SetActive(true);
-        while (element.color.a != targetAlpha)
+        if (element.color.a == 0)
+        {
+            Color c = element.color;
+            c.a = 1;
+            element.color = c;
+        }
+        while (element.color.a != 0)
         {
             yield return null;
             Color color = element.color;
-            color.a = Mathf.Lerp(color.a, targetAlpha, Time.deltaTime * fadeSpeed);
-            if (Mathf.Abs(color.a - targetAlpha) < approximation)
+            color.a = Mathf.Lerp(color.a, 0, Time.deltaTime * fadeSpeed);
+            if (Mathf.Abs(color.a - 0) < approximation)
             {
-                color.a = targetAlpha;
+                color.a = 0;
+            }
+            element.color = color;
+        }
+    }
+
+    IEnumerator FadeOutCoroutine()
+    {
+        element.gameObject.SetActive(true);
+        if (element.color.a == 1)
+        {
+            Color c = element.color;
+            c.a = 0;
+            element.color = c;
+        }
+        while (element.color.a != 1)
+        {
+            yield return null;
+            Color color = element.color;
+            color.a = Mathf.Lerp(color.a, 1, Time.deltaTime * fadeSpeed);
+            if (Mathf.Abs(color.a - 1) < approximation)
+            {
+                color.a = 1;
             }
             element.color = color;
         }

@@ -8047,6 +8047,152 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &288307582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6656877345284732407, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707457, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707458, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: fadeSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707458, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: fadeInOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656877346095707469, guid: f3fa586519cdf5743a373012463c8c18,
+        type: 3}
+      propertyPath: m_Name
+      value: Fade UI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3fa586519cdf5743a373012463c8c18, type: 3}
+--- !u!114 &288307583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6656877346095707458, guid: f3fa586519cdf5743a373012463c8c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 288307582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214c899226ddcaa4ebdc040f0d090c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &319843725
 GameObject:
   m_ObjectHideFlags: 0
@@ -21009,7 +21155,6 @@ GameObject:
   - component: {fileID: 1887058918}
   - component: {fileID: 1887058917}
   - component: {fileID: 1887058919}
-  - component: {fileID: 1887058920}
   m_Layer: 0
   m_Name: StoryTeller
   m_TagString: Untagged
@@ -21030,7 +21175,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playEventOnAwake: 
-  storyEvents: []
+  storyEvents:
+  - name: End_Cinematic
+    delay: 7
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887058917}
+          m_TargetAssemblyTypeName: StoryTeller, Assembly-CSharp
+          m_MethodName: TriggerEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Change_Scene
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1887058917}
+          m_TargetAssemblyTypeName: StoryTeller, Assembly-CSharp
+          m_MethodName: TriggerEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Fade_Out
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Fade_Out
+    delay: 0
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 288307583}
+          m_TargetAssemblyTypeName: FadeUI, Assembly-CSharp
+          m_MethodName: FadeOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Change_Scene
+    delay: 1.3
+    OnEventTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887058919}
+          m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+          m_MethodName: ChangeScene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1887058918
 Transform:
   m_ObjectHideFlags: 0
@@ -21060,19 +21268,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: Level 02
   skippableScene: 1
---- !u!114 &1887058920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887058916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9629468bb3c50a489ce34825c452747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueLines: []
 --- !u!1001 &1890259900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21171,25 +21366,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShots:
   - camera: {fileID: 336667098}
-    time: 15
+    time: 9
     trigger:
       m_PersistentCalls:
-        m_Calls: []
-    after:
-      m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1887058919}
-          m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-          m_MethodName: ChangeScene
-          m_Mode: 1
+        - m_Target: {fileID: 1887058917}
+          m_TargetAssemblyTypeName: StoryTeller, Assembly-CSharp
+          m_MethodName: TriggerEvent
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: End_Cinematic
             m_BoolArgument: 0
           m_CallState: 2
+    after:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &1893412119
 Transform:
   m_ObjectHideFlags: 0
