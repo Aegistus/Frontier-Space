@@ -78,9 +78,9 @@ MonoBehaviour:
   lightLayerName6: Light Layer 6
   lightLayerName7: Light Layer 7
   decalLayerName0: Decal Layer default
-  decalLayerName1: Blood
-  decalLayerName2: Decal Layer 2
-  decalLayerName3: Decal Layer 3
+  decalLayerName1: Blood Decal
+  decalLayerName2: Blood Detail Decal
+  decalLayerName3: Door Decal
   decalLayerName4: Decal Layer 4
   decalLayerName5: Decal Layer 5
   decalLayerName6: Decal Layer 6

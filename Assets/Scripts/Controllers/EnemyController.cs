@@ -117,7 +117,11 @@ public class EnemyController : AgentController
 
     void LookAt(Vector3 position)
     {
-        lookTarget.position = position + aimOffset;
+        if (movement.CurrentState != typeof(AgentMovement.CrouchState))
+        {
+            position += aimOffset;
+        }
+        lookTarget.position = position;
     }
 
     void MoveToDestination(bool run = false)
@@ -281,7 +285,7 @@ public class EnemyController : AgentController
         {
             if (controller.VisibleTarget != null)
             {
-                controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
+                controller.LookAt(controller.VisibleTarget.position);
             }
             if (crouchChance < controller.crouchWhileAttackingChance)
             {
@@ -342,7 +346,7 @@ public class EnemyController : AgentController
             waitTimer -= Time.deltaTime;
             if (controller.VisibleTarget != null)
             {
-                controller.LookAt(controller.VisibleTarget.position + controller.aimOffset);
+                controller.LookAt(controller.VisibleTarget.position);
                 if (!controller.Crouch && !controller.holdPosition)
                 {
                     if (strafeLeft)
@@ -468,7 +472,7 @@ public class EnemyController : AgentController
         {
             suppressionTimer = maxSuppressionTimer;
             suppressingTarget = controller.KnownTarget;
-            aimPosition = suppressingTarget.position + controller.aimOffset;
+            aimPosition = suppressingTarget.position;
             attackTimer = controller.suppressionBurstTime;
             waitTimer = 0;
             currentlyAttacking = true;
