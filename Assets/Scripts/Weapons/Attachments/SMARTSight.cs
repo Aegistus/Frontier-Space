@@ -26,6 +26,10 @@ public class SMARTSight : MonoBehaviour
 
     private void Update()
     {
+		if (mainCamera == null)
+        {
+			return;
+        }
 		if (Physics.Raycast(new Ray(weapon.ProjectileSpawnPoint.position, weapon.ProjectileSpawnPoint.forward), out rayHit, 100f, mask, QueryTriggerInteraction.Ignore))
 		{
 			float distanceToSight = Vector3.Distance(mainCamera.transform.position, transform.position);

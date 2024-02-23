@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CinematicController : MonoBehaviour
+public class IGCController : MonoBehaviour
 {
     [System.Serializable]
     public class AnimationState
@@ -20,7 +20,7 @@ public class CinematicController : MonoBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         StartCoroutine(PlayThroughAnimations());
     }
 
