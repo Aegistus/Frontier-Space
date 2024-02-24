@@ -62,7 +62,7 @@ public class FieldOfView : MonoBehaviour
 			Vector3 dirToTarget = (targetPosition - position).normalized;
 			float dstToTarget = Vector3.Distance(position, targetPosition);
 			// detect target if within radius
-			if (target == player.transform)
+			if (target == player?.transform)
             {
 				if (dstToTarget <= minDetectionRadius)
 				{

@@ -237,6 +237,7 @@ public class EnemyController : AgentController
                 currentNode = controller.patrolNodeQueue.Dequeue();
                 navAgent.SetDestination(currentNode.position);
             }
+            controller.LookAt(currentNode.position);
         }
 
         public override void After()
