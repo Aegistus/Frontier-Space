@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PassengerTrain : MonoBehaviour
 {
+    [SerializeField] bool moving = false;
     [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeedCap = 10f;
     [SerializeField] Vector3 destination;
     [SerializeField] Door[] doors;
-
-    bool moving = false;
 
     readonly float arrivalDistance = 1;
 
@@ -37,7 +37,9 @@ public class PassengerTrain : MonoBehaviour
     {
         if (moving)
         {
-            transform.position = Vector3.Lerp(transform.position, destination, moveSpeed * Time.deltaTime);
+            Vector3 velocity = Vector3.Lerp(transform.position, destination, moveSpeed * Time.deltaTime) - transform.position;
+            velocity = Vector3.ClampMagnitude(velocity, moveSpeedCap * Time.deltaTime);
+            transform.position += velocity;
         }
         if (moving && Vector3.Distance(transform.position, destination) <= arrivalDistance)
         {

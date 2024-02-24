@@ -14,6 +14,7 @@ public class IGCController : MonoBehaviour
         public UnityEvent after;
     }
 
+    public bool playWeaponAnimationsAtAwake = true;
     public Transform weapon;
     public Transform leftHandIKTarget;
     public Transform rightHandIKTarget;
@@ -43,10 +44,15 @@ public class IGCController : MonoBehaviour
             ik.SetHandWeight(Hand.Right, 1);
         }
         StartCoroutine(PlayThroughAnimations());
-        if (weaponAnim)
+        if (weaponAnim && playWeaponAnimationsAtAwake)
         {
-            StartCoroutine(PlayThroughWeaponAnimations());
+            PlayWeaponAnimations();
         }
+    }
+
+    public void PlayWeaponAnimations()
+    {
+        StartCoroutine(PlayThroughWeaponAnimations());
     }
 
     IEnumerator PlayThroughAnimations()
