@@ -20737,7 +20737,7 @@ PrefabInstance:
     - target: {fileID: 6843567687883421289, guid: 6cc4ef534d6997647acb0a8cb37eed50,
         type: 3}
       propertyPath: m_text
-      value: Welcome Party
+      value: 'Chapter 3: A Warm Welcome'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc4ef534d6997647acb0a8cb37eed50, type: 3}
