@@ -195,12 +195,13 @@ MonoBehaviour:
       m_Calls: []
   agentLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   damageMin: 20
   damageMax: 30
   meleeDamage: 50
   meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1
   projectileID: TankRifle_Shot
   shootSoundName: TankRifle_Shot
   projectileSpawnPoint: {fileID: 1246916212103139456}

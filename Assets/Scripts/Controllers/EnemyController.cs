@@ -17,8 +17,7 @@ public class EnemyController : AgentController
     [SerializeField] Vector3 aimOffset = new Vector3(0, 1, 0);
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
-    [SerializeField] float suppressionBurstTime = .5f;
-    [SerializeField] float suppressionWaitTime = .25f;
+    [SerializeField] float suppressionDuration = 2f;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
     [SerializeField] float stunDamageThreshold = 10;
@@ -300,27 +299,25 @@ public class EnemyController : AgentController
             attackTimer -= Time.deltaTime;
         }
 
-        public override void After()
-        {
-            controller.Attack = false;
-        }
-
         public override Type CheckTransitions()
         {
-            if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
-            {
-                return typeof(ReloadingState);
-            }
             if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(SuppressingState);
             }
+            if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
+            {
+                controller.Attack = false;
+                return typeof(ReloadingState);
+            }
             if (controller.VisibleTarget == null && controller.KnownTarget == null)
             {
+                controller.Attack = false;
                 return typeof(GuardingState);
             }
             if (attackTimer <= 0)
             {
+                controller.Attack = false;
                 return typeof(AimingState);
             }
             return null;
@@ -457,7 +454,6 @@ public class EnemyController : AgentController
 
     class SuppressingState : State
     {
-        float maxSuppressionTimer = 2f;
         float suppressionTimer;
         float attackTimer;
         float waitTimer;
@@ -471,10 +467,10 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
-            suppressionTimer = maxSuppressionTimer;
+            suppressionTimer = controller.suppressionDuration;
             suppressingTarget = controller.KnownTarget;
             aimPosition = suppressingTarget.position;
-            attackTimer = controller.suppressionBurstTime;
+            attackTimer = controller.attackBurstTime;
             waitTimer = 0;
             currentlyAttacking = true;
         }
@@ -492,7 +488,7 @@ public class EnemyController : AgentController
             {
                 currentlyAttacking = false;
                 controller.Attack = false;
-                waitTimer = controller.suppressionWaitTime;
+                waitTimer = controller.attackWaitTime;
             }
             if (waitTimer > 0)
             {
@@ -502,7 +498,7 @@ public class EnemyController : AgentController
             else if (!currentlyAttacking)
             {
                 currentlyAttacking = true;
-                attackTimer = controller.suppressionBurstTime;
+                attackTimer = controller.attackBurstTime;
             }
         }
 

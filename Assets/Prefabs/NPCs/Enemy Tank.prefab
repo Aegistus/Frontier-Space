@@ -3985,10 +3985,9 @@ MonoBehaviour:
   aimOffset: {x: 0, y: 0.5, z: 0}
   attackBurstTime: 5
   attackWaitTime: 1
-  suppressionBurstTime: 0.5
-  suppressionWaitTime: 0.5
+  suppressionDuration: 2
   crouchWhileAttackingChance: 0
-  stunDamageThreshold: 10
+  stunDamageThreshold: 100
   stunDuration: 1
 --- !u!114 &7240904842528296988
 MonoBehaviour:
