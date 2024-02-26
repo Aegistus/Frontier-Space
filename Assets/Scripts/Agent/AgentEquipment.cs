@@ -204,6 +204,7 @@ public class AgentEquipment : MonoBehaviour
         weaponRB.isKinematic = true;
         Weapon newWeapon = new Weapon(weaponGO);
         weaponGO.GetComponent<BoxCollider>().enabled = false;
+        weaponGO.GetComponent<WeaponPickup>().CurrentlyInteractable = false;
         if (PrimaryWeapon == null)
         {
             PrimaryWeapon = newWeapon;
@@ -236,6 +237,7 @@ public class AgentEquipment : MonoBehaviour
             Rigidbody weaponRB = CurrentWeaponGO.GetComponent<Rigidbody>();
             weaponRB.isKinematic = false;
             CurrentWeaponGO.GetComponent<BoxCollider>().enabled = true;
+            CurrentWeaponGO.GetComponent<WeaponPickup>().CurrentlyInteractable = true;
             CurrentWeapon = null;
         }
     }

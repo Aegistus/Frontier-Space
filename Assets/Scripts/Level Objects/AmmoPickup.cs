@@ -7,6 +7,7 @@ public class AmmoPickup : MonoBehaviour, IInteractable
     [SerializeField] float percentRefill = .5f;
 
     public string Description => "[E] Refill Ammo";
+    public bool CurrentlyInteractable { get; } = true;
 
     public void Interact(GameObject interactor)
     {

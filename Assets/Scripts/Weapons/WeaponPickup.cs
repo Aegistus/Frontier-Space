@@ -8,13 +8,10 @@ public class WeaponPickup : MonoBehaviour, IInteractable
     [SerializeField] bool pickupable = true;
 
     public string Description => description;
-
-    void Start()
-    {
-        if (!pickupable)
-        {
-            Destroy(this);
-        }
+    public bool CurrentlyInteractable
+    { 
+        get { return pickupable; }
+        set { pickupable = value; }
     }
 
     public void Interact(GameObject interactor)

@@ -9,6 +9,7 @@ public class Button : MonoBehaviour, IInteractable
 
     public UnityEvent OnPress;
     public string Description => description;
+    public bool CurrentlyInteractable { get; } = true;
 
     int soundID;
 

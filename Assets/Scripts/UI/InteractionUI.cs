@@ -32,7 +32,7 @@ public class InteractionUI : MonoBehaviour
             else if (currentlyLookingAt == null)
             {
                 currentlyLookingAt = rayHit.collider.GetComponent<IInteractable>();
-                if (currentlyLookingAt != null)
+                if (currentlyLookingAt != null && currentlyLookingAt.CurrentlyInteractable)
                 {
                     text.text = currentlyLookingAt.Description;
                     prompt.SetActive(true);

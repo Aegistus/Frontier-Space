@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public interface IInteractable
 {
+    public bool CurrentlyInteractable { get; }
     public string Description { get; }
     void Interact(GameObject interactor);
 }

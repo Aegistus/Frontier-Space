@@ -8,6 +8,7 @@ public class GrenadePickup : MonoBehaviour, IInteractable
     [SerializeField] bool pickupable = true;
 
     public string Description => description;
+    public bool CurrentlyInteractable { get; } = true;
 
     void Start()
     {

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ArmorTube : MonoBehaviour, IInteractable
 {
     public string Description => "[E] Equip Armor";
+    public bool CurrentlyInteractable { get; } = true;
     public UnityEvent OnEquip;
 
     public void Interact(GameObject _)

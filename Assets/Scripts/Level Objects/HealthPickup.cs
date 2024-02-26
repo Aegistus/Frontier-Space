@@ -7,6 +7,7 @@ public class HealthPickup : MonoBehaviour, IInteractable
     [SerializeField] float percentHeal = .5f;
 
     public string Description => "[E] Use Health Pack";
+    public bool CurrentlyInteractable { get; } = true;
 
     public void Interact(GameObject interactor)
     {

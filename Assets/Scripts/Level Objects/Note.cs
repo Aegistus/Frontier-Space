@@ -7,6 +7,7 @@ public class Note : MonoBehaviour, IInteractable
     [SerializeField][TextArea] string contents;
 
     public string Description => "[E] Read Note";
+    public bool CurrentlyInteractable { get; } = true;
 
     public void Interact(GameObject interactor)
     {
