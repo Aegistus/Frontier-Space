@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 203713528}
+  fadeInDelay: 0
   fadeSpeed: 1
   fadeOut: 0
   fadeOutDelay: 5
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 620231836}
+  fadeInDelay: 0
   fadeSpeed: 1
   fadeOut: 0
   fadeOutDelay: 5
@@ -2456,6 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1446139057}
+  fadeInDelay: 0
   fadeSpeed: 0.5
   fadeOut: 0
   fadeOutDelay: 5
@@ -2609,6 +2612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1508206151}
+  fadeInDelay: 0
   fadeSpeed: 0.5
   fadeOut: 0
   fadeOutDelay: 5
@@ -2939,6 +2943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1718228274}
+  fadeInDelay: 0
   fadeSpeed: 0.5
   fadeOut: 0
   fadeOutDelay: 5
@@ -3092,6 +3097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1820129407}
+  fadeInDelay: 0
   fadeSpeed: 0.5
   fadeOut: 0
   fadeOutDelay: 5
@@ -36377,6 +36383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Letterbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843567687883421289, guid: 6cc4ef534d6997647acb0a8cb37eed50,
+        type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc4ef534d6997647acb0a8cb37eed50, type: 3}
