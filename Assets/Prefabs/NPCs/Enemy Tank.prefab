@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -3982,7 +3982,7 @@ MonoBehaviour:
   rotationSpeed: 3
   reactionTimeMin: 0.5
   reactionTimeMax: 1
-  aimOffset: {x: 0, y: 0.5, z: 0}
+  aimOffset: {x: 0, y: 1, z: 0}
   attackBurstTime: 5
   attackWaitTime: 1
   suppressionDuration: 2

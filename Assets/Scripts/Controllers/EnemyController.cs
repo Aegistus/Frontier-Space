@@ -39,6 +39,7 @@ public class EnemyController : AgentController
     AgentEquipment equipment;
     AgentMovement movement;
     HumanoidAnimator agentAnimator;
+    HumanoidIK agentIK;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class EnemyController : AgentController
         equipment = GetComponent<AgentEquipment>();
         movement = GetComponent<AgentMovement>();
         agentAnimator = GetComponentInChildren<HumanoidAnimator>();
+        agentIK = GetComponentInChildren<HumanoidIK>();
         if (patrolNodes.Length == 0)
         {
             patrolling = false;
@@ -542,6 +544,7 @@ public class EnemyController : AgentController
             int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
             controller.agentAnimator.SetInteger("FlinchIndex", randIndex);
             controller.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
+            controller.agentIK.SetHandWeight(Hand.Left, 0);
             controller.Attack = false;
             controller.Forwards = false;
             controller.Backwards = false;
@@ -558,6 +561,7 @@ public class EnemyController : AgentController
         public override void After()
         {
             controller.movement.SetRigWeight(1);
+            controller.agentIK.SetHandWeight(Hand.Left, 1);
         }
 
         public override Type CheckTransitions()

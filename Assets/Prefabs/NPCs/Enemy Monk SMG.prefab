@@ -2761,14 +2761,13 @@ MonoBehaviour:
   patrolling: 1
   onGuard: 0
   holdPosition: 0
-  rotationSpeed: 8
+  rotationSpeed: 4
   reactionTimeMin: 0.5
   reactionTimeMax: 1
-  aimOffset: {x: 0, y: 0.5, z: 0}
+  aimOffset: {x: 0, y: 1.5, z: 0}
   attackBurstTime: 1
   attackWaitTime: 0.5
-  suppressionBurstTime: 0.5
-  suppressionWaitTime: 0.5
+  suppressionDuration: 2
   crouchWhileAttackingChance: 0
   stunDamageThreshold: 10
   stunDuration: 1
@@ -3046,7 +3045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 2088461591665591937}
     m_SourceObjects:
@@ -3132,7 +3131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 2081947549525131607}
     m_SourceObjects:
@@ -3218,7 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.5
   m_Data:
     m_ConstrainedObject: {fileID: 2088217970281636745}
     m_SourceObjects:
@@ -3304,7 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.3
+  m_Weight: 0.1
   m_Data:
     m_ConstrainedObject: {fileID: 2082300188357338901}
     m_SourceObjects:

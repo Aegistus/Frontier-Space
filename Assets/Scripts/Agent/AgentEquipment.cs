@@ -31,7 +31,6 @@ public class AgentEquipment : MonoBehaviour
     public Weapon SecondaryWeapon { get; private set; }
 
     bool bobWeapon = false;
-    bool lockWeapon = true;
     float bobTime = 0;
 
     List<Grenade> grenades = new List<Grenade>();
@@ -105,30 +104,18 @@ public class AgentEquipment : MonoBehaviour
     {
         if (CurrentWeaponGO)
         {
-            if (lockWeapon)
+            if (bobWeapon)
             {
-                if (bobWeapon)
-                {
-                    bobTime += Time.deltaTime;
-                    Vector3 bobOffset = Vector3.down * Mathf.Abs(bobIntensity * Mathf.Sin(bobTime * bobSpeed));
-                    CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
-                    CurrentWeaponGO.transform.localPosition += bobOffset;
-                }
-                else
-                {
-                    CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
-                }
-                CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
+                bobTime += Time.deltaTime;
+                Vector3 bobOffset = Vector3.down * Mathf.Abs(bobIntensity * Mathf.Sin(bobTime * bobSpeed));
+                CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
+                CurrentWeaponGO.transform.localPosition += bobOffset;
             }
-        }
-    }
-
-    public void SetLockWeapon(bool locked)
-    {
-        lockWeapon = locked;
-        if (!lockWeapon)
-        {
-
+            else
+            {
+                CurrentWeaponGO.transform.localPosition = Vector3.Lerp(CurrentWeaponGO.transform.localPosition, targetPosition, weaponOffsetChangeSpeed * Time.deltaTime);
+            }
+            CurrentWeaponGO.transform.localRotation = Quaternion.Lerp(CurrentWeaponGO.transform.localRotation, targetRotation, weaponOffsetChangeSpeed * Time.deltaTime);
         }
     }
 
