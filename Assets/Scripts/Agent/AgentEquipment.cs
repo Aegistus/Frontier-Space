@@ -261,7 +261,7 @@ public class AgentEquipment : MonoBehaviour
 
     public bool TrySwitchWeapon()
     {
-        if (SecondaryWeapon == null)
+        if (PrimaryWeapon == null || SecondaryWeapon == null)
         {
             return false;
         }

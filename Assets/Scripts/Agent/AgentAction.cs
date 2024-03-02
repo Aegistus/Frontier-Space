@@ -352,7 +352,10 @@ public class AgentAction : MonoBehaviour
 
         public override void After()
         {
-            action.equipment.CurrentWeapon.animation.Stop();
+            if (action.equipment.CurrentWeapon != null)
+            {
+                action.equipment.CurrentWeapon.animation.Stop();
+            }
         }
 
         public override Type CheckTransitions()
