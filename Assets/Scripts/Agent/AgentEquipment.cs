@@ -195,6 +195,7 @@ public class AgentEquipment : MonoBehaviour
             WeaponAmmunition ammo = weaponGO.GetComponent<WeaponAmmunition>();
             PrimaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo);
             weaponGO.SetActive(false);
+            SoundManager.Instance.PlaySoundAtPosition("Ammo_Pickup", transform.position);
         }
         // if weapon to be picked up is the same type as your secondary weapon, add ammo instead
         else if (SecondaryWeapon?.data.Type == weaponData.Type)
@@ -202,6 +203,7 @@ public class AgentEquipment : MonoBehaviour
             WeaponAmmunition ammo = weaponGO.GetComponent<WeaponAmmunition>();
             SecondaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo);
             weaponGO.SetActive(false);
+            SoundManager.Instance.PlaySoundAtPosition("Ammo_Pickup", transform.position);
         }
         else
         {
@@ -278,6 +280,7 @@ public class AgentEquipment : MonoBehaviour
 
     public void RefillPercentAmmoAllWeapons(float percent)
     {
+        SoundManager.Instance.PlaySoundAtPosition("Ammo_Pickup", transform.position);
         if (PrimaryWeapon != null)
         {
             PrimaryWeapon.ammo.AddAmmo((int)(PrimaryWeapon.ammo.MaxCarriedAmmo * percent));
