@@ -79,16 +79,21 @@ public class AgentAction : MonoBehaviour
         Type nextState = currentState.CheckTransitions();
         if (nextState != null)
         {
-            currentState.After();
-            currentState = availableStates[nextState];
-            OnStateChange?.Invoke(stateTranslator[nextState]);
-            currentState.Before();
+            ChangeState(nextState);
         }
     }
 
     private void FixedUpdate()
     {
         currentState.DuringPhysics();
+    }
+
+    void ChangeState(Type nextState)
+    {
+        currentState.After();
+        currentState = availableStates[nextState];
+        OnStateChange?.Invoke(stateTranslator[nextState]);
+        currentState.Before();
     }
 
     abstract class State
