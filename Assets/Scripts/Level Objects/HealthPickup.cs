@@ -15,6 +15,7 @@ public class HealthPickup : MonoBehaviour, IInteractable
         if (health)
         {
             health.Heal(health.MaxHealth * percentHeal);
+            SoundManager.Instance.PlaySoundAtPosition("Health_Pickup", transform.position);
         }
         gameObject.SetActive(false);
     }
