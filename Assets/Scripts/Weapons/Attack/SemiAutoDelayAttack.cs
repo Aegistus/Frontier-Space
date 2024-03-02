@@ -12,6 +12,10 @@ public class SemiAutoDelayAttack : RangedWeaponAttack
     {
         if (timer <= 0)
         {
+            if (weaponAmmo.CurrentLoadedAmmo == 0)
+            {
+                SoundManager.Instance.PlaySoundAtPosition("Dry_Shot", transform.position);
+            }
             SpawnProjectile();
             timer = shotDelay;
         }
