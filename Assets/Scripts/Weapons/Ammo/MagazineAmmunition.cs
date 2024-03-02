@@ -16,20 +16,27 @@ public class MagazineAmmunition : WeaponAmmunition
             anim.enabled = true;
             anim.Play("Reload");
         }
-        //SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
         yield return new WaitForSeconds(reloadTime);
-        int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
-
-        if (currentCarriedAmmo < ammoNeeded)
+        if (!InfiniteCarriedAmmo)
         {
-            currentLoadedAmmo += currentCarriedAmmo;
-            currentCarriedAmmo = 0;
+            int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
+
+            if (currentCarriedAmmo < ammoNeeded)
+            {
+                currentLoadedAmmo += currentCarriedAmmo;
+                currentCarriedAmmo = 0;
+            }
+            else
+            {
+                currentLoadedAmmo += ammoNeeded;
+                currentCarriedAmmo -= ammoNeeded;
+            }
         }
         else
         {
-            currentLoadedAmmo += ammoNeeded;
-            currentCarriedAmmo -= ammoNeeded;
+            currentLoadedAmmo = maxLoadedAmmo;
         }
+
         Reloading = false;
         if (anim)
         {

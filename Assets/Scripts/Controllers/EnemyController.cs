@@ -80,8 +80,14 @@ public class EnemyController : AgentController
 
     private void Start()
     {
-        equipment.PrimaryWeapon?.ammo.AddAmmo(10000);
-        equipment.SecondaryWeapon?.ammo.AddAmmo(10000);
+        if (equipment.PrimaryWeapon != null)
+        {
+            equipment.PrimaryWeapon.ammo.InfiniteCarriedAmmo = true;
+        }
+        if (equipment.SecondaryWeapon != null)
+        {
+            equipment.SecondaryWeapon.ammo.InfiniteCarriedAmmo = true;
+        }
     }
 
     private void Update()
@@ -113,6 +119,15 @@ public class EnemyController : AgentController
     {
         GetComponent<AgentMovement>().enabled = false;
         fov.enabled = false;
+        if (equipment.PrimaryWeapon != null)
+        {
+            equipment.PrimaryWeapon.ammo.InfiniteCarriedAmmo = false;
+        }
+        if (equipment.SecondaryWeapon != null)
+        {
+            equipment.SecondaryWeapon.ammo.InfiniteCarriedAmmo = false;
+        }
+        equipment.DropWeapon();
         // do this last:
         enabled = false;
     }
@@ -388,6 +403,7 @@ public class EnemyController : AgentController
 
         public override void Before()
         {
+            print("Reloading State");
             controller.Reload = true;
         }
 
@@ -547,7 +563,6 @@ public class EnemyController : AgentController
         public override void Before()
         {
             // pick a random flinch animation
-            print("STUNNED");
             controller.movement.SetRigWeight(0);
             int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
             controller.agentAnimator.SetInteger("FlinchIndex", randIndex);
@@ -589,7 +604,6 @@ public class EnemyController : AgentController
         {
             if (timer >= controller.stunDuration)
             {
-                print("END STUNNED");
                 return controller.previousStateType;
             }
             return null;

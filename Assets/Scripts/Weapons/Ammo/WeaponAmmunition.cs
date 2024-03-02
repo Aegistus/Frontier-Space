@@ -14,6 +14,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     public int CurrentLoadedAmmo => currentLoadedAmmo;
     public int CurrentCarriedAmmo => currentCarriedAmmo;
     public bool Reloading { get; protected set; }
+    public bool InfiniteCarriedAmmo { get; set; } = false;
 
     protected int currentLoadedAmmo;
     protected int currentCarriedAmmo;
@@ -53,10 +54,15 @@ public abstract class WeaponAmmunition : MonoBehaviour
     public virtual bool TryReload()
     {
         int ammoNeeded = maxLoadedAmmo - currentLoadedAmmo;
-        if (ammoNeeded == 0 || currentCarriedAmmo == 0)
+        if (ammoNeeded == 0)
         {
             return false;
         }
+        if (currentCarriedAmmo == 0 && !InfiniteCarriedAmmo)
+        {
+            return false;
+        }
+        print("TEST");
         StartCoroutine(ReloadCoroutine());
         return true;
     }

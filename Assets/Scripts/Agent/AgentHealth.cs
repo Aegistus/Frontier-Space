@@ -154,7 +154,6 @@ public class AgentHealth : MonoBehaviour
     {
         isDead = true;
         ragdoll.EnableRagdoll();
-        equipment.DropWeapon();
         OnHealthChange?.Invoke();
         OnAgentDeath?.Invoke();
         StartCoroutine(StopRagdoll());

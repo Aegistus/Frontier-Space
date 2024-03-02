@@ -145,9 +145,12 @@ public class AgentAction : MonoBehaviour
                         return typeof(AimState);
                     }
                 }
-                if (action.controller.Reload && action.equipment.CurrentWeaponAmmunition.CurrentCarriedAmmo > 0)
+                if (action.controller.Reload)
                 {
-                    return typeof(ReloadState);
+                    if (action.equipment.CurrentWeaponAmmunition.CurrentCarriedAmmo > 0 || action.equipment.CurrentWeaponAmmunition.InfiniteCarriedAmmo)
+                    {
+                        return typeof(ReloadState);
+                    }
                 }
             }
             if (action.controller.Interact)

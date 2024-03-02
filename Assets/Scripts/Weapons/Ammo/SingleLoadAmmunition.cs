@@ -16,7 +16,7 @@ public class SingleLoadAmmunition : WeaponAmmunition
             anim.Play("Reload_Start");
         }
         yield return new WaitForSeconds(preReloadTime);
-        while (currentLoadedAmmo < maxLoadedAmmo && currentCarriedAmmo > 0)
+        while (currentLoadedAmmo < maxLoadedAmmo && currentCarriedAmmo > 0 || InfiniteCarriedAmmo)
         {
             if (anim)
             {
@@ -25,7 +25,10 @@ public class SingleLoadAmmunition : WeaponAmmunition
             SoundManager.Instance.PlaySoundAtPosition(reloadSoundID, transform.position);
             yield return new WaitForSeconds(reloadTime);
             currentLoadedAmmo++;
-            currentCarriedAmmo--;
+            if (!InfiniteCarriedAmmo)
+            {
+                currentCarriedAmmo--;
+            }
         }
         if (anim)
         {
