@@ -6,7 +6,8 @@ using System;
 
 public class AgentHealth : MonoBehaviour
 {
-    public event Action<DamageSource, float> OnDamageTaken;
+    // Source, amount, direction
+    public event Action<DamageSource, float, Vector3> OnDamageTaken;
     public event Action OnArmorChange;
     public event Action OnHealthChange;
     public event Action OnAgentDeath;
@@ -97,7 +98,7 @@ public class AgentHealth : MonoBehaviour
         }
         damage = DamageArmor(damage);
         DamageHealth(damage, direction, point);
-        OnDamageTaken?.Invoke(source, damage);
+        OnDamageTaken?.Invoke(source, damage, direction);
         return true;
     }
 

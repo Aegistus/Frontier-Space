@@ -51406,7 +51406,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - name: Open_Train_Doors
-    delay: 8
+    delay: 13
     OnEventTrigger:
       m_PersistentCalls:
         m_Calls:
@@ -83483,7 +83483,7 @@ PrefabInstance:
     - target: {fileID: 10176678514416257, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
       propertyPath: open
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10176678514416257, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
@@ -83493,7 +83493,7 @@ PrefabInstance:
     - target: {fileID: 10176680065242366, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
       propertyPath: open
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10176680065242366, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
@@ -83548,7 +83548,7 @@ PrefabInstance:
     - target: {fileID: 2667560656141993483, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
       propertyPath: open
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667560656141993483, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
@@ -83558,7 +83558,7 @@ PrefabInstance:
     - target: {fileID: 2667560657745250420, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}
       propertyPath: open
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2667560657745250420, guid: baa6e186a9868bc47be9f1ebbc829405,
         type: 3}

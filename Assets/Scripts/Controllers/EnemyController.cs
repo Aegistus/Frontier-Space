@@ -38,6 +38,7 @@ public class EnemyController : AgentController
     FieldOfView fov;
     AgentEquipment equipment;
     AgentMovement movement;
+    AgentHealth health;
     HumanoidAnimator agentAnimator;
     HumanoidIK agentIK;
 
@@ -50,6 +51,9 @@ public class EnemyController : AgentController
         movement = GetComponent<AgentMovement>();
         agentAnimator = GetComponentInChildren<HumanoidAnimator>();
         agentIK = GetComponentInChildren<HumanoidIK>();
+        health = GetComponent<AgentHealth>();
+        health.OnAgentDeath += OnDeath;
+        health.OnDamageTaken += CheckForStun;
         if (patrolNodes.Length == 0)
         {
             patrolling = false;
@@ -72,9 +76,6 @@ public class EnemyController : AgentController
             { typeof(SurpriseState), new SurpriseState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
-        AgentHealth health = GetComponent<AgentHealth>();
-        health.OnAgentDeath += OnDeath;
-        health.OnDamageTaken += CheckForStun;
     }
 
     private void Start()
@@ -140,7 +141,7 @@ public class EnemyController : AgentController
         }
     }
 
-    private void CheckForStun(DamageSource source, float damage)
+    private void CheckForStun(DamageSource source, float damage, Vector3 direction)
     {
         if (damage >= stunDamageThreshold && currentState.GetType() != typeof(StunnedState))
         {
@@ -533,41 +534,62 @@ public class EnemyController : AgentController
     class StunnedState : State
     {
         readonly int numOfFlinchAnimations = 5;
+        readonly float knockbackTimerMax = .5f;
+        float knockbackTimer;
         float timer;
+        Vector3 damageDirection;
 
-        public StunnedState(EnemyController controller) : base(controller) { }
+        public StunnedState(EnemyController controller) : base(controller)
+        {
+            controller.health.OnDamageTaken += (DamageSource source, float amount, Vector3 direction) => damageDirection = direction;
+        }
 
         public override void Before()
         {
             // pick a random flinch animation
+            print("STUNNED");
             controller.movement.SetRigWeight(0);
             int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
             controller.agentAnimator.SetInteger("FlinchIndex", randIndex);
             controller.agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
             controller.agentIK.SetHandWeight(Hand.Left, 0);
             controller.Attack = false;
-            controller.Forwards = false;
-            controller.Backwards = false;
-            controller.Left = false;
-            controller.Right = false;
+            controller.Forwards = Vector3.Angle(transform.forward, damageDirection) < 45;
+            controller.Backwards = Vector3.Angle(-transform.forward, damageDirection) < 45;
+            controller.Left = Vector3.Angle(-transform.right, damageDirection) < 45;
+            controller.Right = Vector3.Angle(transform.right, damageDirection) < 45;
             timer = 0f;
+            knockbackTimer = 0f;
         }
 
         public override void During()
         {
             timer += Time.deltaTime;
+            knockbackTimer += Time.deltaTime;
+            if (knockbackTimer >= knockbackTimerMax)
+            {
+                controller.Forwards = false;
+                controller.Backwards = false;
+                controller.Right = false;
+                controller.Left = false;
+            }
         }
 
         public override void After()
         {
             controller.movement.SetRigWeight(1);
             controller.agentIK.SetHandWeight(Hand.Left, 1);
+            controller.Forwards = false;
+            controller.Backwards = false;
+            controller.Right = false;
+            controller.Left = false;
         }
 
         public override Type CheckTransitions()
         {
             if (timer >= controller.stunDuration)
             {
+                print("END STUNNED");
                 return controller.previousStateType;
             }
             return null;

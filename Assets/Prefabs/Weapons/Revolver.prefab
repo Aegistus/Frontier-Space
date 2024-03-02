@@ -491,11 +491,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHandPosition: {fileID: 2595385096773752089}
   leftHandPosition: {fileID: 2595385097393556647}
-  idleOffset: {x: 0.238, y: -0.28, z: 0.3}
+  idleOffset: {x: 0.238, y: -0.28, z: 0.4}
   idleRotation: {x: 0, y: 0, z: 0}
   runningOffset: {x: -0.008, y: -0.49, z: 0.11}
   runningRotation: {x: 16.907497, y: -63.3585, z: 12.33955}
-  aimingOffset: {x: 0, y: -0.2, z: 0.3}
+  aimingOffset: {x: 0, y: -0.2, z: 0.4}
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
   reloadRotation: {x: 0, y: 0, z: 0}
@@ -534,6 +534,7 @@ MonoBehaviour:
   meleeDamage: 50
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1
   projectileID: Revolver_Bullet
   shootSoundName: Revolver_Shoot
   projectileSpawnPoint: {fileID: 2595385096538879513}

@@ -73,7 +73,6 @@ public class IGCController : MonoBehaviour
     {
         for (int i = 0; i < weaponAnimationStates.Length; i++)
         {
-            print("TEST");
             if (weaponAnimationStates[i].stateName != "")
             {
                 weaponAnim.CrossFadeInFixedTime(weaponAnimationStates[i].stateName, .5f);

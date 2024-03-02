@@ -3254,7 +3254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180768955
 Transform:
   m_ObjectHideFlags: 0
@@ -3876,6 +3876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Cultist AR (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
@@ -59821,6 +59826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561093716602058744, guid: 48ffb9e1019212f42a90ce1d01ea7e48,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ffb9e1019212f42a90ce1d01ea7e48, type: 3}
