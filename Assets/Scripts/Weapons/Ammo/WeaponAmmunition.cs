@@ -62,7 +62,6 @@ public abstract class WeaponAmmunition : MonoBehaviour
         {
             return false;
         }
-        print("TEST");
         StartCoroutine(ReloadCoroutine());
         return true;
     }

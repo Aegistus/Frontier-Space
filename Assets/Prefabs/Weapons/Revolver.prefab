@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 2595385096786984976}
   - component: {fileID: 5397454183550361214}
   - component: {fileID: 7808938219207888765}
+  - component: {fileID: 296278878756204885}
   - component: {fileID: 2071671601747738318}
   - component: {fileID: 6251409007560099792}
   - component: {fileID: 1772081700862213852}
@@ -580,6 +581,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '[E] Pickup Revolver'
   pickupable: 1
+--- !u!114 &296278878756204885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595385096786984980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7676ff8bd56e446969be203945d570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!65 &2071671601747738318
 BoxCollider:
   m_ObjectHideFlags: 0

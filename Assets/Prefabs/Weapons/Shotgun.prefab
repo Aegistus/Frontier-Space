@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 903542490611176886}
   - component: {fileID: 7091256394157525981}
   - component: {fileID: 8912309505800456049}
+  - component: {fileID: -9130420329561934165}
   - component: {fileID: 9101731673036362355}
   - component: {fileID: 6225724728282176101}
   - component: {fileID: 8763774465411168320}
@@ -110,10 +111,13 @@ MonoBehaviour:
   meleeDamage: 50
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1
   projectileID: Shotgun_Shot
   shootSoundName: Shotgun_Shoot
   projectileSpawnPoint: {fileID: 5732493271783340917}
   weaponModel: {fileID: 4641716684799921240}
+  shotSpread: 0
+  aimedShotSpread: 0
   recoilXRotation: 15
   recoilYRotation: 2
   recoilKickback: 0.1
@@ -159,6 +163,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '[E] Pickup Shotgun'
   pickupable: 1
+--- !u!114 &-9130420329561934165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903542490611176887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7676ff8bd56e446969be203945d570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!54 &9101731673036362355
 Rigidbody:
   m_ObjectHideFlags: 0

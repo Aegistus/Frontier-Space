@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 8616044649656224366}
   - component: {fileID: 6742010869171647976}
   - component: {fileID: 1559836211557804194}
+  - component: {fileID: -8081458744088651822}
   - component: {fileID: 5717021017936688304}
   - component: {fileID: 384927295148838318}
   - component: {fileID: 8493897110187017477}
@@ -619,6 +620,7 @@ MonoBehaviour:
   meleeDamage: 50
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
+  meleeDuration: 1
   projectileID: PlasmaRifle_Bullet
   shootSoundName: SMG_Shoot
   projectileSpawnPoint: {fileID: 8616044649870802023}
@@ -666,6 +668,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '[E] Pickup SMG'
   pickupable: 1
+--- !u!114 &-8081458744088651822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616044649656224362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7676ff8bd56e446969be203945d570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!65 &5717021017936688304
 BoxCollider:
   m_ObjectHideFlags: 0
