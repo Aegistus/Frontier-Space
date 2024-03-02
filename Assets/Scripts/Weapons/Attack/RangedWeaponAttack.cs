@@ -78,4 +78,12 @@ public abstract class RangedWeaponAttack : WeaponAttack
         }
     }
 
+    public void Equip()
+    {
+        if (anim)
+        {
+            anim.enabled = true;
+            anim.Play("Equip");
+        }
+    }
 }

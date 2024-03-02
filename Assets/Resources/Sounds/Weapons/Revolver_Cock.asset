@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
-  m_Name: Footstep_Run
+  m_Name: Revolver_Cock
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 1fe987d70b2dc574a8b7f889be3cac2f, type: 3}
-  - {fileID: 8300000, guid: 3e799a62f1d778645b2b9b88c735940b, type: 3}
-  - {fileID: 8300000, guid: 45d179c5c87433e4e9447b502ba7f5ad, type: 3}
-  - {fileID: 8300000, guid: 2595c535d2e38b24fa8773825b54ee03, type: 3}
-  - {fileID: 8300000, guid: 35107bc59c722fb4783e0f5ce6724e38, type: 3}
-  volume: 0.1
-  volumeVariance: 0.05
-  pitch: 0.85
-  pitchVariance: 0.035
+  - {fileID: 8300000, guid: a3294f57aba9ede4fa65baa13ed170f4, type: 3}
+  volume: 1
+  volumeVariance: 0.1
+  pitch: 1
+  pitchVariance: 0.1
   minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}

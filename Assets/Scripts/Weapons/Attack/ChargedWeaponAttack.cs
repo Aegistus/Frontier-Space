@@ -22,7 +22,6 @@ public class ChargedWeaponAttack : RangedWeaponAttack
 
     protected override void Start()
     {
-        base.Start();
         chargeSoundID = SoundManager.Instance.GetSoundID(chargeSoundName);
     }
 

@@ -91,14 +91,6 @@ public class AgentAction : MonoBehaviour
         currentState.DuringPhysics();
     }
 
-    private void Flinch()
-    {
-        // pick a random flinch animation
-        int randIndex = UnityEngine.Random.Range(0, numOfFlinchAnimations);
-        agentAnimator.SetInteger("FlinchIndex", randIndex);
-        agentAnimator.PlayUpperBodyAnimation(UpperBodyAnimState.Flinch);
-    }
-
     abstract class State
     {
         protected AgentAction action;
@@ -342,11 +334,20 @@ public class AgentAction : MonoBehaviour
         {
             timer = 0f;
             success = action.equipment.TrySwitchWeapon();
+            if (success)
+            {
+                action.equipment.CurrentWeapon.animation.Play("Equip");
+            }
         }
 
         public override void During()
         {
             timer += Time.deltaTime;
+        }
+
+        public override void After()
+        {
+            action.equipment.CurrentWeapon.animation.Stop();
         }
 
         public override Type CheckTransitions()

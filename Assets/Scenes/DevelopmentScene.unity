@@ -27272,7 +27272,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30224
+  m_Name: pb_Mesh608042
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28060,75 +28060,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &1334016135
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 933880755}
-    m_Modifications:
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.409
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3130001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -17.415
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984979, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2595385096786984980, guid: 9a08b4ddeb8f6984fb90a285f497bafb,
-        type: 3}
-      propertyPath: m_Name
-      value: Revolver
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9a08b4ddeb8f6984fb90a285f497bafb, type: 3}
 --- !u!43 &1341864391
 Mesh:
   m_ObjectHideFlags: 0
@@ -58231,7 +58162,7 @@ PrefabInstance:
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 211
+      value: 217
       objectReference: {fileID: 0}
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
