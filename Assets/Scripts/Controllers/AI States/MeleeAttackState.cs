@@ -23,7 +23,7 @@ public partial class EnemyController
 
         public override void During()
         {
-            if (!meleeStarted && controller.action.CurrentState == typeof(AgentAction.MeleeState))
+            if (!meleeStarted && controller.action.CurrentState == typeof(AgentAction.MeleeAttackState))
             {
                 meleeStarted = true;
             }
@@ -40,7 +40,7 @@ public partial class EnemyController
 
         public override Type CheckTransitions()
         {
-            if (meleeStarted && controller.action.CurrentState != typeof(AgentAction.MeleeState))
+            if (meleeStarted && controller.action.CurrentState != typeof(AgentAction.MeleeAttackState))
             {
                 return typeof(AttackingState);
             }
