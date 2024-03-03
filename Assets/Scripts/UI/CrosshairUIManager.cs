@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using System;
 
 public enum CrosshairType
 {
@@ -41,9 +41,9 @@ public class CrosshairUIManager : MonoBehaviour
 		SetCrosshairType(playerEquipment.CurrentWeaponAttack.crosshairType);
     }
 
-    private void PlayerAction_OnStateChange(ActionState state)
+    private void PlayerAction_OnStateChange(Type state)
 	{
-		if (state == ActionState.Aim || state == ActionState.AimAttack)
+		if (state == typeof(AgentAction.AimState) || state == typeof(AgentAction.AimAttackState))
 		{
 			SetCrosshairEnabled(true);
 		}

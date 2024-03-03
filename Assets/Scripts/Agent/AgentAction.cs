@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum ActionState
-{
-    Idle, Attack, Aim, Interact, AimAttack, Reload, SwitchWeapon, HoldGrenade, ThrowGrenade, Melee
-}
-
 public class AgentAction : MonoBehaviour
 {
     [SerializeField] Transform eyeTransform;
@@ -15,7 +10,7 @@ public class AgentAction : MonoBehaviour
     [SerializeField] float switchWeaponTime = .5f;
     [SerializeField] float grenadeThrowForce = 5f;
 
-    public event Action<ActionState> OnStateChange;
+    public event Action<Type> OnStateChange;
     public static float InteractDistance { get; private set; }
     public Type CurrentState => currentState.GetType();
 
@@ -30,19 +25,6 @@ public class AgentAction : MonoBehaviour
 
     State currentState;
     Dictionary<Type, State> availableStates;
-    Dictionary<Type, ActionState> stateTranslator = new Dictionary<Type, ActionState>()
-    {
-        { typeof(IdleState), ActionState.Idle },
-        { typeof(AttackState), ActionState.Attack },
-        { typeof(AimState), ActionState.Aim },
-        { typeof(AimAttackState), ActionState.AimAttack },
-        { typeof(ReloadState), ActionState.Reload },
-        { typeof(InteractState), ActionState.Interact },
-        { typeof(SwitchWeaponState), ActionState.SwitchWeapon },
-        { typeof(HoldGrenadeState), ActionState.HoldGrenade },
-        { typeof(ThrowGrenadeState), ActionState.ThrowGrenade },
-        { typeof(MeleeState), ActionState.Melee },
-    };
 
     private void Awake()
     {
@@ -93,7 +75,7 @@ public class AgentAction : MonoBehaviour
     {
         currentState.After();
         currentState = availableStates[nextState];
-        OnStateChange?.Invoke(stateTranslator[nextState]);
+        OnStateChange?.Invoke(nextState);
         currentState.Before();
     }
 
