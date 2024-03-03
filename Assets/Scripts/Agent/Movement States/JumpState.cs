@@ -31,6 +31,8 @@ public partial class AgentMovement
 
         public override void DuringPhysics()
         {
+            Vector3 input = transform.TransformDirection(movement.controller.GetMovementInput());
+            movement.Move(input, movement.airMoveSpeed);
             movement.Move(initialDirection, initialSpeed);
         }
 

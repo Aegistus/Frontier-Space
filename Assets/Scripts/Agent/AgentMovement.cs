@@ -15,6 +15,7 @@ public partial class AgentMovement : MonoBehaviour
     [SerializeField] float crouchSpeed = 1f;
     [SerializeField] float gravityScale = 1f;
     [SerializeField] float jumpVelocity = 5f;
+    [SerializeField] float airMoveSpeed = 1f;
     [SerializeField] float collisionCheckDistance = .5f;
 
     AgentController controller;
@@ -104,8 +105,8 @@ public partial class AgentMovement : MonoBehaviour
             }
         }
         if (hits < 2)
-        {
-            transform.Translate(velocity * Time.deltaTime, Space.Self);
+        {   
+            transform.Translate(velocity * Time.deltaTime, Space.World);
         }
     }
 

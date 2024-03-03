@@ -448,6 +448,7 @@ MonoBehaviour:
   crouchSpeed: 1
   gravityScale: 1
   jumpVelocity: 5
+  airMoveSpeed: 1
   collisionCheckDistance: 0.75
 --- !u!114 &6214437158977114632
 MonoBehaviour:
