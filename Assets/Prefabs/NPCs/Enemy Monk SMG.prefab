@@ -2769,6 +2769,8 @@ MonoBehaviour:
   attackWaitTime: 0.5
   suppressionDuration: 2
   crouchWhileAttackingChance: 0
+  meleeAttackRange: 2
+  meleeAttackCooldown: 3
   stunDamageThreshold: 10
   stunDuration: 1
 --- !u!114 &4561093716602058696

@@ -6391,6 +6391,8 @@ MonoBehaviour:
   attackWaitTime: 0.5
   suppressionDuration: 2
   crouchWhileAttackingChance: 0
+  meleeAttackRange: 2
+  meleeAttackCooldown: 3
   stunDamageThreshold: 10
   stunDuration: 1
 --- !u!114 &755935596990909200
@@ -6570,7 +6572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755935597066495113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.678462, y: -0.35993728, z: 4.5767574}
+  m_LocalPosition: {x: -0.47751808, y: 4.640063, z: 8.257702}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -17,6 +17,7 @@ public class AgentAction : MonoBehaviour
 
     public event Action<ActionState> OnStateChange;
     public static float InteractDistance { get; private set; }
+    public Type CurrentState => currentState.GetType();
 
     readonly int numOfFlinchAnimations = 5;
     AgentEquipment equipment;
@@ -96,7 +97,7 @@ public class AgentAction : MonoBehaviour
         currentState.Before();
     }
 
-    abstract class State
+    public abstract class State
     {
         protected AgentAction action;
         protected AgentMovement movement;
@@ -118,7 +119,7 @@ public class AgentAction : MonoBehaviour
         public virtual Type CheckTransitions() { return null; }
     }
 
-    class IdleState : State
+    public class IdleState : State
     {
         public IdleState(AgentAction action) : base(action) { }
 
@@ -170,7 +171,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class AttackState : State
+    public class AttackState : State
     {
         public AttackState(AgentAction action) : base(action) { }
 
@@ -203,7 +204,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class AimState : State
+    public class AimState : State
     {
         public AimState(AgentAction action) : base(action) { }
 
@@ -238,7 +239,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class AimAttackState : State
+    public class AimAttackState : State
     {
         public AimAttackState(AgentAction action) : base(action) { }
 
@@ -276,7 +277,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class InteractState : State
+    public class InteractState : State
     {
         public InteractState(AgentAction action) : base(action) { }
 
@@ -297,7 +298,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class ReloadState : State
+    public class ReloadState : State
     {
         bool successful;
 
@@ -328,7 +329,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class SwitchWeaponState : State
+    public class SwitchWeaponState : State
     {
         bool success;
         float timer = 0f;
@@ -372,7 +373,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class HoldGrenadeState : State
+    public class HoldGrenadeState : State
     {
         public HoldGrenadeState(AgentAction action) : base(action) { }
 
@@ -405,7 +406,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class ThrowGrenadeState : State
+    public class ThrowGrenadeState : State
     {
         float maxTimer = 1f;
         float timer = 0f;
@@ -444,7 +445,7 @@ public class AgentAction : MonoBehaviour
         }
     }
 
-    class MeleeState : State
+    public class MeleeState : State
     {
         float meleeTime;
         float timer;
@@ -455,9 +456,9 @@ public class AgentAction : MonoBehaviour
         public override void Before()
         {
             abort = !action.equipment.HasWeaponEquipped;
-            meleeTime = action.equipment.CurrentWeaponAttack.MeleeDuration;
             if (!abort)
             {
+                meleeTime = action.equipment.CurrentWeaponAttack.MeleeDuration;
                 timer = 0f;
                 action.equipment.CurrentWeaponAttack.MeleeAttack();
             }

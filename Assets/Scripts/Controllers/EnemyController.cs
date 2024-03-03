@@ -14,12 +14,17 @@ public class EnemyController : AgentController
     [SerializeField] float rotationSpeed = 5f;
     [SerializeField] float reactionTimeMin = .5f;
     [SerializeField] float reactionTimeMax = 1f;
+    [Header("Ranged Combat")]
     [SerializeField] Vector3 aimOffset = new Vector3(0, 1, 0);
     [SerializeField] float attackBurstTime = 2f;
     [SerializeField] float attackWaitTime = 1f;
     [SerializeField] float suppressionDuration = 2f;
     [Range(0f, 1f)]
     [SerializeField] float crouchWhileAttackingChance = .5f;
+    [Header("Melee Combat")]
+    [SerializeField] float meleeAttackRange = 2f;
+    [SerializeField] float meleeAttackCooldown = 3f;
+    [Header("Stun")]
     [SerializeField] float stunDamageThreshold = 10;
     [SerializeField] float stunDuration = 2f;
 
@@ -35,12 +40,14 @@ public class EnemyController : AgentController
     readonly float destinationTolerance = .1f; // how far away is considered "arrived at destination"
     Vector3 heightOffset = new Vector3(0, 1.6f, 0);
     Vector3 lookTargetDefaultPos = new Vector3(0, 1, 10);
+    float meleeCooldownTimer;
     FieldOfView fov;
     AgentEquipment equipment;
     AgentMovement movement;
-    AgentHealth health;
     HumanoidAnimator agentAnimator;
     HumanoidIK agentIK;
+    AgentAction action;
+    AgentHealth health;
 
     private void Awake()
     {
@@ -51,6 +58,7 @@ public class EnemyController : AgentController
         movement = GetComponent<AgentMovement>();
         agentAnimator = GetComponentInChildren<HumanoidAnimator>();
         agentIK = GetComponentInChildren<HumanoidIK>();
+        action = GetComponentInChildren<AgentAction>();
         health = GetComponent<AgentHealth>();
         health.OnAgentDeath += OnDeath;
         health.OnDamageTaken += CheckForStun;
@@ -74,6 +82,7 @@ public class EnemyController : AgentController
             { typeof(SuppressingState), new SuppressingState(this) },
             { typeof(StunnedState), new StunnedState(this) },
             { typeof(SurpriseState), new SurpriseState(this) },
+            { typeof(MeleeAttackState), new MeleeAttackState(this) },
         };
         currentState = availableStates[typeof(GuardingState)];
     }
@@ -105,6 +114,11 @@ public class EnemyController : AgentController
         transform.rotation = currentRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
+        if (meleeCooldownTimer > 0)
+        {
+            meleeCooldownTimer -= Time.deltaTime;
+        }
     }
 
     void ChangeState(Type nextState)
@@ -323,6 +337,11 @@ public class EnemyController : AgentController
             {
                 return typeof(SuppressingState);
             }
+            if (controller.meleeCooldownTimer <= 0 && controller.VisibleTarget != null && Vector3.Distance(controller.VisibleTarget.position, transform.position) < controller.meleeAttackRange)
+            {
+                controller.Attack = false;
+                return typeof(MeleeAttackState);
+            }
             if (controller.equipment.CurrentWeaponAmmunition.CurrentLoadedAmmo == 0)
             {
                 controller.Attack = false;
@@ -388,6 +407,11 @@ public class EnemyController : AgentController
             if (controller.VisibleTarget == null && controller.KnownTarget != null)
             {
                 return typeof(SuppressingState);
+            }
+            if (controller.meleeCooldownTimer <= 0 && controller.VisibleTarget != null && Vector3.Distance(controller.VisibleTarget.position, transform.position) < controller.meleeAttackRange)
+            {
+                controller.Attack = false;
+                return typeof(MeleeAttackState);
             }
             if (waitTimer <= 0)
             {
@@ -638,6 +662,49 @@ public class EnemyController : AgentController
         public override Type CheckTransitions()
         {
             if (timer >= timerMax)
+            {
+                return typeof(AttackingState);
+            }
+            return null;
+        }
+    }
+
+    class MeleeAttackState : State
+    {
+        bool meleeStarted = false;
+        float walkForwardDuration = .5f;
+        float walkForwardTimer;
+
+        public MeleeAttackState(EnemyController controller) : base(controller) { }
+
+        public override void Before()
+        {
+            controller.Melee = true;
+            controller.Forwards = true;
+            controller.meleeCooldownTimer = controller.meleeAttackCooldown;
+            walkForwardTimer = walkForwardDuration;
+        }
+
+        public override void During()
+        {
+            if (!meleeStarted && controller.action.CurrentState == typeof(AgentAction.MeleeState))
+            {
+                meleeStarted = true;
+            }
+            controller.LookAt(controller.VisibleTarget.position);
+            controller.Forwards = walkForwardTimer > 0;
+            walkForwardTimer -= Time.deltaTime;
+        }
+
+        public override void After()
+        {
+            controller.Melee = false;
+            controller.Forwards = false;
+        }
+
+        public override Type CheckTransitions()
+        {
+            if (meleeStarted && controller.action.CurrentState != typeof(AgentAction.MeleeState))
             {
                 return typeof(AttackingState);
             }

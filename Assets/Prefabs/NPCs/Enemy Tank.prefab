@@ -3973,8 +3973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSource: 1
-  lookTarget: {fileID: 755935597066495118, guid: 88510826151c5a641a8e6ae184958603,
-    type: 3}
+  lookTarget: {fileID: 7240904842619780994}
   patrolNodes: []
   patrolling: 1
   onGuard: 0
@@ -3987,6 +3986,8 @@ MonoBehaviour:
   attackWaitTime: 1
   suppressionDuration: 2
   crouchWhileAttackingChance: 0
+  meleeAttackRange: 2
+  meleeAttackCooldown: 3
   stunDamageThreshold: 100
   stunDuration: 1
 --- !u!114 &7240904842528296988
