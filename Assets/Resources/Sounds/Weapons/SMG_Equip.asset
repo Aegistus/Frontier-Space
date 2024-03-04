@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89c7e6321a0114c42b23a0ad6bede4fe, type: 3}
-  m_Name: PlasmaRifle_Shoot
+  m_Name: SMG_Equip
   m_EditorClassIdentifier: 
   audioVariants:
-  - {fileID: 8300000, guid: 49fec1564a602294283c86a2d0484645, type: 3}
-  volume: 0.5
+  - {fileID: 8300000, guid: c24cad02dfa407c4f94c5b3996ef6945, type: 3}
+  volume: 1
   volumeVariance: 0.1
   pitch: 1
-  pitchVariance: 0.05
-  minimumDistance: 5
+  pitchVariance: 0.1
+  minimumDistance: 10
   loop: 0
   mixerGroup: {fileID: 0}
   source: {fileID: 0}

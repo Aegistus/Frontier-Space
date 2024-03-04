@@ -42552,7 +42552,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8722
+  m_Name: pb_Mesh-6901526
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57962,6 +57962,7 @@ MonoBehaviour:
   meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   meleeDuration: 1
+  equipSound: 
   projectileID: Revolver_Bullet
   shootSoundName: 
   projectileSpawnPoint: {fileID: 2636350270024634457}
@@ -58273,7 +58274,7 @@ PrefabInstance:
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 220
+      value: 223
       objectReference: {fileID: 0}
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}

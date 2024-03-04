@@ -19,9 +19,11 @@ public abstract class WeaponAttack : MonoBehaviour
     [SerializeField] protected float meleeRange = .5f;
     [SerializeField] protected Vector3 meleeHitBox = new Vector3(.5f, 1f, 1f);
     [SerializeField] protected float meleeDuration = 1f;
+    [SerializeField] protected string equipSound;
 
     public DamageSource Source { get; set; }
     public float MeleeDuration => meleeDuration;
+    public string EquipSound => equipSound;
 
     protected Animator anim;
 
@@ -56,5 +58,14 @@ public abstract class WeaponAttack : MonoBehaviour
             }
         }
         alreadyMeleed.Clear();
+    }
+
+    public void Equip()
+    {
+        if (anim)
+        {
+            anim.enabled = true;
+            anim.Play("Equip");
+        }
     }
 }

@@ -77,13 +77,4 @@ public abstract class RangedWeaponAttack : WeaponAttack
             PoolManager.Instance.SpawnObjectWithLifetime("Muzzle_Flash", projectileSpawnPoint.position, projectileSpawnPoint.rotation, 5f);
         }
     }
-
-    public void Equip()
-    {
-        if (anim)
-        {
-            anim.enabled = true;
-            anim.Play("Equip");
-        }
-    }
 }

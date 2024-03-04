@@ -135,6 +135,10 @@ public class AgentEquipment : MonoBehaviour
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         SetWeaponOffset(currentOffsetType);
         CurrentWeapon.attack.Source = damageSource;
+        if (CurrentWeaponAttack.EquipSound != "")
+        {
+            SoundManager.Instance.PlaySoundAtPosition(CurrentWeaponAttack.EquipSound, transform.position);
+        }
         // setup weapon sway parent
         WeaponSway sway = CurrentWeapon.gameObject.GetComponent<WeaponSway>();
         if (sway)

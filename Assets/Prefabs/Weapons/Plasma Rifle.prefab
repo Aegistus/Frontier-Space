@@ -176,6 +176,7 @@ MonoBehaviour:
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   meleeDuration: 1
+  equipSound: PlasmaRifle_Equip
   projectileID: PlasmaRifle_Bullet
   shootSoundName: PlasmaRifle_Shoot
   projectileSpawnPoint: {fileID: 5968914447583228423}
