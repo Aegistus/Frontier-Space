@@ -13,16 +13,4 @@ public class PoolObject : ScriptableObject
     /// How many instances should be created at runtime.
     /// </summary>
     public int instanceCount;
-
-    private Queue<PoolInstance> inPool = new Queue<PoolInstance>();
-
-    public PoolInstance GetNextInQueue()
-    {
-        return inPool.Dequeue();
-    }
-
-    public void PlaceInQueue(PoolInstance obj)
-    {
-        inPool.Enqueue(obj);
-    }
 }

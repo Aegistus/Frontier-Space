@@ -36,9 +36,15 @@ public class CameraController : MonoBehaviour
         aimedSensitivity = regularSensitivity / 3;
         playerAction = FindObjectOfType<PlayerController>().GetComponent<AgentAction>();
         playerAction.OnStateChange += PlayerAction_OnStateChange;
+        playerAction.GetComponent<AgentHealth>().OnAgentDeath += CameraController_OnAgentDeath;
         equipment = playerAction.GetComponent<AgentEquipment>();
         equipment.OnWeaponChange += Equipment_OnWeaponChange;
         camShake = GetComponentInParent<CameraShake>();
+    }
+
+    private void CameraController_OnAgentDeath()
+    {
+        gameObject.SetActive(false);
     }
 
     private void Equipment_OnWeaponChange()

@@ -9,9 +9,13 @@ public class Ragdoll : MonoBehaviour
     Rigidbody[] ragdollRBs;
     Animator anim;
 
-    private void Awake()
+    private void Start()
     {
         ragdollRBs = GetComponentsInChildren<Rigidbody>();
+        foreach (var rb in ragdollRBs)
+        {
+            rb.isKinematic = true;
+        }
         anim = GetComponent<Animator>();
     }
 
@@ -23,7 +27,10 @@ public class Ragdoll : MonoBehaviour
             rb.isKinematic = false;
             rb.gameObject.AddComponent<RagdollImpact>();
         }
-        agentModel.updateWhenOffscreen = true; // this prevents ragdolls from disappearing when the camera gets too close.
+        if (agentModel)
+        {
+            agentModel.updateWhenOffscreen = true; // this prevents ragdolls from disappearing when the camera gets too close.
+        }
     }
 
     public void DisableRagdoll()

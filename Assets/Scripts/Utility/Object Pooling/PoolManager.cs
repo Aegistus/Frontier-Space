@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance { get; private set; }
     public string poolObjectPath = "Pool Objects";
+    
     PoolObject[] poolObjects;
+    GameObject poolParent;
+    Queue<PoolInstance>[] allPools;
 
     private void Awake()
     {
@@ -19,13 +23,15 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(this);
         }
-        DontDestroyOnLoad(gameObject);
-        GameObject poolParent = new GameObject("PoolParent");
+        poolParent = new GameObject("PoolParent");
         poolParent.transform.SetParent(transform);
         GameObject obj;
         poolObjects = Resources.LoadAll<PoolObject>(poolObjectPath);
+        allPools = new Queue<PoolInstance>[poolObjects.Length];
+        int id = 0;
         foreach (PoolObject poolObject in poolObjects)
         {
+            allPools[id] = new Queue<PoolInstance>();
             for (int i = 0; i < poolObject.instanceCount; i++)
             {
                 int variantIndex = UnityEngine.Random.Range(0, poolObject.prefabs.Length);
@@ -33,8 +39,9 @@ public class PoolManager : MonoBehaviour
                 PoolInstance poolInstance = obj.AddComponent<PoolInstance>();
                 poolInstance.lifeTime = 10f;
                 obj.SetActive(false);
-                poolObject.PlaceInQueue(poolInstance);
+                allPools[id].Enqueue(poolInstance);
             }
+            id++;
         }
     }
 
@@ -52,12 +59,12 @@ public class PoolManager : MonoBehaviour
             Debug.LogWarning("Invalid Pool Object ID");
             return null;
         }
-        objectFromPool = poolObjects[poolIndex].GetNextInQueue();
+        objectFromPool = allPools[poolIndex].Dequeue();
         objectFromPool.lifeTime = -1;
         objectFromPool.transform.position = position;
         objectFromPool.transform.rotation = rotation;
         objectFromPool.gameObject.SetActive(true);
-        poolObjects[poolIndex].PlaceInQueue(objectFromPool);
+        allPools[poolIndex].Enqueue(objectFromPool);
         return objectFromPool.gameObject;
     }
 
@@ -69,19 +76,7 @@ public class PoolManager : MonoBehaviour
 	/// <returns> The pool object's GameObject. null if the objectID is invalid. </returns>
     public GameObject SpawnObjectWithLifetime(string objectID, Vector3 position, Quaternion rotation, float lifeTime)
     {
-        int poolIndex = Array.FindIndex(poolObjects, pool => pool.name == objectID);
-        if (poolIndex < 0 || poolIndex >= poolObjects.Length)
-        {
-            Debug.LogWarning("Invalid Pool Object ID:");
-            return null;
-        }
-        objectFromPool = poolObjects[poolIndex].GetNextInQueue();
-        objectFromPool.lifeTime = lifeTime;
-        objectFromPool.transform.position = position;
-        objectFromPool.transform.rotation = rotation;
-        objectFromPool.gameObject.SetActive(true);
-        poolObjects[poolIndex].PlaceInQueue(objectFromPool);
-        return objectFromPool.gameObject;
+        return SpawnObjectWithLifetime(objectID, position, rotation, Vector3.one, lifeTime);
     }
 
     /// <summary>
@@ -97,13 +92,13 @@ public class PoolManager : MonoBehaviour
             Debug.LogWarning("Invalid Pool Object ID");
             return null;
         }
-        objectFromPool = poolObjects[poolIndex].GetNextInQueue();
+        objectFromPool = allPools[poolIndex].Dequeue();
         objectFromPool.lifeTime = lifeTime;
         objectFromPool.transform.position = position;
         objectFromPool.transform.rotation = rotation;
         objectFromPool.transform.localScale = scale;
         objectFromPool.gameObject.SetActive(true);
-        poolObjects[poolIndex].PlaceInQueue(objectFromPool);
+        allPools[poolIndex].Enqueue(objectFromPool);
         return objectFromPool.gameObject;
 
     }
