@@ -20,6 +20,7 @@ public partial class EnemyController
 
         public override void Before()
         {
+            print("Suppressing");
             suppressionTimer = controller.suppressionDuration;
             suppressingTarget = controller.KnownTarget;
             aimPosition = suppressingTarget.position;

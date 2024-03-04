@@ -15,6 +15,7 @@ public partial class AgentAction
 
         public override void Before()
         {
+            print("Meleeing");
             abort = !action.equipment.HasWeaponEquipped;
             if (!abort)
             {

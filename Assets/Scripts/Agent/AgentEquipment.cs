@@ -208,7 +208,11 @@ public class AgentEquipment : MonoBehaviour
             weaponRB.isKinematic = true;
             Weapon newWeapon = new Weapon(weaponGO);
             weaponGO.GetComponent<BoxCollider>().enabled = false;
-            weaponGO.GetComponent<WeaponPickup>().CurrentlyInteractable = false;
+            WeaponPickup pickup = weaponGO.GetComponent<WeaponPickup>();
+            if (pickup)
+            {
+                pickup.CurrentlyInteractable = false;
+            }
             if (HasTwoWeapons)
             {
                 DropWeapon();

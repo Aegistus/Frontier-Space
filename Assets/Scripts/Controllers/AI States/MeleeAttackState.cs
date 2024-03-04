@@ -15,8 +15,10 @@ public partial class EnemyController
 
         public override void Before()
         {
+            print("AI Meleeing");
             controller.Melee = true;
             controller.Forwards = true;
+            meleeStarted = false;
             controller.meleeCooldownTimer = controller.meleeAttackCooldown;
             walkForwardTimer = walkForwardDuration;
         }
