@@ -27,6 +27,9 @@ public partial class EnemyController : AgentController
     [Header("Stun")]
     [SerializeField] float stunDamageThreshold = 10;
     [SerializeField] float stunDuration = 2f;
+    [Header("Ammo")]
+    [SerializeField] float minCarriedAmmoPercent = .3f;
+    [SerializeField] float maxCarriedAmmoPercent = .6f;
 
     public Transform VisibleTarget => fov.visibleTargets.Count > 0 ? fov.visibleTargets[0] : null;
     public Transform KnownTarget => fov.knownTargets.Count > 0 ? fov.knownTargets[0] : null;
@@ -89,13 +92,16 @@ public partial class EnemyController : AgentController
 
     private void Start()
     {
+        float percentCarriedAmmo = UnityEngine.Random.Range(minCarriedAmmoPercent, maxCarriedAmmoPercent);
         if (equipment.PrimaryWeapon != null)
         {
             equipment.PrimaryWeapon.ammo.InfiniteCarriedAmmo = true;
+            equipment.PrimaryWeapon.ammo.AddAmmo((int)(equipment.PrimaryWeapon.ammo.MaxCarriedAmmo * percentCarriedAmmo));
         }
         if (equipment.SecondaryWeapon != null)
         {
             equipment.SecondaryWeapon.ammo.InfiniteCarriedAmmo = true;
+            equipment.SecondaryWeapon.ammo.AddAmmo((int)(equipment.SecondaryWeapon.ammo.MaxCarriedAmmo * percentCarriedAmmo));
         }
     }
 

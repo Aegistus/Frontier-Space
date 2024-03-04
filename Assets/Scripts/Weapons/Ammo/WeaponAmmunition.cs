@@ -7,6 +7,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     [SerializeField] protected string reloadSound;
     [SerializeField] protected int maxLoadedAmmo = 10;
     [SerializeField] protected int maxCarriedAmmo = 100;
+    [SerializeField] protected int startingCarriedAmmo;
     [SerializeField] protected float reloadTime = 2f;
 
     public int MaxLoadedAmmo => maxLoadedAmmo;
@@ -25,7 +26,7 @@ public abstract class WeaponAmmunition : MonoBehaviour
     protected virtual void Awake()
     {
         currentLoadedAmmo = maxLoadedAmmo;
-        currentCarriedAmmo = 0;
+        currentCarriedAmmo = startingCarriedAmmo;
         anim = GetComponent<Animator>();
         if (anim)
         {
@@ -76,5 +77,4 @@ public abstract class WeaponAmmunition : MonoBehaviour
             currentCarriedAmmo = maxCarriedAmmo;
         }
     }
-
 }

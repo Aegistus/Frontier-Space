@@ -189,7 +189,7 @@ public class AgentEquipment : MonoBehaviour
         if (PrimaryWeapon?.data.Type == weaponData.Type)
         {
             WeaponAmmunition ammo = weaponGO.GetComponent<WeaponAmmunition>();
-            PrimaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo);
+            PrimaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo + ammo.CurrentCarriedAmmo);
             weaponGO.SetActive(false);
             SoundManager.Instance.PlaySoundAtPosition("Ammo_Pickup", transform.position);
         }
@@ -197,7 +197,7 @@ public class AgentEquipment : MonoBehaviour
         else if (SecondaryWeapon?.data.Type == weaponData.Type)
         {
             WeaponAmmunition ammo = weaponGO.GetComponent<WeaponAmmunition>();
-            SecondaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo);
+            SecondaryWeapon.ammo.AddAmmo(ammo.CurrentLoadedAmmo + ammo.CurrentCarriedAmmo);
             weaponGO.SetActive(false);
             SoundManager.Instance.PlaySoundAtPosition("Ammo_Pickup", transform.position);
         }
