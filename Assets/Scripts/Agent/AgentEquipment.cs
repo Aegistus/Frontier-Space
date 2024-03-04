@@ -81,19 +81,11 @@ public class AgentEquipment : MonoBehaviour
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
-            PrimaryWeapon = new Weapon(weaponAttacks[0].gameObject);
+            PickupWeapon(weaponAttacks[0].gameObject);
         }
         if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
         {
-            SecondaryWeapon = new Weapon(weaponAttacks[1].gameObject);
-        }
-        if (PrimaryWeapon != null)
-        {
-            Equip(PrimaryWeapon);
-        }
-        if (SecondaryWeapon != null)
-        {
-            UnEquip(SecondaryWeapon);
+            PickupWeapon(weaponAttacks[1].gameObject);
         }
         Grenade[] grenades = GetComponentsInChildren<Grenade>();
         for (int i = 0; i < grenades.Length; i++)
