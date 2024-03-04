@@ -81,11 +81,11 @@ public class AgentEquipment : MonoBehaviour
         WeaponAttack[] weaponAttacks = GetComponentsInChildren<WeaponAttack>();
         if (weaponAttacks.Length > 0 && weaponAttacks[0] != null)
         {
-            PickupWeapon(weaponAttacks[0].gameObject);
+            PickupWeapon(weaponAttacks[0].gameObject, false);
         }
         if (weaponAttacks.Length > 1 && weaponAttacks[1] != null)
         {
-            PickupWeapon(weaponAttacks[1].gameObject);
+            PickupWeapon(weaponAttacks[1].gameObject, false);
         }
         Grenade[] grenades = GetComponentsInChildren<Grenade>();
         for (int i = 0; i < grenades.Length; i++)
@@ -113,7 +113,7 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
-    public void Equip(Weapon weapon)
+    public void Equip(Weapon weapon, bool playSound = true)
     {
         if (weapon == null)
         {
@@ -127,7 +127,7 @@ public class AgentEquipment : MonoBehaviour
         humanAnim.SetAnimatorController(weapon.animation.AnimationSet);
         SetWeaponOffset(currentOffsetType);
         CurrentWeapon.attack.Source = damageSource;
-        if (CurrentWeaponAttack.EquipSound != "")
+        if (CurrentWeaponAttack.EquipSound != "" && playSound)
         {
             SoundManager.Instance.PlaySoundAtPosition(CurrentWeaponAttack.EquipSound, transform.position);
         }
@@ -182,7 +182,7 @@ public class AgentEquipment : MonoBehaviour
         }
     }
 
-    public void PickupWeapon(GameObject weaponGO)
+    public void PickupWeapon(GameObject weaponGO, bool playEquipSound = true)
     {
         WeaponData weaponData = weaponGO.GetComponent<WeaponData>();
         // if weapon to be picked up is the same type as your primary weapon, add ammo instead
@@ -225,7 +225,7 @@ public class AgentEquipment : MonoBehaviour
             {
                 UnEquip(CurrentWeapon);
             }
-            Equip(newWeapon);
+            Equip(newWeapon, playEquipSound);
         }
     }
 
