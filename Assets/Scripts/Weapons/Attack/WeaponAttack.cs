@@ -36,6 +36,11 @@ public abstract class WeaponAttack : MonoBehaviour
 
     public virtual void MeleeAttack()
     {
+        StartCoroutine(MeleeCoroutine());
+    }
+
+    IEnumerator MeleeCoroutine()
+    {
         anim.enabled = true;
         anim.Play("Melee");
         SoundManager.Instance.PlaySoundAtPosition("Melee_Swing", transform.position);
@@ -58,6 +63,8 @@ public abstract class WeaponAttack : MonoBehaviour
             }
         }
         alreadyMeleed.Clear();
+        yield return new WaitForSeconds(meleeDuration);
+        anim.enabled = false;
     }
 
     public void Equip()
