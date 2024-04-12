@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.1
+  m_Weight: 0.8
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.1
+  m_Weight: 0.8
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5457078532073766703
 Transform:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.1
+  m_Weight: 0.8
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.1
+  m_Weight: 0.8
   m_Data:
     m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
@@ -3990,6 +3990,8 @@ MonoBehaviour:
   meleeAttackCooldown: 3
   stunDamageThreshold: 100
   stunDuration: 1
+  minCarriedAmmoPercent: 0.3
+  maxCarriedAmmoPercent: 0.6
 --- !u!114 &7240904842528296988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,6 +4012,7 @@ MonoBehaviour:
   crouchSpeed: 1
   gravityScale: 1
   jumpVelocity: 5
+  airMoveSpeed: 1
   collisionCheckDistance: 0.75
 --- !u!114 &7240904842528296979
 MonoBehaviour:
@@ -4167,7 +4170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7240904842619780997}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.629113, z: 5.9451604}
+  m_LocalPosition: {x: 0, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

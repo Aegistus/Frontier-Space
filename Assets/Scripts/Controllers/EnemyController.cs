@@ -156,7 +156,7 @@ public partial class EnemyController : AgentController
     {
         if (movement.CurrentState != typeof(AgentMovement.CrouchState))
         {
-            position += aimOffset;
+            position += transform.TransformDirection(aimOffset);
         }
         lookTarget.position = position;
     }
