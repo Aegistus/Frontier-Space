@@ -7,7 +7,7 @@ public partial class AgentMovement
 {
     public partial class StandState
     {
-        readonly float turnAnimationThreshold = .001f;
+        readonly float turnAnimationThreshold = .01f;
         Vector3 lastRotation;
         bool turning = false;
 
