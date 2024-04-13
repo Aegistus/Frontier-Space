@@ -3837,7 +3837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &180768955
 Transform:
   m_ObjectHideFlags: 0
@@ -4468,7 +4468,7 @@ PrefabInstance:
     - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
@@ -29313,6 +29313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Cultist Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 8157017236581023624, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8157017236581023625, guid: c10f6cd0df259ec4b8539cd5e87c7472,
         type: 3}
       propertyPath: m_RootOrder
@@ -30652,6 +30657,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tangents.Array.data[1133].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102843439877879065, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.092590824
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102843439877879065, guid: c10f6cd0df259ec4b8539cd5e87c7472,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9848085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10f6cd0df259ec4b8539cd5e87c7472, type: 3}
