@@ -5177,7 +5177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05229cc54953c64492750e12bc35c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moving: 0
   moveSpeed: 1
+  moveSpeedCap: 10
   destination: {x: -37, y: -16.5, z: -56.7}
   doors:
   - {fileID: 480691444044297896}
@@ -6039,6 +6041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button 02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2191353276667904683, guid: 67463e3421f01de4abd53907187ef0bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4662879360726404943, guid: 67463e3421f01de4abd53907187ef0bb,
         type: 3}
       propertyPath: m_Enabled
@@ -6048,6 +6055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781169354092760261, guid: 67463e3421f01de4abd53907187ef0bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67463e3421f01de4abd53907187ef0bb, type: 3}
@@ -6124,6 +6136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button 02
       objectReference: {fileID: 0}
+    - target: {fileID: 2191353276667904683, guid: 67463e3421f01de4abd53907187ef0bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4662879360726404943, guid: 67463e3421f01de4abd53907187ef0bb,
         type: 3}
       propertyPath: m_Enabled
@@ -6137,7 +6154,7 @@ PrefabInstance:
     - target: {fileID: 5781169354092760261, guid: 67463e3421f01de4abd53907187ef0bb,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67463e3421f01de4abd53907187ef0bb, type: 3}
@@ -8559,6 +8576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button 02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2191353276667904683, guid: 67463e3421f01de4abd53907187ef0bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4662879360726404943, guid: 67463e3421f01de4abd53907187ef0bb,
         type: 3}
       propertyPath: m_Enabled
@@ -8568,6 +8590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781169354092760261, guid: 67463e3421f01de4abd53907187ef0bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67463e3421f01de4abd53907187ef0bb, type: 3}
