@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCamera: {fileID: 6368470296015136352}
+  deathCamLength: 3
 --- !u!1 &4224127168829169947
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +758,7 @@ MonoBehaviour:
   armorRegenDelay: 2
   armorRegenRate: 200
   maxArmor: 100
-  maxHealth: 500
+  maxHealth: 100
 --- !u!114 &6214437158977114633
 MonoBehaviour:
   m_ObjectHideFlags: 0

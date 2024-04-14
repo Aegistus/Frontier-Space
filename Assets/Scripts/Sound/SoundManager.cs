@@ -108,6 +108,13 @@ public class SoundManager : MonoBehaviour
 		return source;
 	}
 
+	public PositionalAudioSource PlaySoundAtPosition(string soundName, Vector3 position, Transform parent)
+    {
+		PositionalAudioSource source = PlaySoundAtPosition(GetSoundID(soundName), position);
+		source.SetFollowTarget(parent);
+		return source;
+	}
+
 	public PositionalAudioSource PlaySoundAtPositionRandomDelay(int soundID, Vector3 position, float delayMax)
 	{
 		if (soundID < 0 || soundID >= sounds.Length)

@@ -3981,8 +3981,8 @@ MonoBehaviour:
   rotationSpeed: 3
   reactionTimeMin: 0.5
   reactionTimeMax: 1
-  aimOffset: {x: 0, y: 1, z: 0}
-  attackBurstTime: 5
+  aimOffset: {x: 0, y: 0.5, z: 0}
+  attackBurstTime: 4
   attackWaitTime: 1
   suppressionDuration: 2
   crouchWhileAttackingChance: 0
@@ -4186,6 +4186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7240904842814536212}
+  - component: {fileID: 8523764212976711286}
   m_Layer: 7
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -4209,6 +4210,19 @@ Transform:
   m_Father: {fileID: 5303049221531109232}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8523764212976711286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240904842814536215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fade110f1fd27d4a9b753cee0c36a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7240904842619780994}
 --- !u!1001 &5409404591010986279
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b5aea3bdf3b4a4bbc37cfbf19b25a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfPositionalSources: 100
+  numOfPositionalSources: 500
   mixerGroup: {fileID: 0}
   soundPath: Sounds

@@ -11,10 +11,17 @@ public class PassengerTrain : MonoBehaviour
     [SerializeField] Door[] doors;
 
     readonly float arrivalDistance = 1;
+    AudioSource trainMovingAudio;
+
+    private void Awake()
+    {
+        trainMovingAudio = GetComponent<AudioSource>();
+    }
 
     public void CallTrain()
     {
         moving = true;
+        trainMovingAudio.Play();
     }
 
     public void OpenDoors()
@@ -44,6 +51,7 @@ public class PassengerTrain : MonoBehaviour
         if (moving && Vector3.Distance(transform.position, destination) <= arrivalDistance)
         {
             moving = false;
+            trainMovingAudio.Stop();
             OpenDoors();
         }
     }

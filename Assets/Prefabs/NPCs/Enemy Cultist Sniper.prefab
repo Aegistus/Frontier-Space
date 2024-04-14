@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 0.8
+  m_Weight: 1
   m_Data:
     m_ConstrainedObject: {fileID: 8812201673350054167}
     m_SourceObjects:
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8157017235860608386}
-  - component: {fileID: 11625058879227377}
+  - component: {fileID: 908912986130711062}
   m_Layer: 7
   m_Name: Weapon Holder
   m_TagString: Untagged
@@ -589,7 +589,7 @@ Transform:
   m_Father: {fileID: 8157017236581023625}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11625058879227377
+--- !u!114 &908912986130711062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -598,10 +598,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8157017235860608385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d26d78aed40fd4e96dc322fd1235b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fade110f1fd27d4a9b753cee0c36a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8812201673350054167}
+  target: {fileID: 8157017235666866196}
 --- !u!1 &8157017236581023624
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
   rotationSpeed: 4
   reactionTimeMin: 1
   reactionTimeMax: 1.5
-  aimOffset: {x: 0, y: 0, z: 0}
+  aimOffset: {x: -0.1, y: 1.2, z: 0}
   attackBurstTime: 1
   attackWaitTime: 2
   suppressionDuration: 2
@@ -7167,6 +7167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
+      propertyPath: m_VersionIndex
+      value: 196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
+        type: 3}
       propertyPath: m_Tangents.Array.data[13].x
       value: NaN
       objectReference: {fileID: 0}
@@ -8439,6 +8444,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tangents.Array.data[1133].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532447782554518811, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.092590824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532447782554518811, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9848085
       objectReference: {fileID: 0}
     - target: {fileID: 7165447958943442584, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
