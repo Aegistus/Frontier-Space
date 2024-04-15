@@ -27,6 +27,7 @@ public class AgentHealth : MonoBehaviour
     [SerializeField] float armorRegenRate = 20f;
     [SerializeField] float maxArmor = 100;
     [SerializeField] float maxHealth = 100f;
+    [SerializeField] bool debugInvincible = false;
 
     float currentArmor;
     float currentHealth;
@@ -88,6 +89,10 @@ public class AgentHealth : MonoBehaviour
 
     public bool Damage(float damage, Vector3 direction, Vector3 point, DamageSource source)
     {
+        if (Application.isEditor && debugInvincible)
+        {
+            return false;
+        }
         if (isDead)
         {
             return false;
@@ -104,6 +109,10 @@ public class AgentHealth : MonoBehaviour
 
     float DamageArmor(float damage)
     {
+        if (Application.isEditor && debugInvincible)
+        {
+            return 0;
+        }
         if (currentArmor >= damage)
         {
             currentArmor -= damage;
@@ -123,6 +132,10 @@ public class AgentHealth : MonoBehaviour
 
     void DamageHealth(float damage, Vector3 direction, Vector3 point)
     {
+        if (Application.isEditor && debugInvincible)
+        {
+            return;
+        }
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -152,6 +165,10 @@ public class AgentHealth : MonoBehaviour
 
     public void Kill()
     {
+        if (Application.isEditor && debugInvincible)
+        {
+            return;
+        }
         isDead = true;
         ragdoll.EnableRagdoll();
         OnHealthChange?.Invoke();
