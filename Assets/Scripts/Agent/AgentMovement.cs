@@ -19,6 +19,7 @@ public partial class AgentMovement : MonoBehaviour
     [SerializeField] float collisionCheckDistance = .5f;
 
     AgentController controller;
+    AgentAction action;
     AgentEquipment equipment;
     HumanoidAnimator humanoidAnimator;
     Rig rig;
@@ -37,6 +38,7 @@ public partial class AgentMovement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<AgentController>();
+        action = GetComponent<AgentAction>();
         equipment = GetComponent<AgentEquipment>();
         humanoidAnimator = GetComponentInChildren<HumanoidAnimator>();
         rig = GetComponentInChildren<Rig>();

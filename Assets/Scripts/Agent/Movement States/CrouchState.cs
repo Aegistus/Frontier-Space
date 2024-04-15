@@ -9,11 +9,6 @@ public partial class AgentMovement
     {
         public CrouchState(AgentMovement movement) : base(movement) { }
 
-        public override void Before()
-        {
-            movement.equipment.SetWeaponOffset(WeaponOffset.Crouching);
-        }
-
         public override void DuringPhysics()
         {
             Vector3 input = transform.TransformDirection(movement.controller.GetMovementInput());
@@ -42,11 +37,6 @@ public partial class AgentMovement
             {
                 movement.humanoidAnimator.PlayFullBodyAnimation(FullBodyAnimState.CrouchIdle, false);
             }
-        }
-
-        public override void After()
-        {
-            movement.equipment.SetWeaponOffset(WeaponOffset.Idle);
         }
 
         public override Type CheckTransitions()

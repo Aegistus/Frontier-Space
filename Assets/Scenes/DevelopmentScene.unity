@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9236
+  m_Name: pb_Mesh-2567798
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1255,7 +1255,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8066
+  m_Name: pb_Mesh-2566628
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4468,7 +4468,7 @@ PrefabInstance:
     - target: {fileID: 755935596990909202, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
@@ -4523,6 +4523,11 @@ PrefabInstance:
     - target: {fileID: 755935596990909203, guid: 88510826151c5a641a8e6ae184958603,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 755935596990909219, guid: 88510826151c5a641a8e6ae184958603,
+        type: 3}
+      propertyPath: crouchWhileAttackingChance
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29376,7 +29381,7 @@ PrefabInstance:
     - target: {fileID: 9085432766036072513, guid: c10f6cd0df259ec4b8539cd5e87c7472,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 199
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: 9085432766036072513, guid: c10f6cd0df259ec4b8539cd5e87c7472,
         type: 3}
@@ -43590,6 +43595,11 @@ PrefabInstance:
       objectReference: {fileID: 2095703902}
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
+      propertyPath: m_VersionIndex
+      value: 193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
+        type: 3}
       propertyPath: m_Tangents.Array.data[13].x
       value: NaN
       objectReference: {fileID: 0}
@@ -45116,7 +45126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9020
+  m_Name: pb_Mesh-2567582
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46358,7 +46368,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13618
+  m_Name: pb_Mesh-2572182
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59142,7 +59152,7 @@ PrefabInstance:
     - target: {fileID: 7240904842528296990, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7240904842528296991, guid: b7a5d4a5836545e4abe039071ad110ae,
         type: 3}
@@ -59446,7 +59456,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8164
+  m_Name: pb_Mesh-2566726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60485,7 +60495,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7760
+  m_Name: pb_Mesh-2567498
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62381,8 +62391,6 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
   reloadRotation: {x: 30, y: -20, z: 0}
-  crouchingOffset: {x: 0.238, y: -0.3, z: 0.3}
-  crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!4 &2636350270347208275
 Transform:
   m_ObjectHideFlags: 0
@@ -62729,7 +62737,7 @@ PrefabInstance:
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 223
+      value: 226
       objectReference: {fileID: 0}
     - target: {fileID: 4512683970403985475, guid: 4a2653b83ea60174fa12a93ee32cdb6c,
         type: 3}
@@ -71209,6 +71217,7 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 0
   maxHealth: 100
+  debugInvincible: 0
 --- !u!114 &7835149560596981043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71390,6 +71399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561093716602058747, guid: 48ffb9e1019212f42a90ce1d01ea7e48,
+        type: 3}
+      propertyPath: crouchWhileAttackingChance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ffb9e1019212f42a90ce1d01ea7e48, type: 3}
