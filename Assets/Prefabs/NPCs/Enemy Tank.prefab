@@ -4051,6 +4051,7 @@ MonoBehaviour:
   armorRegenRate: 20
   maxArmor: 100
   maxHealth: 1000
+  debugInvincible: 0
 --- !u!114 &7240904842528296978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,37 +4343,37 @@ PrefabInstance:
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28500268
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11443186
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0616612
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071079
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70710576
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246916212535110324, guid: 38648dea5705b024ead34317e417515d,
         type: 3}
