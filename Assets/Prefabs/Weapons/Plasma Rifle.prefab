@@ -140,8 +140,6 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.238, y: -0.25, z: 0.198}
-  crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &5968914447286862862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +204,7 @@ MonoBehaviour:
   reloadSound: PlasmaRifle_Reload
   maxLoadedAmmo: 30
   maxCarriedAmmo: 90
+  startingCarriedAmmo: 0
   reloadTime: 3
   playShellEject: 1
   shellEjectTransform: {fileID: 6323191916171103671}
@@ -322,7 +321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5968914447583228420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.13560027, z: 0.51}
+  m_LocalPosition: {x: 0, y: 0.13560027, z: 0.348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

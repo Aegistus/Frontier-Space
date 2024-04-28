@@ -502,7 +502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7165447958694006929}
   m_LocalRotation: {x: -0, y: -0, z: -0.000000014901159, w: 1}
-  m_LocalPosition: {x: 0.0050001144, y: 0.1275, z: 1.1303}
+  m_LocalPosition: {x: 0.0050001144, y: 0.1275, z: 0.915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -618,8 +618,6 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.25, y: -0.3, z: 0.2}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.25, y: -0.3, z: 0.2}
-  crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &6608027854904744003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +652,7 @@ MonoBehaviour:
   meleeRange: 0.5
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   meleeDuration: 1.5
+  equipSound: 
   projectileID: Sniper_Shot
   shootSoundName: Sniper_Shoot
   projectileSpawnPoint: {fileID: 7165447958694006930}
@@ -683,6 +682,7 @@ MonoBehaviour:
   reloadSound: Sniper_Reload
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
+  startingCarriedAmmo: 0
   reloadTime: 3
   playShellEject: 0
   shellEjectTransform: {fileID: 0}

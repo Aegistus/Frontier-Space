@@ -77,8 +77,6 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.25, y: -0.3, z: 0.2}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.25, y: -0.35, z: 0.2}
-  crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &903542490611176886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +111,7 @@ MonoBehaviour:
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   meleeDuration: 1
+  equipSound: 
   projectileID: Shotgun_Shot
   shootSoundName: Shotgun_Shoot
   projectileSpawnPoint: {fileID: 5732493271783340917}
@@ -147,6 +146,7 @@ MonoBehaviour:
   reloadSound: Shotgun_Reload
   maxLoadedAmmo: 8
   maxCarriedAmmo: 40
+  startingCarriedAmmo: 0
   reloadTime: 0.4
   preReloadTime: 0.5
   postReloadTime: 0.5
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417731669239962475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0016, y: 0.1184, z: 0.5487}
+  m_LocalPosition: {x: -0.0016, y: 0.1184, z: 0.474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

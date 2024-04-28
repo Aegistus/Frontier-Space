@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2595385096538879514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.13559997, z: 0.594}
+  m_LocalPosition: {x: -0, y: 0.13559997, z: 0.432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -501,8 +501,6 @@ MonoBehaviour:
   aimingRotation: {x: 0, y: 0, z: 0}
   reloadOffset: {x: 0.238, y: -0.25, z: 0.198}
   reloadRotation: {x: 0, y: 0, z: 0}
-  crouchingOffset: {x: 0.238, y: -0.3, z: 0.3}
-  crouchingRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &2595385096786984976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +535,7 @@ MonoBehaviour:
   meleeRange: 1
   meleeHitBox: {x: 0.5, y: 1, z: 1}
   meleeDuration: 1
+  equipSound: 
   projectileID: Revolver_Bullet
   shootSoundName: Revolver_Shoot
   projectileSpawnPoint: {fileID: 2595385096538879513}
@@ -565,6 +564,7 @@ MonoBehaviour:
   reloadSound: Revolver_Reload
   maxLoadedAmmo: 6
   maxCarriedAmmo: 36
+  startingCarriedAmmo: 0
   reloadTime: 0.4
   preReloadTime: 0.2
   postReloadTime: 1

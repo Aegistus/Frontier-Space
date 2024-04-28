@@ -24,12 +24,10 @@ public class MagazineAmmunition : WeaponAmmunition
             if (currentCarriedAmmo < ammoNeeded)
             {
                 currentLoadedAmmo += currentCarriedAmmo;
-                currentCarriedAmmo = 0;
             }
             else
             {
                 currentLoadedAmmo += ammoNeeded;
-                currentCarriedAmmo -= ammoNeeded;
             }
         }
         else
