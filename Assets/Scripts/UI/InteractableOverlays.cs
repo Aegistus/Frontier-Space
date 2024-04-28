@@ -15,6 +15,7 @@ public class InteractableOverlays : MonoBehaviour
     Transform player;
     Collider[] hits;
     Image[] overlays;
+    Camera mainCam;
     Color c;
 
     private void Start()
@@ -28,6 +29,7 @@ public class InteractableOverlays : MonoBehaviour
             overlays[i] = Instantiate(overlayPrefab, transform).GetComponentInChildren<Image>();
             overlays[i].gameObject.SetActive(false);
         }
+        mainCam = Camera.main;
     }
 
     private void Update()
@@ -38,11 +40,11 @@ public class InteractableOverlays : MonoBehaviour
         {
             for (i = 0; i < hitCount; i++)
             {
-                float distance = Vector3.Distance(Camera.main.transform.position, hits[i].transform.position);
+                float distance = Vector3.Distance(mainCam.transform.position, hits[i].transform.position);
                 if (InCameraViewFrustum(hits[i].transform.position) && distance > minRadius)
                 {
                     overlays[i].gameObject.SetActive(true);
-                    overlays[i].transform.parent.position = Camera.main.WorldToScreenPoint(hits[i].transform.position);
+                    overlays[i].transform.parent.position = mainCam.WorldToScreenPoint(hits[i].transform.position);
                     c = overlays[i].color;
                     c.a = 1 - (distance / interactableDetectionRadius);
                     overlays[i].color = c;
@@ -55,13 +57,16 @@ public class InteractableOverlays : MonoBehaviour
         }
         for (; i < maxOverlays; i++)
         {
-            overlays[i].gameObject.SetActive(false);
+            if (overlays[i].gameObject.activeInHierarchy)
+            {
+                overlays[i].gameObject.SetActive(false);
+            }
         }
     }
 
     bool InCameraViewFrustum(Vector3 position)
     {
-        Vector3 viewPortPos = Camera.main.WorldToViewportPoint(position);
+        Vector3 viewPortPos = mainCam.WorldToViewportPoint(position);
         if (viewPortPos.x >= 0 && viewPortPos.x <= 1 && viewPortPos.y >= 0 && viewPortPos.y <= 1 && viewPortPos.z > 0)
         {
             return true;

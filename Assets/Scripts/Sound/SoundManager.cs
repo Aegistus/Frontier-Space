@@ -44,6 +44,8 @@ public class SoundManager : MonoBehaviour
 			newPositional.transform.parent = positionalSourceParent;
 			positionalSources.Enqueue(newPositional);
         }
+		// This is here temporarily.
+		UnityEngine.Rendering.DebugManager.instance.enableRuntimeUI = false;
 	}
 
 	/// <summary>
